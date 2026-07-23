@@ -17,9 +17,11 @@ const PORT = process.env.PORT || 3000;
 // Ensure directories exist
 ['views', 'public', 'receipts', 'logs', 'modules'].forEach(dir => {
   const dirPath = path.join(__dirname, dir);
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
-  }
+  try {
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
+    }
+  } catch (err) {}
 });
 
 // View Engine Setup

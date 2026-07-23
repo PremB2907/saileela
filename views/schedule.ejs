@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+
+<section class="py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Complete Route & Halts</span>
+      <h2 class="section-title">11-Day Palkhi Yatra Schedule 2026</h2>
+      <p class="section-subtitle">
+        Mumbai to Shirdi (265 KM) detailed pilgrimage timeline, halt grounds, meal distribution centers, and medical helpdesks.
+      </p>
+    </div>
+
+    <!-- Live Status Banner -->
+    <div style="background: var(--bg-dark); color: #FFFFFF; padding: 1.5rem; border-radius: 12px; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <span style="color: var(--accent-saffron); font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">CURRENT LIVE POSITION</span>
+        <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-top: 0.2rem;"><%= yatraStatus.current_location %></h3>
+      </div>
+      <div>
+        <span style="font-size: 0.85rem; color: #94A3B8; display: block;">PROGRESS</span>
+        <span style="font-size: 1.2rem; font-weight: 700; color: var(--accent-green);"><%= yatraStatus.distance_covered_km %> KM / <%= yatraStatus.total_distance_km %> KM</span>
+      </div>
+      <div>
+        <a href="/register-pass" class="btn btn-primary">
+          <i class="bi bi-person-badge"></i> Get Pilgrim Pass
+        </a>
+      </div>
+    </div>
+
+    <!-- 11-Day Timeline -->
+    <div class="timeline-list">
+      <% scheduleData.forEach(item => { %>
+        <div class="timeline-item <%= item.day === yatraStatus.current_day ? 'active' : '' %>" id="day-<%= item.day %>">
+          <div class="timeline-dot"></div>
+          <div class="schedule-card <%= item.day === yatraStatus.current_day ? 'current' : '' %>">
+            <div>
+              <span class="halt-badge">
+                <% if(item.day === yatraStatus.current_day) { %>
+                  📍 LIVE HALT (DAY <%= item.day %> OF 11)
+                <% } else { %>
+                  DAY <%= item.day %> - <%= item.date %>
+                <% } %>
+              </span>
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.4rem; color: var(--bg-dark);"><%= item.title %></h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.6rem;">
+                <i class="bi bi-geo-alt-fill" style="color: var(--primary-gold);"></i> <strong>Halt Ground:</strong> <%= item.halt_location %>
+              </p>
+
+              <div class="facility-tags">
+                <% item.facilities.forEach(fac => { %>
+                  <span class="tag"><%= fac %></span>
+                <% }) %>
+              </div>
+            </div>
+
+            <div style="text-align: right; display: flex; flex-direction: column; justify-content: center; min-width: 160px;">
+              <span style="font-size: 1.2rem; font-weight: 700; color: var(--bg-dark);"><%= item.distance_km %> KM</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem;">Emergency Helpdesk:</span>
+              <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-gold);"><%= item.emergency_contact %></span>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

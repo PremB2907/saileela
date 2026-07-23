@@ -1,0 +1,79 @@
+<%- include('partials/header') %>
+
+<section class="py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">80G Tax-Exempt Seva Contribution</span>
+      <h2 class="section-title">Online Seva & Annadan Portal</h2>
+      <p class="section-subtitle">
+        Contribute to Mahaprasad, medical camps, and Palkhi facilities. All donations receive an instant 50% tax deduction certificate under Section 80G.
+      </p>
+    </div>
+
+    <div class="form-card">
+      <form id="donationForm">
+        <!-- Preset Donation Amounts -->
+        <div class="form-group">
+          <label class="form-label">Select Seva Donation Amount (₹)</label>
+          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <button class="btn btn-outline-dark btn-preset-amount" data-amount="501">₹501</button>
+            <button class="btn btn-outline-dark btn-preset-amount" data-amount="1100">₹1,100</button>
+            <button class="btn btn-primary btn-preset-amount" data-amount="2100">₹2,100</button>
+            <button class="btn btn-outline-dark btn-preset-amount" data-amount="5001">₹5,001</button>
+            <button class="btn btn-outline-dark btn-preset-amount" data-amount="11000">₹11,000</button>
+          </div>
+
+          <label class="form-label" for="donationAmount">Custom Amount (₹) *</label>
+          <input type="number" id="donationAmount" name="amount" class="form-control" placeholder="Enter custom amount in INR" min="10" value="2100" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="category">Seva Category *</label>
+          <select id="category" name="category" class="form-select" required>
+            <option value="Annadan Seva (Mahaprasad)">Annadan Seva (Daily Mahaprasad & Water)</option>
+            <option value="Medical & Ambulance Seva">Medical & Ambulance Emergency Fund</option>
+            <option value="Palkhi Decoration & Sound System">Palkhi Decoration & Chariot Support</option>
+            <option value="General Trust Seva Fund">General Trust Welfare Fund</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="donor_name">Donor Full Name *</label>
+            <input type="text" id="donor_name" name="donor_name" class="form-control" placeholder="e.g. Anand V. Deshmukh" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Mobile Phone Number *</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="10-digit phone number" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address (for PDF Receipt)</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="anand@example.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pan_number">PAN Card Number (Required for 80G Certificate)</label>
+            <input type="text" id="pan_number" name="pan_number" class="form-control" placeholder="e.g. ABCDE1234F" style="text-transform: uppercase;">
+          </div>
+        </div>
+
+        <div style="background: var(--accent-green-bg); border: 1px solid #A7F3D0; color: #065F46; padding: 1rem; border-radius: 8px; font-size: 0.9rem; margin-bottom: 1.5rem;">
+          <i class="bi bi-shield-check" style="font-size: 1.2rem; vertical-align: middle;"></i> <strong>Secure Razorpay Payment Gateway</strong>: Accepts UPI, Credit/Debit Cards, Net Banking, and Wallet payments.
+        </div>
+
+        <button type="submit" id="btnDonateSubmit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+          <span>💳 Proceed to Donate & Download 80G Receipt</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Razorpay Client SDK -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="/js/donate.js"></script>
+<%- include('partials/footer') %>

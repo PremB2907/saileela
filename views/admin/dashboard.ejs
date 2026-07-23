@@ -1,0 +1,223 @@
+<%- include('../partials/header') %>
+
+<section class="py-5">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <span class="section-tag">Executive Control Panel</span>
+        <h2 class="section-title" style="margin-bottom: 0;">Admin Management Dashboard</h2>
+      </div>
+      <div>
+        <span style="background: var(--bg-dark); color: var(--accent-saffron); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">
+          <i class="bi bi-shield-lock-fill"></i> Trust Officer Portal
+        </span>
+      </div>
+    </div>
+
+    <!-- Alert Notices -->
+    <% if (typeof query.broadcast_success !== 'undefined') { %>
+      <div style="background: #D1FAE5; border: 1px solid #6EE7B7; color: #065F46; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+        <i class="bi bi-check-circle-fill"></i> <%= query.broadcast_success %>
+      </div>
+    <% } %>
+    <% if (typeof query.broadcast_error !== 'undefined') { %>
+      <div style="background: #FEE2E2; border: 1px solid #FCA5A5; color: #991B1B; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+        <i class="bi bi-exclamation-triangle-fill"></i> <%= query.broadcast_error %>
+      </div>
+    <% } %>
+
+    <!-- Executive Metrics Grid -->
+    <div class="admin-grid">
+      <div class="metric-card">
+        <div class="metric-title">Total Pilgrim Passes Issued</div>
+        <div class="metric-value" style="color: var(--primary-gold);"><%= totalPasses %></div>
+        <span style="font-size: 0.8rem; color: var(--accent-green);">100% Verified Registrations</span>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-title">Total Seva Donations Received</div>
+        <div class="metric-value" style="color: var(--accent-green);">₹ <%= totalDonations.toLocaleString('en-IN') %></div>
+        <span style="font-size: 0.8rem; color: var(--text-muted);">80G Tax-Exempt Funds</span>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-title">Live Yatra Varkaris</div>
+        <div class="metric-value" style="color: var(--bg-dark);"><%= yatraStatus.active_varkaris.toLocaleString('en-IN') %></div>
+        <span style="font-size: 0.8rem; color: var(--text-muted);">On Route (Day <%= yatraStatus.current_day %>)</span>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-title">Mahaprasad Meals Served</div>
+        <div class="metric-value" style="color: var(--accent-blue);"><%= yatraStatus.meals_served_today.toLocaleString('en-IN') %></div>
+        <span style="font-size: 0.8rem; color: var(--accent-green);">Today's Count</span>
+      </div>
+    </div>
+
+    <!-- Scanner & Broadcast Tools Grid -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+      <!-- Pass Scanner Tool -->
+      <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.8rem; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;"><i class="bi bi-qr-code-scan" style="color: var(--primary-gold);"></i> Pass Gate Scanner Tool</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">Verify pilgrim gate pass validity at entry counters.</p>
+
+        <div style="display: flex; gap: 0.6rem; margin-bottom: 1rem;">
+          <input type="text" id="scanPassCode" class="form-control" placeholder="Enter or Scan Pass Code (e.g. SLP-2026-8942)" style="flex: 1;">
+          <button type="button" id="btnVerifyPass" class="btn btn-primary">Verify</button>
+        </div>
+
+        <div id="scanResultBox" style="display: none; padding: 1rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--border-light); font-size: 0.9rem;">
+        </div>
+      </div>
+
+      <!-- Twilio Broadcast Tool -->
+      <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 12px; padding: 1.8rem; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;"><i class="bi bi-send-fill" style="color: var(--accent-blue);"></i> Twilio SMS Broadcast Dispatcher</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">Send live announcement SMS to all registered devotees.</p>
+
+        <form action="/admin/broadcast-sms" method="POST">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <textarea name="message" class="form-control" rows="2" placeholder="Enter announcement text (e.g. Mahaprasad Seva has started at Talegaon halt ground)..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="bi bi-chat-dots-fill"></i> Dispatch SMS to All Registered Devotees
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Registered Passes Table -->
+    <div style="margin-bottom: 3rem;">
+      <h3 style="font-size: 1.3rem; margin-bottom: 1rem;"><i class="bi bi-people-fill"></i> Registered Pilgrim Passes</h3>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Pass Code</th>
+              <th>Devotee Name</th>
+              <th>Phone</th>
+              <th>City</th>
+              <th>Yatra Batch</th>
+              <th>ID Proof</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% passes.forEach(p => { %>
+              <tr>
+                <td><strong style="color: var(--primary-gold); font-family: monospace;"><%= p.pass_code %></strong></td>
+                <td><strong><%= p.full_name %></strong></td>
+                <td><%= p.phone %></td>
+                <td><%= p.city %></td>
+                <td style="font-size: 0.85rem;"><%= p.batch %></td>
+                <td style="font-size: 0.85rem;"><%= p.id_proof_type %></td>
+                <td>
+                  <span style="background: var(--accent-green-bg); color: var(--accent-green); padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 700; font-size: 0.75rem;">
+                    <%= p.status %>
+                  </span>
+                </td>
+                <td>
+                  <a href="/download-pass/<%= p.pass_code %>" class="btn btn-outline-dark" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">
+                    PDF Pass
+                  </a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Donations Table -->
+    <div>
+      <h3 style="font-size: 1.3rem; margin-bottom: 1rem;"><i class="bi bi-heart-fill" style="color: var(--accent-red);"></i> Seva Donations & 80G Receipts</h3>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Receipt No</th>
+              <th>Donor Name</th>
+              <th>Phone</th>
+              <th>Amount (₹)</th>
+              <th>Seva Category</th>
+              <th>Razorpay Payment ID</th>
+              <th>PAN (80G)</th>
+              <th>Receipt PDF</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% donations.forEach(d => { %>
+              <tr>
+                <td><strong style="font-family: monospace;"><%= d.receipt_no %></strong></td>
+                <td><strong><%= d.donor_name %></strong></td>
+                <td><%= d.phone %></td>
+                <td><strong style="color: var(--accent-green);">₹ <%= parseFloat(d.amount).toLocaleString('en-IN') %></strong></td>
+                <td style="font-size: 0.85rem;"><%= d.category %></td>
+                <td style="font-size: 0.8rem; color: var(--text-muted);"><%= d.payment_id %></td>
+                <td style="font-size: 0.85rem;"><%= d.pan_number || 'N/A' %></td>
+                <td>
+                  <a href="/download-receipt/<%= d.receipt_no %>" class="btn btn-outline-dark" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">
+                    PDF 80G
+                  </a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Admin Scanner AJAX Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btnVerify = document.getElementById('btnVerifyPass');
+  const passInput = document.getElementById('scanPassCode');
+  const resultBox = document.getElementById('scanResultBox');
+
+  if (btnVerify && passInput) {
+    btnVerify.addEventListener('click', async () => {
+      const code = passInput.value.trim();
+      if (!code) {
+        alert('Please enter a pass code.');
+        return;
+      }
+
+      try {
+        const res = await fetch('/admin/api/verify-pass', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code })
+        });
+        const data = await res.json();
+
+        resultBox.style.display = 'block';
+        if (data.success && data.pass) {
+          const p = data.pass;
+          resultBox.style.background = '#ECFDF5';
+          resultBox.style.borderColor = '#10B981';
+          resultBox.innerHTML = `
+            <div style="color: #065F46; font-weight: 700; font-size: 1rem;">✅ PASS VALID & CONFIRMED</div>
+            <div style="margin-top: 0.4rem;"><strong>Name:</strong> ${p.full_name} (${p.gender}, ${p.age} Yrs)</div>
+            <div><strong>City:</strong> ${p.city} | <strong>Phone:</strong> ${p.phone}</div>
+            <div><strong>Assigned Batch:</strong> ${p.batch}</div>
+            <div><strong>ID Proof:</strong> ${p.id_proof_type} (${p.id_proof_number})</div>
+          `;
+        } else {
+          resultBox.style.background = '#FEE2E2';
+          resultBox.style.borderColor = '#EF4444';
+          resultBox.innerHTML = `
+            <div style="color: #991B1B; font-weight: 700;">🛑 INVALID / UNREGISTERED PASS</div>
+            <div style="margin-top: 0.2rem; color: #7F1D1D;">${data.message}</div>
+          `;
+        }
+      } catch (err) {
+        alert('Error communicating with verification server.');
+      }
+    });
+  }
+});
+</script>
+
+<%- include('../partials/footer') %>

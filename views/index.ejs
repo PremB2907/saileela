@@ -1,0 +1,183 @@
+<%- include('partials/header') %>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="bi bi-star-fill"></i> Annual Sacred Shirdi Pilgrimage 2026
+        </div>
+        <h1 class="hero-title">
+          Shri Saileela <span>Palkhi Sohala</span> & Seva Yatra
+        </h1>
+        <p class="hero-subtitle">
+          Join thousands of Varkaris on the holy pilgrimage from Mumbai to Shirdi. Get your official pilgrim gate pass, track live Palkhi halts, and support Annadan Seva.
+        </p>
+        <div class="hero-actions">
+          <a href="/register-pass" class="btn btn-primary">
+            <i class="bi bi-person-badge-fill"></i> Get Official Pilgrim Pass
+          </a>
+          <a href="/schedule" class="btn btn-secondary">
+            <i class="bi bi-map-fill"></i> View Route & Halts
+          </a>
+          <a href="/donate" class="btn btn-secondary" style="background: rgba(245, 158, 11, 0.2); border-color: var(--accent-saffron);">
+            <i class="bi bi-heart-fill" style="color: var(--accent-saffron);"></i> Support Annadan Seva
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Live Yatra Card -->
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div>
+            <h3 style="color: #FFFFFF; font-size: 1.15rem;">Live Yatra Tracker</h3>
+            <p style="font-size: 0.8rem; color: #94A3B8;">Real-time GPS & Halt Status</p>
+          </div>
+          <div class="live-pulse">
+            <span class="dot-pulse"></span> LIVE NOW
+          </div>
+        </div>
+
+        <div class="status-stat-grid">
+          <div class="stat-item">
+            <div class="stat-label">Current Location</div>
+            <div class="stat-value" id="statCurrentLocation" style="font-size: 1.1rem; color: var(--accent-saffron);">
+              <%= yatraStatus.current_location %>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Next Halt</div>
+            <div class="stat-value" style="font-size: 1rem; color: #CBD5E1;">
+              <%= yatraStatus.next_location %>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Distance Covered</div>
+            <div class="stat-value" id="statDistanceCovered">
+              <%= yatraStatus.distance_covered_km %> / <%= yatraStatus.total_distance_km %> KM
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Meals Served Today</div>
+            <div class="stat-value" id="statMealsServed" style="color: var(--accent-green);">
+              <%= yatraStatus.meals_served_today.toLocaleString('en-IN') %>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-header">
+            <span>Overall Route Progress (Day <%= yatraStatus.current_day %> of <%= yatraStatus.total_days %>)</span>
+            <span><%= Math.round((yatraStatus.distance_covered_km / yatraStatus.total_distance_km) * 100) %>%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: <%= Math.round((yatraStatus.distance_covered_km / yatraStatus.total_distance_km) * 100) %>%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Seva Services -->
+<section class="py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Devotee Assistance & Facilities</span>
+      <h2 class="section-title">Serving the Varkaris with Devotion</h2>
+      <p class="section-subtitle">
+        Shri Sai Leela Seva Trust provides 24/7 comprehensive facilities along the entire 265 KM Palkhi route to ensure every pilgrim's safety and comfort.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="bi bi-card-checklist"></i></div>
+        <h3>Official Pilgrim Pass</h3>
+        <p>Register online to receive your QR-coded Devotee Gate Pass for priority entry at all Palkhi halts and Shirdi Samadhi Mandir darshan queue.</p>
+        <a href="/register-pass" class="btn btn-outline-dark" style="width: 100%;">Register Pass &rarr;</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green);"><i class="bi bi-cup-hot-fill"></i></div>
+        <h3>Mahaprasad & Annadan</h3>
+        <p>Serving hygienic hot breakfast, tea, drinking water, and evening Mahaprasad to over 15,000+ devotees daily across all halt camps.</p>
+        <a href="/donate" class="btn btn-outline-dark" style="width: 100%;">Sponsor Mahaprasad &rarr;</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--accent-blue);"><i class="bi bi-hospital-fill"></i></div>
+        <h3>24/7 Medical & Ambulance</h3>
+        <p>Equipped with doctor teams, mobile emergency ambulances, footwear relief, and foot massage centers for weary Varkaris.</p>
+        <a href="/schedule" class="btn btn-outline-dark" style="width: 100%;">View Medical Camps &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Route Halts Highlight -->
+<section class="py-5" style="background: var(--bg-surface); border-top: 1px solid var(--border-light);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Pilgrimage Itinerary</span>
+      <h2 class="section-title">Upcoming Palkhi Halts & Seva Camps</h2>
+      <p class="section-subtitle">Check schedule, halt grounds, and medical desk emergency contacts.</p>
+    </div>
+
+    <div class="timeline-list">
+      <% scheduleData.forEach(item => { %>
+        <div class="timeline-item <%= item.day === yatraStatus.current_day ? 'active' : '' %>">
+          <div class="timeline-dot"></div>
+          <div class="schedule-card <%= item.day === yatraStatus.current_day ? 'current' : '' %>">
+            <div>
+              <span class="halt-badge">
+                <% if(item.day === yatraStatus.current_day) { %>
+                  📍 CURRENT HALT (DAY <%= item.day %>)
+                <% } else { %>
+                  DAY <%= item.day %> HALT
+                <% } %>
+              </span>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.3rem;"><%= item.title %></h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;"><i class="bi bi-geo-alt-fill" style="color: var(--primary-gold);"></i> Ground: <%= item.halt_location %></p>
+              
+              <div class="facility-tags">
+                <% item.facilities.forEach(fac => { %>
+                  <span class="tag"><%= fac %></span>
+                <% }) %>
+              </div>
+            </div>
+
+            <div style="text-align: right; display: flex; flex-direction: column; justify-content: center;">
+              <span style="font-weight: 700; color: var(--bg-dark); font-size: 1.1rem;"><%= item.distance_km %> KM</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Emergency Helpline:</span>
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--primary-gold);"><%= item.emergency_contact %></span>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="/schedule" class="btn btn-primary">
+        <i class="bi bi-map"></i> View Complete 11-Day Schedule &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Seva Callout Banner -->
+<section class="py-5" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #FFFFFF;">
+  <div class="container" style="text-align: center; max-width: 800px;">
+    <div style="font-size: 2.5rem; color: var(--accent-saffron); margin-bottom: 1rem;"><i class="bi bi-flower1"></i></div>
+    <h2 style="color: #FFFFFF; font-size: 2.2rem; margin-bottom: 1rem;">Support Palkhi Annadan Seva</h2>
+    <p style="color: #CBD5E1; font-size: 1.1rem; margin-bottom: 2rem;">
+      Your contribution directly provides food, water, and medical care to thousands of pilgrims walking to Shirdi. All donations are 50% tax exempt under Section 80G.
+    </p>
+    <a href="/donate" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+      <i class="bi bi-credit-card-fill"></i> Donate Online Now (Instant 80G Receipt)
+    </a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

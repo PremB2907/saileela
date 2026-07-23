@@ -1,0 +1,129 @@
+<%- include('partials/header') %>
+
+<section class="py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Official Registration</span>
+      <h2 class="section-title">Devotee Palkhi Pass Registration 2026</h2>
+      <p class="section-subtitle">
+        Fill in your details to generate your official pilgrim pass with QR verification for seamless access to Palkhi halts, rest camps, and Shirdi darshan queue.
+      </p>
+    </div>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div style="background: #FEE2E2; border: 1px solid #FCA5A5; color: #991B1B; padding: 1rem; border-radius: 8px; max-width: 800px; margin: 0 auto 2rem; text-align: center;">
+        <i class="bi bi-exclamation-triangle-fill"></i> <%= error %>
+      </div>
+    <% } %>
+
+    <div class="form-card">
+      <!-- Step Indicators -->
+      <div class="wizard-steps">
+        <div class="step-item active" id="stepIndicator1">
+          <div class="step-number">1</div>
+          <span>Devotee Details</span>
+        </div>
+        <div class="step-item" id="stepIndicator2">
+          <div class="step-number">2</div>
+          <span>Yatra Batch & ID Proof</span>
+        </div>
+      </div>
+
+      <form id="passForm" action="/register-pass" method="POST">
+        <!-- Step 1: Devotee Details -->
+        <div id="step1">
+          <div class="form-group">
+            <label class="form-label" for="full_name">Full Devotee Name *</label>
+            <input type="text" id="full_name" name="full_name" class="form-control" placeholder="e.g. Rahul Ramesh Sharma" required value="<%= typeof formData !== 'undefined' ? formData.full_name : '' %>">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="phone">Mobile Phone Number (for SMS Pass) *</label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="10-digit mobile number" required value="<%= typeof formData !== 'undefined' ? formData.phone : '' %>">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address (Optional)</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="rahul@example.com" value="<%= typeof formData !== 'undefined' ? formData.email : '' %>">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="age">Age (Years) *</label>
+              <input type="number" id="age" name="age" class="form-control" min="5" max="100" placeholder="e.g. 34" required value="<%= typeof formData !== 'undefined' ? formData.age : '' %>">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="gender">Gender *</label>
+              <select id="gender" name="gender" class="form-select" required>
+                <option value="">Select Gender</option>
+                <option value="Male" <%= typeof formData !== 'undefined' && formData.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                <option value="Female" <%= typeof formData !== 'undefined' && formData.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                <option value="Other" <%= typeof formData !== 'undefined' && formData.gender === 'Other' ? 'selected' : '' %>>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="city">City / Hometown *</label>
+            <input type="text" id="city" name="city" class="form-control" placeholder="e.g. Mumbai / Pune / Thane" required value="<%= typeof formData !== 'undefined' ? formData.city : '' %>">
+          </div>
+
+          <div style="text-align: right; margin-top: 2rem;">
+            <button type="button" id="btnStepNext" class="btn btn-primary">
+              Continue to Step 2 &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Batch & ID Proof -->
+        <div id="step2" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="batch">Select Palkhi Yatra Route Batch *</label>
+            <select id="batch" name="batch" class="form-select" required>
+              <option value="Batch A - Shirdi Main Route (Full 11 Days)">Batch A - Shirdi Main Route (Full 11 Days)</option>
+              <option value="Batch B - Pune / Talegaon Halts Only">Batch B - Pune / Talegaon Halts Only</option>
+              <option value="Batch C - Sangamner to Shirdi Final Stretch">Batch C - Sangamner to Shirdi Final Stretch</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="emergency_contact">Emergency Contact Mobile Number *</label>
+            <input type="tel" id="emergency_contact" name="emergency_contact" class="form-control" placeholder="Relative / Family Member phone number" required value="<%= typeof formData !== 'undefined' ? formData.emergency_contact : '' %>">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="id_proof_type">Government ID Proof Type *</label>
+              <select id="id_proof_type" name="id_proof_type" class="form-select" required>
+                <option value="Aadhaar Card">Aadhaar Card</option>
+                <option value="PAN Card">PAN Card</option>
+                <option value="Voter ID">Voter ID</option>
+                <option value="Driving License">Driving License</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="id_proof_number">ID Proof Number / Last 4 Digits *</label>
+              <input type="text" id="id_proof_number" name="id_proof_number" class="form-control" placeholder="e.g. XXXX-XXXX-4812" required value="<%= typeof formData !== 'undefined' ? formData.id_proof_number : '' %>">
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+            <button type="button" id="btnStepPrev" class="btn btn-outline-dark">
+              &larr; Back to Step 1
+            </button>
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-check-circle-fill"></i> Submit & Generate Pass
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="/js/pass-form.js"></script>
+<%- include('partials/footer') %>

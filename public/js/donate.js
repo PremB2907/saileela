@@ -99,11 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
         currency: orderInfo.currency,
         name: 'Shri Sai Leela Seva Trust',
         description: `Donation for ${category}`,
-        image: '/images/trust-logo.png',
+        order_id: orderInfo.order_id,
         handler: async function (response) {
-          paymentPayload.payment_id = response.razorpay_payment_id || `pay_test_${Date.now()}`;
-          paymentPayload.order_id = response.razorpay_order_id || orderInfo.order_id;
-          paymentPayload.signature = response.razorpay_signature || `mock_sig_${Date.now()}`;
+          paymentPayload.payment_id = response.razorpay_payment_id;
+          paymentPayload.order_id = response.razorpay_order_id;
+          paymentPayload.signature = response.razorpay_signature;
           await finalizeDonation(paymentPayload);
         },
         prefill: {
@@ -116,22 +116,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
-      // Only attach order_id if it's a real order ID created on Razorpay servers
-      if (orderInfo.order_id && !orderInfo.order_id.startsWith('order_sim_')) {
-        options.order_id = orderInfo.order_id;
-      }
-
       if (window.Razorpay) {
         const rzp = new window.Razorpay(options);
-        
+
         rzp.on('payment.failed', function (resp) {
-          console.warn('Razorpay payment failed/cancelled:', resp.error);
-          showToast('Payment cancelled or failed. You can try again.', 'error');
+          console.warn('Razorpay payment failed or dismissed:', resp.error);
+          showToast('Payment was not completed. You can retry anytime.', 'error');
         });
 
         rzp.open();
       } else {
-        showToast('Razorpay Checkout SDK not loaded in browser.', 'error');
+        showToast('Razorpay SDK script not loaded.', 'error');
       }
     } catch (err) {
       showToast(err.message || 'Error processing donation.', 'error');

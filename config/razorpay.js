@@ -35,10 +35,11 @@ module.exports = {
           order_id: order.id,
           amount: order.amount,
           currency: order.currency,
-          key_id: key_id
+          key_id: key_id,
+          is_simulated: false
         };
       } catch (err) {
-        console.log('Razorpay live API skipped, generating test order response.');
+        console.log('⚠️ Razorpay live order API failed/skipped:', err.message);
       }
     }
 

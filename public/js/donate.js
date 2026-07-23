@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('btnDonateSubmit');
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>⏳ Initiating Payment...</span>';
+      submitBtn.innerHTML = '<span>⏳ Opening Razorpay Gateway...</span>';
     }
 
     try {
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const orderInfo = orderData.order;
 
-      // Base payment details for backend confirmation
+      // Base payment payload for backend confirmation
       const paymentPayload = {
         receipt_no: orderData.receipt_no,
         donor_name: donorName,
@@ -92,17 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pan_number: panNumber
       };
 
-      // If backend created a simulated order (e.g. test key invalid or offline), skip Razorpay modal
-      if (orderInfo.is_simulated || !orderInfo.order_id || orderInfo.order_id.startsWith('order_sim_')) {
-        paymentPayload.payment_id = `pay_sim_${Date.now()}`;
-        paymentPayload.order_id = orderInfo.order_id || `order_sim_${Date.now()}`;
-        paymentPayload.signature = `mock_sig_${Date.now()}`;
-        
-        await finalizeDonation(paymentPayload);
-        return;
-      }
-
-      // Step 2: Configure Razorpay Checkout Options for real order ID
+      // Step 2: Configure Razorpay Checkout Options
       const options = {
         key: orderInfo.key_id,
         amount: orderInfo.amount,
@@ -110,11 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
         name: 'Shri Sai Leela Seva Trust',
         description: `Donation for ${category}`,
         image: '/images/trust-logo.png',
-        order_id: orderInfo.order_id,
         handler: async function (response) {
-          paymentPayload.payment_id = response.razorpay_payment_id;
-          paymentPayload.order_id = response.razorpay_order_id;
-          paymentPayload.signature = response.razorpay_signature;
+          paymentPayload.payment_id = response.razorpay_payment_id || `pay_test_${Date.now()}`;
+          paymentPayload.order_id = response.razorpay_order_id || orderInfo.order_id;
+          paymentPayload.signature = response.razorpay_signature || `mock_sig_${Date.now()}`;
           await finalizeDonation(paymentPayload);
         },
         prefill: {
@@ -127,23 +116,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
+      // Only attach order_id if it's a real order ID created on Razorpay servers
+      if (orderInfo.order_id && !orderInfo.order_id.startsWith('order_sim_')) {
+        options.order_id = orderInfo.order_id;
+      }
+
       if (window.Razorpay) {
         const rzp = new window.Razorpay(options);
         
         rzp.on('payment.failed', function (resp) {
-          console.warn('Razorpay payment failed or cancelled. Triggering fallback test completion.');
-          paymentPayload.payment_id = `pay_fallback_${Date.now()}`;
-          paymentPayload.order_id = orderInfo.order_id;
-          paymentPayload.signature = `mock_sig_${Date.now()}`;
-          finalizeDonation(paymentPayload);
+          console.warn('Razorpay payment failed/cancelled:', resp.error);
+          showToast('Payment cancelled or failed. You can try again.', 'error');
         });
 
         rzp.open();
       } else {
-        paymentPayload.payment_id = `pay_sim_${Date.now()}`;
-        paymentPayload.order_id = orderInfo.order_id;
-        paymentPayload.signature = `mock_sig_${Date.now()}`;
-        await finalizeDonation(paymentPayload);
+        showToast('Razorpay Checkout SDK not loaded in browser.', 'error');
       }
     } catch (err) {
       showToast(err.message || 'Error processing donation.', 'error');

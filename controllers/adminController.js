@@ -1,8 +1,87 @@
 const db = require('../config/db');
 const twilio = require('../config/twilio');
 
+// Admin credentials (can be customized via .env)
+const ADMIN_USER = process.env.ADMIN_USERNAME || 'admin';
+const ADMIN_PASS = process.env.ADMIN_PASSWORD || 'admin123';
+
+// Simple in-memory session token store for admin authentication
+let activeAdminSessions = new Set();
+
 module.exports = {
-  // Render Admin Dashboard
+  // Middleware to protect admin routes
+  requireAuth(req, res, next) {
+    const authHeader = req.headers.cookie || '';
+    const sessionMatch = authHeader.match(/saileela_admin_session=([^;]+)/);
+    const sessionToken = sessionMatch ? sessionMatch[1] : null;
+
+    if (sessionToken && activeAdminSessions.has(sessionToken)) {
+      req.isAdmin = true;
+      return next();
+    }
+
+    if (req.xhr || req.headers.accept?.includes('json')) {
+      return res.status(401).json({ success: false, message: 'Admin authentication required.' });
+    }
+
+    res.redirect('/admin/login');
+  },
+
+  // Render Login Page
+  renderLoginPage(req, res) {
+    const authHeader = req.headers.cookie || '';
+    const sessionMatch = authHeader.match(/saileela_admin_session=([^;]+)/);
+    const sessionToken = sessionMatch ? sessionMatch[1] : null;
+
+    if (sessionToken && activeAdminSessions.has(sessionToken)) {
+      return res.redirect('/admin');
+    }
+
+    res.render('admin/login', {
+      title: 'Admin Login | Shri Saileela Palkhi Seva Trust',
+      activeTab: 'admin',
+      error: null,
+      username: 'admin'
+    });
+  },
+
+  // Process Admin Login Form Submission
+  handleLogin(req, res) {
+    const { username, password } = req.body;
+
+    if (username === ADMIN_USER && password === ADMIN_PASS) {
+      const sessionToken = `session_${Date.now()}_${Math.random().toString(36).substring(2)}`;
+      activeAdminSessions.add(sessionToken);
+
+      res.setHeader('Set-Cookie', `saileela_admin_session=${sessionToken}; Path=/; HttpOnly; SameSite=Lax`);
+      db.addLog('AUTH', `Admin logged in successfully (${username}).`);
+      return res.redirect('/admin');
+    }
+
+    res.render('admin/login', {
+      title: 'Admin Login | Shri Saileela Palkhi Seva Trust',
+      activeTab: 'admin',
+      error: 'Invalid username or password. Please try again.',
+      username: username || 'admin'
+    });
+  },
+
+  // Handle Admin Logout
+  handleLogout(req, res) {
+    const authHeader = req.headers.cookie || '';
+    const sessionMatch = authHeader.match(/saileela_admin_session=([^;]+)/);
+    const sessionToken = sessionMatch ? sessionMatch[1] : null;
+
+    if (sessionToken) {
+      activeAdminSessions.delete(sessionToken);
+    }
+
+    res.setHeader('Set-Cookie', `saileela_admin_session=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT`);
+    db.addLog('AUTH', `Admin logged out.`);
+    res.redirect('/admin/login');
+  },
+
+  // Render Admin Dashboard (Protected)
   async renderDashboard(req, res) {
     const passes = await db.getPasses();
     const donations = await db.getDonations();

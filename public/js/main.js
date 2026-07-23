@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Dark / Light Theme Toggle Handler
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('saileela_theme');
+
+  // Apply saved theme preference on page load
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+    updateThemeIcon(true);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-theme');
+      localStorage.setItem('saileela_theme', isDark ? 'dark' : 'light');
+      updateThemeIcon(isDark);
+      showToast(isDark ? '🌙 Dark Mode Activated' : '☀️ Light Mode Activated', 'info');
+    });
+  }
+
+  function updateThemeIcon(isDark) {
+    if (!themeToggle) return;
+    const icon = themeToggle.querySelector('i');
+    if (icon) {
+      icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+      icon.style.color = isDark ? 'var(--accent-saffron)' : 'var(--primary-gold)';
+    }
+  }
+
   // Mobile Navigation Menu Toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const mainNav = document.getElementById('mainNav');

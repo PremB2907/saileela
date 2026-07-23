@@ -51,6 +51,11 @@
           <li><a href="/pass-status" class="nav-link <%= activeTab === 'pass-status' ? 'active' : '' %>"><i class="bi bi-qr-code-scan"></i> Verify Pass</a></li>
           <li><a href="/donate" class="nav-link <%= activeTab === 'donate' ? 'active' : '' %>"><i class="bi bi-heart-fill" style="color: var(--primary-gold);"></i> Seva Donation</a></li>
           <li><a href="/admin" class="nav-link nav-btn <%= activeTab === 'admin' ? 'active' : '' %>"><i class="bi bi-speedometer2"></i> Admin Panel</a></li>
+          <li>
+            <button id="themeToggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+          </li>
         </ul>
       </nav>
 

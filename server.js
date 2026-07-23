@@ -59,13 +59,18 @@ app.use((req, res) => {
   });
 });
 
-// Start Server & Database
-app.listen(PORT, async () => {
-  console.log(`=======================================================`);
-  console.log(`🚩 Shri Saileela Palkhi Web Server Started`);
-  console.log(`🌐 URL: http://localhost:${PORT}`);
-  console.log(`=======================================================`);
-  
-  await db.initDB();
-  initCronJobs();
-});
+// Export Express app for Vercel Serverless Functions
+module.exports = app;
+
+// Start Server & Database when running locally
+if (process.env.VERCEL !== '1') {
+  app.listen(PORT, async () => {
+    console.log(`=======================================================`);
+    console.log(`🚩 Shri Saileela Palkhi Web Server Started`);
+    console.log(`🌐 URL: http://localhost:${PORT}`);
+    console.log(`=======================================================`);
+    
+    await db.initDB();
+    initCronJobs();
+  });
+}

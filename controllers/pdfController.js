@@ -6,9 +6,11 @@ module.exports = {
   generatePassPDF(pass, res) {
     const doc = new PDFDocument({ size: 'A4', margin: 40 });
 
-    // Set headers for file download
-    res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `attachment; filename=Pass_${pass.pass_code}.pdf`);
+    // Set headers for file download if response object supports it
+    if (typeof res.setHeader === 'function') {
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename=Pass_${pass.pass_code}.pdf`);
+    }
 
     doc.pipe(res);
 
@@ -19,7 +21,7 @@ module.exports = {
     doc.fillColor('#94A3B8').fontSize(9).text('Reg. No: E-3892/MUM | Shirdi Yatra Emergency Desk: +91 98765 43210', 55, 100);
 
     // Pass Status Badge
-    doc.rect(430, 55, 110, 26).rrect(430, 55, 110, 26, 4).fill('#059669');
+    doc.roundedRect(430, 55, 110, 26, 4).fill('#059669');
     doc.fillColor('#FFFFFF').fontSize(11).font('Helvetica-Bold').text('CONFIRMED', 445, 62);
 
     // Main Details Box

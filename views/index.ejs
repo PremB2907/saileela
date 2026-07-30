@@ -1,78 +1,79 @@
 <%- include('partials/header') %>
 
-<!-- Hero Section -->
-<section class="hero-section">
+<!-- Chintamani Inspired Hero Section -->
+<section class="hero-chintamani">
   <div class="container">
     <div class="hero-grid">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <i class="bi bi-star-fill"></i> Annual Sacred Shirdi Pilgrimage 2026
+      <div>
+        <div class="hero-badge-festive">
+          <i class="fa-solid fa-om"></i> <span data-i18n="hero_badge">वार्षिक पवित्र शिर्डी पदयात्रा २०२६</span>
         </div>
-        <h1 class="hero-title">
-          Shri Saileela <span>Palkhi Sohala</span> & Seva Yatra
+        <h1 class="hero-title-chintamani">
+          श्री साईलीला <span>पालखी सोहळा</span> व सेवा यात्रा
         </h1>
-        <p class="hero-subtitle">
-          Join thousands of Varkaris on the holy pilgrimage from Mumbai to Shirdi. Get your official pilgrim gate pass, track live Palkhi halts, and support Annadan Seva.
+        <p class="hero-subtitle-chintamani" data-i18n="hero_subtitle">
+          मुंबई ते शिर्डी पदयात्रेत हजारो वारकऱ्यांसोबत सहभागी व्हा. तुमचा अधिकृत वारकरी पास मिळवा, थेट मुक्काम स्थान पाहा आणि अन्नदान सेवेत योगदान द्या.
         </p>
+        
         <div class="hero-actions">
-          <a href="/register-pass" class="btn btn-primary">
-            <i class="bi bi-person-badge-fill"></i> Get Official Pilgrim Pass
+          <a href="/register-pass" class="btn btn-chintamani-primary">
+            <i class="bi bi-person-badge-fill"></i> <span data-i18n="btn_get_pass">अधिकृत पास मिळवा</span>
           </a>
-          <a href="/schedule" class="btn btn-secondary">
-            <i class="bi bi-map-fill"></i> View Route & Halts
+          <a href="/schedule" class="btn btn-chintamani-secondary">
+            <i class="bi bi-map-fill"></i> <span data-i18n="btn_view_route">मार्ग व मुक्काम पाहा</span>
           </a>
-          <a href="/donate" class="btn btn-secondary" style="background: rgba(245, 158, 11, 0.2); border-color: var(--accent-saffron);">
-            <i class="bi bi-heart-fill" style="color: var(--accent-saffron);"></i> Support Annadan Seva
+          <a href="/donate" class="btn btn-chintamani-primary" style="background: linear-gradient(135deg, #FF7F00 0%, #F59E0B 100%);">
+            <i class="bi bi-heart-fill"></i> <span data-i18n="btn_support_annadan">अन्नदान सेवेत सहभाग घ्या</span>
           </a>
         </div>
       </div>
 
-      <!-- Hero Live Yatra Card -->
-      <div class="hero-card">
-        <div class="hero-card-header">
+      <!-- Live Yatra Tracker Card -->
+      <div class="hero-tracker-card">
+        <div class="hero-tracker-header">
           <div>
-            <h3 style="color: #FFFFFF; font-size: 1.15rem;">Live Yatra Tracker</h3>
-            <p style="font-size: 0.8rem; color: #94A3B8;">Real-time GPS & Halt Status</p>
+            <h3 style="color: #FFFFFF; font-size: 1.25rem;" data-i18n="tracker_title">लाइव्ह पालखी ट्रॅकर</h3>
+            <p style="font-size: 0.82rem; color: #94A3B8;" data-i18n="tracker_subtitle">थेट जीपीएस व मुक्काम माहिती</p>
           </div>
-          <div class="live-pulse">
-            <span class="dot-pulse"></span> LIVE NOW
+          <div class="live-pulse-tag">
+            <span class="dot-pulse-red"></span> <span data-i18n="live_now">लाइव्ह सुरू</span>
           </div>
         </div>
 
-        <div class="status-stat-grid">
-          <div class="stat-item">
-            <div class="stat-label">Current Location</div>
-            <div class="stat-value" id="statCurrentLocation" style="font-size: 1.1rem; color: var(--accent-saffron);">
+        <div class="tracker-grid">
+          <div class="tracker-stat">
+            <div class="stat-label" data-i18n="current_location">सध्याचे स्थान</div>
+            <div class="stat-value" id="statCurrentLocation">
               <%= yatraStatus.current_location %>
             </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-label">Next Halt</div>
-            <div class="stat-value" style="font-size: 1rem; color: #CBD5E1;">
+          <div class="tracker-stat">
+            <div class="stat-label" data-i18n="next_halt">पुढील मुक्काम</div>
+            <div class="stat-value" style="color: #FFFFFF;">
               <%= yatraStatus.next_location %>
             </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-label">Distance Covered</div>
+          <div class="tracker-stat">
+            <div class="stat-label" data-i18n="distance_covered">कापलेले अंतर</div>
             <div class="stat-value" id="statDistanceCovered">
               <%= yatraStatus.distance_covered_km %> / <%= yatraStatus.total_distance_km %> KM
             </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-label">Meals Served Today</div>
-            <div class="stat-value" id="statMealsServed" style="color: var(--accent-green);">
+          <div class="tracker-stat">
+            <div class="stat-label" data-i18n="meals_served">आजचे महाप्रसाद</div>
+            <div class="stat-value" id="statMealsServed" style="color: #10B981;">
               <%= yatraStatus.meals_served_today.toLocaleString('en-IN') %>
             </div>
           </div>
         </div>
 
-        <div class="progress-container">
-          <div class="progress-header">
-            <span>Overall Route Progress (Day <%= yatraStatus.current_day %> of <%= yatraStatus.total_days %>)</span>
-            <span><%= Math.round((yatraStatus.distance_covered_km / yatraStatus.total_distance_km) * 100) %>%</span>
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #CBD5E1; margin-bottom: 0.4rem;">
+            <span><span data-i18n="route_progress">एकूण मार्ग प्रगती</span> (<span data-i18n="day_label">दिवस</span> <%= yatraStatus.current_day %> of <%= yatraStatus.total_days %>)</span>
+            <strong><%= Math.round((yatraStatus.distance_covered_km / yatraStatus.total_distance_km) * 100) %>%</strong>
           </div>
-          <div class="progress-bar-bg">
-            <div class="progress-bar-fill" style="width: <%= Math.round((yatraStatus.distance_covered_km / yatraStatus.total_distance_km) * 100) %>%;"></div>
+          <div style="background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2);">
+            <div style="width: <%= Math.round((yatraStatus.distance_covered_km / yatraStatus.total_distance_km) * 100) %>%; height: 100%; background: linear-gradient(90deg, #FF7F00 0%, #FFD700 100%);"></div>
           </div>
         </div>
       </div>
@@ -80,102 +81,129 @@
   </div>
 </section>
 
-<!-- Key Seva Services -->
-<section class="py-5">
+<!-- Devotional Counter Metrics Bar -->
+<section class="metrics-section">
+  <div class="container">
+    <div class="metrics-grid">
+      <div class="metric-item">
+        <div class="metric-icon"><i class="fa-solid fa-users"></i></div>
+        <div class="metric-number">२५,०००+</div>
+        <div class="metric-title" data-i18n="metric_devotees">नोंदणीकृत वारकरी</div>
+      </div>
+
+      <div class="metric-item">
+        <div class="metric-icon"><i class="fa-solid fa-bowl-food"></i></div>
+        <div class="metric-number">१,५०,०००+</div>
+        <div class="metric-title" data-i18n="metric_meals">वाटप केलेले महाप्रसाद</div>
+      </div>
+
+      <div class="metric-item">
+        <div class="metric-icon"><i class="fa-solid fa-route"></i></div>
+        <div class="metric-number">२६५ KM</div>
+        <div class="metric-title" data-i18n="metric_distance">एकूण किलोमीटर</div>
+      </div>
+
+      <div class="metric-item">
+        <div class="metric-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div class="metric-number">५००+</div>
+        <div class="metric-title" data-i18n="metric_volunteers">सक्रिय सेवाभावी</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Seva Services & Upakram Grid -->
+<section style="padding: 5rem 0; background: var(--bg-surface);">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">Devotee Assistance & Facilities</span>
-      <h2 class="section-title">Serving the Varkaris with Devotion</h2>
-      <p class="section-subtitle">
-        Shri Sai Leela Seva Trust provides 24/7 comprehensive facilities along the entire 265 KM Palkhi route to ensure every pilgrim's safety and comfort.
+      <span class="section-tag" data-i18n="services_tag">वारकरी सुविधा आणि मदत</span>
+      <h2 class="section-title" data-i18n="services_title">भक्तीभावाने वारकऱ्यांची सेवा</h2>
+      <p class="section-subtitle" data-i18n="services_subtitle">
+        श्री साई लीला सेवा ट्रस्ट संपूर्ण २६५ किमी पालखी मार्गावर २४ तास मोफत सुविधा पुरवते.
       </p>
     </div>
 
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon"><i class="bi bi-card-checklist"></i></div>
-        <h3>Official Pilgrim Pass</h3>
-        <p>Register online to receive your QR-coded Devotee Gate Pass for priority entry at all Palkhi halts and Shirdi Samadhi Mandir darshan queue.</p>
-        <a href="/register-pass" class="btn btn-outline-dark" style="width: 100%;">Register Pass &rarr;</a>
+        <div>
+          <div class="service-icon"><i class="bi bi-card-checklist"></i></div>
+          <h3 data-i18n="srv_pass_title">अधिकृत वारकरी पास</h3>
+          <p data-i18n="srv_pass_desc">पालखी मुक्काम व शिर्डी दर्शन रांगेत प्राधान्य मिळवण्यासाठी क्यूआर-कोडयुक्त अधिकृत पास ऑनलाइन मिळवा.</p>
+        </div>
+        <a href="/register-pass" class="btn btn-chintamani-primary" style="width: 100%;" data-i18n="srv_pass_btn">पास नोंदणी करा &rarr;</a>
       </div>
 
       <div class="service-card">
-        <div class="service-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green);"><i class="bi bi-cup-hot-fill"></i></div>
-        <h3>Mahaprasad & Annadan</h3>
-        <p>Serving hygienic hot breakfast, tea, drinking water, and evening Mahaprasad to over 15,000+ devotees daily across all halt camps.</p>
-        <a href="/donate" class="btn btn-outline-dark" style="width: 100%;">Sponsor Mahaprasad &rarr;</a>
+        <div>
+          <div class="service-icon" style="background: rgba(5, 150, 105, 0.1); color: var(--accent-green);"><i class="bi bi-cup-hot-fill"></i></div>
+          <h3 data-i18n="srv_annadan_title">महाप्रसाद आणि अन्नदान सेवा</h3>
+          <p data-i18n="srv_annadan_desc">दररोज १५,००० पेक्षा जास्त वारकऱ्यांना गरम नाश्ता, चहा, शुद्ध पिण्याचे पाणी आणि संध्याकाळी महाप्रसाद वाटप.</p>
+        </div>
+        <a href="/donate" class="btn btn-chintamani-primary" style="width: 100%; background: linear-gradient(135deg, #059669 0%, #10B981 100%); border-color: #059669;" data-i18n="srv_annadan_btn">अन्नदानात सहभाग घ्या &rarr;</a>
       </div>
 
       <div class="service-card">
-        <div class="service-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--accent-blue);"><i class="bi bi-hospital-fill"></i></div>
-        <h3>24/7 Medical & Ambulance</h3>
-        <p>Equipped with doctor teams, mobile emergency ambulances, footwear relief, and foot massage centers for weary Varkaris.</p>
-        <a href="/schedule" class="btn btn-outline-dark" style="width: 100%;">View Medical Camps &rarr;</a>
+        <div>
+          <div class="service-icon" style="background: rgba(37, 99, 235, 0.1); color: #2563EB;"><i class="bi bi-hospital-fill"></i></div>
+          <h3 data-i18n="srv_medical_title">२४/७ वैद्यकीय आणि रुग्णवाहिका</h3>
+          <p data-i18n="srv_medical_desc">डॉक्टरांची टीम, फिरती रुग्णवाहिका, मोफत औषधोपचार आणि पाऊल मालिश केंद्रांची सुविधा.</p>
+        </div>
+        <a href="/schedule" class="btn btn-chintamani-secondary" style="width: 100%; color: var(--text-main) !important; border-color: var(--border-light);" data-i18n="srv_medical_btn">वैद्यकीय कॅम्प पाहा &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Route Halts Highlight -->
-<section class="py-5" style="background: var(--bg-surface); border-top: 1px solid var(--border-light);">
+<!-- Route Halts Highlight Timeline -->
+<section style="padding: 5rem 0; background: var(--bg-card); border-top: 2px solid var(--border-light);">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">Pilgrimage Itinerary</span>
-      <h2 class="section-title">Upcoming Palkhi Halts & Seva Camps</h2>
-      <p class="section-subtitle">Check schedule, halt grounds, and medical desk emergency contacts.</p>
+      <span class="section-tag" data-i18n="itinerary_tag">पालखी प्रवास सूची</span>
+      <h2 class="section-title" data-i18n="itinerary_title">आगामी पालखी मुक्काम आणि सेवा कॅम्प</h2>
+      <p class="section-subtitle" data-i18n="itinerary_subtitle">वेळापत्रक, मुक्काम मैदान आणि आपत्कालीन संपर्क क्रमांक पाहा.</p>
     </div>
 
-    <div class="timeline-list">
+    <div style="display: grid; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
       <% scheduleData.forEach(item => { %>
-        <div class="timeline-item <%= item.day === yatraStatus.current_day ? 'active' : '' %>">
-          <div class="timeline-dot"></div>
-          <div class="schedule-card <%= item.day === yatraStatus.current_day ? 'current' : '' %>">
-            <div>
-              <span class="halt-badge">
-                <% if(item.day === yatraStatus.current_day) { %>
-                  📍 CURRENT HALT (DAY <%= item.day %>)
-                <% } else { %>
-                  DAY <%= item.day %> HALT
-                <% } %>
-              </span>
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.3rem;"><%= item.title %></h3>
-              <p style="color: var(--text-muted); font-size: 0.9rem;"><i class="bi bi-geo-alt-fill" style="color: var(--primary-gold);"></i> Ground: <%= item.halt_location %></p>
-              
-              <div class="facility-tags">
-                <% item.facilities.forEach(fac => { %>
-                  <span class="tag"><%= fac %></span>
-                <% }) %>
-              </div>
-            </div>
+        <div style="background: var(--bg-surface); border: 2px solid <%= item.day === yatraStatus.current_day ? 'var(--chintamani-saffron)' : 'var(--border-light)' %>; border-radius: var(--radius-md); padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="background: <%= item.day === yatraStatus.current_day ? 'var(--chintamani-red)' : '#64748B' %>; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.7rem; border-radius: var(--radius-full); text-transform: uppercase;">
+              <% if(item.day === yatraStatus.current_day) { %>
+                📍 CURRENT HALT (DAY <%= item.day %>)
+              <% } else { %>
+                DAY <%= item.day %> HALT
+              <% } %>
+            </span>
+            <h3 style="font-size: 1.25rem; margin: 0.4rem 0 0.2rem; color: var(--text-main);"><%= item.title %></h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;"><i class="bi bi-geo-alt-fill" style="color: var(--chintamani-red);"></i> Ground: <%= item.halt_location %></p>
+          </div>
 
-            <div style="text-align: right; display: flex; flex-direction: column; justify-content: center;">
-              <span style="font-weight: 700; color: var(--bg-dark); font-size: 1.1rem;"><%= item.distance_km %> KM</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Emergency Helpline:</span>
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--primary-gold);"><%= item.emergency_contact %></span>
-            </div>
+          <div style="text-align: right;">
+            <span style="font-weight: 800; color: var(--chintamani-red); font-size: 1.15rem; display: block;"><%= item.distance_km %> KM</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--chintamani-saffron);">📞 <%= item.emergency_contact %></span>
           </div>
         </div>
       <% }) %>
     </div>
 
-    <div style="text-align: center; margin-top: 2rem;">
-      <a href="/schedule" class="btn btn-primary">
-        <i class="bi bi-map"></i> View Complete 11-Day Schedule &rarr;
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="/schedule" class="btn btn-chintamani-primary" style="padding: 1rem 2.2rem;">
+        <i class="bi bi-map"></i> <span data-i18n="view_full_schedule">संपूर्ण ११ दिवसांचे वेळापत्रक पाहा &rarr;</span>
       </a>
     </div>
   </div>
 </section>
 
 <!-- Seva Callout Banner -->
-<section class="py-5" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #FFFFFF;">
-  <div class="container" style="text-align: center; max-width: 800px;">
-    <div style="font-size: 2.5rem; color: var(--accent-saffron); margin-bottom: 1rem;"><i class="bi bi-flower1"></i></div>
-    <h2 style="color: #FFFFFF; font-size: 2.2rem; margin-bottom: 1rem;">Support Palkhi Annadan Seva</h2>
-    <p style="color: #CBD5E1; font-size: 1.1rem; margin-bottom: 2rem;">
-      Your contribution directly provides food, water, and medical care to thousands of pilgrims walking to Shirdi. All donations are 50% tax exempt under Section 80G.
+<section style="padding: 4.5rem 0; background: linear-gradient(135deg, #1A0404 0%, #3A0302 100%); color: #FFFFFF; border-top: 4px solid var(--chintamani-saffron);">
+  <div class="container" style="text-align: center; max-width: 820px;">
+    <div style="font-size: 2.8rem; color: #FFD700; margin-bottom: 0.8rem;"><i class="fa-solid fa-om"></i></div>
+    <h2 style="color: #FFFFFF; font-size: 2.3rem; margin-bottom: 1rem;" data-i18n="callout_title">पालखी अन्नदान सेवेला पाठिंबा द्या</h2>
+    <p style="color: #E2E8F0; font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.7;" data-i18n="callout_desc">
+      तुमची देणगी शिर्डीकडे चालणाऱ्या हजारो वारकऱ्यांना अन्न, पाणी आणि वैद्यकीय मदत पुरवते. सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत मिळतो.
     </p>
-    <a href="/donate" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
-      <i class="bi bi-credit-card-fill"></i> Donate Online Now (Instant 80G Receipt)
+    <a href="/donate" class="btn btn-chintamani-primary" style="padding: 1.1rem 2.8rem; font-size: 1.15rem;">
+      <i class="bi bi-credit-card-fill"></i> <span data-i18n="donate_now_btn">आत्ताच ऑनलाइन देणगी द्या (८०जी पावतीसह)</span>
     </a>
   </div>
 </section>

@@ -1,140 +1,145 @@
 <%- include('partials/header') %>
 
-<section class="py-5">
+<section style="padding: 4rem 0; background: var(--bg-surface);">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">80G Tax-Exempt Seva Contribution</span>
-      <h2 class="section-title">Online Seva & Annadan Portal</h2>
-      <p class="section-subtitle">
-        Contribute to Mahaprasad, medical camps, and Palkhi facilities. All donations receive an instant 50% tax deduction certificate under Section 80G.
+      <span class="section-tag" data-i18n="donate_tag">80G करसवलत प्राप्त सेवा योगदान</span>
+      <h2 class="section-title" data-i18n="donate_title">ऑनलाइन सेवा व देणगी पोर्टल</h2>
+      <p class="section-subtitle" data-i18n="donate_subtitle">
+        महाप्रसाद, वैद्यकीय कॅम्प आणि पालखी सुविधांसाठी तुमचे सहकार्य द्या. सर्व देणग्यांना त्वरित 80G कर सवलत प्रमाणपत्र मिळते.
       </p>
     </div>
 
     <div class="form-card">
       <form id="donationForm">
-        <!-- Preset Donation Amounts -->
+        <!-- Preset Donation Amounts (Chintamani Style) -->
         <div class="form-group">
-          <label class="form-label">Select Seva Donation Amount (₹)</label>
-          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem;">
-            <button class="btn btn-outline-dark btn-preset-amount" data-amount="501">₹501</button>
-            <button class="btn btn-outline-dark btn-preset-amount" data-amount="1100">₹1,100</button>
-            <button class="btn btn-primary btn-preset-amount" data-amount="2100">₹2,100</button>
-            <button class="btn btn-outline-dark btn-preset-amount" data-amount="5001">₹5,001</button>
-            <button class="btn btn-outline-dark btn-preset-amount" data-amount="11000">₹11,000</button>
+          <label class="form-label" data-i18n="select_preset">देणगी रक्कम निवडा (₹)</label>
+          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.2rem;">
+            <button type="button" class="btn-preset-chip" data-amount="251">₹२५१</button>
+            <button type="button" class="btn-preset-chip" data-amount="501">₹५०१</button>
+            <button type="button" class="btn-preset-chip" data-amount="1100">₹१,१००</button>
+            <button type="button" class="btn-preset-chip active" data-amount="2100">₹२,१००</button>
+            <button type="button" class="btn-preset-chip" data-amount="5001">₹५,००१</button>
+            <button type="button" class="btn-preset-chip" data-amount="11000">₹११,०००</button>
           </div>
 
-          <label class="form-label" for="donationAmount">Custom Amount (₹) *</label>
-          <input type="number" id="donationAmount" name="amount" class="form-control" placeholder="Enter custom amount in INR" min="10" value="2100" required>
+          <label class="form-label" for="donationAmount" data-i18n="custom_amount">इतर रक्कम (₹) *</label>
+          <input type="number" id="donationAmount" name="amount" class="form-control" placeholder="Enter amount in INR" min="10" value="2100" required>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="category">Seva Category *</label>
+          <label class="form-label" for="category" data-i18n="seva_category">सेवा प्रकार *</label>
           <select id="category" name="category" class="form-select" required>
-            <option value="Annadan Seva (Mahaprasad)">Annadan Seva (Daily Mahaprasad & Water)</option>
-            <option value="Medical & Ambulance Seva">Medical & Ambulance Emergency Fund</option>
-            <option value="Palkhi Decoration & Sound System">Palkhi Decoration & Chariot Support</option>
-            <option value="General Trust Seva Fund">General Trust Welfare Fund</option>
+            <option value="Annadan Seva (Mahaprasad)">अन्नदान सेवा (महाप्रसाद व फराळ वाटप)</option>
+            <option value="Medical & Ambulance Seva">वैद्यकीय व फिरती रुग्णवाहिका निधी</option>
+            <option value="Palkhi Ratha & Sound Support">पालखी रथ व मंडप व्यवस्था</option>
+            <option value="General Trust Seva Fund">सर्वसाधारण विश्वस्त सेवा निधी</option>
           </select>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="donor_name">Donor Full Name *</label>
-            <input type="text" id="donor_name" name="donor_name" class="form-control" placeholder="e.g. Anand V. Deshmukh" required>
+            <label class="form-label" for="donor_name" data-i18n="donor_name">देणगीदाराचे पूर्ण नाव *</label>
+            <input type="text" id="donor_name" name="donor_name" class="form-control" placeholder="उदा. आनंद देशमूख" required>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="phone">Mobile Phone Number *</label>
-            <input type="tel" id="phone" name="phone" class="form-control" placeholder="10-digit phone number" required>
+            <label class="form-label" for="phone" data-i18n="donor_phone">मोबाईल नंबर *</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="१० अंकी मोबाईल नंबर" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="email">Email Address (for PDF Receipt)</label>
+            <label class="form-label" for="email" data-i18n="donor_email">ईमेल पत्ता (पावतीसाठी)</label>
             <input type="email" id="email" name="email" class="form-control" placeholder="anand@example.com">
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="pan_number">PAN Card Number (Required for 80G Certificate)</label>
-            <input type="text" id="pan_number" name="pan_number" class="form-control" placeholder="e.g. ABCDE1234F" style="text-transform: uppercase;">
+            <label class="form-label" for="pan_number" data-i18n="donor_pan">पॅन कार्ड नंबर (२००० रुपयांपेक्षा जास्त देणगीसाठी ८०जी अनिवार्य)</label>
+            <input type="text" id="pan_number" name="pan_number" class="form-control" placeholder="उदा. ABCDE1234F" style="text-transform: uppercase;">
           </div>
         </div>
 
-        <div style="background: var(--accent-green-bg); border: 1px solid #A7F3D0; color: #065F46; padding: 1rem; border-radius: 8px; font-size: 0.9rem; margin-bottom: 1.5rem;">
-          <i class="bi bi-shield-check" style="font-size: 1.2rem; vertical-align: middle;"></i> <strong>Secure Seva Payment Gateway</strong>: Accepts UPI/QR Scan, Credit/Debit Cards, Net Banking, and Razorpay.
+        <div style="background: rgba(5, 150, 105, 0.08); border: 2px dashed #059669; color: #065F46; padding: 1.2rem; border-radius: var(--radius-md); font-size: 0.92rem; margin-bottom: 1.8rem; display: flex; items-center: center; gap: 0.8rem;">
+          <i class="bi bi-shield-check" style="font-size: 1.8rem; color: #059669;"></i>
+          <div>
+            <strong data-i18n="pay_notice">सुरक्षित पेमेंट पद्धत: UPI QR, क्रेडिट/डेबिट कार्ड, नेट बँकिंग आणि Razorpay स्वीकारले जातात.</strong>
+            <p style="margin-top: 0.2rem; font-size: 0.82rem; color: #047857;">सर्व देणग्या अनधिकृत परताव्यासाठी पात्र नसतात. ८०जी पावती डिजिटल पद्धतीने त्वरित डाऊनलोड करता येईल.</p>
+          </div>
         </div>
 
-        <button type="submit" id="btnDonateSubmit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
-          <span>💳 Proceed to Seva Payment & Download 80G Receipt</span>
+        <button type="submit" id="btnDonateSubmit" class="btn btn-chintamani-primary" style="width: 100%; padding: 1.1rem; font-size: 1.15rem;">
+          <span data-i18n="proceed_pay_btn">💳 पेमेंट करा आणि ८०जी पावती मिळवा</span>
         </button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- Executive In-App Seva Payment Modal -->
-<div id="sevaModalBackdrop" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(15,23,42,0.8); backdrop-filter: blur(8px); z-index: 9999; align-items: center; justify-content: center; padding: 1rem;">
-  <div style="background: #FFFFFF; border-radius: 16px; width: 100%; max-width: 540px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); overflow: hidden; border: 1px solid var(--border-light);">
-    <div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #FFFFFF; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+<!-- Chintamani Executive In-App Seva Payment Modal -->
+<div id="sevaModalBackdrop" class="chintamani-modal">
+  <div class="chintamani-modal-content">
+    <div class="chintamani-modal-header">
       <div>
-        <span style="color: var(--accent-saffron); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Shri Sai Leela Seva Trust</span>
-        <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-top: 0.1rem;">Online Seva Payment</h3>
+        <span style="color: #FFD700; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">Shri Sai Leela Seva Trust</span>
+        <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-top: 0.1rem;" data-i18n="modal_title">ऑनलाइन सेवा देणगी</h3>
       </div>
-      <button type="button" id="btnCloseModal" style="background: none; border: none; color: #94A3B8; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      <button type="button" id="btnCloseModal" style="background: none; border: none; color: #FFFFFF; font-size: 1.8rem; cursor: pointer;">&times;</button>
     </div>
 
-    <div style="padding: 1.5rem;">
-      <div style="background: var(--bg-surface); padding: 1rem; border-radius: 8px; margin-bottom: 1.2rem; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-light);">
+    <div style="padding: 1.8rem;">
+      <div style="background: var(--bg-surface); padding: 1rem 1.2rem; border-radius: var(--radius-md); margin-bottom: 1.4rem; display: flex; justify-content: space-between; align-items: center; border: 2px solid var(--border-light);">
         <div>
-          <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">SEVA CATEGORY</span>
-          <strong id="modalCategoryText" style="color: var(--bg-dark); font-size: 0.95rem;">Annadan Seva</strong>
+          <span style="font-size: 0.78rem; color: var(--text-muted); display: block;" data-i18n="modal_category">सेवा प्रकार</span>
+          <strong id="modalCategoryText" style="color: var(--text-main); font-size: 1rem;">अन्नदान सेवा</strong>
         </div>
         <div style="text-align: right;">
-          <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">AMOUNT TO PAY</span>
-          <strong id="modalAmountText" style="color: var(--accent-green); font-size: 1.3rem;">₹2,100</strong>
+          <span style="font-size: 0.78rem; color: var(--text-muted); display: block;" data-i18n="modal_amount">देय रक्कम</span>
+          <strong id="modalAmountText" style="color: var(--chintamani-red); font-size: 1.4rem;">₹२,१००</strong>
         </div>
       </div>
 
       <!-- Payment Method Tabs -->
-      <div style="display: flex; gap: 0.5rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem;">
-        <button type="button" class="pay-tab active" data-tab="tab-upi" style="flex: 1; padding: 0.6rem; border: none; background: var(--gold-glow); color: var(--primary-gold); font-weight: 700; border-radius: 6px; cursor: pointer;">
-          📱 UPI / QR Code
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1.4rem; border-bottom: 2px solid var(--border-light); padding-bottom: 0.6rem;">
+        <button type="button" class="pay-tab active" data-tab="tab-upi" style="flex: 1; padding: 0.7rem; border: none; background: var(--chintamani-red); color: #FFFFFF; font-weight: 800; border-radius: var(--radius-sm); cursor: pointer;" data-i18n="tab_upi">
+          📱 UPI / QR कोड
         </button>
-        <button type="button" class="pay-tab" data-tab="tab-card" style="flex: 1; padding: 0.6rem; border: none; background: var(--bg-surface); color: var(--text-muted); font-weight: 600; border-radius: 6px; cursor: pointer;">
-          💳 Card Payment
+        <button type="button" class="pay-tab" data-tab="tab-card" style="flex: 1; padding: 0.7rem; border: none; background: var(--bg-surface); color: var(--text-muted); font-weight: 700; border-radius: var(--radius-sm); cursor: pointer;" data-i18n="tab_card">
+          💳 कार्ड पेमेंट
         </button>
-        <button type="button" class="pay-tab" data-tab="tab-netbanking" style="flex: 1; padding: 0.6rem; border: none; background: var(--bg-surface); color: var(--text-muted); font-weight: 600; border-radius: 6px; cursor: pointer;">
-          🏛️ NetBanking
+        <button type="button" class="pay-tab" data-tab="tab-netbanking" style="flex: 1; padding: 0.7rem; border: none; background: var(--bg-surface); color: var(--text-muted); font-weight: 700; border-radius: var(--radius-sm); cursor: pointer;" data-i18n="tab_netbanking">
+          🏛️ नेट बँकिंग
         </button>
       </div>
 
       <!-- Tab Content: UPI QR Code -->
       <div id="tab-upi" class="pay-content" style="text-align: center; padding: 0.5rem 0;">
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem;">Scan QR code with GPay, PhonePe, Paytm, or BHIM UPI app:</p>
-        <div style="background: #FFFFFF; padding: 1rem; border: 2px dashed var(--primary-gold); border-radius: 12px; display: inline-block; margin-bottom: 0.8rem;">
-          <img id="upiQrCodeImg" src="" alt="UPI Payment QR Code" style="width: 180px; height: 180px; display: block;">
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="upi_scan_instruction">GPay, PhonePe, Paytm किंवा BHIM ॲपद्वारे QR कोड स्कॅन करा:</p>
+        <div style="background: #FFFFFF; padding: 1.2rem; border: 3px dashed var(--chintamani-saffron); border-radius: var(--radius-md); display: inline-block; margin-bottom: 1rem; box-shadow: var(--shadow-sm);">
+          <img id="upiQrCodeImg" src="" alt="UPI Payment QR Code" style="width: 190px; height: 190px; display: block;">
         </div>
-        <p style="font-size: 0.8rem; color: var(--bg-dark); font-weight: 600;">UPI ID: <span style="color: var(--primary-gold);">saileelatrust@upi</span></p>
+        <p style="font-size: 0.9rem; color: var(--text-main); font-weight: 700;">UPI ID: <span style="color: var(--chintamani-red);">saileelatrust@upi</span></p>
       </div>
 
       <!-- Tab Content: Card Payment -->
       <div id="tab-card" class="pay-content" style="display: none;">
-        <div class="form-group" style="margin-bottom: 0.8rem;">
-          <label class="form-label">Cardholder Name</label>
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label class="form-label" data-i18n="card_name">कार्डधारकाचे नाव</label>
           <input type="text" id="cardName" class="form-control" placeholder="Name on Card">
         </div>
-        <div class="form-group" style="margin-bottom: 0.8rem;">
-          <label class="form-label">Card Number</label>
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label class="form-label" data-i18n="card_number">कार्ड नंबर</label>
           <input type="text" id="cardNumber" class="form-control" placeholder="4111 1111 1111 1111" maxlength="19">
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Expiry Date</label>
+            <label class="form-label" data-i18n="card_exp">वैधता तारीख</label>
             <input type="text" id="cardExp" class="form-control" placeholder="12/30">
           </div>
           <div class="form-group">
-            <label class="form-label">CVV</label>
+            <label class="form-label" data-i18n="card_cvv">CVV</label>
             <input type="password" id="cardCvv" class="form-control" placeholder="123" maxlength="4">
           </div>
         </div>
@@ -142,17 +147,17 @@
 
       <!-- Tab Content: NetBanking -->
       <div id="tab-netbanking" class="pay-content" style="display: none;">
-        <label class="form-label">Select Popular Bank</label>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1rem;">
-          <button type="button" class="btn btn-outline-dark bank-btn active" style="font-size: 0.85rem; padding: 0.5rem;">State Bank of India</button>
-          <button type="button" class="btn btn-outline-dark bank-btn" style="font-size: 0.85rem; padding: 0.5rem;">HDFC Bank</button>
-          <button type="button" class="btn btn-outline-dark bank-btn" style="font-size: 0.85rem; padding: 0.5rem;">ICICI Bank</button>
-          <button type="button" class="btn btn-outline-dark bank-btn" style="font-size: 0.85rem; padding: 0.5rem;">Axis Bank</button>
+        <label class="form-label" data-i18n="select_bank">बँक निवडा</label>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.2rem;">
+          <button type="button" class="btn bank-btn active" style="font-size: 0.88rem; padding: 0.6rem; border: 2px solid var(--chintamani-red); background: var(--chintamani-red); color: #FFF;">State Bank of India</button>
+          <button type="button" class="btn bank-btn" style="font-size: 0.88rem; padding: 0.6rem; border: 2px solid var(--border-light); background: transparent; color: var(--text-main);">HDFC Bank</button>
+          <button type="button" class="btn bank-btn" style="font-size: 0.88rem; padding: 0.6rem; border: 2px solid var(--border-light); background: transparent; color: var(--text-main);">ICICI Bank</button>
+          <button type="button" class="btn bank-btn" style="font-size: 0.88rem; padding: 0.6rem; border: 2px solid var(--border-light); background: transparent; color: var(--text-main);">Axis Bank</button>
         </div>
       </div>
 
-      <button type="button" id="btnConfirmSevaPayment" class="btn btn-primary" style="width: 100%; padding: 0.9rem; font-size: 1.05rem; margin-top: 1rem;">
-        <i class="bi bi-check-circle-fill"></i> Complete Payment & Issue 80G Receipt
+      <button type="button" id="btnConfirmSevaPayment" class="btn btn-chintamani-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;">
+        <i class="bi bi-check-circle-fill"></i> <span data-i18n="confirm_payment_btn">पेमेंट पूर्ण करा आणि पावती डाऊनलोड करा</span>
       </button>
     </div>
   </div>

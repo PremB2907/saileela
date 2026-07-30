@@ -1,30 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= typeof title !== 'undefined' ? title : 'Shri Saileela Palkhi Sohala 2026' %></title>
+  <title><%= typeof title !== 'undefined' ? title : 'Shri Saileela Palkhi Sohala 2026 | श्री साईलीला पालखी सोहळा' %></title>
   
-  <!-- Fonts & Icons -->
+  <!-- Google Web Fonts & Devanagari Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome & Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   
-  <!-- Core Formal Styling -->
+  <!-- Chinchpokli Cha Chintamani Inspired Stylesheet -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- Top Announcement Header Bar -->
-  <div class="top-announcement">
-    <div class="container announcement-flex">
-      <div class="announcement-text">
-        <span class="announcement-badge">LIVE YATRA</span>
-        <span>🚩 Shri Saileela Palkhi Sohala 2026 is currently at <strong>Talegaon Dabhade Halt</strong>. Next stop: Rajgurunagar Ashram.</span>
+  <!-- Chintamani Style Top Announcement & Language Switcher Bar -->
+  <div class="topbar-chintamani">
+    <div class="container topbar-flex">
+      <div class="topbar-info">
+        <span data-i18n="est_label"><b>स्थापना : १९८८</b></span>
+        <span data-i18n="reg_label"><b>नोंदणी क्र. : ई-३८९२ मुंबई</b></span>
       </div>
-      <div class="top-contacts">
-        <span><i class="bi bi-telephone-fill">Control Room:</i> +91 98765 43210</span>
-        <span><i class="bi bi-geo-alt-fill">Emergency Desk:</i> Shirdi Highway Camp</span>
+
+      <div style="display: flex; align-items: center; gap: 1.2rem;">
+        <!-- Announcement Marquee -->
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem;">
+          <span class="live-pulse-tag" style="background: #FFD700; color: #000; padding: 0.15rem 0.6rem;" data-i18n="live_yatra_badge">LIVE YATRA</span>
+          <span data-i18n="announcement_text">🚩 श्री साईलीला पालखी सोहळा २०२६ सध्या तळेगाव दाभाडे मुक्कामी आहे.</span>
+        </div>
+
+        <!-- Language Switcher Pills -->
+        <div class="lang-switcher-container">
+          <button class="lang-btn active" data-lang="mr">🚩 मराठी</button>
+          <button class="lang-btn" data-lang="hi">🇮🇳 हिंदी</button>
+          <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+        </div>
       </div>
     </div>
   </div>
@@ -32,12 +47,13 @@
   <!-- Main Site Header -->
   <header class="site-header">
     <div class="container header-inner">
+      <!-- Brand Logo -->
       <a href="/" class="brand-logo">
-        <div class="brand-icon">
-          <i class="bi bi-flower1"></i>
+        <div class="brand-icon-mandal">
+          <i class="fa-solid fa-om"></i>
         </div>
         <div class="brand-text">
-          <h1>SAILEELA PALKHI</h1>
+          <h1>श्री साईलीला पालखी सोहळा</h1>
           <p>Shri Sai Leela Seva Trust (Reg. E-3892)</p>
         </div>
       </a>
@@ -45,22 +61,50 @@
       <!-- Navigation Links -->
       <nav class="main-nav" id="mainNav">
         <ul>
-          <li><a href="/" class="nav-link <%= activeTab === 'home' ? 'active' : '' %>"><i class="bi bi-house-door"></i> Home</a></li>
-          <li><a href="/schedule" class="nav-link <%= activeTab === 'schedule' ? 'active' : '' %>"><i class="bi bi-map"></i> Route Schedule</a></li>
-          <li><a href="/register-pass" class="nav-link <%= activeTab === 'register' ? 'active' : '' %>"><i class="bi bi-person-badge"></i> Get Devotee Pass</a></li>
-          <li><a href="/pass-status" class="nav-link <%= activeTab === 'pass-status' ? 'active' : '' %>"><i class="bi bi-qr-code-scan"></i> Verify Pass</a></li>
-          <li><a href="/donate" class="nav-link <%= activeTab === 'donate' ? 'active' : '' %>"><i class="bi bi-heart-fill" style="color: var(--primary-gold);"></i> Seva Donation</a></li>
-          <li><a href="/admin" class="nav-link nav-btn <%= activeTab === 'admin' ? 'active' : '' %>"><i class="bi bi-speedometer2"></i> Admin Panel</a></li>
+          <li><a href="/" class="nav-link <%= activeTab === 'home' ? 'active' : '' %>" data-i18n="nav_home"><i class="bi bi-house-door-fill"></i> मुखपृष्ठ</a></li>
+          <li><a href="/schedule" class="nav-link <%= activeTab === 'schedule' ? 'active' : '' %>" data-i18n="nav_schedule"><i class="bi bi-map-fill"></i> पालखी मार्ग</a></li>
+          <li><a href="/register-pass" class="nav-link <%= activeTab === 'register' ? 'active' : '' %>" data-i18n="nav_pass"><i class="bi bi-person-badge-fill"></i> वारकरी पास</a></li>
+          <li><a href="/pass-status" class="nav-link <%= activeTab === 'pass-status' ? 'active' : '' %>" data-i18n="nav_verify"><i class="bi bi-qr-code-scan"></i> पास पडताळणी</a></li>
+          <li><a href="/donate" class="nav-link <%= activeTab === 'donate' ? 'active' : '' %>" data-i18n="nav_donate"><i class="bi bi-heart-fill" style="color: #FFD700;"></i> देणगी</a></li>
+          <li><a href="/admin" class="nav-link <%= activeTab === 'admin' ? 'active' : '' %>" data-i18n="nav_admin"><i class="bi bi-speedometer2"></i> प्रशासन</a></li>
+          
+          <!-- Live Darshan Button -->
           <li>
-            <button id="themeToggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+            <button type="button" id="btnLiveDarshanModal" class="btn-live-glowing" data-i18n="live_darshan_btn">
+              <i class="fa-solid fa-circle-play"></i> लाइव्ह दर्शन
+            </button>
+          </li>
+
+          <!-- Theme Toggle -->
+          <li>
+            <button id="themeToggle" class="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Dark/Light Mode">
               <i class="bi bi-moon-stars-fill"></i>
             </button>
           </li>
         </ul>
       </nav>
 
+      <!-- Mobile Navigation Toggle -->
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
         <i class="bi bi-list"></i>
       </button>
     </div>
   </header>
+
+  <!-- Live Video Popup Modal (Chintamani Style) -->
+  <div id="videoModal" class="chintamani-modal">
+    <div class="chintamani-modal-content">
+      <div class="chintamani-modal-header">
+        <div>
+          <span style="color: #FFD700; font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Shri Saileela Palkhi</span>
+          <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-top: 0.1rem;">🔴 Live Yatra & Darshan Stream</h3>
+        </div>
+        <button type="button" id="btnCloseVideoModal" style="background: none; border: none; color: #FFFFFF; font-size: 1.8rem; cursor: pointer;">&times;</button>
+      </div>
+      <div style="padding: 1rem; background: #000000; text-align: center;">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+          <iframe id="videoFrame" src="https://www.youtube.com/embed/live_stream?channel=UCsaileela" style="position: absolute; top:0; left:0; width:100%; height:100%; border:none;" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>

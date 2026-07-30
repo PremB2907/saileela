@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!donationForm) return;
 
   const amountInput = document.getElementById('donationAmount');
-  const amountButtons = document.querySelectorAll('.btn-preset-amount');
+  const amountButtons = document.querySelectorAll('.btn-preset-chip');
 
   // Modal elements
   const modalBackdrop = document.getElementById('sevaModalBackdrop');
@@ -23,11 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   amountButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      amountButtons.forEach(b => b.classList.remove('btn-primary'));
-      amountButtons.forEach(b => b.classList.add('btn-outline-dark'));
-
-      btn.classList.remove('btn-outline-dark');
-      btn.classList.add('btn-primary');
+      amountButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
       const selectedVal = btn.dataset.amount;
       if (amountInput) amountInput.value = selectedVal;
@@ -43,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         t.classList.remove('active');
       });
 
-      tab.style.background = 'var(--gold-glow)';
-      tab.style.color = 'var(--primary-gold)';
+      tab.style.background = 'var(--chintamani-red)';
+      tab.style.color = '#FFFFFF';
       tab.classList.add('active');
 
       const targetId = tab.dataset.tab;
@@ -61,10 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Toast Helper
+  function showToast(msg, type = 'info') {
+    alert(msg);
+  }
+
   // Finalize Donation API Call
   async function finalizeDonation(paymentDetails) {
     try {
-      showToast('Processing Seva Donation...', 'info');
       const confirmRes = await fetch('/api/confirm-donation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -73,15 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const confirmData = await confirmRes.json();
       if (confirmData.success) {
-        showToast('Donation successful! Generating 80G Tax Receipt...', 'success');
+        alert('देणगी यशस्वी झाली! ८०जी कर सवलत पावती तयार होत आहे...');
         setTimeout(() => {
           window.location.href = `/download-receipt/${confirmData.receipt_no}`;
-        }, 1200);
+        }, 800);
       } else {
-        showToast(confirmData.message || 'Payment confirmation error.', 'error');
+        alert(confirmData.message || 'पेमेंट करताना त्रुटी आली.');
       }
     } catch (err) {
-      showToast('Error recording donation payment.', 'error');
+      alert('पेमेंट नोंदवताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.');
     }
   }
 
@@ -97,8 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const panNumber = document.getElementById('pan_number').value.trim();
 
     if (!donorName || !phone || !amount || parseFloat(amount) <= 0) {
-      showToast('Please provide your name, phone number, and a valid donation amount.', 'error');
+      alert('कृपया तुमचे नाव, मोबाईल नंबर आणि वैध रक्कम प्रविष्ट करा.');
       return;
+    }
+
+    if (parseFloat(amount) >= 2000 && !panNumber) {
+      alert('२००० रुपयांपेक्षा जास्त देणगीसाठी ८०जी कर सवलतीकरिता पॅन कार्ड आवश्यक आहे.');
     }
 
     // Prepare Donation Payload
@@ -123,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Generate Dynamic UPI QR Code
     const upiString = `upi://pay?pa=saileelatrust@upi&pn=Shri%20Sai%20Leela%20Seva%20Trust&am=${amount}&cu=INR`;
     if (upiQrCodeImg) {
-      upiQrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiString)}`;
+      upiQrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=190x190&data=${encodeURIComponent(upiString)}`;
     }
 
     // Open Modal
@@ -138,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!activeDonationPayload) return;
 
       btnConfirmSevaPayment.disabled = true;
-      btnConfirmSevaPayment.innerHTML = '<span>⏳ Issuing 80G Receipt...</span>';
+      btnConfirmSevaPayment.innerHTML = '<span>⏳ पावती डाऊनलोड होत आहे...</span>';
 
       if (modalBackdrop) modalBackdrop.style.display = 'none';
       await finalizeDonation(activeDonationPayload);

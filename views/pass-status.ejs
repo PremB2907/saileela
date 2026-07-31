@@ -38,9 +38,14 @@
     <% if (pass) { %>
       <div class="pass-ticket-card" style="max-width: 750px; margin: 0 auto; background: var(--bg-card); border: 2px solid var(--chintamani-red); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-lg);">
         <div class="ticket-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-light); padding-bottom: 1rem; margin-bottom: 1.5rem;">
-          <div>
-            <span style="font-size: 0.8rem; color: var(--chintamani-red); text-transform: uppercase; font-weight: 800;">Official VIP Entry Pass</span>
-            <h3 style="margin-top: 0.2rem; font-size: 1.4rem; color: var(--text-main);"><%= pass.full_name %></h3>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 58px; height: 58px; border-radius: 50%; overflow: hidden; border: 2px solid var(--chintamani-gold); box-shadow: var(--shadow-sm); flex-shrink: 0;">
+              <img src="<%= pass.photo_url || '/images/logo.png' %>" alt="Devotee Passport Photo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <span style="font-size: 0.8rem; color: var(--chintamani-red); text-transform: uppercase; font-weight: 800;">Official VIP Entry Pass</span>
+              <h3 style="margin-top: 0.2rem; font-size: 1.4rem; color: var(--text-main);"><%= pass.full_name %></h3>
+            </div>
           </div>
           <div class="pass-code-badge" style="background: var(--chintamani-red); color: #FFD700; font-weight: 800; padding: 0.4rem 1rem; border-radius: var(--radius-sm); font-size: 1.1rem;">
             <%= pass.pass_code %>

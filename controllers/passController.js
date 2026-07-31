@@ -17,7 +17,7 @@ module.exports = {
     try {
       const {
         full_name, phone, email, age, gender, city, batch,
-        emergency_contact, id_proof_type, id_proof_number
+        emergency_contact, id_proof_type, id_proof_number, photo_data
       } = req.body;
 
       if (!full_name || !phone || !age || !gender || !city || !batch || !emergency_contact || !id_proof_type || !id_proof_number) {
@@ -44,6 +44,7 @@ module.exports = {
         emergency_contact: emergency_contact.trim(),
         id_proof_type,
         id_proof_number: id_proof_number.trim(),
+        photo_url: photo_data || '/images/logo.png',
         status: 'Confirmed'
       };
 

@@ -67,6 +67,19 @@
             <input type="text" id="city" name="city" class="form-control" placeholder="Mumbai Central / Byculla / Dadar" required value="<%= typeof formData !== 'undefined' ? formData.city : '' %>">
           </div>
 
+          <!-- Devotee Passport Photo Upload -->
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label" style="font-weight: 700;">भाविकाचा पासपोर्ट फोटो (Devotee Passport Photo) *</label>
+            <div style="display: flex; align-items: center; gap: 1.2rem;">
+              <input type="file" id="devoteePhotoInput" accept="image/*" class="form-control" style="flex: 1;" onchange="handlePhotoUpload(event)">
+              <div id="photoPreviewBox" style="width: 68px; height: 68px; border-radius: 50%; border: 3px solid var(--chintamani-gold); overflow: hidden; background: #FFF5E6; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); flex-shrink: 0;">
+                <img id="photoPreviewImg" src="/images/logo.png" alt="Devotee Photo Preview" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            </div>
+            <input type="hidden" id="photo_data" name="photo_data" value="">
+            <small style="color: var(--text-muted); font-size: 0.78rem;">Upload passport size photo for PDF VIP Gate Pass ID badge.</small>
+          </div>
+
           <div style="text-align: right; margin-top: 2rem;">
             <button type="button" id="btnStepNext" class="btn btn-chintamani-primary">
               Next Step &rarr;
@@ -122,5 +135,22 @@
   </div>
 </section>
 
+<script>
+  function handlePhotoUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const base64Str = e.target.result;
+      const hiddenInput = document.getElementById('photo_data');
+      const imgPreview = document.getElementById('photoPreviewImg');
+
+      if (hiddenInput) hiddenInput.value = base64Str;
+      if (imgPreview) imgPreview.src = base64Str;
+    };
+    reader.readAsDataURL(file);
+  }
+</script>
 <script src="/js/pass-form.js"></script>
 <%- include('partials/footer') %>

@@ -980,13 +980,72 @@ footer.site-footer {
   border: 3px solid #FFD700;
 }
 
-/* Mobile Media Query Rules */
-@media (max-width: 768px) {
-  .mobile-bottom-dock { display: block; }
-  body { padding-bottom: 65px; }
-  .mandal-banner-3d-text { font-size: 1.35rem; text-shadow: 2px 2px 0px #800020; }
-  .brand-text h2 { font-size: 1.05rem; }
-  .hero-title-chintamani { font-size: 2.1rem !important; }
+/* ==========================================================================
+   SKIPER-UI & BKLIT UI 3D COVERFLOW & BORDER BEAM ANIMATIONS
+   ========================================================================== */
+.skiper-carousel-container {
+  padding: 3rem 0;
+  perspective: 1200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-3d-raja {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide-raja {
+  background-position: center;
+  background-size: cover;
+  width: 320px;
+  height: 420px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border: 3px solid #FFD700;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.swiper-slide-raja img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-caption-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(128,0,32,0.95) 100%);
+  color: #FFFFFF;
+  padding: 1.5rem 1rem 1rem;
+  text-align: center;
+}
+
+.border-beam-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(22, 11, 40, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.border-beam-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background: conic-gradient(transparent, transparent, #FFD700, transparent);
+  animation: border-beam 6s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes border-beam {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Responsive Media Queries */

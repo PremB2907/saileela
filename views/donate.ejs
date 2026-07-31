@@ -1,27 +1,22 @@
+<%- include('partials/header') %>
+
 <!-- Donate Portal Bright Header Banner -->
-<section style="background: linear-gradient(135deg, #800020 0%, #FF6F00 100%); padding: 3.5rem 0; text-align: center; border-bottom: 4px solid var(--chintamani-gold);">
+<section style="background: linear-gradient(135deg, #800020 0%, #E65100 100%); padding: 3.5rem 0; text-align: center; border-bottom: 4px solid var(--chintamani-gold);">
   <div class="container">
     <div style="width: 64px; height: 64px; margin: 0 auto 0.6rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
       <img src="/images/logo.png" alt="Mumbai Central Cha Raja Logo" style="width: 100%; height: 100%; object-fit: contain;">
     </div>
-    <h1 style="font-family: 'Rozha One', 'Noto Sans Devanagari', serif; font-size: 3.2rem; color: #FFFFFF; font-weight: 800; margin: 0;">
+    <h1 style="font-family: 'Rozha One', 'Noto Sans Devanagari', serif; font-size: 3.2rem; color: #FFFFFF; font-weight: 800; margin: 0;" data-i18n="donate_form_title">
       ऑनलाइन सेवा व देणगी पोर्टल 💖
     </h1>
-    <p style="color: #FFF5E6; font-size: 0.95rem; margin-top: 0.5rem;">
-      <a href="/" style="color: #FFD700; font-weight: 700;">मुखपृष्ठ</a> / <span style="color: #FFFFFF;">८०जी करसवलत पावतीसह देणगी</span>
+    <p style="color: #FFF5E6; font-size: 0.95rem; margin-top: 0.5rem;" data-i18n="donate_form_sub">
+      मोदक महाप्रसाद, मंडप पुष्प अलंकार आणि सामाजिक उपक्रमांसाठी तुमचे सहकार्य द्या.
     </p>
   </div>
 </section>
 
 <section style="padding: 3.5rem 0; background: var(--bg-surface);">
   <div class="container">
-    <div class="section-header" style="text-align: center; max-width: 750px; margin: 0 auto 3rem;">
-      <span class="section-tag" style="background: rgba(128,0,32,0.1); color: var(--chintamani-red); font-weight: 800; padding: 0.3rem 1rem; border-radius: var(--radius-full);" data-i18n="donate_tag">80G करसवलत प्राप्त सेवा योगदान</span>
-      <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.6rem;" data-i18n="donate_title">ऑनलाइन सेवा व देणगी पोर्टल</h2>
-      <p class="section-subtitle" data-i18n="donate_subtitle">
-        मोदक महाप्रसाद, मंडप पुष्प अलंकार आणि सामाजिक उपक्रमांसाठी तुमचे सहकार्य द्या. सर्व देणग्यांना त्वरित 80G कर सवलत प्रमाणपत्र मिळते.
-      </p>
-    </div>
 
     <div class="form-card" style="max-width: 780px; margin: 0 auto; background: var(--bg-card); padding: 2.5rem; border-radius: var(--radius-lg); border: 2px solid var(--border-light); box-shadow: var(--shadow-md);">
       <form id="donationForm">
@@ -37,55 +32,55 @@
             <button type="button" class="btn-preset-chip" data-amount="11000">₹११,०००</button>
           </div>
 
-          <label class="form-label" for="donationAmount" style="font-weight: 700; color: var(--text-main);" data-i18n="custom_amount">इतर रक्कम (₹) *</label>
-          <input type="number" id="donationAmount" name="amount" class="form-control" placeholder="Enter amount in INR" min="10" value="2100" required>
+          <label class="form-label" for="donationAmount" style="font-weight: 700; color: var(--text-main);" data-i18n="lbl_custom_amount">किंवा तुमची रक्कम टाका (₹) *</label>
+          <input type="number" id="donationAmount" name="amount" class="form-control" placeholder="Enter amount in ₹" data-i18n="ph_custom_amount" min="10" value="2100" required>
         </div>
 
         <div class="form-group" style="margin-bottom: 1.5rem;">
-          <label class="form-label" for="category" style="font-weight: 700; color: var(--text-main);" data-i18n="seva_category">सेवा प्रकार *</label>
+          <label class="form-label" for="category" style="font-weight: 700; color: var(--text-main);">सेवा प्रकार (Seva Category) *</label>
           <select id="category" name="category" class="form-select" required>
-            <option value="Modak & Mahaprasad Seva">मोदक व महाप्रसाद वाटप सेवा</option>
-            <option value="Mandap & Pushpa Alankar Seva">मंडप व भव्य पुष्प अलंकार सेवा</option>
-            <option value="Aagman & Visarjan Sohala Fund">आगमन व विसर्जन सोहळा निधी</option>
-            <option value="Medical & Security Welfare Desk">२४/७ वैद्यकीय व सुरक्षा व्यवस्था निधी</option>
-            <option value="General Trust Seva Fund">सर्वसाधारण विश्वस्त सेवा निधी</option>
+            <option value="Modak & Mahaprasad Seva">मोदक व महाप्रसाद वाटप सेवा (Modak & Mahaprasad)</option>
+            <option value="Mandap & Pushpa Alankar Seva">मंडप व भव्य पुष्प अलंकार सेवा (Mandap Floral Decor)</option>
+            <option value="Aagman & Visarjan Sohala Fund">आगमन व विसर्जन सोहळा निधी (Procession Fund)</option>
+            <option value="Medical & Security Welfare Desk">२४/७ वैद्यकीय व सुरक्षा व्यवस्था (Medical & Safety)</option>
+            <option value="General Trust Seva Fund">सर्वसाधारण विश्वस्त सेवा निधी (General Trust Fund)</option>
           </select>
         </div>
 
         <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
           <div class="form-group">
-            <label class="form-label" for="donor_name" style="font-weight: 700; color: var(--text-main);" data-i18n="donor_name">देणगीदाराचे पूर्ण नाव *</label>
-            <input type="text" id="donor_name" name="donor_name" class="form-control" placeholder="उदा. आनंद देशमूख" required>
+            <label class="form-label" for="donor_name" style="font-weight: 700; color: var(--text-main);" data-i18n="lbl_donor_name">देणगीदाराचे नाव *</label>
+            <input type="text" id="donor_name" name="donor_name" class="form-control" placeholder="संपूर्ण नाव टाका" data-i18n="ph_donor_name" required>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="phone" style="font-weight: 700; color: var(--text-main);" data-i18n="donor_phone">मोबाईल नंबर *</label>
-            <input type="tel" id="phone" name="phone" class="form-control" placeholder="१० अंकी मोबाईल नंबर" required>
+            <label class="form-label" for="phone" style="font-weight: 700; color: var(--text-main);" data-i18n="lbl_mobile">मोबाईल नंबर *</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="१० अंकी मोबाईल नंबर टाका" data-i18n="ph_mobile" required>
           </div>
         </div>
 
         <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
           <div class="form-group">
-            <label class="form-label" for="email" style="font-weight: 700; color: var(--text-main);" data-i18n="donor_email">ईमेल पत्ता (पावतीसाठी)</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="anand@example.com">
+            <label class="form-label" for="email" style="font-weight: 700; color: var(--text-main);" data-i18n="lbl_email">ईमेल पत्ता (पावतीसाठी)</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="पावती मिळवण्यासाठी ईमेल टाका" data-i18n="ph_email">
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="pan_number" style="font-weight: 700; color: var(--text-main);" data-i18n="donor_pan">पॅन कार्ड नंबर (८०जी कर सवलतीसाठी)</label>
-            <input type="text" id="pan_number" name="pan_number" class="form-control" placeholder="उदा. ABCDE1234F" style="text-transform: uppercase;">
+            <label class="form-label" for="pan_number" style="font-weight: 700; color: var(--text-main);" data-i18n="lbl_pan_no">पॅन कार्ड नंबर (८०जी पावतीसाठी)</label>
+            <input type="text" id="pan_number" name="pan_number" class="form-control" placeholder="उदा. ABCDE1234F" data-i18n="ph_pan_no" style="text-transform: uppercase;">
           </div>
         </div>
 
         <div style="background: rgba(5, 150, 105, 0.08); border: 2px dashed #059669; color: #065F46; padding: 1.2rem; border-radius: var(--radius-md); font-size: 0.92rem; margin-bottom: 1.8rem; display: flex; align-items: center; gap: 0.8rem;">
           <i class="bi bi-shield-check" style="font-size: 1.8rem; color: #059669;"></i>
           <div>
-            <strong data-i18n="pay_notice">सुरक्षित पेमेंट पद्धत: UPI QR, GPay, PhonePe, क्रेडिट/डेबिट कार्ड, नेट बँकिंग आणि Razorpay स्वीकारले जातात.</strong>
-            <p style="margin-top: 0.2rem; font-size: 0.82rem; color: #047857;">सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत पावती डिजिटल पद्धतीने त्वरित डाऊनलोड करता येईल.</p>
+            <strong>Secured Payment: UPI QR, GPay, PhonePe, Cards & Net Banking accepted.</strong>
+            <p style="margin-top: 0.2rem; font-size: 0.82rem; color: #047857;">Instant 80G tax exemption PDF receipt downloaded after payment.</p>
           </div>
         </div>
 
-        <button type="submit" id="btnDonateSubmit" class="btn btn-chintamani-primary" style="width: 100%; padding: 1.1rem; font-size: 1.15rem; background: var(--chintamani-red);">
-          <span data-i18n="proceed_pay_btn">💳 पेमेंट करा आणि ८०जी पावती मिळवा</span>
+        <button type="submit" id="btnDonateSubmit" class="btn btn-chintamani-primary" style="width: 100%; padding: 1.1rem; font-size: 1.15rem;">
+          <span data-i18n="btn_donate_submit">सुरक्षित देणगी द्या व PDF पावती मिळवा</span>
         </button>
       </form>
     </div>
@@ -95,10 +90,10 @@
 <!-- Executive In-App Seva Payment Modal -->
 <div id="sevaModalBackdrop" class="chintamani-modal">
   <div class="chintamani-modal-content">
-    <div class="chintamani-modal-header">
+    <div class="chintamani-modal-header" style="background: linear-gradient(135deg, #800020 0%, #E65100 100%);">
       <div>
         <span style="color: #FFD700; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">Mumbai Central Cha Raja Official</span>
-        <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-top: 0.1rem;" data-i18n="modal_title">ऑनलाइन सेवा देणगी</h3>
+        <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-top: 0.1rem;">Online Seva Donation Portal</h3>
       </div>
       <button type="button" id="btnCloseModal" style="background: none; border: none; color: #FFFFFF; font-size: 1.8rem; cursor: pointer;">&times;</button>
     </div>
@@ -106,31 +101,31 @@
     <div style="padding: 1.8rem;">
       <div style="background: var(--bg-surface); padding: 1rem 1.2rem; border-radius: var(--radius-md); margin-bottom: 1.4rem; display: flex; justify-content: space-between; align-items: center; border: 2px solid var(--border-light);">
         <div>
-          <span style="font-size: 0.78rem; color: var(--text-muted); display: block;" data-i18n="modal_category">सेवा प्रकार</span>
-          <strong id="modalCategoryText" style="color: var(--text-main); font-size: 1rem;">मोदक व महाप्रसाद सेवा</strong>
+          <span style="font-size: 0.78rem; color: var(--text-muted); display: block;">SEVA CATEGORY</span>
+          <strong id="modalCategoryText" style="color: var(--text-main); font-size: 1rem;">Modak & Mahaprasad Seva</strong>
         </div>
         <div style="text-align: right;">
-          <span style="font-size: 0.78rem; color: var(--text-muted); display: block;" data-i18n="modal_amount">देय रक्कम</span>
-          <strong id="modalAmountText" style="color: var(--chintamani-red); font-size: 1.4rem;">₹२,१००</strong>
+          <span style="font-size: 0.78rem; color: var(--text-muted); display: block;">AMOUNT TO PAY</span>
+          <strong id="modalAmountText" style="color: var(--chintamani-red); font-size: 1.4rem;">₹2,100</strong>
         </div>
       </div>
 
       <!-- Payment Method Tabs -->
       <div style="display: flex; gap: 0.5rem; margin-bottom: 1.4rem; border-bottom: 2px solid var(--border-light); padding-bottom: 0.6rem;">
-        <button type="button" class="pay-tab active" data-tab="tab-upi" style="flex: 1; padding: 0.7rem; border: none; background: var(--chintamani-red); color: #FFFFFF; font-weight: 800; border-radius: var(--radius-sm); cursor: pointer;" data-i18n="tab_upi">
-          📱 UPI / QR कोड
+        <button type="button" class="pay-tab active" data-tab="tab-upi" style="flex: 1; padding: 0.7rem; border: none; background: var(--chintamani-red); color: #FFFFFF; font-weight: 800; border-radius: var(--radius-sm); cursor: pointer;">
+          📱 UPI / QR Code
         </button>
-        <button type="button" class="pay-tab" data-tab="tab-card" style="flex: 1; padding: 0.7rem; border: none; background: var(--bg-surface); color: var(--text-muted); font-weight: 700; border-radius: var(--radius-sm); cursor: pointer;" data-i18n="tab_card">
-          💳 कार्ड पेमेंट
+        <button type="button" class="pay-tab" data-tab="tab-card" style="flex: 1; padding: 0.7rem; border: none; background: var(--bg-surface); color: var(--text-muted); font-weight: 700; border-radius: var(--radius-sm); cursor: pointer;">
+          💳 Card Payment
         </button>
-        <button type="button" class="pay-tab" data-tab="tab-netbanking" style="flex: 1; padding: 0.7rem; border: none; background: var(--bg-surface); color: var(--text-muted); font-weight: 700; border-radius: var(--radius-sm); cursor: pointer;" data-i18n="tab_netbanking">
-          🏛️ नेट बँकिंग
+        <button type="button" class="pay-tab" data-tab="tab-netbanking" style="flex: 1; padding: 0.7rem; border: none; background: var(--bg-surface); color: var(--text-muted); font-weight: 700; border-radius: var(--radius-sm); cursor: pointer;">
+          🏛️ Net Banking
         </button>
       </div>
 
       <!-- Tab Content: UPI QR Code -->
       <div id="tab-upi" class="pay-content" style="text-align: center; padding: 0.5rem 0;">
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="upi_scan_instruction">GPay, PhonePe, Paytm किंवा BHIM ॲपद्वारे QR कोड स्कॅन करा:</p>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">Scan QR code using GPay, PhonePe, Paytm, or BHIM:</p>
         <div style="background: #FFFFFF; padding: 1.2rem; border: 3px dashed var(--chintamani-saffron); border-radius: var(--radius-md); display: inline-block; margin-bottom: 1rem; box-shadow: var(--shadow-sm);">
           <img id="upiQrCodeImg" src="" alt="UPI Payment QR Code" style="width: 190px; height: 190px; display: block;">
         </div>
@@ -140,44 +135,43 @@
       <!-- Tab Content: Card Payment -->
       <div id="tab-card" class="pay-content" style="display: none;">
         <div class="form-group" style="margin-bottom: 1rem;">
-          <label class="form-label" data-i18n="card_name">कार्डधारकाचे नाव</label>
-          <input type="text" id="cardName" class="form-control" placeholder="Name on Card">
+          <label class="form-label">Card Number</label>
+          <input type="text" class="form-control" placeholder="4111 2222 3333 4444" maxlength="19">
         </div>
-        <div class="form-group" style="margin-bottom: 1rem;">
-          <label class="form-label" data-i18n="card_number">कार्ड नंबर</label>
-          <input type="text" id="cardNumber" class="form-control" placeholder="4111 1111 1111 1111" maxlength="19">
-        </div>
-        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
           <div class="form-group">
-            <label class="form-label" data-i18n="card_exp">वैधता तारीख</label>
-            <input type="text" id="cardExp" class="form-control" placeholder="12/30">
+            <label class="form-label">Expiry Date</label>
+            <input type="text" class="form-control" placeholder="MM/YY" maxlength="5">
           </div>
           <div class="form-group">
-            <label class="form-label" data-i18n="card_cvv">CVV</label>
-            <input type="password" id="cardCvv" class="form-control" placeholder="123" maxlength="4">
+            <label class="form-label">CVV</label>
+            <input type="password" class="form-control" placeholder="123" maxlength="3">
           </div>
         </div>
       </div>
 
-      <!-- Tab Content: NetBanking -->
+      <!-- Tab Content: Net Banking -->
       <div id="tab-netbanking" class="pay-content" style="display: none;">
-        <label class="form-label" data-i18n="select_bank">बँक निवडा</label>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.2rem;">
-          <button type="button" class="btn bank-btn active" style="font-size: 0.88rem; padding: 0.6rem; border: 2px solid var(--chintamani-red); background: var(--chintamani-red); color: #FFF;">State Bank of India</button>
-          <button type="button" class="btn bank-btn" style="font-size: 0.88rem; padding: 0.6rem; border: 2px solid var(--border-light); background: transparent; color: var(--text-main);">HDFC Bank</button>
-          <button type="button" class="btn bank-btn" style="font-size: 0.88rem; padding: 0.6rem; border: 2px solid var(--border-light); background: transparent; color: var(--text-main);">ICICI Bank</button>
-          <button type="button" class="btn bank-btn" style="font-size: 0.88rem; padding: 0.6rem; border: 2px solid var(--border-light); background: transparent; color: var(--text-main);">Axis Bank</button>
+        <div class="form-group">
+          <label class="form-label">Select Your Bank</label>
+          <select class="form-select">
+            <option>State Bank of India (SBI)</option>
+            <option>HDFC Bank</option>
+            <option>ICICI Bank</option>
+            <option>Axis Bank</option>
+            <option>Bank of Baroda</option>
+          </select>
         </div>
       </div>
 
-      <button type="button" id="btnConfirmSevaPayment" class="btn btn-chintamani-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1rem; background: var(--chintamani-red);">
-        <i class="bi bi-check-circle-fill"></i> <span data-i18n="confirm_payment_btn">पेमेंट पूर्ण करा आणि पावती डाऊनलोड करा</span>
-      </button>
+      <div style="margin-top: 1.8rem; text-align: center;">
+        <button type="button" id="btnConfirmPay" class="btn btn-chintamani-primary" style="width: 100%; padding: 0.9rem; font-size: 1.05rem;">
+          <i class="bi bi-shield-lock-fill"></i> Pay Securely & Generate PDF Receipt
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Razorpay Client SDK -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src="/js/donate.js"></script>
+<script src="/js/payment.js"></script>
 <%- include('partials/footer') %>

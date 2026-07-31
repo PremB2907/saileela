@@ -1,5 +1,5 @@
 /**
- * Mumbai Central Cha Raja - Internationalization & Language Switcher (i18n)
+ * Mumbai Central Cha Raja - Comprehensive Internationalization (i18n)
  * Official Handle: @mumbaicentralcharajaofficial
  * Mandal: Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal
  * Supports: English (en), Marathi (mr)
@@ -99,6 +99,75 @@ const translations = {
     callout_title: "Support Mumbai Central Cha Raja Seva",
     callout_desc: "Your generous donation powers Mahaprasad distribution, mandap floral decor, and social community drives. 50% Tax Exempt under Section 80G.",
     donate_now_btn: "Donate Online Now (With 80G Receipt)",
+
+    // VIP Pass Registration Page (/register-pass)
+    pass_form_tag: "Free Official Devotee Pass",
+    pass_form_title: "VIP Darshan Pass Registration 🎟️",
+    pass_form_sub: "Fill your details below to generate your instant QR-coded digital pass token.",
+    lbl_full_name: "Full Devotee Name",
+    ph_full_name: "Enter your full name",
+    lbl_mobile: "WhatsApp / Mobile Number",
+    ph_mobile: "Enter 10-digit mobile number",
+    lbl_email: "Email Address (Optional)",
+    ph_email: "Enter email address for PDF receipt",
+    lbl_num_devotees: "Number of Family Devotees",
+    lbl_darshan_date: "Select Preferred Darshan Date",
+    lbl_time_slot: "Select Preferred Time Slot",
+    slot_morning: "Morning Aarti Slot (07:00 AM - 11:00 AM)",
+    slot_afternoon: "Afternoon Darshan Slot (12:00 PM - 04:00 PM)",
+    slot_evening: "Evening Maha Aarti Slot (06:00 PM - 10:00 PM)",
+    btn_generate_pass: "Generate Official VIP Pass & QR Token",
+
+    // Pass Verification Page (/pass-status)
+    verify_form_tag: "QR Code & Token Verification",
+    verify_form_title: "VIP Pass Status Verification 🔍",
+    verify_form_sub: "Enter your Pass Token ID or registered Mobile Number to check status or download pass.",
+    lbl_token_input: "Pass Token ID / Mobile Number",
+    ph_token_input: "e.g. MCC-2026-89412 or 9876543210",
+    btn_verify_now: "Verify Pass Status Now",
+
+    // Donation Portal Page (/donate)
+    donate_form_tag: "80G Tax Exempted Contribution",
+    donate_form_title: "Online Seva & Donation Portal 💖",
+    donate_form_sub: "Support Mahaprasad distribution, mandap floral decoration, and social welfare causes.",
+    select_preset: "Select Preset Donation Amount (₹)",
+    lbl_custom_amount: "Or Enter Custom Amount (₹)",
+    ph_custom_amount: "Enter custom amount in ₹",
+    lbl_donor_name: "Full Donor Name",
+    ph_donor_name: "Enter donor full name",
+    lbl_pan_no: "PAN Card Number (For 80G Receipt)",
+    ph_pan_no: "e.g. ABCDE1234F",
+    lbl_payment_mode: "Select Payment Gateway Mode",
+    btn_donate_submit: "Proceed to Secure Donation & Get PDF Receipt",
+
+    // T-Shirt Store Page (/tshirt)
+    tshirt_form_tag: "Official Festival Apparel 👕",
+    tshirt_form_title: "Mumbai Central Cha Raja Official T-Shirt 2026",
+    tshirt_form_sub: "High-quality 100% combed cotton festive t-shirt with gold metallic mandal emblem.",
+    lbl_select_size: "Select T-Shirt Size",
+    lbl_select_qty: "Quantity (Items)",
+    lbl_delivery_type: "Select Delivery Method",
+    opt_pickup: "Mandap Desk Pickup (Belasis Road B.I.T. Chawl)",
+    opt_courier: "Home Courier Delivery (All India)",
+    btn_book_tshirt: "Book Official T-Shirt & Get Booking Receipt (₹499)",
+
+    // Contact Page (/contact)
+    contact_header_title: "Contact Us",
+    contact_header_sub: "Reach out to Belasis Road B.I.T. Chawl Mandal Executive Committee.",
+    office_address_label: "Mandap & Head Office Address",
+    emergency_desk_label: "24/7 Emergency & Help Desk",
+    email_label: "Official Email Address",
+    lbl_contact_name: "Your Full Name",
+    ph_contact_name: "Enter full name",
+    lbl_contact_email: "Your Email",
+    ph_contact_email: "Enter email address",
+    lbl_contact_msg: "Message / Query",
+    ph_contact_msg: "Write your message or inquiry here...",
+    btn_send_msg: "Send Message to Mandal Desk",
+
+    // Schedule Page (/schedule)
+    schedule_page_title: "10-Day Ganeshotsav Schedule 📅",
+    schedule_page_sub: "Complete itinerary of morning puja, evening Maha Aarti, Bhakti Sangeet, and Visarjan procession.",
 
     // Footer
     footer_mandal_info: "Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal, Mumbai",
@@ -201,6 +270,75 @@ const translations = {
     callout_title: "मुंबई सेंट्रलचा राजा सेवेला पाठिंबा द्या",
     callout_desc: "तुमची देणगी महाप्रसाद, मंडप पुष्प अलंकार आणि समाजोपयोगी उपक्रमांना मदत पुरवते. सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत मिळतो.",
     donate_now_btn: "आत्ताच ऑनलाइन देणगी द्या (८०जी पावतीसह)",
+
+    // VIP Pass Registration Page (/register-pass)
+    pass_form_tag: "अधिकृत व्हीआयपी पास",
+    pass_form_title: "व्हीआयपी दर्शन पास नोंदणी 🎟️",
+    pass_form_sub: "तुमचा विनामूल्य डिजिटल पास आणि क्यूआर कोड मिळवण्यासाठी खालील माहिती भरा.",
+    lbl_full_name: "भाविकाचे संपूर्ण नाव",
+    ph_full_name: "तुमचे संपूर्ण नाव टाका",
+    lbl_mobile: "व्हॉट्सॲप / मोबाईल नंबर",
+    ph_mobile: "१० अंकी मोबाईल नंबर टाका",
+    lbl_email: "ईमेल आयडी (पर्यायी)",
+    ph_email: "पावती मिळवण्यासाठी ईमेल टाका",
+    lbl_num_devotees: "कुटुंबातील एकूण भाविक संख्या",
+    lbl_darshan_date: "दर्शनाची तारीख निवडा",
+    lbl_time_slot: "दर्शनाची वेळ (स्लॉट) निवडा",
+    slot_morning: "सकाळची आरती वेळ (सकाळी ०७:०० ते ११:००)",
+    slot_afternoon: "दुपारचे दर्शन (दुपारी १२:०० ते ०४:००)",
+    slot_evening: "सायंकाळची महाआरती (रात्री ०६:०० ते १०:००)",
+    btn_generate_pass: "अधिकृत पास व क्यूआर कोड मिळवा",
+
+    // Pass Verification Page (/pass-status)
+    verify_form_tag: "क्यूआर कोड व पास पडताळणी",
+    verify_form_title: "व्हीआयपी पास पडताळणी 🔍",
+    verify_form_sub: "तुमचा पास टोकन नंबर किंवा नोंदणीकृत मोबाईल नंबर टाकून पास तपासा.",
+    lbl_token_input: "पास टोकन नंबर / मोबाईल नंबर",
+    ph_token_input: "उदा. MCC-2026-89412 किंवा 9876543210",
+    btn_verify_now: "पासची स्थिती तपासा",
+
+    // Donation Portal Page (/donate)
+    donate_form_tag: "८०जी करसवलत प्राप्त सेवा योगदान",
+    donate_form_title: "ऑनलाइन सेवा व देणगी पोर्टल 💖",
+    donate_form_sub: "मोदक महाप्रसाद, मंडप पुष्प अलंकार आणि सामाजिक उपक्रमांसाठी तुमचे सहकार्य द्या.",
+    select_preset: "देणगी रक्कम निवडा (₹)",
+    lbl_custom_amount: "किंवा तुमची रक्कम टाका (₹)",
+    ph_custom_amount: "रक्कम टाका ₹",
+    lbl_donor_name: "देणगीदाराचे नाव",
+    ph_donor_name: "संपूर्ण नाव टाका",
+    lbl_pan_no: "पॅन कार्ड नंबर (८०जी पावतीसाठी)",
+    ph_pan_no: "उदा. ABCDE1234F",
+    lbl_payment_mode: "पेमेंट पद्धत निवडा",
+    btn_donate_submit: "सुरक्षित देणगी द्या व PDF पावती मिळवा",
+
+    // T-Shirt Store Page (/tshirt)
+    tshirt_form_tag: "अधिकृत टी-शर्ट 👕",
+    tshirt_form_title: "मुंबई सेंट्रलचा राजा ऑफिशियल टी-शर्ट २०२६",
+    tshirt_form_sub: "उत्कृष्ट प्रतीचा कॉटन टी-शर्ट, सुवर्ण राजमुद्रा व नाव प्रिंट.",
+    lbl_select_size: "टी-शर्ट साईझ निवडा",
+    lbl_select_qty: "टी-शर्ट संख्या (नग)",
+    lbl_delivery_type: "टी-शर्ट मिळण्याची पद्धत",
+    opt_pickup: "मंडप काउंटरवरून पिकअप (बेलासिस रोड बी.आय.टी. चाळ)",
+    opt_courier: "होम डिलिव्हरी (कूरियरद्वारे)",
+    btn_book_tshirt: "ऑफिशियल टी-शर्ट बुक करा व पावती मिळवा (₹४९९)",
+
+    // Contact Page (/contact)
+    contact_header_title: "संपर्क",
+    contact_header_sub: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ कार्यकारिणी.",
+    office_address_label: "मंडप व मुख्य कार्यालय पत्ता",
+    emergency_desk_label: "२४/७ आपत्कालीन व मदत केंद्र",
+    email_label: "अधिकृत ईमेल पत्ता",
+    lbl_contact_name: "तुमचे नाव",
+    ph_contact_name: "संपूर्ण नाव टाका",
+    lbl_contact_email: "तुमचा ईमेल",
+    ph_contact_email: "ईमेल पत्ता टाका",
+    lbl_contact_msg: "तुमचा संदेश / प्रश्न",
+    ph_contact_msg: "येथे संदेश लिहा...",
+    btn_send_msg: "मंडळाला संदेश पाठवा",
+
+    // Schedule Page (/schedule)
+    schedule_page_title: "१० दिवसांचे गणेशोत्सव वेळापत्रक 📅",
+    schedule_page_sub: "दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक पूर्ण कार्यसूची.",
 
     // Footer
     footer_mandal_info: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ, मुंबई",

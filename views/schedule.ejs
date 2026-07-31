@@ -1,27 +1,35 @@
 <%- include('partials/header') %>
 
+<!-- Schedule Bright Header Banner -->
+<section style="background: linear-gradient(135deg, #800020 0%, #E65100 100%); padding: 3.5rem 0; text-align: center; border-bottom: 4px solid var(--chintamani-gold);">
+  <div class="container">
+    <div style="width: 64px; height: 64px; margin: 0 auto 0.6rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+      <img src="/images/logo.png" alt="Mumbai Central Cha Raja Logo" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+    <h1 style="font-family: 'Rozha One', 'Noto Sans Devanagari', serif; font-size: 3.2rem; color: #FFFFFF; font-weight: 800; margin: 0;" data-i18n="schedule_page_title">
+      १० दिवसांचे गणेशोत्सव वेळापत्रक 📅
+    </h1>
+    <p style="color: #FFF5E6; font-size: 0.95rem; margin-top: 0.5rem;" data-i18n="schedule_page_sub">
+      दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक पूर्ण कार्यसूची.
+    </p>
+  </div>
+</section>
+
 <section style="padding: 4rem 0; background: var(--bg-surface);">
   <div class="container">
-    <div class="section-header" style="text-align: center; max-width: 750px; margin: 0 auto 3rem;">
-      <span class="section-tag" style="background: rgba(128,0,32,0.1); color: var(--chintamani-red); font-weight: 800; padding: 0.3rem 1rem; border-radius: var(--radius-full);" data-i18n="itinerary_tag">गणेशोत्सव कार्यसूची</span>
-      <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.6rem;" data-i18n="itinerary_title">१० दिवसांचे गणेशोत्सव वेळापत्रक २०२६</h2>
-      <p class="section-subtitle" data-i18n="itinerary_subtitle">
-        दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक वेळापत्रक पाहा.
-      </p>
-    </div>
 
     <!-- Live Status Banner -->
-    <div style="background: linear-gradient(135deg, #160B28 0%, #4A0404 100%); color: #FFFFFF; padding: 1.8rem; border-radius: var(--radius-lg); margin-bottom: 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border: 2px solid var(--chintamani-gold); box-shadow: var(--shadow-lg);">
+    <div style="background: linear-gradient(135deg, #800020 0%, #E65100 100%); color: #FFFFFF; padding: 1.8rem; border-radius: var(--radius-lg); margin-bottom: 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border: 2px solid var(--chintamani-gold); box-shadow: var(--shadow-lg);">
       <div>
         <span style="color: #FFD700; font-weight: 800; font-size: 0.85rem; text-transform: uppercase;" data-i18n="current_location">सध्याचे मण्डप स्थान</span>
         <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-top: 0.2rem;"><%= yatraStatus.current_location %></h3>
       </div>
       <div>
-        <span style="font-size: 0.85rem; color: #CBD5E1; display: block;" data-i18n="route_progress">महोत्सव प्रगती</span>
+        <span style="font-size: 0.85rem; color: #FFF5E6; display: block;" data-i18n="route_progress">महोत्सव प्रगती</span>
         <span style="font-size: 1.3rem; font-weight: 800; color: #FFD700;">Day <%= yatraStatus.current_day %> of <%= yatraStatus.total_days %></span>
       </div>
       <div>
-        <a href="/register-pass" class="btn btn-chintamani-primary" style="background: var(--chintamani-red); border-color: #FFD700;">
+        <a href="/register-pass" class="btn btn-chintamani-primary" style="background: #FFD700; color: #800020 !important;">
           <i class="bi bi-person-badge"></i> <span data-i18n="btn_get_pass">अधिकृत पास मिळवा</span>
         </a>
       </div>
@@ -41,7 +49,7 @@
             </span>
             <h3 style="font-size: 1.35rem; margin: 0.5rem 0 0.3rem; color: var(--text-main);"><%= item.title %></h3>
             <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.8rem;">
-              <i class="bi bi-geo-alt-fill" style="color: var(--chintamani-red);"></i> <strong>स्थान:</strong> <%= item.halt_location %>
+              <i class="bi bi-geo-alt-fill" style="color: var(--chintamani-red);"></i> <strong>Location:</strong> <%= item.halt_location %>
             </p>
 
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -52,7 +60,7 @@
           </div>
 
           <div style="text-align: right; min-width: 160px;">
-            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">आपत्कालीन संपर्क:</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Emergency Contact:</span>
             <span style="font-size: 0.95rem; font-weight: 800; color: var(--chintamani-saffron);">📞 <%= item.emergency_contact %></span>
           </div>
         </div>

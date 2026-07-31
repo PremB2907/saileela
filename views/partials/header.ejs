@@ -19,30 +19,33 @@
 </head>
 <body>
 
-  <!-- Top Announcement Bar & Language Switcher -->
+  <!-- Chinchpokli Style Top Saffron Header Banner -->
   <div class="topbar-chintamani">
-    <div class="container topbar-flex">
-      <div class="topbar-info">
-        <span data-i18n="est_label"><b>स्थापना : १९८८</b></span>
-        <span data-i18n="reg_label"><b>नोंदणी क्र. : ई-३८९२ मुंबई</b></span>
-        <a href="https://www.instagram.com/mumbaicentralcharajaofficial" target="_blank" rel="noopener noreferrer" style="color: #FFD700; font-weight: 700; margin-left: 0.5rem; display: inline-flex; align-items: center; gap: 0.3rem;">
-          <i class="fa-brands fa-instagram" style="font-size: 1.1rem;"></i> @mumbaicentralcharajaofficial
-        </a>
-      </div>
+    <div class="container">
+      <div class="mandal-top-banner-flex">
+        <!-- Top Meta (Est & Reg) -->
+        <div class="mandal-top-meta">
+          <span data-i18n="est_label">स्थापना : १९८८</span>
+          
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="https://www.instagram.com/mumbaicentralcharajaofficial" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; font-weight: 700; text-decoration: none;">
+              <i class="fa-brands fa-instagram" style="color: #FFD700;"></i> @mumbaicentralcharajaofficial
+            </a>
+            <!-- Language Switcher Pills -->
+            <div class="lang-switcher-container">
+              <button class="lang-btn active" data-lang="mr">🚩 मराठी</button>
+              <button class="lang-btn" data-lang="hi">🇮🇳 हिंदी</button>
+              <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+            </div>
+          </div>
 
-      <div style="display: flex; align-items: center; gap: 1.2rem;">
-        <!-- Announcement Marquee -->
-        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem;">
-          <span class="live-pulse-tag" style="background: #FFD700; color: #000; padding: 0.15rem 0.6rem;" data-i18n="live_yatra_badge">LIVE DARSHAN</span>
-          <span data-i18n="announcement_text">🌺 मुंबई सेंट्रलचा राजा गणेशोत्सव २०२६: बी.आय.टी. चाळ मैदान, मुंबई सेंट्रल येथे दर्शन व आरती सुरू.</span>
+          <span data-i18n="reg_label">नोंदणी क्र. : ई-३८९२ मुंबई</span>
         </div>
 
-        <!-- Language Switcher Pills -->
-        <div class="lang-switcher-container">
-          <button class="lang-btn active" data-lang="mr">🚩 मराठी</button>
-          <button class="lang-btn" data-lang="hi">🇮🇳 हिंदी</button>
-          <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-        </div>
+        <!-- Giant 3D Devanagari Mandal Heading -->
+        <h1 class="mandal-banner-3d-text">
+          बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ, मुंबई
+        </h1>
       </div>
     </div>
   </div>
@@ -50,32 +53,37 @@
   <!-- Main Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Brand Logo -->
+      <!-- Crest Logo Badge -->
       <a href="/" class="brand-logo">
-        <div class="brand-icon-mandal" style="background: linear-gradient(135deg, #800020 0%, #FFD700 100%); color: #FFFFFF;">
+        <div class="brand-icon-mandal" style="background: linear-gradient(135deg, #800020 0%, #FF6F00 100%); color: #FFD700; width: 62px; height: 62px; font-size: 2rem;">
           <i class="fa-solid fa-crown"></i>
         </div>
         <div class="brand-text">
-          <h1>मुंबई सेंट्रलचा राजा</h1>
-          <p>बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ (Reg. E-3892)</p>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--chintamani-red); margin: 0;">मुंबई सेंट्रलचा राजा</h2>
+          <p style="font-size: 0.75rem; color: var(--chintamani-saffron); font-weight: 700; margin: 0;">सार्वजनिक श्री गणेशोत्सव मंडळ</p>
         </div>
       </a>
 
       <!-- Navigation Links -->
       <nav class="main-nav" id="mainNav">
         <ul>
-          <li><a href="/" class="nav-link <%= activeTab === 'home' ? 'active' : '' %>" data-i18n="nav_home"><i class="bi bi-house-door-fill"></i> मुखपृष्ठ</a></li>
-          <li><a href="/schedule" class="nav-link <%= activeTab === 'schedule' ? 'active' : '' %>" data-i18n="nav_schedule"><i class="bi bi-calendar-event-fill"></i> गणेशोत्सव वेळापत्रक</a></li>
-          <li><a href="/register-pass" class="nav-link <%= activeTab === 'register' ? 'active' : '' %>" data-i18n="nav_pass"><i class="bi bi-person-badge-fill"></i> व्हीआयपी पास</a></li>
-          <li><a href="/pass-status" class="nav-link <%= activeTab === 'pass-status' ? 'active' : '' %>" data-i18n="nav_verify"><i class="bi bi-qr-code-scan"></i> पास पडताळणी</a></li>
-          <li><a href="/donate" class="nav-link <%= activeTab === 'donate' ? 'active' : '' %>" data-i18n="nav_donate"><i class="bi bi-heart-fill" style="color: #FFD700;"></i> देणगी</a></li>
-          <li><a href="/admin" class="nav-link <%= activeTab === 'admin' ? 'active' : '' %>" data-i18n="nav_admin"><i class="bi bi-speedometer2"></i> प्रशासन</a></li>
-          
-          <!-- Live Darshan Button -->
           <li>
-            <button type="button" id="btnLiveDarshanModal" class="btn-live-glowing" data-i18n="live_darshan_btn">
-              <i class="fa-solid fa-circle-play"></i> लाइव्ह दर्शन
-            </button>
+            <span class="live-pulse-tag" style="background: #7C3AED; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: var(--radius-full); cursor: pointer;" id="btnLiveDarshanModal">
+              LIVE
+            </span>
+          </li>
+          <li><a href="/" class="nav-link <%= activeTab === 'home' ? 'active' : '' %>" data-i18n="nav_home">मुखपृष्ठ</a></li>
+          <li><a href="/schedule" class="nav-link <%= activeTab === 'schedule' ? 'active' : '' %>" data-i18n="nav_schedule">गणेशोत्सव</a></li>
+          <li><a href="/tshirt" class="nav-link <%= activeTab === 'tshirt' ? 'active' : '' %>" data-i18n="nav_tshirt" style="color: #800020; font-weight: 800;">टी-शर्ट बुकिंग 👕</a></li>
+          <li><a href="/register-pass" class="nav-link <%= activeTab === 'register' ? 'active' : '' %>" data-i18n="nav_pass">व्हीआयपी पास</a></li>
+          <li><a href="/pass-status" class="nav-link <%= activeTab === 'pass-status' ? 'active' : '' %>" data-i18n="nav_verify">पास पडताळणी</a></li>
+          <li><a href="/contact" class="nav-link <%= activeTab === 'contact' ? 'active' : '' %>" data-i18n="nav_contact">संपर्क</a></li>
+          
+          <!-- Distinct Red Donate Button -->
+          <li>
+            <a href="/donate" class="btn btn-chintamani-primary" style="background: #DC2626; color: #FFFFFF; font-weight: 800; padding: 0.5rem 1.4rem; border-radius: var(--radius-sm); border: none;" data-i18n="nav_donate">
+              देणगी
+            </a>
           </li>
 
           <!-- Theme Toggle -->

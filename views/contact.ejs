@@ -1,0 +1,115 @@
+<%- include('partials/header') %>
+
+<!-- Chinchpokli Style Hero Header Banner -->
+<section style="background: linear-gradient(180deg, #4A000E 0%, #1A0005 100%); padding: 3.5rem 0; text-align: center; border-bottom: 4px solid var(--chintamani-gold);">
+  <div class="container">
+    <h1 style="font-family: 'Rozha One', 'Noto Sans Devanagari', serif; font-size: 3.5rem; color: #FFD700; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); margin: 0;">
+      संपर्क
+    </h1>
+    <p style="color: #CBD5E1; font-size: 0.95rem; margin-top: 0.5rem;">
+      <a href="/" style="color: #FFD700; font-weight: 700;">मुखपृष्ठ</a> / <span style="color: #FFFFFF;">आमचे संपर्क</span>
+    </p>
+  </div>
+</section>
+
+<!-- Chinchpokli Style Soft Cream Contact Container Box -->
+<section style="padding: 4rem 0; background: var(--bg-surface);">
+  <div class="container">
+    <div class="cream-container-box">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+        
+        <!-- Left Column: Head Office & Travel Routes -->
+        <div>
+          <h2 style="font-size: 2rem; color: var(--chintamani-red); font-weight: 800; margin-bottom: 0.6rem;">
+            मुख्य कार्यालय
+          </h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.7;">
+            बेलासिस रोड, बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+            <!-- Nearest Railway Stations Box -->
+            <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 1.4rem; border: 1px solid #E0C097; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+              <h3 style="font-size: 1.15rem; color: var(--chintamani-red); margin-bottom: 0.8rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem;">
+                🚆 जवळचे रेल्वे स्थानक :
+              </h3>
+              <ol style="padding-left: 1.2rem; color: var(--text-main); font-size: 0.92rem; line-height: 1.8;">
+                <li>मुंबई सेंट्रल ( मध्य व पश्चिम रेल्वे - ०.५ किमी )</li>
+                <li>भायखळा ( मध्य रेल्वे - १ किमी )</li>
+                <li>ग्रँट रोड ( पश्चिम रेल्वे - १ किमी )</li>
+              </ol>
+            </div>
+
+            <!-- Nearest Bus Stops Box -->
+            <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 1.4rem; border: 1px solid #E0C097; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+              <h3 style="font-size: 1.15rem; color: var(--chintamani-red); margin-bottom: 0.8rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem;">
+                🚌 जवळचे बस थांबा :
+              </h3>
+              <ol style="padding-left: 1.2rem; color: var(--text-main); font-size: 0.92rem; line-height: 1.8;">
+                <li>बी.आय.टी. चाळ चौक, बेलासिस रोड</li>
+                <li>मुंबई सेंट्रल स्टेशन पूर्व</li>
+                <li>नायर हॉस्पिटल चौक</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Direct Helpline Box -->
+          <div style="margin-top: 2rem; background: #FFFFFF; border-radius: var(--radius-md); padding: 1.4rem; border: 2px solid var(--chintamani-gold);">
+            <h4 style="font-size: 1rem; color: var(--chintamani-red); margin-bottom: 0.4rem; font-weight: 800;">
+              📞 २४/७ मण्डल आपत्कालीन हेल्पलाईन
+            </h4>
+            <p style="font-size: 1.1rem; font-weight: 800; color: #1E293B; margin: 0;">
+              +९१ ९८७६५ ४३२१० / +९१ ९१२३४ ५६७८९
+            </p>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;">
+              ईमेल: contact@mumbaicentralcharaja.org
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Contact Form -->
+        <div>
+          <h2 style="font-size: 2rem; color: var(--chintamani-red); font-weight: 800; margin-bottom: 1.5rem;">
+            संपर्क फॉर्म
+          </h2>
+
+          <form id="contactForm" onsubmit="event.preventDefault(); showToast('✅ तुमचा निरोप यशस्वीरित्या पाठवला गेला आहे!', 'success'); this.reset();">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="तुमचा नाव *" required style="background: #FFFFFF; border-color: #E0C097;">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="तुमचा ई-मेल आयडी *" required style="background: #FFFFFF; border-color: #E0C097;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div class="form-group">
+                <input type="tel" class="form-control" placeholder="तुमचा मोबाईल क्र *" required style="background: #FFFFFF; border-color: #E0C097;">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="विषय" style="background: #FFFFFF; border-color: #E0C097;">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <textarea class="form-control" rows="5" placeholder="तुमचा निरोप *" required style="background: #FFFFFF; border-color: #E0C097;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-chintamani-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; background: var(--chintamani-red); width: 100%;">
+              निरोप पाठवा &rarr;
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div style="margin-top: 3.5rem; border-radius: var(--radius-lg); overflow: hidden; border: 3px solid #E0C097; box-shadow: var(--shadow-md);">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.635834891461!2d72.825838!3d18.969632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce41865b1111%3A0x62c93d489b0270a4!2sBelasis%20Rd%2C%20BIT%20Chawl%2C%20Mumbai%20Central%2C%20Mumbai%2C%20Maharashtra%20400008!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

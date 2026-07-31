@@ -18,7 +18,9 @@ const translations = {
     nav_schedule: "Ganeshotsav Schedule",
     nav_pass: "VIP Devotee Pass",
     nav_verify: "Verify Pass",
-    nav_donate: "Online Seva Donation",
+    nav_tshirt: "T-Shirt Booking",
+    nav_contact: "Contact Us",
+    nav_donate: "Seva Donation",
     nav_admin: "Mandal Admin",
     live_darshan_btn: "Live Darshan Stream",
 

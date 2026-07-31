@@ -133,20 +133,46 @@ a:hover {
    TOP ANNOUNCEMENT & BRAND HEADER (CHINTAMANI STYLE)
    ========================================================================== */
 .topbar-chintamani {
-  background: linear-gradient(90deg, #960907 0%, #BB0C09 50%, #FF7F00 100%);
+  background: linear-gradient(180deg, #FF6F00 0%, #E65100 100%);
   color: #FFFFFF;
-  padding: 8px 0;
-  font-size: 0.88rem;
-  border-bottom: 2px solid #FFD700;
-  box-shadow: var(--shadow-sm);
+  padding: 10px 0 14px;
+  border-bottom: 3px solid #FFD700;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.topbar-flex {
+.mandal-top-banner-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+}
+
+.mandal-top-meta {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  padding: 0 0.5rem;
+}
+
+.mandal-banner-3d-text {
+  font-family: 'Rozha One', 'Noto Sans Devanagari', serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-shadow: 
+    3px 3px 0px #800020,
+    -2px -2px 0px #800020,
+    2px -2px 0px #800020,
+    -2px 2px 0px #800020,
+    0px 4px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+  margin: 0.2rem 0;
+  line-height: 1.2;
 }
 
 .topbar-info {
@@ -756,43 +782,54 @@ header.site-header {
   align-items: center;
 }
 
+/* Cream Container Box (Chinchpokli Style) */
+.cream-container-box {
+  background: #FFF5E6;
+  border: 2px dashed #E0C097;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
 /* ==========================================================================
-   FOOTER SECTION
+   FOOTER SECTION (CHINCHPOKLI STYLE DEEP NAVY BLUE #0B3968)
    ========================================================================== */
 footer.site-footer {
-  background: linear-gradient(180deg, #1A0404 0%, #0F0202 100%);
+  background: #0B3968;
   color: #F8FAFC;
   padding: 4rem 0 2rem;
   margin-top: auto;
-  border-top: 4px solid var(--chintamani-red);
+  border-top: 4px solid var(--chintamani-gold);
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr;
-  gap: 3rem;
+  grid-template-columns: 2fr 1fr 1.5fr 1.2fr;
+  gap: 2.5rem;
   margin-bottom: 3rem;
 }
 
 .footer-brand h2 {
-  color: #FFD700;
-  font-size: 1.6rem;
+  color: #FFFFFF;
+  font-size: 1.5rem;
   margin-bottom: 0.8rem;
+  font-weight: 800;
 }
 
 .footer-brand p {
-  color: #94A3B8;
+  color: #CBD5E1;
   font-size: 0.95rem;
   line-height: 1.7;
 }
 
 .footer-title {
   color: #FFFFFF;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   margin-bottom: 1.2rem;
-  border-bottom: 2px solid var(--chintamani-saffron);
+  border-bottom: 2px solid var(--chintamani-gold);
   padding-bottom: 0.4rem;
   display: inline-block;
+  font-weight: 700;
 }
 
 .footer-links ul {
@@ -800,23 +837,44 @@ footer.site-footer {
 }
 
 .footer-links li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
 }
 
 .footer-links a {
-  color: #CBD5E1;
-  font-size: 0.92rem;
+  color: #E2E8F0;
+  font-size: 0.93rem;
   transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .footer-links a:hover {
   color: #FFD700;
 }
 
+.btn-donate-red-footer {
+  background: #DC2626;
+  color: #FFFFFF !important;
+  font-weight: 800;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.btn-donate-red-footer:hover {
+  transform: translateY(-2px);
+  background: #B91C1C;
+}
+
 .footer-bottom {
+  background: #062242;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1.5rem;
-  text-align: center;
+  padding: 1.2rem 0;
+  margin-top: 2rem;
   font-size: 0.88rem;
   color: #94A3B8;
 }

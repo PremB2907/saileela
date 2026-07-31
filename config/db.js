@@ -67,6 +67,23 @@ const mockStore = {
       created_at: new Date('2026-07-22T16:45:00Z')
     }
   ],
+  tshirt_orders: [
+    {
+      id: 1,
+      receipt_no: 'MCC-TSHIRT-2026-101',
+      buyer_name: 'Vikram A. Salunkhe',
+      phone: '9820098200',
+      email: 'vikram.salunkhe@example.com',
+      size: 'L',
+      color: 'Royal Maroon',
+      quantity: 2,
+      total_amount: 998,
+      address: 'BIT Chawl No 4, Mumbai Central, Mumbai - 400008',
+      payment_id: 'pay_MockTshirt101',
+      status: 'SUCCESS',
+      created_at: new Date('2026-07-25T11:20:00Z')
+    }
+  ],
   yatra_status: {
     current_day: 3,
     total_days: 10,
@@ -279,6 +296,49 @@ module.exports = {
       const newDonation = { id: mockStore.donations.length + 1, ...donationData, created_at: new Date() };
       mockStore.donations.unshift(newDonation);
       return newDonation;
+    }
+  },
+
+  async getTshirtOrderByReceipt(receiptNo) {
+    if (useMock) {
+      return (mockStore.tshirt_orders || []).find(d => d.receipt_no.toUpperCase() === receiptNo.toUpperCase());
+    }
+    try {
+      const [rows] = await dbPool.query('SELECT * FROM tshirt_orders WHERE UPPER(receipt_no) = UPPER(?)', [receiptNo]);
+      return rows[0] || null;
+    } catch (err) {
+      return (mockStore.tshirt_orders || []).find(d => d.receipt_no.toUpperCase() === receiptNo.toUpperCase());
+    }
+  },
+
+  async createTshirtOrder(orderData) {
+    if (useMock) {
+      const newOrder = {
+        id: (mockStore.tshirt_orders || []).length + 1,
+        ...orderData,
+        created_at: new Date()
+      };
+      if (!mockStore.tshirt_orders) mockStore.tshirt_orders = [];
+      mockStore.tshirt_orders.unshift(newOrder);
+      return newOrder;
+    }
+    try {
+      const query = `
+        INSERT INTO tshirt_orders (receipt_no, buyer_name, phone, email, size, color, quantity, total_amount, address, payment_id, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `;
+      const values = [
+        orderData.receipt_no, orderData.buyer_name, orderData.phone, orderData.email || '',
+        orderData.size, orderData.color, orderData.quantity, orderData.total_amount,
+        orderData.address || '', orderData.payment_id || '', orderData.status || 'SUCCESS'
+      ];
+      const [result] = await dbPool.query(query, values);
+      return { id: result.insertId, ...orderData, created_at: new Date() };
+    } catch (err) {
+      const newOrder = { id: (mockStore.tshirt_orders || []).length + 1, ...orderData, created_at: new Date() };
+      if (!mockStore.tshirt_orders) mockStore.tshirt_orders = [];
+      mockStore.tshirt_orders.unshift(newOrder);
+      return newOrder;
     }
   },
 

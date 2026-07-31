@@ -1,0 +1,259 @@
+<%- include('partials/header') %>
+
+<!-- Chinchpokli Style Hero Banner -->
+<section style="background: linear-gradient(180deg, #4A000E 0%, #1A0005 100%); padding: 3.5rem 0; text-align: center; border-bottom: 4px solid var(--chintamani-gold);">
+  <div class="container">
+    <h1 style="font-family: 'Rozha One', 'Noto Sans Devanagari', serif; font-size: 3.2rem; color: #FFD700; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); margin: 0;">
+      टी-शर्ट व अधिकृत वस्तू बुकिंग 👕
+    </h1>
+    <p style="color: #CBD5E1; font-size: 0.95rem; margin-top: 0.5rem;">
+      <a href="/" style="color: #FFD700; font-weight: 700;">मुखपृष्ठ</a> / <span style="color: #FFFFFF;">मुंबई सेंट्रलचा राजा ऑफिशियल टी-शर्ट २०२६</span>
+    </p>
+  </div>
+</section>
+
+<!-- Merchandise Store Section -->
+<section style="padding: 4rem 0; background: var(--bg-surface);">
+  <div class="container">
+    <div class="cream-container-box">
+      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start;">
+        
+        <!-- Left Column: T-Shirt Preview Mock Card -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2rem; border: 2px solid #E0C097; text-align: center; box-shadow: var(--shadow-md);">
+          <div style="background: linear-gradient(135deg, #800020 0%, #4A0404 100%); border-radius: var(--radius-md); padding: 2.5rem 1.5rem; position: relative; color: #FFFFFF; margin-bottom: 1.5rem; border: 3px solid #FFD700;">
+            <span style="position: absolute; top: 12px; right: 12px; background: #FFD700; color: #000; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: var(--radius-full);">OFFICIAL MERCH</span>
+            
+            <div style="font-size: 4rem; color: #FFD700; margin-bottom: 0.5rem;"><i class="fa-solid fa-crown"></i></div>
+            <h2 style="font-family: 'Rozha One', serif; font-size: 1.8rem; color: #FFFFFF; margin-bottom: 0.2rem;">मुंबई सेंट्रलचा राजा</h2>
+            <p style="font-size: 0.82rem; color: #FFD700; letter-spacing: 1px;">GANESHOTSAV 2026 OFFICIAL T-SHIRT</p>
+            <p style="font-size: 0.75rem; color: #E2E8F0; margin-top: 1rem;">100% Premium Pure Cotton | Bio-Washed | Royal Gold Foil Printing</p>
+          </div>
+
+          <div style="display: flex; justify-content: space-around; font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+            <span><i class="bi bi-patch-check-fill" style="color: #059669;"></i> 100% Pure Cotton</span>
+            <span><i class="bi bi-truck" style="color: var(--chintamani-red);"></i> Mandap / Home Delivery</span>
+          </div>
+
+          <div style="background: #FFFBEB; border: 1px solid #F59E0B; padding: 0.8rem; border-radius: var(--radius-md); font-weight: 800; color: #92400E; font-size: 1.2rem;">
+            विशेष किंमत: ₹४९९ /- <span style="font-size: 0.8rem; font-weight: 600; text-decoration: line-through; color: #94A3B8; margin-left: 0.5rem;">₹७९९</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Booking Form -->
+        <div>
+          <h2 style="font-size: 2rem; color: var(--chintamani-red); font-weight: 800; margin-bottom: 0.5rem;">
+            टी-शर्ट बुकिंग फॉर्म
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.8rem;">
+            खालील माहिती भरा, टी-शर्टचा आकार आणि रंग निवडा आणि ऑनलाइन बुकिंग पूर्ण करा.
+          </p>
+
+          <form id="tshirtForm">
+            <!-- Size Selection -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label" style="font-weight: 800; color: var(--text-main);">१. टी-शर्ट आकार निवडा (Size) *</label>
+              <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                <button type="button" class="btn-size-chip" data-size="S">S (36")</button>
+                <button type="button" class="btn-size-chip" data-size="M">M (38")</button>
+                <button type="button" class="btn-size-chip active" data-size="L">L (40")</button>
+                <button type="button" class="btn-size-chip" data-size="XL">XL (42")</button>
+                <button type="button" class="btn-size-chip" data-size="XXL">XXL (44")</button>
+                <button type="button" class="btn-size-chip" data-size="3XL">3XL (46")</button>
+              </div>
+              <input type="hidden" id="selectedSize" name="size" value="L">
+            </div>
+
+            <!-- Color Selection -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label" style="font-weight: 800; color: var(--text-main);">२. रंग निवडा (Color) *</label>
+              <div style="display: flex; gap: 0.8rem; margin-top: 0.5rem;">
+                <button type="button" class="btn-color-chip active" data-color="Royal Maroon" style="border-left: 12px solid #800020;">Royal Maroon (राजेशाही मरून)</button>
+                <button type="button" class="btn-color-chip" data-color="Festive Saffron" style="border-left: 12px solid #FF6F00;">Festive Saffron (भगवा)</button>
+                <button type="button" class="btn-color-chip" data-color="Midnight Black" style="border-left: 12px solid #1A1A1A;">Midnight Black (काळा)</button>
+              </div>
+              <input type="hidden" id="selectedColor" name="color" value="Royal Maroon">
+            </div>
+
+            <!-- Quantity & Price -->
+            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+              <div class="form-group">
+                <label class="form-label" for="tshirtQty" style="font-weight: 800; color: var(--text-main);">नग / संख्या (Quantity) *</label>
+                <input type="number" id="tshirtQty" name="quantity" class="form-control" min="1" max="10" value="1" required style="background: #FFFFFF; border-color: #E0C097;">
+              </div>
+              <div class="form-group">
+                <label class="form-label" style="font-weight: 800; color: var(--text-main);">एकूण रक्कम (Total)</label>
+                <div id="displayTotalAmount" style="background: #FFFFFF; border: 2px solid var(--chintamani-gold); padding: 0.6rem 1rem; border-radius: var(--radius-sm); font-weight: 800; font-size: 1.2rem; color: var(--chintamani-red);">
+                  ₹४९९ /-
+                </div>
+              </div>
+            </div>
+
+            <!-- Buyer Details -->
+            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="buyer_name" style="font-weight: 700;">पूर्ण नाव *</label>
+                <input type="text" id="buyer_name" name="buyer_name" class="form-control" placeholder="उदा. विक्रम साळुंखे" required style="background: #FFFFFF; border-color: #E0C097;">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone" style="font-weight: 700;">मोबाईल नंबर *</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="१० अंकी मोबाईल नंबर" required style="background: #FFFFFF; border-color: #E0C097;">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label" for="address" style="font-weight: 700;">पत्ता / मंडप पिकअप नोंद *</label>
+              <textarea id="address" name="address" class="form-control" rows="2" placeholder="उदा. मण्डप पिकअप (BIT Chawl Ground) किंवा घरचा पूर्ण पत्ता" required style="background: #FFFFFF; border-color: #E0C097;"></textarea>
+            </div>
+
+            <button type="submit" id="btnTshirtSubmit" class="btn btn-chintamani-primary" style="width: 100%; padding: 1.1rem; font-size: 1.15rem; background: var(--chintamani-red);">
+              💳 ऑनलाइन बुकिंग पूर्ण करा (₹<span id="btnPayAmount">499</span>) &rarr;
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Razorpay Client SDK & Logic -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const qtyInput = document.getElementById('tshirtQty');
+    const totalDisplay = document.getElementById('displayTotalAmount');
+    const payAmtSpan = document.getElementById('btnPayAmount');
+    const sizeChips = document.querySelectorAll('.btn-size-chip');
+    const colorChips = document.querySelectorAll('.btn-color-chip');
+    const selectedSizeInput = document.getElementById('selectedSize');
+    const selectedColorInput = document.getElementById('selectedColor');
+
+    function updateTotal() {
+      const qty = parseInt(qtyInput.value, 10) || 1;
+      const total = qty * 499;
+      if (totalDisplay) totalDisplay.textContent = `₹${total.toLocaleString('en-IN')} /-`;
+      if (payAmtSpan) payAmtSpan.textContent = total;
+    }
+
+    if (qtyInput) qtyInput.addEventListener('input', updateTotal);
+
+    sizeChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        sizeChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        if (selectedSizeInput) selectedSizeInput.value = chip.getAttribute('data-size');
+      });
+    });
+
+    colorChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        colorChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        if (selectedColorInput) selectedColorInput.value = chip.getAttribute('data-color');
+      });
+    });
+
+    // Form Submit & Payment Handling
+    const tshirtForm = document.getElementById('tshirtForm');
+    if (tshirtForm) {
+      tshirtForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const buyer_name = document.getElementById('buyer_name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const size = selectedSizeInput.value;
+        const color = selectedColorInput.value;
+        const quantity = parseInt(qtyInput.value, 10) || 1;
+        const address = document.getElementById('address').value.trim();
+
+        if (!buyer_name || !phone) {
+          alert('कृपया नाव आणि मोबाईल नंबर भरा.');
+          return;
+        }
+
+        try {
+          const res = await fetch('/tshirt/create-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ buyer_name, phone, size, color, quantity })
+          });
+          const data = await res.json();
+
+          if (!data.success) {
+            alert('भुगतानात त्रुटी आली. कृपया पुन्हा प्रयत्न करा.');
+            return;
+          }
+
+          const options = {
+            key: "<%= razorpayKeyId %>",
+            amount: data.order.amount,
+            currency: "INR",
+            name: "Mumbai Central Cha Raja",
+            description: `T-Shirt Order (${size} - ${color} x ${quantity})`,
+            order_id: data.order.id,
+            handler: async function (response) {
+              const confirmRes = await fetch('/tshirt/confirm', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  receipt_no: data.receipt_no,
+                  buyer_name, phone, size, color, quantity,
+                  total_amount: data.total_amount, address,
+                  payment_id: response.razorpay_payment_id,
+                  order_id: response.razorpay_order_id,
+                  signature: response.razorpay_signature
+                })
+              });
+              const confirmData = await confirmRes.json();
+              if (confirmData.success) {
+                alert(confirmData.message);
+                window.location.href = `/download-tshirt-receipt/${confirmData.receipt_no}`;
+              }
+            },
+            prefill: { name: buyer_name, contact: phone }
+          };
+          const rzp = new Razorpay(options);
+          rzp.open();
+        } catch (err) {
+          console.error(err);
+          alert('Error processing order.');
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .btn-size-chip {
+    padding: 0.5rem 1rem;
+    border: 2px solid #E0C097;
+    background: #FFFFFF;
+    color: var(--text-main);
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-size-chip.active, .btn-size-chip:hover {
+    background: var(--chintamani-red);
+    color: #FFFFFF;
+    border-color: var(--chintamani-red);
+  }
+  .btn-color-chip {
+    padding: 0.6rem 1rem;
+    border: 2px solid #E0C097;
+    background: #FFFFFF;
+    color: var(--text-main);
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+  }
+  .btn-color-chip.active, .btn-color-chip:hover {
+    background: #FFFBEB;
+    border-color: var(--chintamani-gold);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+</style>
+
+<%- include('partials/footer') %>

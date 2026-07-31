@@ -2,7 +2,7 @@
  * Mumbai Central Cha Raja - Internationalization & Language Switcher (i18n)
  * Official Handle: @mumbaicentralcharajaofficial
  * Mandal: Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal
- * Supports: English (en), Hindi (hi), Marathi (mr)
+ * Supports: English (en), Marathi (mr)
  */
 
 const translations = {
@@ -12,25 +12,24 @@ const translations = {
     reg_label: "Reg No: E-3892 Mumbai",
     live_yatra_badge: "LIVE DARSHAN",
     announcement_text: "🌺 Mumbai Central Cha Raja Ganeshotsav 2026: Mandap Darshan & Aarti live at BIT Chawl Ground, Mumbai Central.",
-    control_room: "Mandal Desk:",
-    emergency_desk: "Help Desk:",
     nav_home: "Home",
     nav_schedule: "Ganeshotsav Schedule",
     nav_pass: "VIP Devotee Pass",
     nav_verify: "Verify Pass",
-    nav_tshirt: "T-Shirt Booking",
+    nav_tshirt: "T-Shirt Store",
     nav_contact: "Contact Us",
-    nav_donate: "Seva Donation",
-    nav_admin: "Mandal Admin",
-    live_darshan_btn: "Live Darshan Stream",
+    nav_donate: "Donate Now",
+    live_darshan_btn: "Live Stream",
+    mandal_name_header: "Mumbai Central Cha Raja",
+    mandal_sub_header: "Sarvajanik Shri Ganeshotsav Mandal",
 
     // Hero Section
     hero_badge: "Official Ganeshotsav Festival 2026",
     hero_title: "Mumbai Central Cha Raja Official",
     hero_subtitle: "Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal. Get your official VIP Darshan Pass, track live Aarti & Darshan streams, and contribute to Modak & Mahaprasad Seva.",
-    btn_get_pass: "Get Official VIP Pass",
-    btn_view_route: "View Aarti & Event Schedule",
-    btn_support_annadan: "Support Modak & Mahaprasad Seva",
+    btn_get_pass: "Get VIP Pass",
+    btn_view_route: "View Schedule",
+    btn_support_annadan: "Support Mahaprasad Seva",
 
     // Live Tracker Card
     tracker_title: "Live Mandap Tracker",
@@ -49,6 +48,33 @@ const translations = {
     metric_distance: "Years of Legacy",
     metric_volunteers: "Active Karyakartas & Volunteers",
 
+    // 3D Coverflow Gallery
+    skiper_badge: "3D VISUAL SHOWCASE",
+    skiper_title: "Mumbai Central Cha Raja 5 Sacred Forms",
+    skiper_subtitle: "Swipe or drag to experience 3D interactive darshan of the 5 divine idols.",
+    real_form_1_title: "Wooden Throne Form",
+    real_form_1_sub: "Regal wooden throne with silk robes",
+    real_form_2_title: "Golden Throne & Yellow Pitambar",
+    real_form_2_sub: "Radiant golden throne darshan",
+    real_form_3_title: "Mor Pankh Peacock Arch Procession",
+    real_form_3_sub: "Aagman Sohala peacock arch throne",
+    real_form_4_title: "Facial Darshan & Gold Crown",
+    real_form_4_sub: "Divine facial smile & gold ornaments",
+    real_form_5_title: "Purple Pitambar Mandap Darshan",
+    real_form_5_sub: "Floral mandap backdrop darshan",
+
+    // Photo Dump Gallery
+    photo_dump_tag: "INSTAGRAM PHOTO DUMP (@mumbaicentralcharajaofficial)",
+    photo_dump_title: "Festival Highlights & Moments",
+    photo_dump_sub: "Grand idol darshan, Aagman Sohala, golden mandap lighting, padya pujan, and visarjan procession.",
+    filter_all: "All Photos",
+    filter_idol: "Sacred Idol",
+    filter_aagman: "Aagman Procession",
+    filter_mandap: "Golden Mandap",
+    filter_pujan: "Padya Pujan",
+    filter_alankar: "Floral Decor",
+    filter_visarjan: "Visarjan Farewell",
+
     // Devotee Services
     services_tag: "Mandal Services & Facilities",
     services_title: "Serving Devotees With Utmost Devotion",
@@ -58,203 +84,46 @@ const translations = {
     srv_pass_btn: "Register VIP Pass →",
     srv_annadan_title: "Modak & Mahaprasad Seva",
     srv_annadan_desc: "Serving fresh hot Mahaprasad meals, tea, drinking water, and traditional Modak Prasad to thousands of devotees daily.",
-    srv_annadan_btn: "Sponsor Mahaprasad Seva →",
-    srv_medical_title: "24/7 Medical & Security Desk",
-    srv_medical_desc: "Equipped with doctor teams, emergency ambulance, wheelchair assistance, and round-the-clock CCTV & security guard patrol.",
+    srv_annadan_btn: "Support Mahaprasad →",
+    srv_medical_title: "24/7 Medical & Safety Desk",
+    srv_medical_desc: "Dedicated medical doctors, ambulance on standby, wheelchair assistance, and 24-hour CCTV security team.",
     srv_medical_btn: "View Event Schedule →",
 
     // Schedule Timeline
-    itinerary_tag: "Ganeshotsav Timeline",
-    itinerary_title: "Upcoming Aarti & Ganeshotsav Events",
-    itinerary_subtitle: "Check daily Pooja, Maha Aarti, Bhakthi Sandhya, and Visarjan procession timings.",
+    itinerary_tag: "Ganeshotsav Schedule",
+    itinerary_title: "Upcoming Aarti & Event Schedule",
+    itinerary_subtitle: "Daily Puja, Maha Aarti, Bhakti Sangeet, and Visarjan procession timings.",
     view_full_schedule: "View Complete 10-Day Schedule →",
 
-    // Seva Callout
+    // Seva Callout Banner
     callout_title: "Support Mumbai Central Cha Raja Seva",
-    callout_desc: "Your generous contribution directly powers Mahaprasad, Mandap pushpa alankar, and social welfare programs. All donations are 50% tax exempt under Section 80G.",
-    donate_now_btn: "Donate Online Now (Instant 80G PDF Receipt)",
-
-    // Donation Page
-    donate_tag: "80G Tax-Exempt Contribution",
-    donate_title: "Online Seva & Donation Portal",
-    donate_subtitle: "Contribute to Modak Mahaprasad, Mandap Flower Alankar, Medical Camps, and Visarjan Sohala. Receive instant PDF receipts with 80G tax benefit.",
-    select_preset: "Select Donation Amount (₹)",
-    custom_amount: "Custom Amount (₹) *",
-    seva_category: "Seva Category *",
-    donor_name: "Donor Full Name *",
-    donor_phone: "Mobile Phone Number *",
-    donor_email: "Email Address (for PDF Receipt)",
-    donor_pan: "PAN Card Number (Required for 80G Certificate above ₹2,000)",
-    pay_notice: "Secure Payment Gateway: Accepts UPI QR Code, GPay, PhonePe, Credit/Debit Cards, NetBanking, and Razorpay.",
-    proceed_pay_btn: "💳 Proceed to Payment & Download 80G Receipt",
-
-    // Payment Modal
-    modal_title: "Online Seva Payment",
-    modal_category: "SEVA CATEGORY",
-    modal_amount: "AMOUNT TO PAY",
-    tab_upi: "📱 UPI / QR Code",
-    tab_card: "💳 Card Payment",
-    tab_netbanking: "🏛️ NetBanking",
-    upi_scan_instruction: "Scan QR code with GPay, PhonePe, Paytm, or BHIM UPI app:",
-    card_name: "Cardholder Name",
-    card_number: "Card Number",
-    card_exp: "Expiry Date",
-    card_cvv: "CVV",
-    select_bank: "Select Bank",
-    confirm_payment_btn: "Complete Payment & Issue 80G Receipt",
-
-    // Devotee Pass Page
-    pass_title: "Official VIP Devotee Pass Registration",
-    pass_subtitle: "Fill out the form below to generate your instant QR-coded VIP Entry Pass for Mumbai Central Cha Raja Ganeshotsav 2026.",
-    pass_fullname: "Devotee Full Name *",
-    pass_age: "Age *",
-    pass_gender: "Gender *",
-    pass_phone: "Mobile Phone Number *",
-    pass_city: "City / Area *",
-    pass_idtype: "Government ID Type *",
-    pass_idnum: "ID Number *",
-    pass_dindigroup: "Category / Access Type",
-    pass_submit_btn: "Generate Official VIP Pass",
+    callout_desc: "Your generous donation powers Mahaprasad distribution, mandap floral decor, and social community drives. 50% Tax Exempt under Section 80G.",
+    donate_now_btn: "Donate Online Now (With 80G Receipt)",
 
     // Footer
-    footer_mandal_info: "Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal (Reg. No. E-3892 Mumbai)",
-    footer_tagline: "Dedicated to the grand worship of Mumbai Central Cha Raja with devotion, community seva, Mahaprasad, and cultural unity.",
-    footer_quick_links: "Quick Navigation",
-    footer_emergency: "24/7 Mandal Help Desks",
+    footer_mandal_info: "Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal, Mumbai",
+    footer_address: "Head Office: Progressive Building A/3, Belasis Road, B.I.T. Chawl, Mumbai Central (E), Mumbai - 400008.",
+    footer_quick_links: "About Us",
+    footer_upakram: "Our Services",
     footer_copyright: "© 2026 Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal. All Rights Reserved."
-  },
-
-  hi: {
-    // Top Bar & Header
-    est_label: "स्थापना वर्ष : १९८८",
-    reg_label: "नोंदणी क्र. : ई-३८९२ मुंबई",
-    live_yatra_badge: "लाइव दर्शन",
-    announcement_text: "🌺 मुंबई सेंट्रलचा राजा गणेशोत्सव २०२६: बी.आय.टी. चाळ मैदान, मुंबई सेंट्रल येथे दर्शन व आरती सुरू.",
-    control_room: "मण्डल कक्ष:",
-    emergency_desk: "हेल्प डेस्क:",
-    nav_home: "मुख्य पृष्ठ",
-    nav_schedule: "गणेशोत्सव वेळापत्रक",
-    nav_pass: "व्हिआयपी पास",
-    nav_verify: "पास पडताळणी",
-    nav_donate: "सेवा देणगी",
-    nav_admin: "मण्डल प्रशासन",
-    live_darshan_btn: "लाइव दर्शन",
-
-    // Hero Section
-    hero_badge: "अधिकृत गणेशोत्सव महोत्सव २०२६",
-    hero_title: "मुंबई सेंट्रलचा राजा ऑफिशियल",
-    hero_subtitle: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ. तुमचा अधिकृत व्हीआयपी दर्शन पास मिळवा, थेट आरती स्ट्रीम पाहा आणि मोदक व महाप्रसाद सेवेत योगदान द्या.",
-    btn_get_pass: "अधिकृत पास मिळवा",
-    btn_view_route: "आरती व कार्यक्रम पाहा",
-    btn_support_annadan: "मोदक व महाप्रसाद सेवेत सहभाग घ्या",
-
-    // Live Tracker Card
-    tracker_title: "लाइव मण्डप ट्रॅकर",
-    tracker_subtitle: "आरती व गर्दी थेट अपडेट",
-    live_now: "लाइव सुरू",
-    current_location: "मण्डप स्थान",
-    next_halt: "पुढील आरती / कार्यक्रम",
-    distance_covered: "महोत्सव प्रगती",
-    meals_served: "वाटप केलेले महाप्रसाद",
-    route_progress: "१० दिवसांचे प्रगती",
-    day_label: "दिवस",
-
-    // Counter Metrics
-    metric_devotees: "दर्शन घेतलेले भाविक",
-    metric_meals: "महाप्रसाद व मोदक वाटप",
-    metric_distance: "परंपरेची वर्षे",
-    metric_volunteers: "सक्रिय कार्यकर्ते व स्वयंसेवक",
-
-    // Devotee Services
-    services_tag: "मण्डल सुविधा आणि मदत",
-    services_title: "भक्तीभावाने भाविकांची सेवा",
-    services_subtitle: "बेलासिस रोड बी.आय.टी. चाळ मंडळ २४ तास व्हीआयपी रांग व्यवस्थापन, महाप्रसाद आणि वैद्यकीय मदत पुरवते.",
-    srv_pass_title: "अधिकृत व्हीआयपी पास",
-    srv_pass_desc: "मण्डप दर्शन आणि महाआरती रांगेत प्राधान्य मिळवण्यासाठी क्यूआर-कोडयुक्त पास ऑनलाइन मिळवा.",
-    srv_pass_btn: "पास नोंदणी करा →",
-    srv_annadan_title: "मोदक व महाप्रसाद सेवा",
-    srv_annadan_desc: "दररोज हजारो भाविकांना गरम नाश्ता, चहा, शुद्ध पिण्याचे पाणी आणि मोदक महाप्रसाद वाटप.",
-    srv_annadan_btn: "महाप्रसादात सहभाग घ्या →",
-    srv_medical_title: "२४/७ वैद्यकीय व सुरक्षा",
-    srv_medical_desc: "डॉक्टरांची टीम, रुग्णवाहिका, व्हिलचेअर मदत आणि २४ तास सीसीटीव्ही व सुरक्षा व्यवस्था.",
-    srv_medical_btn: "कार्यक्रम वेळापत्रक पाहा →",
-
-    // Schedule Timeline
-    itinerary_tag: "गणेशोत्सव कार्यसूची",
-    itinerary_title: "आगामी आरती आणि गणेशोत्सव कार्यक्रम",
-    itinerary_subtitle: "दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक वेळापत्रक पाहा.",
-    view_full_schedule: "संपूर्ण १० दिवसांचे वेळापत्रक पाहा →",
-
-    // Seva Callout
-    callout_title: "मुंबई सेंट्रलचा राजा सेवेला पाठिंबा द्या",
-    callout_desc: "तुमची देणगी महाप्रसाद, मण्डप पुष्प अलंकार आणि समाजोपयोगी उपक्रमांना मदत पुरवते. सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत मिळतो.",
-    donate_now_btn: "आत्ताच ऑनलाइन देणगी द्या (८०जी पावतीसह)",
-
-    // Donation Page
-    donate_tag: "80G करसवलत प्राप्त सेवा योगदान",
-    donate_title: "ऑनलाइन सेवा व देणगी पोर्टल",
-    donate_subtitle: "मोदक महाप्रसाद, मण्डप पुष्प अलंकार आणि सामाजिक उपक्रमांसाठी तुमचे सहकार्य द्या. त्वरित 80G पावती मिळवा.",
-    select_preset: "देणगी रक्कम निवडा (₹)",
-    custom_amount: "इतर रक्कम (₹) *",
-    seva_category: "सेवा प्रकार *",
-    donor_name: "देणगीदाराचे पूर्ण नाव *",
-    donor_phone: "मोबाईल नंबर *",
-    donor_email: "ईमेल पत्ता (पावतीसाठी)",
-    donor_pan: "पॅन कार्ड नंबर (२००० रुपयांपेक्षा जास्त देणगीसाठी ८०जी अनिवार्य)",
-    pay_notice: "सुरक्षित पेमेंट पद्धत: UPI QR, GPay, PhonePe, क्रेडिट/डेबिट कार्ड, नेट बँकिंग आणि Razorpay.",
-    proceed_pay_btn: "💳 पेमेंट करा आणि ८०जी पावती मिळवा",
-
-    // Payment Modal
-    modal_title: "ऑनलाइन सेवा देणगी",
-    modal_category: "सेवा प्रकार",
-    modal_amount: "देय रक्कम",
-    tab_upi: "📱 UPI / QR कोड",
-    tab_card: "💳 कार्ड पेमेंट",
-    tab_netbanking: "🏛️ नेट बँकिंग",
-    upi_scan_instruction: "GPay, PhonePe, Paytm किंवा BHIM ॲपद्वारे QR कोड स्कॅन करा:",
-    card_name: "कार्डधारकाचे नाव",
-    card_number: "कार्ड नंबर",
-    card_exp: "वैधता तारीख",
-    card_cvv: "CVV",
-    select_bank: "बँक निवडा",
-    confirm_payment_btn: "पेमेंट पूर्ण करा आणि पावती डाऊनलोड करा",
-
-    // Devotee Pass Page
-    pass_title: "अधिकृत व्हीआयपी पास नोंदणी",
-    pass_subtitle: "मुंबई सेंट्रलचा राजा दर्शन व आरतीसाठी तुमचा त्वरित क्यूआर कोड पास मिळवण्यासाठी खालील माहिती भरा.",
-    pass_fullname: "भाविकाचे पूर्ण नाव *",
-    pass_age: "वय *",
-    pass_gender: "लिंग *",
-    pass_phone: "मोबाईल नंबर *",
-    pass_city: "शहर / परिसर *",
-    pass_idtype: "सरकारी ओळखपत्र प्रकार *",
-    pass_idnum: "ओळखपत्र क्रमांक *",
-    pass_dindigroup: "पास प्रकार / प्रवर्ग",
-    pass_submit_btn: "अधिकृत पास मिळवा",
-
-    // Footer
-    footer_mandal_info: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ (नोंदणी क्र. ई-३८९२ मुंबई)",
-    footer_tagline: "भक्ती, सामाजिक सेवा आणि महाप्रसादाच्या माध्यमातून मुंबई सेंट्रलचा राजा ची निस्सीम सेवा.",
-    footer_quick_links: "महत्त्वाच्या लिंक्स",
-    footer_emergency: "२४/७ मण्डल आपत्कालीन संपर्क",
-    footer_copyright: "© २०२६ बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ. सर्व हक्क सुरक्षित."
   },
 
   mr: {
     // Top Bar & Header
-    est_label: "स्थापना वर्ष : १९८८",
+    est_label: "स्थापना : १९८८",
     reg_label: "नोंदणी क्र. : ई-३८९२ मुंबई",
-    live_yatra_badge: "लाइव्ह दर्शन",
+    live_yatra_badge: "LIVE DARSHAN",
     announcement_text: "🌺 मुंबई सेंट्रलचा राजा गणेशोत्सव २०२६: बी.आय.टी. चाळ मैदान, मुंबई सेंट्रल येथे दर्शन व आरती सुरू.",
-    control_room: "मंडळ कक्ष:",
-    emergency_desk: "हेल्प डेस्क:",
     nav_home: "मुखपृष्ठ",
-    nav_schedule: "गणेशोत्सव मार्ग",
+    nav_schedule: "गणेशोत्सव",
     nav_pass: "व्हीआयपी पास",
     nav_verify: "पास पडताळणी",
+    nav_tshirt: "टी-शर्ट बुकिंग",
+    nav_contact: "संपर्क",
     nav_donate: "देणगी",
-    nav_admin: "प्रशासन",
     live_darshan_btn: "लाइव्ह दर्शन",
+    mandal_name_header: "मुंबई सेंट्रलचा राजा",
+    mandal_sub_header: "सार्वजनिक श्री गणेशोत्सव मंडळ",
 
     // Hero Section
     hero_badge: "अधिकृत गणेशोत्सव महोत्सव २०२६",
@@ -271,7 +140,7 @@ const translations = {
     current_location: "मंडप स्थान",
     next_halt: "पुढील आरती / कार्यक्रम",
     distance_covered: "महोत्सव प्रगती",
-    meals_served: "वाटप केलेले महाप्रसाद",
+    meals_served: "आजचे महाप्रसाद",
     route_progress: "१० दिवसांची प्रगती",
     day_label: "दिवस",
 
@@ -280,6 +149,33 @@ const translations = {
     metric_meals: "महाप्रसाद व मोदक वाटप",
     metric_distance: "परंपरेची वर्षे",
     metric_volunteers: "सक्रिय कार्यकर्ते व स्वयंसेवक",
+
+    // 3D Coverflow Gallery
+    skiper_badge: "⚡ SKIPER-UI & MOTION.DEV 3D GALLERY",
+    skiper_title: "मुंबई सेंट्रलचा राजा साक्षात ५ रूप दर्शन",
+    skiper_subtitle: "स्वाइप करा किंवा ड्रॅग करा. राजाच्या ५ साक्षात फोटोंचे ३D आंतरराष्ट्रीय दर्जाचे दर्शन.",
+    real_form_1_title: "काष्ठ सिंहासन दर्शन",
+    real_form_1_sub: "राजेशाही काष्ठ सिंहासन व गुलाबी वस्त्र",
+    real_form_2_title: "सुवर्ण सिंहासन व पिवळा पितांबर",
+    real_form_2_sub: "तेजस्वी सुवर्ण सिंहासन दर्शन",
+    real_form_3_title: "मोरपंख सिंहासन मिरवणूक",
+    real_form_3_sub: "आगमन सोहळ्यातील मयूरपंख कमान",
+    real_form_4_title: "श्री मुख दर्शन व सुवर्ण मुकुट",
+    real_form_4_sub: "मनमोहक हास्य व सुवर्ण अलंकार",
+    real_form_5_title: "जांभळा पितांबर शृंगार",
+    real_form_5_sub: "गर्भगृह मंडप पुष्प शृंगार दर्शन",
+
+    // Photo Dump Gallery
+    photo_dump_tag: "INSTAGRAM PHOTO DUMP (@mumbaicentralcharajaofficial)",
+    photo_dump_title: "मुंबई सेंट्रलचा राजा - उत्सव क्षणचित्रे",
+    photo_dump_sub: "श्री मूर्ती दर्शन, आगमन सोहळा, सुवर्ण मंडप, पाद्य पूजन आणि अनंत चतुर्दशी विसर्जनाचे मनमोहक क्षण.",
+    filter_all: "सर्व (All Photos)",
+    filter_idol: "श्री मूर्ती रूप",
+    filter_aagman: "आगमन सोहळा",
+    filter_mandap: "सुवर्ण मंडप",
+    filter_pujan: "पाद्य पूजन",
+    filter_alankar: "पुष्प अलंकार",
+    filter_visarjan: "विसर्जन मिरवणूक",
 
     // Devotee Services
     services_tag: "मंडळ सुविधा आणि मदत",
@@ -301,68 +197,25 @@ const translations = {
     itinerary_subtitle: "दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक वेळापत्रक पाहा.",
     view_full_schedule: "संपूर्ण १० दिवसांचे वेळापत्रक पाहा →",
 
-    // Seva Callout
+    // Seva Callout Banner
     callout_title: "मुंबई सेंट्रलचा राजा सेवेला पाठिंबा द्या",
     callout_desc: "तुमची देणगी महाप्रसाद, मंडप पुष्प अलंकार आणि समाजोपयोगी उपक्रमांना मदत पुरवते. सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत मिळतो.",
     donate_now_btn: "आत्ताच ऑनलाइन देणगी द्या (८०जी पावतीसह)",
 
-    // Donation Page
-    donate_tag: "80G करसवलत प्राप्त सेवा योगदान",
-    donate_title: "ऑनलाइन सेवा व देणगी पोर्टल",
-    donate_subtitle: "मोदक महाप्रसाद, मंडप पुष्प अलंकार आणि सामाजिक उपक्रमांसाठी तुमचे सहकार्य द्या. त्वरित 80G पावती मिळवा.",
-    select_preset: "देणगी रक्कम निवडा (₹)",
-    custom_amount: "इतर रक्कम (₹) *",
-    seva_category: "सेवा प्रकार *",
-    donor_name: "देणगीदाराचे पूर्ण नाव *",
-    donor_phone: "मोबाईल नंबर *",
-    donor_email: "ईमेल पत्ता (पावतीसाठी)",
-    donor_pan: "पॅन कार्ड नंबर (२००० रुपयांपेक्षा जास्त देणगीसाठी ८०जी अनिवार्य)",
-    pay_notice: "सुरक्षित पेमेंट पद्धत: UPI QR, GPay, PhonePe, क्रेडिट/डेबिट कार्ड, नेट बँकिंग आणि Razorpay.",
-    proceed_pay_btn: "💳 पेमेंट करा आणि ८०जी पावती मिळवा",
-
-    // Payment Modal
-    modal_title: "ऑनलाइन सेवा देणगी",
-    modal_category: "सेवा प्रकार",
-    modal_amount: "देय रक्कम",
-    tab_upi: "📱 UPI / QR कोड",
-    tab_card: "💳 कार्ड पेमेंट",
-    tab_netbanking: "🏛️ नेट बँकिंग",
-    upi_scan_instruction: "GPay, PhonePe, Paytm किंवा BHIM ॲपद्वारे QR कोड स्कॅन करा:",
-    card_name: "कार्डधारकाचे नाव",
-    card_number: "कार्ड नंबर",
-    card_exp: "वैधता तारीख",
-    card_cvv: "CVV",
-    select_bank: "बँक निवडा",
-    confirm_payment_btn: "पेमेंट पूर्ण करा आणि पावती डाऊनलोड करा",
-
-    // Devotee Pass Page
-    pass_title: "अधिकृत व्हीआयपी पास नोंदणी",
-    pass_subtitle: "मुंबई सेंट्रलचा राजा दर्शन व आरतीसाठी तुमचा त्वरित क्यूआर कोड पास मिळवण्यासाठी खालील माहिती भरा.",
-    pass_fullname: "भाविकाचे पूर्ण नाव *",
-    pass_age: "वय *",
-    pass_gender: "लिंग *",
-    pass_phone: "मोबाईल नंबर *",
-    pass_city: "शहर / परिसर *",
-    pass_idtype: "सरकारी ओळखपत्र प्रकार *",
-    pass_idnum: "ओळखपत्र क्रमांक *",
-    pass_dindigroup: "पास प्रकार / प्रवर्ग",
-    pass_submit_btn: "अधिकृत पास मिळवा",
-
     // Footer
-    footer_mandal_info: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ (नोंदणी क्र. ई-३८९२ मुंबई)",
-    footer_tagline: "भक्ती, सामाजिक सेवा आणि महाप्रसादाच्या माध्यमातून मुंबई सेंट्रलचा राजा ची निस्सीम सेवा.",
-    footer_quick_links: "महत्त्वाच्या लिंक्स",
-    footer_emergency: "२४/७ मंडळ आपत्कालीन संपर्क",
+    footer_mandal_info: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ, मुंबई",
+    footer_address: "मुख्य कार्यालय : प्रोोग्रेसिव्ह बिल्डींग अ /३, बेलासिस रोड, बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.",
+    footer_quick_links: "आमच्या बद्दल",
+    footer_upakram: "उपक्रम",
     footer_copyright: "© २०२६ बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ. सर्व हक्क सुरक्षित."
   }
 };
 
 /**
- * Switch Application Language
- * @param {string} lang - 'en' | 'hi' | 'mr'
+ * Switch Application Language ('mr' | 'en')
  */
 function setLanguage(lang) {
-  if (!translations[lang]) lang = 'mr';
+  if (lang !== 'en' && lang !== 'mr') lang = 'mr';
   localStorage.setItem('mcc_lang', lang);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {

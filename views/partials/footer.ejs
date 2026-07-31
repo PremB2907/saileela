@@ -69,9 +69,32 @@
             <i class="bi bi-arrow-up-short" style="font-size: 1.4rem;"></i>
           </button>
         </div>
-      </div>
-    </div>
   </footer>
+
+  <!-- App-like Mobile Bottom Quick Dock (<768px Viewports) -->
+  <div class="mobile-bottom-dock">
+    <div class="dock-flex">
+      <a href="/" class="dock-item <%= typeof activeTab !== 'undefined' && activeTab === 'home' ? 'active' : '' %>">
+        <i class="bi bi-house-door-fill"></i>
+        <span>मुखपृष्ठ</span>
+      </a>
+      <a href="/register-pass" class="dock-item <%= typeof activeTab !== 'undefined' && activeTab === 'register' ? 'active' : '' %>">
+        <i class="bi bi-person-badge-fill"></i>
+        <span>पास</span>
+      </a>
+      <a href="/donate" class="dock-item dock-item-primary" title="देणगी">
+        <i class="bi bi-heart-fill"></i>
+      </a>
+      <a href="/tshirt" class="dock-item <%= typeof activeTab !== 'undefined' && activeTab === 'tshirt' ? 'active' : '' %>">
+        <i class="bi bi-bag-check-fill"></i>
+        <span>टी-शर्ट</span>
+      </a>
+      <a href="/contact" class="dock-item <%= typeof activeTab !== 'undefined' && activeTab === 'contact' ? 'active' : '' %>">
+        <i class="bi bi-telephone-fill"></i>
+        <span>संपर्क</span>
+      </a>
+    </div>
+  </div>
 
   <!-- Global Scripts -->
   <script src="/js/i18n.js"></script>

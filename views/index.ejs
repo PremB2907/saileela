@@ -112,54 +112,166 @@
   </div>
 </section>
 
-<!-- Official Photo Gallery Section -->
-<section style="padding: 5rem 0; background: var(--bg-card);">
+<!-- Official Instagram Photo Dump & Gallery Section -->
+<section style="padding: 5rem 0; background: var(--bg-card);" id="photoDumpGallery">
   <div class="container">
-    <div class="section-header" style="text-align: center; max-width: 750px; margin: 0 auto 3rem;">
-      <span class="section-tag" style="background: rgba(255,215,0,0.2); color: #B45309; font-weight: 800; padding: 0.3rem 1rem; border-radius: var(--radius-full);">छायाचित्र दालन (PHOTO GALLERY)</span>
-      <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.6rem;">मुंबई सेंट्रलचा राजा - उत्सव क्षणचित्रे</h2>
-      <p class="section-subtitle">श्री मूर्ती दर्शन, आगमन सोहळा, आणि सुवर्ण मंडप रोषणाईचे मनमोहक क्षण.</p>
+    <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
+      <span class="section-tag" style="background: rgba(255,215,0,0.2); color: #B45309; font-weight: 800; padding: 0.3rem 1rem; border-radius: var(--radius-full);">
+        <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> INSTAGRAM PHOTO DUMP (@mumbaicentralcharajaofficial)
+      </span>
+      <h2 class="section-title" style="font-size: 2.3rem; margin-top: 0.6rem;">मुंबई सेंट्रलचा राजा - उत्सव क्षणचित्रे gallery</h2>
+      <p class="section-subtitle">श्री मूर्ती दर्शन, आगमन सोहळा, सुवर्ण मंडप, पाद्य पूजन आणि अनंत चतुर्दशी विसर्जनाचे मनमोहक क्षण.</p>
+
+      <!-- Category Filter Pills -->
+      <div style="display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem;">
+        <button type="button" class="filter-pill active" data-filter="all">सर्व (All Photos)</button>
+        <button type="button" class="filter-pill" data-filter="idol">श्री मूर्ती रूप</button>
+        <button type="button" class="filter-pill" data-filter="aagman">आगमन सोहळा</button>
+        <button type="button" class="filter-pill" data-filter="mandap">सुवर्ण मंडप</button>
+        <button type="button" class="filter-pill" data-filter="pujan">पाद्य पूजन</button>
+        <button type="button" class="filter-pill" data-filter="alankar">पुष्प अलंकार</button>
+        <button type="button" class="filter-pill" data-filter="visarjan">विसर्जन मिरवणूक</button>
+      </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-      <!-- Gallery Card 1: Grand Idol -->
-      <div style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
-        <div style="height: 320px; overflow: hidden;">
-          <img src="/images/idol.png" alt="Mumbai Central Cha Raja Idol" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+    <!-- 6 Photo Cards Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem;" id="galleryGrid">
+      
+      <!-- Card 1: Grand Idol -->
+      <div class="gallery-card-item" data-category="idol" style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+        <div style="height: 280px; overflow: hidden; position: relative; cursor: pointer;" onclick="openLightbox('/images/gallery_idol.png')">
+          <img src="/images/gallery_idol.png" alt="Mumbai Central Cha Raja Idol" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+          <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #FFD700; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            <i class="bi bi-arrows-angle-expand"></i> झूम करा
+          </div>
         </div>
-        <div style="padding: 1.5rem; text-align: center;">
-          <span style="background: var(--chintamani-red); color: #FFD700; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;">श्री मूर्ती रूप</span>
-          <h3 style="font-size: 1.3rem; margin: 0.6rem 0 0.2rem; color: var(--text-main);">मुंबई सेंट्रलचा राजा २०२६ - भव्य दर्शन</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">राजेशाही सुवर्ण मुकुट, गडद लाल पैठणी वस्त्र आणि सुगंधी पुष्पहार.</p>
-        </div>
-      </div>
-
-      <!-- Gallery Card 2: Aagman Sohala -->
-      <div style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
-        <div style="height: 320px; overflow: hidden;">
-          <img src="/images/aagman.png" alt="Aagman Sohala Procession" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-        </div>
-        <div style="padding: 1.5rem; text-align: center;">
-          <span style="background: #FF6F00; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;">आगमन सोहळा</span>
-          <h3 style="font-size: 1.3rem; margin: 0.6rem 0 0.2rem; color: var(--text-main);">ढोल ताशा व भव्य मिरवणूक</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">गुलाल उधळण, नाशिक ढोल आणि हजारो भाविकांचा जल्लोष.</p>
+        <div style="padding: 1.2rem; text-align: center;">
+          <span style="background: var(--chintamani-red); color: #FFD700; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full);">श्री मूर्ती दर्शन</span>
+          <h3 style="font-size: 1.2rem; margin: 0.5rem 0 0.2rem; color: var(--text-main);">मुंबई सेंट्रलचा राजा २०२६ - भव्य दर्शन</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">राजेशाही सुवर्ण मुकुट, गडद लाल पैठणी वस्त्र आणि सुगंधी पुष्पहार.</p>
         </div>
       </div>
 
-      <!-- Gallery Card 3: Mandap Lighting -->
-      <div style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
-        <div style="height: 320px; overflow: hidden;">
-          <img src="/images/mandap.png" alt="Mandap Lighting & Aarti" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+      <!-- Card 2: Aagman Sohala -->
+      <div class="gallery-card-item" data-category="aagman" style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+        <div style="height: 280px; overflow: hidden; position: relative; cursor: pointer;" onclick="openLightbox('/images/gallery_aagman.png')">
+          <img src="/images/gallery_aagman.png" alt="Aagman Sohala Procession" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+          <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #FFD700; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            <i class="bi bi-arrows-angle-expand"></i> झूम करा
+          </div>
         </div>
-        <div style="padding: 1.5rem; text-align: center;">
-          <span style="background: #059669; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;">मंडप शृंगार</span>
-          <h3 style="font-size: 1.3rem; margin: 0.6rem 0 0.2rem; color: var(--text-main);">सुवर्ण मंडप रोषणाई व आरती</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">बी.आय.टी. चाळ मैदानातील भव्य महामहाल रोषणाई व गर्भगृह.</p>
+        <div style="padding: 1.2rem; text-align: center;">
+          <span style="background: #FF6F00; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full);">आगमन सोहळा</span>
+          <h3 style="font-size: 1.2rem; margin: 0.5rem 0 0.2rem; color: var(--text-main);">ढोल ताशा व भव्य मिरवणूक</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">गुलाल उधळण, नाशिक ढोल आणि हजारो भाविकांचा उच्छाह.</p>
         </div>
       </div>
+
+      <!-- Card 3: Mandap Lighting -->
+      <div class="gallery-card-item" data-category="mandap" style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+        <div style="height: 280px; overflow: hidden; position: relative; cursor: pointer;" onclick="openLightbox('/images/gallery_mandap.png')">
+          <img src="/images/gallery_mandap.png" alt="Mandap Lighting" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+          <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #FFD700; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            <i class="bi bi-arrows-angle-expand"></i> झूम करा
+          </div>
+        </div>
+        <div style="padding: 1.2rem; text-align: center;">
+          <span style="background: #059669; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full);">सुवर्ण मंडप</span>
+          <h3 style="font-size: 1.2rem; margin: 0.5rem 0 0.2rem; color: var(--text-main);">सुवर्ण मंडप रोषणाई व आरती</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">बी.आय.टी. चाळ मैदानातील भव्य महामहाल रोषणाई व गर्भगृह.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Padya Pujan -->
+      <div class="gallery-card-item" data-category="pujan" style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+        <div style="height: 280px; overflow: hidden; position: relative; cursor: pointer;" onclick="openLightbox('/images/gallery_padya_pujan.png')">
+          <img src="/images/gallery_padya_pujan.png" alt="Padya Pujan Ceremony" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+          <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #FFD700; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            <i class="bi bi-arrows-angle-expand"></i> झूम करा
+          </div>
+        </div>
+        <div style="padding: 1.2rem; text-align: center;">
+          <span style="background: #7C3AED; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full);">पाद्य पूजन</span>
+          <h3 style="font-size: 1.2rem; margin: 0.5rem 0 0.2rem; color: var(--text-main);">पवित्र पाद्य पूजन सोहळा</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">चांदीची पूजा थाळी, झेंडूची फुले आणि मंत्रोच्चारयुक्त विधी.</p>
+        </div>
+      </div>
+
+      <!-- Card 5: Pushpa Alankar -->
+      <div class="gallery-card-item" data-category="alankar" style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+        <div style="height: 280px; overflow: hidden; position: relative; cursor: pointer;" onclick="openLightbox('/images/gallery_pushpa_alankar.png')">
+          <img src="/images/gallery_pushpa_alankar.png" alt="Pushpa Alankar Floral Decor" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+          <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #FFD700; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            <i class="bi bi-arrows-angle-expand"></i> झूम करा
+          </div>
+        </div>
+        <div style="padding: 1.2rem; text-align: center;">
+          <span style="background: #DB2777; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full);">पुष्प अलंकार</span>
+          <h3 style="font-size: 1.2rem; margin: 0.5rem 0 0.2rem; color: var(--text-main);">मनमोहक पुष्प शृंगार</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">हजारो झेंडू व लाल गुलाबांची आकर्षक आरास व सजावट.</p>
+        </div>
+      </div>
+
+      <!-- Card 6: Visarjan Procession -->
+      <div class="gallery-card-item" data-category="visarjan" style="background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-light); box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+        <div style="height: 280px; overflow: hidden; position: relative; cursor: pointer;" onclick="openLightbox('/images/gallery_visarjan.png')">
+          <img src="/images/gallery_visarjan.png" alt="Visarjan Procession at Girgaon Chowpatty" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+          <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #FFD700; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            <i class="bi bi-arrows-angle-expand"></i> झूम करा
+          </div>
+        </div>
+        <div style="padding: 1.2rem; text-align: center;">
+          <span style="background: #2563EB; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.8rem; border-radius: var(--radius-full);">विसर्जन मिरवणूक</span>
+          <h3 style="font-size: 1.2rem; margin: 0.5rem 0 0.2rem; color: var(--text-main);">अनंत चतुर्दशी विसर्जन</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">गिरगाव चौपाटी येथे भावुक निरोप व भव्य विसर्जन मिरवणूक.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<!-- Lightbox Zoom Modal -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
+  <img id="lightboxImage" class="lightbox-content" src="" alt="Full Resolution Preview">
+</div>
+
+<script>
+  function openLightbox(src) {
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImage');
+    if (modal && img) {
+      img.src = src;
+      modal.style.display = 'flex';
+    }
+  }
+
+  function closeLightbox() {
+    const modal = document.getElementById('lightboxModal');
+    if (modal) modal.style.display = 'none';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const items = document.querySelectorAll('.gallery-card-item');
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const filter = pill.getAttribute('data-filter');
+
+        items.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
 
 <!-- Key Seva Services & Upakram Grid -->
 <section style="padding: 5rem 0; background: var(--bg-surface);">

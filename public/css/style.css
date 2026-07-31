@@ -870,13 +870,123 @@ footer.site-footer {
   background: #B91C1C;
 }
 
-.footer-bottom {
-  background: #062242;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.2rem 0;
-  margin-top: 2rem;
+/* ==========================================================================
+   MOBILE BOTTOM QUICK DOCK (APP-LIKE FLOATING BAR FOR MOBILE <768px)
+   ========================================================================== */
+.mobile-bottom-dock {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(16, 8, 32, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 2px solid var(--chintamani-gold);
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dock-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding: 0 0.5rem;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #CBD5E1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  gap: 3px;
+  transition: all 0.2s ease;
+  min-width: 58px;
+}
+
+.dock-item i {
+  font-size: 1.25rem;
+  color: #FFD700;
+}
+
+.dock-item:active, .dock-item.active {
+  color: #FFD700;
+  transform: scale(1.1);
+}
+
+.dock-item-primary {
+  background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+  color: #FFFFFF !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -18px;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.6);
+  border: 2px solid #FFD700;
+}
+
+.dock-item-primary i {
+  color: #FFFFFF;
+  font-size: 1.4rem;
+}
+
+/* Photo Dump Filter Pills & Lightbox */
+.filter-pill {
+  padding: 0.5rem 1.2rem;
+  border: 2px solid #E0C097;
+  background: #FFFFFF;
+  color: var(--text-main);
   font-size: 0.88rem;
-  color: #94A3B8;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill.active, .filter-pill:hover {
+  background: var(--chintamani-red);
+  color: #FFFFFF;
+  border-color: var(--chintamani-red);
+  box-shadow: 0 4px 10px rgba(128, 0, 32, 0.25);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  border: 3px solid #FFD700;
+}
+
+/* Mobile Media Query Rules */
+@media (max-width: 768px) {
+  .mobile-bottom-dock { display: block; }
+  body { padding-bottom: 65px; }
+  .mandal-banner-3d-text { font-size: 1.35rem; text-shadow: 2px 2px 0px #800020; }
+  .brand-text h2 { font-size: 1.05rem; }
+  .hero-title-chintamani { font-size: 2.1rem !important; }
 }
 
 /* Responsive Media Queries */

@@ -6,7 +6,6 @@ module.exports = {
   generatePassPDF(pass, res) {
     const doc = new PDFDocument({ size: 'A4', margin: 40 });
 
-    // Set headers for file download if response object supports it
     if (typeof res.setHeader === 'function') {
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Disposition', `attachment; filename=Pass_${pass.pass_code}.pdf`);
@@ -14,68 +13,69 @@ module.exports = {
 
     doc.pipe(res);
 
-    // Decorative Header Banner
-    doc.rect(40, 40, 515, 90).fill('#0F172A');
-    doc.fillColor('#F59E0B').fontSize(22).font('Helvetica-Bold').text('SHRI SAILEELA PALKHI SOHALA 2026', 55, 55);
-    doc.fillColor('#FFFFFF').fontSize(11).font('Helvetica').text('OFFICIAL PILGRIM DEVOTEE PASS | SHRI SAI LEELA SEVA TRUST', 55, 82);
-    doc.fillColor('#94A3B8').fontSize(9).text('Reg. No: E-3892/MUM | Shirdi Yatra Emergency Desk: +91 98765 43210', 55, 100);
+    // Regal Header Banner for Mumbai Central Cha Raja
+    doc.rect(40, 40, 515, 95).fill('#4A0404');
+    doc.fillColor('#FFD700').fontSize(20).font('Helvetica-Bold').text('MUMBAI CENTRAL CHA RAJA 2026', 55, 52);
+    doc.fillColor('#FFFFFF').fontSize(11).font('Helvetica-Bold').text('BELASIS ROAD B.I.T. CHAWL SARVAJANIK SHRI GANESHOTSAV MANDAL', 55, 78);
+    doc.fillColor('#FFC107').fontSize(9).font('Helvetica').text('Reg. No: E-3892/MUM | Instagram: @mumbaicentralcharajaofficial', 55, 96);
 
     // Pass Status Badge
-    doc.roundedRect(430, 55, 110, 26, 4).fill('#059669');
-    doc.fillColor('#FFFFFF').fontSize(11).font('Helvetica-Bold').text('CONFIRMED', 445, 62);
+    doc.roundedRect(430, 52, 110, 26, 4).fill('#059669');
+    doc.fillColor('#FFFFFF').fontSize(11).font('Helvetica-Bold').text('CONFIRMED', 445, 59);
 
     // Main Details Box
-    doc.rect(40, 145, 515, 340).lineWidth(1).strokeColor('#CBD5E1').stroke();
+    doc.rect(40, 150, 515, 330).lineWidth(1.5).strokeColor('#800020').stroke();
     
-    // Watermark / Sub-header
-    doc.fillColor('#0F172A').fontSize(14).font('Helvetica-Bold').text('DEVOTEE IDENTIFICATION DETAILS', 60, 165);
-    doc.moveTo(60, 183).lineTo(535, 183).lineWidth(1).strokeColor('#E2E8F0').stroke();
+    // Sub-header
+    doc.fillColor('#4A0404').fontSize(13).font('Helvetica-Bold').text('BHAVIK / KARYAKARTA VIP ENTRY PASS', 60, 168);
+    doc.moveTo(60, 186).lineTo(535, 186).lineWidth(1).strokeColor('#FCD34D').stroke();
 
     const drawField = (label, value, x, y, width = 220) => {
       doc.fillColor('#64748B').fontSize(9).font('Helvetica-Bold').text(label.toUpperCase(), x, y);
-      doc.fillColor('#1E293B').fontSize(11).font('Helvetica').text(value || 'N/A', x, y + 13, { width });
+      doc.fillColor('#1E293B').fontSize(11).font('Helvetica-Bold').text(value || 'N/A', x, y + 13, { width });
     };
 
-    drawField('Pass Registration ID', pass.pass_code, 60, 195);
-    drawField('Full Name', pass.full_name, 300, 195);
+    drawField('Pass Code / Registration ID', pass.pass_code, 60, 200);
+    drawField('Devotee Full Name', pass.full_name, 300, 200);
 
-    drawField('Contact Phone', pass.phone, 60, 240);
-    drawField('Age & Gender', `${pass.age} Yrs / ${pass.gender}`, 300, 240);
+    drawField('Contact Phone Number', pass.phone, 60, 245);
+    drawField('Age & Gender', `${pass.age} Yrs / ${pass.gender}`, 300, 245);
 
-    drawField('City / Origin', pass.city, 60, 285);
-    drawField('ID Proof Verified', `${pass.id_proof_type} (${pass.id_proof_number})`, 300, 285);
+    drawField('City / Location', pass.city, 60, 290);
+    drawField('ID Proof Verified', `${pass.id_proof_type} (${pass.id_proof_number})`, 300, 290);
 
-    drawField('Assigned Yatra Batch', pass.batch, 60, 330, 440);
+    drawField('Access Gate & Category', pass.batch || 'VIP Mandap Entry & Aarti Pass', 60, 335, 440);
 
-    drawField('Emergency Contact Number', pass.emergency_contact, 60, 385);
-    drawField('Registration Date', new Date(pass.created_at).toLocaleDateString('en-IN', { dateStyle: 'medium' }), 300, 385);
+    drawField('Emergency Phone', pass.emergency_contact, 60, 385);
+    drawField('Issue Date', new Date(pass.created_at).toLocaleDateString('en-IN', { dateStyle: 'medium' }), 300, 385);
 
-    // Simulated QR Code Box
-    doc.rect(60, 435, 455, 38).fill('#F8FAFC');
-    doc.fillColor('#0F172A').fontSize(9).font('Helvetica-Bold').text(`VALID FOR ENTRY AT ALL PALKHI HALT COUNTERS | VERIFY CODE: ${pass.pass_code}`, 75, 448);
+    // QR Code Verification Box
+    doc.rect(60, 435, 455, 36).fill('#FFFBEB');
+    doc.rect(60, 435, 455, 36).lineWidth(1).strokeColor('#F59E0B').stroke();
+    doc.fillColor('#92400E').fontSize(9).font('Helvetica-Bold').text(`MUMBAI CENTRAL CHA RAJA MANDAP ENTRY CODE: ${pass.pass_code} | SCAN AT GATE`, 75, 448);
 
     // Instructions Box
-    doc.rect(40, 500, 515, 180).fill('#FFFBEB');
-    doc.rect(40, 500, 515, 180).lineWidth(1).strokeColor('#FCD34D').stroke();
+    doc.rect(40, 495, 515, 180).fill('#FAF5FF');
+    doc.rect(40, 495, 515, 180).lineWidth(1).strokeColor('#C084FC').stroke();
     
-    doc.fillColor('#92400E').fontSize(11).font('Helvetica-Bold').text('IMPORTANT INSTRUCTIONS FOR VARKARIS / DEVOTEES', 55, 515);
+    doc.fillColor('#581C87').fontSize(11).font('Helvetica-Bold').text('GANESHOTSAV MANDAP ENTRY & SAFETY INSTRUCTIONS', 55, 510);
     
     const instructions = [
-      '1. Please carry this original PDF pass (printed or digital on phone) along with your original ID Proof.',
-      '2. Report to your assigned batch leader 30 minutes prior to Palkhi departure time.',
-      '3. Free Mahaprasad & Medical assistance is available at all designated halts by showing this pass.',
-      '4. Maintain sanctity and decorum during the entire Shirdi Palkhi Yatra.',
-      '5. For medical or route emergencies, contact Palkhi Control Room: +91 98765 43210 / 91234 56789.'
+      '1. Carry a printed digital copy of this pass along with valid Photo ID.',
+      '2. Report directly to the VIP Pass Entry Counter at BIT Chawl Ground, Mumbai Central.',
+      '3. Priority Mahaprasad & Darshan queue access available for pass holders.',
+      '4. Maintain discipline and decorum inside the Ganeshotsav Mandap premises.',
+      '5. For Mandal emergency desk contact: +91 98765 43210 / @mumbaicentralcharajaofficial'
     ];
 
-    let instY = 535;
+    let instY = 530;
     instructions.forEach(inst => {
-      doc.fillColor('#78350F').fontSize(9).font('Helvetica').text(inst, 55, instY);
+      doc.fillColor('#6B21A8').fontSize(9).font('Helvetica').text(inst, 55, instY);
       instY += 20;
     });
 
-    // Signatures & Footer
-    doc.fillColor('#64748B').fontSize(8).font('Helvetica').text('Issued by Shri Saileela Palkhi Seva Trust System | Computer Generated Document', 40, 750, { align: 'center', width: 515 });
+    // Footer
+    doc.fillColor('#64748B').fontSize(8).font('Helvetica').text('Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal | Computer Generated Pass', 40, 750, { align: 'center', width: 515 });
 
     doc.end();
   },
@@ -89,49 +89,49 @@ module.exports = {
     doc.pipe(res);
 
     // Header Box
-    doc.rect(40, 40, 515, 95).fill('#0F172A');
-    doc.fillColor('#F59E0B').fontSize(22).font('Helvetica-Bold').text('SHRI SAI LEELA SEVA TRUST', 55, 55);
-    doc.fillColor('#FFFFFF').fontSize(11).font('Helvetica').text('OFFICIAL DONATION RECEIPT (SEC 80G TAX EXEMPT)', 55, 82);
-    doc.fillColor('#94A3B8').fontSize(9).text('Reg Trust No: E-3892/MUM | 80G Approval: CIT(E)/80G/2024-25/A-1029', 55, 102);
+    doc.rect(40, 40, 515, 100).fill('#4A0404');
+    doc.fillColor('#FFD700').fontSize(18).font('Helvetica-Bold').text('BELASIS ROAD B.I.T. CHAWL SARVAJANIK SHRI GANESHOTSAV MANDAL', 55, 52, { width: 485 });
+    doc.fillColor('#FFFFFF').fontSize(14).font('Helvetica-Bold').text('MUMBAI CENTRAL CHA RAJA (SEC 80G TAX EXEMPT)', 55, 85);
+    doc.fillColor('#FFC107').fontSize(9).font('Helvetica').text('Reg Trust No: E-3892/MUM | 80G Approval: CIT(E)/80G/2024-25/A-1029 | @mumbaicentralcharajaofficial', 55, 106);
 
     // Main Receipt Body
-    doc.rect(40, 150, 515, 330).lineWidth(1).strokeColor('#E2E8F0').stroke();
+    doc.rect(40, 155, 515, 335).lineWidth(1.5).strokeColor('#800020').stroke();
 
-    doc.fillColor('#0F172A').fontSize(14).font('Helvetica-Bold').text('DONATION ACKNOWLEDGEMENT', 60, 168);
-    doc.moveTo(60, 186).lineTo(535, 186).lineWidth(1).strokeColor('#E2E8F0').stroke();
+    doc.fillColor('#4A0404').fontSize(13).font('Helvetica-Bold').text('OFFICIAL DONATION ACKNOWLEDGEMENT RECEIPT', 60, 172);
+    doc.moveTo(60, 190).lineTo(535, 190).lineWidth(1).strokeColor('#FCD34D').stroke();
 
     const drawField = (label, value, x, y, width = 220) => {
       doc.fillColor('#64748B').fontSize(9).font('Helvetica-Bold').text(label.toUpperCase(), x, y);
-      doc.fillColor('#1E293B').fontSize(11).font('Helvetica').text(value || 'N/A', x, y + 13, { width });
+      doc.fillColor('#1E293B').fontSize(11).font('Helvetica-Bold').text(value || 'N/A', x, y + 13, { width });
     };
 
-    drawField('Receipt Number', donation.receipt_no, 60, 200);
-    drawField('Donation Date', new Date(donation.created_at).toLocaleDateString('en-IN', { dateStyle: 'medium' }), 300, 200);
+    drawField('Receipt Number', donation.receipt_no, 60, 205);
+    drawField('Donation Date', new Date(donation.created_at).toLocaleDateString('en-IN', { dateStyle: 'medium' }), 300, 205);
 
-    drawField('Donor Name', donation.donor_name, 60, 245);
-    drawField('Contact Phone', donation.phone, 300, 245);
+    drawField('Donor Full Name', donation.donor_name, 60, 250);
+    drawField('Contact Phone', donation.phone, 300, 250);
 
-    drawField('PAN Number (80G)', donation.pan_number || 'NOT PROVIDED', 60, 290);
-    drawField('Seva Category', donation.category, 300, 290);
+    drawField('PAN Number (80G)', donation.pan_number || 'NOT PROVIDED', 60, 295);
+    drawField('Seva Category', donation.category, 300, 295);
 
-    drawField('Razorpay Payment ID', donation.payment_id || 'pay_Simulated123', 60, 335);
-    drawField('Transaction Status', donation.status || 'SUCCESS', 300, 335);
+    drawField('Razorpay Payment ID', donation.payment_id || 'pay_Simulated123', 60, 340);
+    drawField('Transaction Status', donation.status || 'SUCCESS', 300, 340);
 
     // Amount Highlight Card
-    doc.rect(60, 390, 455, 60).fill('#ECFDF5');
-    doc.rect(60, 390, 455, 60).lineWidth(1).strokeColor('#10B981').stroke();
+    doc.rect(60, 395, 455, 65).fill('#FFFBEB');
+    doc.rect(60, 395, 455, 65).lineWidth(1.5).strokeColor('#F59E0B').stroke();
     
-    doc.fillColor('#065F46').fontSize(10).font('Helvetica-Bold').text('AMOUNT RECEIVED IN WORDS / NUMBERS', 75, 402);
-    doc.fillColor('#047857').fontSize(18).font('Helvetica-Bold').text(`₹ ${parseFloat(donation.amount).toLocaleString('en-IN')}/-`, 75, 420);
+    doc.fillColor('#92400E').fontSize(10).font('Helvetica-Bold').text('CONTRIBUTION AMOUNT RECEIVED', 75, 408);
+    doc.fillColor('#B45309').fontSize(20).font('Helvetica-Bold').text(`₹ ${parseFloat(donation.amount).toLocaleString('en-IN')}/-`, 75, 427);
 
-    // Tax Note
-    doc.fillColor('#475569').fontSize(9).font('Helvetica-Oblique').text('All donations made to Shri Sai Leela Seva Trust are 50% tax exempt under Section 80G of the Income Tax Act, 1961.', 40, 500, { align: 'center', width: 515 });
+    // Tax Exemption Note
+    doc.fillColor('#475569').fontSize(9).font('Helvetica-Oblique').text('All donations made to Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal are 50% tax exempt under Section 80G of the Income Tax Act, 1961.', 40, 505, { align: 'center', width: 515 });
 
     // Signatures
-    doc.fillColor('#1E293B').fontSize(10).font('Helvetica-Bold').text('For Shri Sai Leela Seva Trust', 380, 570);
-    doc.fillColor('#64748B').fontSize(9).font('Helvetica').text('Authorized Trustee Signature', 380, 620);
+    doc.fillColor('#4A0404').fontSize(10).font('Helvetica-Bold').text('For Mumbai Central Cha Raja Mandal', 350, 570);
+    doc.fillColor('#64748B').fontSize(9).font('Helvetica').text('Authorized Trustee / Treasurer', 350, 620);
     
-    doc.fillColor('#94A3B8').fontSize(8).font('Helvetica').text('Thank you for supporting Palkhi Annadan & Medical Seva. Om Sai Ram!', 40, 750, { align: 'center', width: 515 });
+    doc.fillColor('#94A3B8').fontSize(8).font('Helvetica').text('Ganpati Bappa Morya! Follow us on Instagram @mumbaicentralcharajaofficial', 40, 750, { align: 'center', width: 515 });
 
     doc.end();
   }

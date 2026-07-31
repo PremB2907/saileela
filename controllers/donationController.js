@@ -7,7 +7,7 @@ module.exports = {
   // Render Donation Page
   renderDonationPage(req, res) {
     res.render('donate', {
-      title: 'Seva & Online Donation Portal (80G Exemption) | Shri Saileela Palkhi',
+      title: 'Online Seva & Donation Portal (80G Tax Exemption) | Mumbai Central Cha Raja',
       activeTab: 'donate',
       razorpayKeyId: razorpay.getKeyId()
     });
@@ -21,7 +21,7 @@ module.exports = {
         return res.status(400).json({ success: false, message: 'Invalid donation amount.' });
       }
 
-      const tempReceiptNo = `SLP-REC-2026-${Math.floor(100 + Math.random() * 900)}`;
+      const tempReceiptNo = `MCC-REC-2026-${Math.floor(100 + Math.random() * 900)}`;
       const orderResponse = await razorpay.createOrder(amount, tempReceiptNo);
 
       res.json({
@@ -53,7 +53,7 @@ module.exports = {
       }
 
       const donationData = {
-        receipt_no: receipt_no || `SLP-REC-2026-${Math.floor(100 + Math.random() * 900)}`,
+        receipt_no: receipt_no || `MCC-REC-2026-${Math.floor(100 + Math.random() * 900)}`,
         donor_name: donor_name.trim(),
         phone: phone.trim(),
         email: (email || '').trim(),

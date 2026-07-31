@@ -38,7 +38,7 @@ module.exports = {
     }
 
     res.render('admin/login', {
-      title: 'Admin Login | Shri Saileela Palkhi Seva Trust',
+      title: 'Admin Desk | Mumbai Central Cha Raja',
       activeTab: 'admin',
       error: null,
       username: 'admin'
@@ -59,7 +59,7 @@ module.exports = {
     }
 
     res.render('admin/login', {
-      title: 'Admin Login | Shri Saileela Palkhi Seva Trust',
+      title: 'Admin Desk | Mumbai Central Cha Raja',
       activeTab: 'admin',
       error: 'Invalid username or password. Please try again.',
       username: username || 'admin'
@@ -91,7 +91,7 @@ module.exports = {
     const totalDonations = donations.reduce((sum, d) => sum + parseFloat(d.amount), 0);
 
     res.render('admin/dashboard', {
-      title: 'Admin Control Panel | Shri Saileela Palkhi Seva Trust',
+      title: 'Admin Control Panel | Mumbai Central Cha Raja',
       activeTab: 'admin',
       passes,
       donations,

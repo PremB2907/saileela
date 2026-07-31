@@ -2,46 +2,46 @@
 
 <section style="padding: 4rem 0; background: var(--bg-surface);">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag" data-i18n="itinerary_tag">पालखी प्रवास सूची</span>
-      <h2 class="section-title" data-i18n="itinerary_title">११ दिवसांचे पालखी मार्ग पत्रक २०२६</h2>
+    <div class="section-header" style="text-align: center; max-width: 750px; margin: 0 auto 3rem;">
+      <span class="section-tag" style="background: rgba(128,0,32,0.1); color: var(--chintamani-red); font-weight: 800; padding: 0.3rem 1rem; border-radius: var(--radius-full);" data-i18n="itinerary_tag">गणेशोत्सव कार्यसूची</span>
+      <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.6rem;" data-i18n="itinerary_title">१० दिवसांचे गणेशोत्सव वेळापत्रक २०२६</h2>
       <p class="section-subtitle" data-i18n="itinerary_subtitle">
-        मुंबई ते शिर्डी (२६५ किमी) सविस्तर प्रवास सूची, मुक्काम मैदाने, महाप्रसाद केंद्रे आणि आपत्कालीन वैद्यकीय मदत कक्ष.
+        दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक वेळापत्रक पाहा.
       </p>
     </div>
 
     <!-- Live Status Banner -->
-    <div style="background: linear-gradient(135deg, #1A0404 0%, #3A0302 100%); color: #FFFFFF; padding: 1.8rem; border-radius: var(--radius-lg); margin-bottom: 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border: 2px solid var(--chintamani-saffron); box-shadow: var(--shadow-lg);">
+    <div style="background: linear-gradient(135deg, #160B28 0%, #4A0404 100%); color: #FFFFFF; padding: 1.8rem; border-radius: var(--radius-lg); margin-bottom: 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border: 2px solid var(--chintamani-gold); box-shadow: var(--shadow-lg);">
       <div>
-        <span style="color: #FFD700; font-weight: 800; font-size: 0.85rem; text-transform: uppercase;" data-i18n="current_location">सध्याचे थेट स्थान</span>
-        <h3 style="color: #FFFFFF; font-size: 1.4rem; margin-top: 0.2rem;"><%= yatraStatus.current_location %></h3>
+        <span style="color: #FFD700; font-weight: 800; font-size: 0.85rem; text-transform: uppercase;" data-i18n="current_location">सध्याचे मण्डप स्थान</span>
+        <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-top: 0.2rem;"><%= yatraStatus.current_location %></h3>
       </div>
       <div>
-        <span style="font-size: 0.85rem; color: #94A3B8; display: block;" data-i18n="route_progress">मार्ग प्रगती</span>
-        <span style="font-size: 1.3rem; font-weight: 800; color: #FFD700;"><%= yatraStatus.distance_covered_km %> KM / <%= yatraStatus.total_distance_km %> KM</span>
+        <span style="font-size: 0.85rem; color: #CBD5E1; display: block;" data-i18n="route_progress">महोत्सव प्रगती</span>
+        <span style="font-size: 1.3rem; font-weight: 800; color: #FFD700;">Day <%= yatraStatus.current_day %> of <%= yatraStatus.total_days %></span>
       </div>
       <div>
-        <a href="/register-pass" class="btn btn-chintamani-primary">
+        <a href="/register-pass" class="btn btn-chintamani-primary" style="background: var(--chintamani-red); border-color: #FFD700;">
           <i class="bi bi-person-badge"></i> <span data-i18n="btn_get_pass">अधिकृत पास मिळवा</span>
         </a>
       </div>
     </div>
 
-    <!-- 11-Day Timeline -->
+    <!-- 10-Day Timeline -->
     <div style="display: grid; gap: 1.8rem; max-width: 950px; margin: 0 auto;">
       <% scheduleData.forEach(item => { %>
-        <div style="background: var(--bg-card); border: 2px solid <%= item.day === yatraStatus.current_day ? 'var(--chintamani-saffron)' : 'var(--border-light)' %>; border-radius: var(--radius-lg); padding: 1.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; box-shadow: var(--shadow-md);" id="day-<%= item.day %>">
+        <div style="background: var(--bg-card); border: 2px solid <%= item.day === yatraStatus.current_day ? 'var(--chintamani-gold)' : 'var(--border-light)' %>; border-radius: var(--radius-lg); padding: 1.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; box-shadow: var(--shadow-md);" id="day-<%= item.day %>">
           <div>
             <span style="background: <%= item.day === yatraStatus.current_day ? 'var(--chintamani-red)' : '#64748B' %>; color: #FFFFFF; font-size: 0.78rem; font-weight: 800; padding: 0.25rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;">
               <% if(item.day === yatraStatus.current_day) { %>
-                📍 LIVE HALT (DAY <%= item.day %> OF 11)
+                📍 TODAY'S EVENT (DAY <%= item.day %> OF 10)
               <% } else { %>
                 DAY <%= item.day %> - <%= item.date %>
               <% } %>
             </span>
             <h3 style="font-size: 1.35rem; margin: 0.5rem 0 0.3rem; color: var(--text-main);"><%= item.title %></h3>
             <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.8rem;">
-              <i class="bi bi-geo-alt-fill" style="color: var(--chintamani-red);"></i> <strong>मुक्काम मैदान:</strong> <%= item.halt_location %>
+              <i class="bi bi-geo-alt-fill" style="color: var(--chintamani-red);"></i> <strong>स्थान:</strong> <%= item.halt_location %>
             </p>
 
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -52,8 +52,7 @@
           </div>
 
           <div style="text-align: right; min-width: 160px;">
-            <span style="font-size: 1.3rem; font-weight: 800; color: var(--chintamani-red); display: block;"><%= item.distance_km %> KM</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem; display: block;">आपत्कालीन संपर्क:</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">आपत्कालीन संपर्क:</span>
             <span style="font-size: 0.95rem; font-weight: 800; color: var(--chintamani-saffron);">📞 <%= item.emergency_contact %></span>
           </div>
         </div>

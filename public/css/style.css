@@ -1,47 +1,48 @@
 /* ==========================================================================
-   SHRI SAILEELA PALKHI - CHINCHPOKLI CHA CHINTAMANI INSPIRED DESIGN SYSTEM
-   Aesthetics: Royal Crimson Red (#BB0C09), Saffron Orange (#FF7F00), Warm Gold (#F59E0B), Sacred White & Deep Slate Dark Mode
+   MUMBAI CENTRAL CHA RAJA - REGAL GANESHOTSAV DESIGN SYSTEM
+   Official Handle: @mumbaicentralcharajaofficial
+   Aesthetics: Royal Maroon Velvet (#800020), Deep Crimson (#4A0404), Royal Gold (#FFD700), Bright Saffron (#FF6F00)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Rozha+One&display=swap');
 
 :root {
-  --chintamani-red: #BB0C09;
-  --chintamani-red-hover: #960907;
-  --chintamani-saffron: #FF7F00;
+  --chintamani-red: #800020;
+  --chintamani-red-hover: #4A0404;
+  --chintamani-saffron: #FF6F00;
   --chintamani-saffron-light: #FFF7ED;
-  --chintamani-gold: #F59E0B;
-  --gold-glow: rgba(245, 158, 11, 0.25);
+  --chintamani-gold: #FFD700;
+  --gold-glow: rgba(255, 215, 0, 0.3);
 
-  --bg-dark: #0F172A;
-  --bg-navy: #1E293B;
+  --bg-dark: #160B28;
+  --bg-navy: #240E3E;
   --bg-card: #FFFFFF;
-  --bg-surface: #FFFBF5;
+  --bg-surface: #FDFBF7;
   
-  --text-main: #1E293B;
-  --text-muted: #64748B;
-  --text-light: #94A3B8;
+  --text-main: #1F1528;
+  --text-muted: #645772;
+  --text-light: #9488A5;
   
   --primary-gold: #D97706;
   --accent-green: #059669;
   --accent-green-bg: #ECFDF5;
   --accent-red: #DC2626;
 
-  --border-light: #F1E5D8;
-  --border-dark: #334155;
+  --border-light: #F3EAE0;
+  --border-dark: #3A2654;
   
-  --shadow-sm: 0 2px 4px rgba(187, 12, 9, 0.05);
-  --shadow-md: 0 6px 12px rgba(187, 12, 9, 0.08);
-  --shadow-lg: 0 12px 24px rgba(15, 23, 42, 0.12);
-  --shadow-xl: 0 20px 30px rgba(187, 12, 9, 0.18);
+  --shadow-sm: 0 2px 4px rgba(128, 0, 32, 0.08);
+  --shadow-md: 0 6px 12px rgba(128, 0, 32, 0.12);
+  --shadow-lg: 0 12px 24px rgba(22, 11, 40, 0.16);
+  --shadow-xl: 0 20px 30px rgba(128, 0, 32, 0.22);
 
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-full: 9999px;
   
-  --font-body: 'Noto Sans Devanagari', 'Outfit', sans-serif;
-  --font-heading: 'Noto Sans Devanagari', 'Rozha One', 'Outfit', serif;
+  --font-body: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+  --font-heading: 'Noto Sans Devanagari', 'Rozha One', 'Cinzel', serif;
 }
 
 /* Dark Theme Variables Override */

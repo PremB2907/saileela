@@ -6,7 +6,7 @@ module.exports = {
   // Render Pass Registration Form
   renderRegisterPage(req, res) {
     res.render('register-pass', {
-      title: 'Palkhi Devotee Pass Registration | Shri Saileela Palkhi 2026',
+      title: 'Devotee Pass Registration | Mumbai Central Cha Raja 2026',
       activeTab: 'register',
       query: req.query
     });
@@ -22,15 +22,15 @@ module.exports = {
 
       if (!full_name || !phone || !age || !gender || !city || !batch || !emergency_contact || !id_proof_type || !id_proof_number) {
         return res.render('register-pass', {
-          title: 'Palkhi Devotee Pass Registration',
+          title: 'Devotee Pass Registration | Mumbai Central Cha Raja',
           activeTab: 'register',
           error: 'Please fill in all mandatory fields before submitting your registration.',
           formData: req.body
         });
       }
 
-      // Generate unique pass code format: SLP-2026-XXXX
-      const pass_code = `SLP-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      // Generate unique pass code format: MCC-2026-XXXX
+      const pass_code = `MCC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
 
       const passData = {
         pass_code,
@@ -57,7 +57,7 @@ module.exports = {
     } catch (err) {
       console.error('Pass registration error:', err);
       res.render('register-pass', {
-        title: 'Palkhi Devotee Pass Registration',
+        title: 'Devotee Pass Registration | Mumbai Central Cha Raja',
         activeTab: 'register',
         error: 'An error occurred while creating your pass. Please try again.',
         formData: req.body
@@ -73,13 +73,13 @@ module.exports = {
 
     if (searchCode) {
       searched = true;
-      foundPass = searchCode.startsWith('SLP')
+      foundPass = (searchCode.startsWith('MCC') || searchCode.startsWith('SLP'))
         ? await db.getPassByCode(searchCode)
         : await db.getPassByPhone(searchCode);
     }
 
     res.render('pass-status', {
-      title: 'Pass Verification & Status Portal | Shri Saileela Palkhi',
+      title: 'Pass Verification Portal | Mumbai Central Cha Raja',
       activeTab: 'pass-status',
       searchCode: searchCode || '',
       pass: foundPass,

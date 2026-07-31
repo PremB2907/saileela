@@ -6,14 +6,14 @@ const mockStore = {
   passes: [
     {
       id: 1,
-      pass_code: 'SLP-2026-8942',
+      pass_code: 'MCC-2026-8942',
       full_name: 'Rahul Ramesh Sharma',
       phone: '9876543210',
       email: 'rahul.sharma@example.com',
       age: 34,
       gender: 'Male',
-      city: 'Mumbai',
-      batch: 'Batch A - Shirdi Main Route',
+      city: 'Mumbai Central',
+      batch: 'VIP Mandap Entry & Aarti Pass',
       emergency_contact: '9876543211',
       id_proof_type: 'Aadhaar Card',
       id_proof_number: 'XXXX-XXXX-4812',
@@ -22,14 +22,14 @@ const mockStore = {
     },
     {
       id: 2,
-      pass_code: 'SLP-2026-9104',
+      pass_code: 'MCC-2026-9104',
       full_name: 'Priya Sunil Patil',
       phone: '9123456789',
       email: 'priya.patil@example.com',
       age: 28,
       gender: 'Female',
-      city: 'Pune',
-      batch: 'Batch B - Sangamner Halts',
+      city: 'Byculla, Mumbai',
+      batch: 'Karyakarta / Sevak Pass',
       emergency_contact: '9123456780',
       id_proof_type: 'PAN Card',
       id_proof_number: 'ABCDE1234F',
@@ -40,13 +40,13 @@ const mockStore = {
   donations: [
     {
       id: 1,
-      receipt_no: 'SLP-REC-2026-101',
+      receipt_no: 'MCC-REC-2026-101',
       donor_name: 'Anand V. Deshmukh',
       phone: '9988776655',
       email: 'anand.deshmukh@example.com',
       amount: 5001,
-      category: 'Annadan Seva (Mahaprasad)',
-      payment_id: 'pay_Mock101Saileela',
+      category: 'Modak & Mahaprasad Seva',
+      payment_id: 'pay_Mock101MCC',
       order_id: 'order_Mock101Order',
       pan_number: 'APZPD8923K',
       status: 'SUCCESS',
@@ -54,13 +54,13 @@ const mockStore = {
     },
     {
       id: 2,
-      receipt_no: 'SLP-REC-2026-102',
+      receipt_no: 'MCC-REC-2026-102',
       donor_name: 'Sunita M. Kulkarni',
       phone: '9876123456',
       email: 'sunita.k@example.com',
       amount: 2100,
-      category: 'Medical & Ambulance Seva',
-      payment_id: 'pay_Mock102Saileela',
+      category: 'Mandap & Pushpa Alankar Seva',
+      payment_id: 'pay_Mock102MCC',
       order_id: 'order_Mock102Order',
       pan_number: 'BKPKS4129L',
       status: 'SUCCESS',
@@ -68,18 +68,18 @@ const mockStore = {
     }
   ],
   yatra_status: {
-    current_day: 4,
-    total_days: 11,
-    current_location: 'Loni - Sangamner Highway Halt',
-    next_location: 'Babaleshwar Temple Ground',
-    distance_covered_km: 142,
-    total_distance_km: 265,
-    active_varkaris: 4850,
-    meals_served_today: 12400,
+    current_day: 3,
+    total_days: 10,
+    current_location: 'BIT Chawl Ground, Mumbai Central (Mandap Darshan Open)',
+    next_location: 'Maha Aarti & Evening Mahaprasad (8:00 PM)',
+    distance_covered_km: 100,
+    total_distance_km: 100,
+    active_varkaris: 35000,
+    meals_served_today: 18500,
     last_updated: new Date()
   },
   logs: [
-    { id: 1, type: 'SYSTEM', message: 'Saileela Palkhi System Initialized', timestamp: new Date() }
+    { id: 1, type: 'SYSTEM', message: 'Mumbai Central Cha Raja Portal Initialized', timestamp: new Date() }
   ]
 };
 

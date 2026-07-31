@@ -2,10 +2,10 @@
 
 <section class="py-5">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Pass Lookup & Verification</span>
-      <h2 class="section-title">Devotee Pass Verification Portal</h2>
-      <p class="section-subtitle">Enter your Pass Registration Code (e.g. SLP-2026-8942) or registered mobile number to view and download your pass.</p>
+    <div class="section-header" style="text-align: center; max-width: 750px; margin: 0 auto 3rem;">
+      <span class="section-tag" style="background: rgba(128,0,32,0.1); color: var(--chintamani-red); font-weight: 800; padding: 0.3rem 1rem; border-radius: var(--radius-full);">Pass Lookup & Verification</span>
+      <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.6rem;">Mumbai Central Cha Raja Pass Verification</h2>
+      <p class="section-subtitle">Enter your Pass Registration Code (e.g. MCC-2026-8942) or registered mobile number to view and download your PDF pass.</p>
     </div>
 
     <% if (typeof successMessage !== 'undefined' && successMessage) { %>
@@ -17,8 +17,8 @@
     <!-- Search Form Box -->
     <div style="max-width: 600px; margin: 0 auto 3rem;">
       <form action="/pass-status" method="GET" style="display: flex; gap: 0.8rem;">
-        <input type="text" name="code" class="form-control" placeholder="Enter Pass Code (SLP-2026-XXXX) or Phone Number" value="<%= searchCode %>" required style="flex: 1;">
-        <button type="submit" class="btn btn-primary">
+        <input type="text" name="code" class="form-control" placeholder="Enter Pass Code (MCC-2026-XXXX) or Phone Number" value="<%= searchCode %>" required style="flex: 1;">
+        <button type="submit" class="btn btn-chintamani-primary" style="background: var(--chintamani-red);">
           <i class="bi bi-search"></i> Search
         </button>
       </form>
@@ -26,13 +26,13 @@
 
     <!-- Pass Ticket Display Card -->
     <% if (pass) { %>
-      <div class="pass-ticket-card">
-        <div class="ticket-header">
+      <div class="pass-ticket-card" style="max-width: 750px; margin: 0 auto; background: var(--bg-card); border: 2px solid var(--chintamani-red); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-lg);">
+        <div class="ticket-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-light); padding-bottom: 1rem; margin-bottom: 1.5rem;">
           <div>
-            <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Official Pilgrim Gate Pass</span>
-            <h3 style="margin-top: 0.2rem; font-size: 1.4rem;"><%= pass.full_name %></h3>
+            <span style="font-size: 0.8rem; color: var(--chintamani-red); text-transform: uppercase; font-weight: 800;">Official VIP Entry Pass</span>
+            <h3 style="margin-top: 0.2rem; font-size: 1.4rem; color: var(--text-main);"><%= pass.full_name %></h3>
           </div>
-          <div class="pass-code-badge">
+          <div class="pass-code-badge" style="background: var(--chintamani-red); color: #FFD700; font-weight: 800; padding: 0.4rem 1rem; border-radius: var(--radius-sm); font-size: 1.1rem;">
             <%= pass.pass_code %>
           </div>
         </div>
@@ -40,23 +40,23 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem;">
           <div>
             <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">MOBILE PHONE</span>
-            <strong style="color: var(--bg-dark);"><%= pass.phone %></strong>
+            <strong style="color: var(--text-main);"><%= pass.phone %></strong>
           </div>
           <div>
             <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">AGE & GENDER</span>
-            <strong style="color: var(--bg-dark);"><%= pass.age %> Yrs / <%= pass.gender %></strong>
+            <strong style="color: var(--text-main);"><%= pass.age %> Yrs / <%= pass.gender %></strong>
           </div>
           <div>
-            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">CITY / ORIGIN</span>
-            <strong style="color: var(--bg-dark);"><%= pass.city %></strong>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">CITY / AREA</span>
+            <strong style="color: var(--text-main);"><%= pass.city %></strong>
           </div>
           <div>
             <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">ID PROOF</span>
-            <strong style="color: var(--bg-dark);"><%= pass.id_proof_type %> (<%= pass.id_proof_number %>)</strong>
+            <strong style="color: var(--text-main);"><%= pass.id_proof_type %> (<%= pass.id_proof_number %>)</strong>
           </div>
           <div style="grid-column: span 2;">
-            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">ASSIGNED PALKHI BATCH</span>
-            <strong style="color: var(--primary-gold);"><%= pass.batch %></strong>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">ENTRY CATEGORY / BATCH</span>
+            <strong style="color: var(--chintamani-red); font-size: 1.05rem;"><%= pass.batch %></strong>
           </div>
           <div>
             <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">EMERGENCY CONTACT</span>
@@ -71,7 +71,7 @@
         </div>
 
         <div style="border-top: 1px solid var(--border-light); padding-top: 1.5rem; text-align: center;">
-          <a href="/download-pass/<%= pass.pass_code %>" class="btn btn-primary" style="padding: 0.8rem 2rem;">
+          <a href="/download-pass/<%= pass.pass_code %>" class="btn btn-chintamani-primary" style="padding: 0.8rem 2rem; background: var(--chintamani-red);">
             <i class="bi bi-file-earmark-pdf-fill"></i> Download Official PDF Gate Pass
           </a>
         </div>
@@ -79,9 +79,9 @@
     <% } else if (searched) { %>
       <div style="text-align: center; max-width: 500px; margin: 0 auto; padding: 2rem; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--border-light);">
         <i class="bi bi-search-heart" style="font-size: 3rem; color: var(--text-muted);"></i>
-        <h3 style="margin-top: 1rem; color: var(--bg-dark);">No Pass Record Found</h3>
+        <h3 style="margin-top: 1rem; color: var(--text-main);">No Pass Record Found</h3>
         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We couldn't find a pass matching "<%= searchCode %>". Please verify your registration code or mobile number.</p>
-        <a href="/register-pass" class="btn btn-primary">Register New Pass &rarr;</a>
+        <a href="/register-pass" class="btn btn-chintamani-primary">Register New Pass &rarr;</a>
       </div>
     <% } %>
   </div>

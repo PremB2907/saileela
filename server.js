@@ -44,9 +44,9 @@ app.use((err, req, res, next) => {
   console.error('Unhandled Server Error:', err.stack);
   res.status(500).send(`
     <div style="font-family: sans-serif; padding: 40px; text-align: center;">
-      <h2>Om Sai Ram - Server Encountered an Unexpected Issue</h2>
+      <h2>Ganpati Bappa Morya - Server Encountered an Unexpected Issue</h2>
       <p style="color: #64748b;">${err.message}</p>
-      <a href="/" style="display: inline-block; margin-top: 15px; background: #0F172A; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 6px;">Return to Home</a>
+      <a href="/" style="display: inline-block; margin-top: 15px; background: #800020; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 6px;">Return to Home</a>
     </div>
   `);
 });
@@ -54,7 +54,7 @@ app.use((err, req, res, next) => {
 // 404 Handler
 app.use((req, res) => {
   res.status(404).render('index', {
-    title: '404 - Page Not Found | Shri Saileela Palkhi',
+    title: '404 - Page Not Found | Mumbai Central Cha Raja',
     activeTab: 'home',
     yatraStatus: db.getYatraStatus(),
     scheduleData: []
@@ -68,7 +68,7 @@ module.exports = app;
 if (process.env.VERCEL !== '1') {
   app.listen(PORT, async () => {
     console.log(`=======================================================`);
-    console.log(`🚩 Shri Saileela Palkhi Web Server Started`);
+    console.log(`🌺 Mumbai Central Cha Raja Official Web Server Started`);
     console.log(`🌐 URL: http://localhost:${PORT}`);
     console.log(`=======================================================`);
     

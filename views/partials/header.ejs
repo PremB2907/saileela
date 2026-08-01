@@ -6,6 +6,27 @@
   <title><%= typeof title !== 'undefined' ? title : 'Mumbai Central Cha Raja | Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal' %></title>
   <meta name="description" content="Official Portal of Mumbai Central Cha Raja - Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal. Immersive digital temple experience, live darshan, history, committee & donation.">
   
+  <!-- Open Graph & Social Sharing Meta Tags -->
+  <meta property="og:title" content="<%= typeof title !== 'undefined' ? title : 'Mumbai Central Cha Raja | Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal' %>">
+  <meta property="og:description" content="Official Portal of Mumbai Central Cha Raja (Est. 1988, Reg. E-3892). Live Ganeshotsav Aarti Darshan, 10-year historical photo archive, social work & 80G tax exempt donations.">
+  <meta property="og:image" content="https://saileela-eight.vercel.app/images/raja_real_1.png">
+  <meta property="og:url" content="https://saileela-eight.vercel.app">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal",
+    "alternateName": "Mumbai Central Cha Raja",
+    "url": "https://saileela-eight.vercel.app",
+    "logo": "https://saileela-eight.vercel.app/images/logo.png",
+    "foundingDate": "1988"
+  }
+  </script>
+  
   <!-- Google Web Fonts & Devanagari Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,15 +48,25 @@
 </head>
 <body>
 
+  <!-- Studio Custom Interactive Follower Cursor -->
+  <div class="custom-cursor-dot" id="customCursorDot"></div>
+  <div class="custom-cursor-outline" id="customCursorOutline"></div>
+
   <!-- Mandal Top Header Banner -->
-  <div class="topbar-chintamani">
+  <div class="topbar-chintamani top-utility-bar" id="topUtilityBar">
     <div class="container">
       <div class="mandal-top-banner-flex">
-        <!-- Top Meta (Est & Reg) -->
+        <!-- Top Meta (Est & Reg & Social Links) -->
         <div class="mandal-top-meta">
           <span data-i18n="est_label">स्थापना : १९८८</span>
           
-          <div style="display: flex; align-items: center; gap: 1.2rem;">
+          <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
+            <a href="https://www.youtube.com/channel/UCrijB5WpQhGLfWQT1WSySNg" target="_blank" rel="noopener noreferrer" style="color: var(--bg-ivory); font-weight: 700; text-decoration: none; font-size: 0.88rem;">
+              <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> YouTube
+            </a>
+            <a href="https://mumbaicharaja.co/" target="_blank" rel="noopener noreferrer" style="color: var(--bg-ivory); font-weight: 700; text-decoration: none; font-size: 0.88rem;">
+              <i class="fa-brands fa-facebook" style="color: #1877F2;"></i> Facebook
+            </a>
             <a href="https://www.instagram.com/mumbaicentralcharajaofficial" target="_blank" rel="noopener noreferrer" style="color: var(--bg-ivory); font-weight: 700; text-decoration: none; font-size: 0.88rem;">
               <i class="fa-brands fa-instagram" style="color: var(--royal-gold);"></i> @mumbaicentralcharajaofficial
             </a>
@@ -60,10 +91,11 @@
   <!-- Main Site Sticky Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Official Mandal Logo Crest -->
+      <!-- Official Mandal Logo Crest with Motion Frame -->
       <a href="/" class="brand-logo">
-        <div style="width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;">
-          <img src="/images/logo.png" alt="Mumbai Central Cha Raja Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        <div class="logo-motion-wrapper" style="width: 48px; height: 48px;">
+          <div class="logo-motion-ring"></div>
+          <img src="/images/logo.png" alt="Mumbai Central Cha Raja Logo" style="width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1;">
         </div>
         <div class="brand-text">
           <h2 data-i18n="mandal_name_header">मुंबई सेंट्रलचा राजा</h2>
@@ -83,7 +115,7 @@
           <li><a href="/about" class="nav-link <%= activeTab === 'about' ? 'active' : '' %>" data-i18n="nav_about">आमच्याबद्दल</a></li>
           <li><a href="/schedule" class="nav-link <%= activeTab === 'schedule' ? 'active' : '' %>" data-i18n="nav_schedule">गणेशोत्सव</a></li>
           <li><a href="/glimpses" class="nav-link <%= activeTab === 'glimpses' ? 'active' : '' %>" data-i18n="nav_glimpses">क्षणचित्रे</a></li>
-          <li><a href="/photo-booth" class="nav-link <%= activeTab === 'photobooth' ? 'active' : '' %>" data-i18n="nav_photobooth">फोटो बूथ</a></li>
+          <li><a href="/photo-booth" class="nav-link <%= activeTab === 'photobooth' ? 'active' : '' %>" data-i18n="nav_photobooth">दशकातील क्षणचित्रे</a></li>
           <li><a href="/social-work" class="nav-link <%= activeTab === 'socialwork' ? 'active' : '' %>" data-i18n="nav_socialwork">सामाजिक कार्य</a></li>
           <li><a href="/tshirt" class="nav-link <%= activeTab === 'tshirt' ? 'active' : '' %>" data-i18n="nav_tshirt">टी-शर्ट</a></li>
           <li><a href="/committee" class="nav-link <%= activeTab === 'committee' ? 'active' : '' %>" data-i18n="nav_committee">कार्यकारिणी</a></li>
@@ -120,8 +152,9 @@
       </div>
       <div style="padding: 1rem; background: #000000; text-align: center;">
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
-          <iframe id="videoFrame" src="https://www.youtube.com/embed/live_stream?channel=UCmumbaicentralcharaja" style="position: absolute; top:0; left:0; width:100%; height:100%; border:none;" allowfullscreen></iframe>
+          <iframe id="videoFrame" src="https://www.youtube.com/embed/live_stream?channel=UCrijB5WpQhGLfWQT1WSySNg" style="position: absolute; top:0; left:0; width:100%; height:100%; border:none;" allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </div>
+

@@ -84,11 +84,12 @@ const scheduleData = [
   }
 ];
 
-// Glimpses over the Year (Replacing 5 sacred forms)
+// Glimpses over a Decade (10+ Years Historical Retrospective Data)
 const glimpsesData = [
   {
     year: '2025',
-    title: 'काष्ठ सिंहासन व राजेशाही सुवर्ण शृंगार (Wooden Throne)',
+    category: 'idols',
+    title: 'काष्ठ सिंहासन व राजेशाही सुवर्ण शृंगार (Royal Wooden Throne)',
     theme: 'Peshwa Era Palace Mandap Architecture',
     height: '18 Feet',
     artist: 'Master Sculptor Shri Santosh Kambli',
@@ -97,6 +98,7 @@ const glimpsesData = [
   },
   {
     year: '2024',
+    category: 'idols',
     title: 'सुवर्ण सिंहासन व तेज:पुंज पीत पितांबर (Golden Throne)',
     theme: 'Golden Temple Carvings & Lotus Arch',
     height: '18 Feet',
@@ -106,6 +108,7 @@ const glimpsesData = [
   },
   {
     year: '2023',
+    category: 'visarjan',
     title: 'मयूरपंख कमान आगमन सोहळा (Peacock Feather Arch)',
     theme: 'Royal Heritage Court Decor',
     height: '18 Feet',
@@ -115,21 +118,83 @@ const glimpsesData = [
   },
   {
     year: '2022',
-    title: 'श्री मुख दर्शन व सुवर्ण मुकुट (Divine Smile)',
+    category: 'aarti',
+    title: 'श्री मुख दर्शन व सुवर्ण मुकुट (Divine Face & Gold Crown)',
     theme: 'Tradition of Pure Devotion',
     height: '18 Feet',
     artist: 'Sculptor Shri Santosh Kambli',
     image: '/images/raja_real_4.png',
-    desc: 'Mesmerizing facial smile with gold crown,Modak blessing hand posture.'
+    desc: 'Mesmerizing facial smile with gold crown and Modak blessing hand posture.'
   },
   {
     year: '2021',
-    title: 'गर्भगृह पुष्प शृंगार दर्शन (Floral Sanctuary)',
+    category: 'decor',
+    title: 'गर्भगृह पुष्प शृंगार दर्शन (Floral Sanctuary Decor)',
     theme: 'Royal Velvet & Lotus Geometry',
     height: '18 Feet',
     artist: 'Mandal Design Team',
     image: '/images/raja_real_5.png',
     desc: 'Idol adorned in purple pitambar with backdrop of 5000+ fresh orchid & marigold flowers.'
+  },
+  {
+    year: '2020',
+    category: 'aarti',
+    title: 'आरोग्य संकल्प व सुवर्ण पदकमयी रूप (Arogya Sankalp)',
+    theme: 'Eco-Friendly Clay & Silver Throne',
+    height: '12 Feet',
+    artist: 'Master Sculptor Shri Santosh Kambli',
+    image: '/images/gallery_padya_pujan.png',
+    desc: 'Sacred silver throne during pandemic health drive and blood donation initiative.'
+  },
+  {
+    year: '2019',
+    category: 'decor',
+    title: 'राजवाडा महामंडप व सुवर्ण मेघडंबरी (Royal Palace Dome)',
+    theme: 'Fort Raigad & Palace Architecture',
+    height: '18 Feet',
+    artist: 'Mandal Artisans & Sculptors',
+    image: '/images/gallery_aagman.png',
+    desc: 'Grand traditional Maratha palace setup with ornate golden arches.'
+  },
+  {
+    year: '2018',
+    category: 'visarjan',
+    title: 'भव्य विसर्जन मिरवणूक व तुतारी शंखनाद (Grand Visarjan)',
+    theme: 'Traditional Dhol Tasha & Gulal Rain',
+    height: '18 Feet',
+    artist: 'Mandal Karyakartas',
+    image: '/images/gallery_mandap.png',
+    desc: 'Royal chariot procession from Belasis Road to Girgaon Chowpatty beach.'
+  },
+  {
+    year: '2017',
+    category: 'idols',
+    title: 'रत्नजडित मुकुट व पीतांबर शृंगार (Jeweled Crown & Silk)',
+    theme: 'Classic Temple Carvings',
+    height: '18 Feet',
+    artist: 'Sculptor Shri Santosh Kambli',
+    image: '/images/gallery_pushpa_alankar.png',
+    desc: 'Classic 18ft idol embellished with traditional Kolhapuri gold jewelry.'
+  },
+  {
+    year: '2016',
+    category: 'decor',
+    title: 'रौप्य कमान व प्रथम दीप सोहळा (Silver Arch Deepotsav)',
+    theme: 'Heritage Chawl Jubilee Decor',
+    height: '18 Feet',
+    artist: 'Mandal Team',
+    image: '/images/raja_real_1.png',
+    desc: 'Illuminated 1008 lamps ceremony and silver backdrop arch.'
+  },
+  {
+    year: '2015',
+    category: 'idols',
+    title: 'दशकपूर्ती आगमन व राजेशाही पदचिन्ह (Decade Milestone)',
+    theme: 'Traditional Heritage Crafts',
+    height: '18 Feet',
+    artist: 'Master Sculptor Shri Santosh Kambli',
+    image: '/images/raja_real_2.png',
+    desc: 'Iconic historic idol sculpture marking 27th grand year of Mandal establishment.'
   }
 ];
 
@@ -247,11 +312,12 @@ module.exports = {
     });
   },
 
-  // Render Photo Booth Page
+  // Render Decade Gallery (Renamed from Photo Booth)
   renderPhotoBoothPage(req, res) {
     res.render('photo-booth', {
-      title: 'फोटो बूथ | Mumbai Central Cha Raja',
-      activeTab: 'photobooth'
+      title: 'दशकातील क्षणचित्रे (२०१५-२०२५) | Mumbai Central Cha Raja',
+      activeTab: 'photobooth',
+      glimpsesData
     });
   },
 

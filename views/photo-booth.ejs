@@ -1,93 +1,94 @@
 <%- include('partials/header') %>
 
-<section style="background: linear-gradient(135deg, var(--temple-maroon) 0%, var(--maroon-dark) 100%); color: var(--bg-ivory); padding: 4.5rem 0; border-bottom: 3px solid var(--royal-gold); text-align: center;">
+<section style="background: var(--temple-maroon); color: var(--bg-ivory); padding: 4.5rem 0; border-bottom: 3px solid var(--royal-gold); text-align: center;">
   <div class="container">
-    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);">
-      डिजिटल आठवण
+    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);" data-i18n="decade_tag">
+      १० वर्षांचा सुवर्ण प्रवास
     </span>
-    <h1 style="font-size: 3rem; color: var(--gold-soft); margin-top: 0.5rem;" data-i18n="photobooth_title">Photo Booth for Ganpati Mandal</h1>
-    <p style="font-size: 1.15rem; color: #E5E7EB; max-width: 750px; margin: 1rem auto 0; line-height: 1.8;" data-i18n="photobooth_sub">
-      मुंबई सेंट्रलच्या राजासोबत आपली आठवण जपून ठेवा. डिजिटल फोटो फ्रेम निवडा व फोटो तयार करा.
+    <h1 style="font-size: 3rem; color: var(--gold-soft); margin-top: 0.5rem;" data-i18n="decade_title">दशकातील स्वर्णिम क्षणचित्रे (२०१५ - २०२५)</h1>
+    <p style="font-size: 1.15rem; color: #E5E7EB; max-width: 800px; margin: 1rem auto 0; line-height: 1.8;" data-i18n="decade_sub">
+      गेल्या १० वर्षांतील राजाची राजेशाही रूपे, काष्ठ व सुवर्ण सिहांसन आणि अथांग भक्तीचा ऐतिहासिक लेखाजोखा.
     </p>
   </div>
 </section>
 
-<section style="background: var(--bg-cream); padding: 5rem 0;">
+<!-- Featured Horizontal Scroll Reel Section -->
+<section style="background: var(--bg-ivory); padding: 3rem 0 2rem; border-bottom: 1px solid var(--border-gold);">
   <div class="container">
-    <div class="photobooth-container">
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="font-size: 1.8rem; color: var(--temple-maroon); margin-bottom: 0.5rem;">
-          राजाची सुवर्ण फोटो फ्रेम
-        </h2>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">
-          खालीलपैकी फ्रेम निवडा, तुमचा फोटो अपलोड करा आणि राजाची राजेशाही चौकट फ्रेम डाऊनलोड करा.
-        </p>
-      </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem;">
+      <h2 style="font-size: 1.5rem; color: var(--temple-maroon); margin: 0;">
+        <i class="fa-solid fa-star" style="color: var(--royal-gold); margin-right: 8px;"></i>
+        <span data-i18n="glimpses_tag">ऐतिहासिक सुवर्ण क्षण</span>
+      </h2>
+      <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Scroll right to explore →</span>
+    </div>
 
-      <!-- Frame Selector Pills -->
-      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-        <button class="btn btn-outline active-frame-btn" style="border-color: var(--royal-gold); background: var(--temple-maroon); color: var(--gold-soft);">
-          राजेशाही सुवर्ण चौकट
-        </button>
-        <button class="btn btn-outline">
-          गर्भगृह पुष्प शृंगार
-        </button>
-        <button class="btn btn-outline">
-          पेशवाई कमान फ्रेम
-        </button>
-      </div>
-
-      <!-- Interactive Photobooth Stage -->
-      <div class="photobooth-stage" id="photoStage">
-        <img id="userPhotoPreview" src="/images/raja_real_1.png" alt="Devotee Preview" style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="photobooth-overlay"></div>
-        
-        <!-- Mandal Crest Watermark Banner -->
-        <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(127, 29, 29, 0.9); border: 2px solid var(--royal-gold); padding: 8px 24px; border-radius: var(--radius-full); color: var(--gold-soft); font-family: var(--font-mr-head); font-size: 1.1rem; font-weight: 800; box-shadow: var(--shadow-md); text-align: center;">
-          मुंबई सेंट्रलचा राजा
+    <div class="scroll-reel-container">
+      <% glimpsesData.forEach(item => { %>
+        <div class="scroll-reel-card gold-motion-frame" data-lightbox data-lightbox-src="<%= item.image %>" data-lightbox-title="<%= item.title %> (वर्ष <%= item.year %>)" data-lightbox-caption="<%= item.desc %>">
+          <div style="position: relative; height: 220px; overflow: hidden; background: #0A0A0A;">
+            <img src="<%= item.image %>" alt="<%= item.title %>" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; top: 10px; right: 10px; background: var(--temple-maroon); color: var(--gold-soft); font-weight: 800; font-size: 0.82rem; padding: 4px 12px; border-radius: var(--radius-full); border: 1px solid var(--royal-gold);">
+              वर्ष <%= item.year %>
+            </div>
+          </div>
+          <div style="padding: 1rem;">
+            <h4 style="font-size: 1rem; color: var(--temple-maroon); margin-bottom: 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%= item.title %></h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;"><%= item.theme %></p>
+          </div>
         </div>
-      </div>
-
-      <!-- Controls -->
-      <div style="margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-        <label for="photoUpload" class="btn btn-saffron" style="cursor: pointer;">
-          <i class="fa-solid fa-upload"></i> तुमचा फोटो अपलोड करा
-          <input type="file" id="photoUpload" accept="image/*" style="display: none;">
-        </label>
-
-        <button class="btn btn-primary" id="btnDownloadPhoto">
-          <i class="fa-solid fa-download"></i> फ्रेम डाऊनलोड करा
-        </button>
-      </div>
+      <% }); %>
     </div>
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const photoUpload = document.getElementById('photoUpload');
-    const userPhotoPreview = document.getElementById('userPhotoPreview');
-    const btnDownloadPhoto = document.getElementById('btnDownloadPhoto');
+<!-- Decade Historical Grid Section -->
+<section style="background: var(--bg-cream); padding: 4rem 0;">
+  <div class="container">
+    
+    <!-- Gallery Category Filter Pills -->
+    <div class="gallery-filter-bar">
+      <button class="filter-pill active" data-filter="all" data-i18n="filter_all">सर्व वर्षे</button>
+      <button class="filter-pill" data-filter="idols" data-i18n="filter_idols">मूर्ती व सिंहासन</button>
+      <button class="filter-pill" data-filter="visarjan" data-i18n="filter_visarjan">विसर्जन मिरवणूक</button>
+      <button class="filter-pill" data-filter="decor" data-i18n="filter_decor">मंडप शृंगार</button>
+      <button class="filter-pill" data-filter="aarti" data-i18n="filter_aarti">महाआरती व भक्ती</button>
+    </div>
 
-    if (photoUpload && userPhotoPreview) {
-      photoUpload.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = (evt) => {
-            userPhotoPreview.src = evt.target.result;
-          };
-          reader.readAsDataURL(file);
-        }
-      });
-    }
+    <!-- 10-Year Retrospective Cards -->
+    <div class="grid-3">
+      <% glimpsesData.forEach(item => { %>
+        <div class="card-temple gallery-card-item gold-motion-frame" data-category="<%= item.category %>" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="position: relative; height: 360px; overflow: hidden; background: #0A0A0A; cursor: pointer;" data-lightbox data-lightbox-src="<%= item.image %>" data-lightbox-title="<%= item.title %> (वर्ष <%= item.year %>)" data-lightbox-caption="<%= item.desc %>">
+            <img src="<%= item.image %>" alt="<%= item.title %>" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+            <div style="position: absolute; top: 14px; right: 14px; background: var(--temple-maroon); color: var(--gold-soft); font-weight: 800; font-size: 0.9rem; padding: 6px 16px; border-radius: var(--radius-full); border: 1.5px solid var(--royal-gold); box-shadow: var(--shadow-sm);">
+              वर्ष <%= item.year %>
+            </div>
+            <div style="position: absolute; bottom: 14px; left: 14px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); color: #FFF; font-size: 0.78rem; padding: 4px 12px; border-radius: 4px; border-left: 3px solid var(--royal-gold);">
+              <i class="fa-solid fa-magnifying-glass-plus" style="margin-right: 4px; color: var(--royal-gold);"></i> <span data-i18n="btn_enlarge">चित्र मोठे करून पहा</span>
+            </div>
+          </div>
 
-    if (btnDownloadPhoto) {
-      btnDownloadPhoto.addEventListener('click', () => {
-        alert('मुंबई सेंट्रलचा राजा फोटो फ्रेम यशस्वीरित्या डाऊनलोड होत आहे!');
-      });
-    }
-  });
-</script>
+          <div style="padding: 1.8rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.3rem; color: var(--temple-maroon); margin-bottom: 0.6rem;"><%= item.title %></h3>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.2rem;"><%= item.desc %></p>
+            </div>
+            
+            <div style="border-top: 1px dashed var(--border-gold); padding-top: 1rem;">
+              <div style="font-size: 0.85rem; color: var(--primary-saffron); font-weight: 700; margin-bottom: 0.3rem;">
+                <span data-i18n="label_height">मूर्तीची उंची</span>: <%= item.height %> | <span data-i18n="label_theme">संकल्पना</span>: <%= item.theme %>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-main); font-weight: 700;">
+                <span data-i18n="label_sculptor">मूर्तिकार</span>: <%= item.artist %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
 
 <%- include('partials/footer') %>
+

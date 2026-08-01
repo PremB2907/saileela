@@ -1,75 +1,287 @@
 <%- include('partials/header') %>
 
-<!-- 1. HERO SECTION (Cinematic Hero Experience) -->
-<section class="hero-section">
-  <!-- Subtle Floating Diyas / Particles background -->
-  <div class="floating-diyas" id="heroParticles"></div>
-  
-  <div class="hero-content">
-    <div class="section-badge" style="background: rgba(212, 175, 55, 0.15); color: var(--gold-soft); border-color: var(--royal-gold);">
-      स्थापना १९८८ | बेलासिस रोड बी.आय.टी. चाळ
+<!-- SECTION 3: FULL-BLEED HERO CAROUSEL -->
+<section class="hero-carousel" id="heroCarousel">
+  <!-- Slide 1: 18ft Idol Close-Up -->
+  <div class="hero-slide active">
+    <img src="/images/raja_real_1.png" alt="Mumbai Central Cha Raja Idol" class="hero-slide-bg">
+  </div>
+  <!-- Slide 2: Mandap Wide View -->
+  <div class="hero-slide">
+    <img src="/images/mandap.png" alt="Mumbai Central Cha Raja Mandap" class="hero-slide-bg">
+  </div>
+  <!-- Slide 3: Padya Pujan / Procession -->
+  <div class="hero-slide">
+    <img src="/images/gallery_padya_pujan.png" alt="Procession & Aarti" class="hero-slide-bg">
+  </div>
+
+  <!-- Hero Content Overlay -->
+  <div class="hero-grid-container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 5; width: 90%; max-width: 1360px;">
+    <div class="hero-content-left">
+      <div class="hero-bg-watermark-text" aria-hidden="true">MUMBAI CENTRAL CHA RAJA</div>
+
+      <div class="section-badge" style="position: relative; z-index: 2; background: rgba(201, 162, 39, 0.2); color: var(--gold-soft); border-color: #C9A227;">
+        स्थापना १९८८ | नोंदणी क्र. ई-३८९२ मुंबई
+      </div>
+
+      <h1 style="position: relative; z-index: 2; font-size: 3.8rem; font-family: var(--font-mr-head); color: #FAF6EE; margin-bottom: 0.5rem; line-height: 1.2;" data-i18n="hero_title">
+        मुंबई सेंट्रलचा राजा
+      </h1>
+      
+      <p style="font-size: 1.4rem; font-family: var(--font-en-head); color: #C9A227; font-weight: 700; letter-spacing: 2px; margin-bottom: 1.2rem;">
+        Faith Beyond Boundaries
+      </p>
+
+      <div class="hero-actions" style="margin-top: 1.8rem;">
+        <button class="btn btn-live-pulsing" id="btnHeroLiveDarshan">
+          <i class="fa-solid fa-play"></i> <span data-i18n="btn_live_darshan">लाइव्ह दर्शन पाहा</span>
+        </button>
+
+        <a href="/donate" class="btn btn-primary" style="background: #C9A227; color: #4A0E0E; border: none; font-weight: 800;">
+          <i class="fa-solid fa-heart" style="color: #4A0E0E;"></i> <span data-i18n="nav_donate">ऑनलाइन देणगी द्या</span>
+        </a>
+      </div>
     </div>
 
-    <h1 style="font-size: 3.5rem; font-family: var(--font-mr-head); color: var(--gold-soft); margin-bottom: 0.5rem; line-height: 1.2;" data-i18n="hero_title">
-      मुंबई सेंट्रलचा राजा
-    </h1>
-    
-    <p style="font-size: 1.5rem; font-family: var(--font-en-head); color: #FFFFFF; font-weight: 600; letter-spacing: 1px; margin-bottom: 1.2rem;">
-      Faith Beyond Boundaries
-    </p>
+    <!-- Right Side Countdown Pillar -->
+    <div class="hero-countdown-card">
+      <span class="countdown-badge-pill">
+        <i class="fa-solid fa-om" style="color: var(--gold-soft); margin-right: 6px;"></i> गणेशोत्सव २०२६ आगमन
+      </span>
 
-    <p class="hero-subtitle" data-i18n="hero_subtitle">
-      बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ. अथांग श्रद्धा, भव्य परंपरा आणि संस्कृतीचा अद्वितीय वारसा.
-    </p>
+      <h3 class="countdown-card-title">
+        श्रींच्या आगमनासाठी उत्सुकता!
+      </h3>
 
-    <div class="hero-actions">
-      <button class="btn btn-primary" style="font-size: 1.05rem; padding: 0.85rem 2.2rem;" id="btnHeroLiveDarshan">
-        <i class="fa-solid fa-play" style="color: var(--royal-gold);"></i> <span data-i18n="btn_live_darshan">लाइव्ह दर्शन</span>
-      </button>
-
-      <a href="/about" class="btn btn-outline" style="font-size: 1.05rem; padding: 0.85rem 2.2rem; color: var(--bg-ivory); border-color: var(--royal-gold);">
-        <i class="fa-solid fa-landmark" style="color: var(--royal-gold);"></i> <span data-i18n="btn_know_history">इतिहास व परंपरा</span>
-      </a>
+      <div class="countdown-timer-grid">
+        <div class="timer-box-solid">
+          <div class="timer-num-val" id="countDays">00</div>
+          <div class="timer-label-txt">दिवस</div>
+        </div>
+        <div class="timer-box-solid">
+          <div class="timer-num-val" id="countHours">00</div>
+          <div class="timer-label-txt">तास</div>
+        </div>
+        <div class="timer-box-solid">
+          <div class="timer-num-val" id="countMins">00</div>
+          <div class="timer-label-txt">मिैनिटे</div>
+        </div>
+        <div class="timer-box-solid">
+          <div class="timer-num-val" id="countSecs">00</div>
+          <div class="timer-label-txt">सेकंद</div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Carousel Dot Indicators -->
+  <div class="hero-carousel-dots">
+    <div class="carousel-dot active" data-slide="0"></div>
+    <div class="carousel-dot" data-slide="1"></div>
+    <div class="carousel-dot" data-slide="2"></div>
   </div>
 </section>
 
-<!-- 2. WELCOME & FOUNDER'S BLESSING SECTION -->
-<section style="background: var(--bg-cream); padding: 5rem 0;">
+<!-- SECTION 4: NEWS & ANNOUNCEMENT TICKER STRIP -->
+<div class="marquee-ticker-wrap">
+  <span class="marquee-ticker-badge">उत्सव अपडेट्स</span>
+  <div class="marquee-ticker-content">
+    <span>🌸 गणेशोत्सव २०२६ आगमन सोहळा लवकरच! • दैनिक महाआरती सकाळी ८:०० व संध्याकाळी ८:०० वाजता • ५०,०००+ अन्नदान महाप्रसाद वाटप • ८०जी कर सवलत पावतीसह ऑनलाइन देणगी उघडी आहे 🌸 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🌸 गणेशोत्सव २०२६ आगमन सोहळा लवकरच! • दैनिक महाआरती सकाळी ८:०० व संध्याकाळी ८:०० वाजता • ५०,०००+ अन्नदान महाप्रसाद वाटप • ८०जी कर सवलत पावतीसह ऑनलाइन देणगी उघडी आहे 🌸</span>
+  </div>
+</div>
+
+<!-- SECTION 5: PRESIDENT'S MESSAGE & ANIMATED STAT COUNTERS -->
+<section style="background: var(--bg-cream); padding: 6rem 0; border-bottom: 1px solid var(--border-gold);">
   <div class="container">
-    <div class="grid-2" style="align-items: center;">
+    <div class="grid-2" style="align-items: center; gap: 4rem;">
       <div>
-        <div class="section-badge">अध्यक्ष व कार्यकारिणी संदेश</div>
-        <h2 class="section-title">हार्दिक स्वागत व मनःपूर्वक आशीर्वाद</h2>
-        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        <span class="section-badge">अध्यक्ष व कार्यकारिणी संदेश</span>
+        <h2 class="section-title" style="font-size: 2.5rem; margin-top: 0.5rem;">हार्दिक स्वागत व मनःपूर्वक आशीर्वाद</h2>
+        <p style="color: var(--text-muted); font-size: 1.08rem; line-height: 1.85; margin-bottom: 1.5rem;">
           मुंबई सेंट्रलचा राजा बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळाच्या अधिकृत डिजिटल मंदिरात आपले स्वागत आहे. १९८८ पासून आमचे मंडळ सामाजिक ऐक्य, भक्ती आणि संस्कृतीचे संवर्धन करत आहे.
         </p>
-        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
-          दरवर्षी लाखो भाविक राजाच्या दर्शनासाठी येतात. यंदाच्या गणेशोत्सवात digital temple द्वारे जगभरातील भाविकांना राजाचे साक्षात दर्शन आणि सेवा उपलब्ध करून देत आहोत.
-        </p>
+        
+        <!-- Pull Quote Style Emphasis -->
+        <blockquote style="border-left: 4px solid #C9A227; padding-left: 1.2rem; margin: 1.5rem 0; font-family: var(--font-mr-head); font-size: 1.25rem; color: #6B1414; font-style: italic;">
+          "श्रद्धा, सेवा आणि सामाजिक बांधिलकी हाच मुंबई सेंट्रलच्या राजा मंडळाचा मूळ आधारस्तंभ आहे."
+        </blockquote>
 
-        <div style="display: flex; gap: 1.5rem; border-left: 3px solid var(--royal-gold); padding-left: 1.2rem;">
+        <div style="display: flex; gap: 1.5rem; border-left: 3px solid var(--royal-gold); padding-left: 1.5rem; background: rgba(212, 175, 55, 0.05); padding: 1.2rem 1.5rem; border-radius: var(--radius-sm);">
           <div>
-            <h4 style="margin: 0; color: var(--temple-maroon);">श्री. प्रकाश सावंत</h4>
-            <p style="margin: 0; font-size: 0.88rem; color: var(--primary-saffron); font-weight: 700;">अध्यक्ष, मुंबई सेंट्रलचा राजा मंडळ</p>
+            <h4 style="margin: 0; color: var(--temple-maroon); font-size: 1.15rem;">श्री. प्रकाश सावंत</h4>
+            <p style="margin: 0; font-size: 0.88rem; color: var(--primary-saffron); font-weight: 700;">अध्यक्ष, बेलासिस रोड बी.आय.टी. चाळ मंडळ</p>
           </div>
         </div>
       </div>
 
       <div style="position: relative;">
-        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 3px solid var(--royal-gold); box-shadow: var(--shadow-lg);">
-          <img src="/images/mandap.png" alt="Mumbai Central Cha Raja Mandap" style="width: 100%; height: 420px; object-fit: cover; display: block;">
+        <div class="gold-motion-frame">
+          <img src="/images/mandap.png" alt="Mumbai Central Cha Raja Mandap" style="width: 100%; height: 460px; object-fit: cover; display: block;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated Stat Counter Row -->
+    <div class="grid-4" style="margin-top: 4rem; gap: 1.5rem;">
+      <div class="stat-counter-card">
+        <div class="stat-num-value" data-target="1988">1988</div>
+        <div class="stat-label-text">स्थापना वर्ष</div>
+      </div>
+      <div class="stat-counter-card">
+        <div class="stat-num-value" data-target="35" data-suffix="+">35+</div>
+        <div class="stat-label-text">अखंड सेवेची वर्षे</div>
+      </div>
+      <div class="stat-counter-card">
+        <div class="stat-num-value" data-target="50000" data-suffix="+">50,000+</div>
+        <div class="stat-label-text">दैनिक महाप्रसाद भाविक</div>
+      </div>
+      <div class="stat-counter-card">
+        <div class="stat-num-value" data-target="500000" data-suffix="+">500,000+</div>
+        <div class="stat-label-text">वार्षिक दर्शनार्थी भाविक</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CHAPTER III: HISTORY (ऐतिहासिक वसा - १९८८ पासूनचा सुवर्ण प्रवास)
+     ========================================================================== -->
+<section style="background: var(--bg-ivory); padding: 6rem 0; border-bottom: 1px solid var(--border-gold);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">ऐतिहासिक सुवर्ण वसा</span>
+      <h2 class="section-title">१९८८ पासूनचा भक्ती व संस्कृतीचा प्रवास</h2>
+      <p class="section-subtitle">
+        बेलासिस रोड बी.आय.टी. चाळ मंडळाच्या ३५+ वर्षांच्या गौरवशाली प्रवासातील महत्त्वाचे टप्पे.
+      </p>
+      <div class="gold-divider"></div>
+    </div>
+
+    <div class="arch-timeline">
+      <!-- Node 1: 1988 -->
+      <div class="timeline-row">
+        <div class="timeline-content-box">
+          <span style="font-family: var(--font-en-head); font-size: 1.6rem; font-weight: 800; color: var(--primary-saffron);">१९८८</span>
+          <h4 style="color: var(--temple-maroon); margin: 0.4rem 0;">मंडळ स्थापना व प्रथम श्री स्थापना</h4>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0; line-height: 1.7;">
+            बेलासिस रोड बी.आय.टी. चाळीतील रहिवाशांनी एकत्र येऊन सार्वजनिक गणेशोत्सव मंडळाची स्थापना केली.
+          </p>
+        </div>
+        <div class="timeline-node-circle"></div>
+      </div>
+
+      <!-- Node 2: 2000 -->
+      <div class="timeline-row">
+        <div class="timeline-content-box">
+          <span style="font-family: var(--font-en-head); font-size: 1.6rem; font-weight: 800; color: var(--primary-saffron);">२०००</span>
+          <h4 style="color: var(--temple-maroon); margin: 0.4rem 0;">अन्नदान महाप्रसाद व सामाजिक उपक्रम</h4>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0; line-height: 1.7;">
+            सामाजिक सेवेचा विस्तार करत अन्नदान महाप्रसाद, विद्यार्थी मदत आणि मोफत आरोग्य शिबीरांची सुरुवात.
+          </p>
+        </div>
+        <div class="timeline-node-circle"></div>
+      </div>
+
+      <!-- Node 3: 2015 -->
+      <div class="timeline-row">
+        <div class="timeline-content-box">
+          <span style="font-family: var(--font-en-head); font-size: 1.6rem; font-weight: 800; color: var(--primary-saffron);">२०१५</span>
+          <h4 style="color: var(--temple-maroon); margin: 0.4rem 0;">दशकपूर्ती व १८ फूट राजेशाही रूप</h4>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0; line-height: 1.7;">
+            मास्टर मूर्तिकार श्री. संतोष कांबळी यांच्या हस्तकलेतून १८ फुटी राजेशाही मूर्तीची परंपरा अधिक समृद्ध झाली.
+          </p>
+        </div>
+        <div class="timeline-node-circle"></div>
+      </div>
+
+      <!-- Node 4: 2025 -->
+      <div class="timeline-row">
+        <div class="timeline-content-box">
+          <span style="font-family: var(--font-en-head); font-size: 1.6rem; font-weight: 800; color: var(--primary-saffron);">२०२५</span>
+          <h4 style="color: var(--temple-maroon); margin: 0.4rem 0;">काष्ठ सिंहासन व डिजिटल मंदिर</h4>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0; line-height: 1.7;">
+            पेशवाई नक्षीकामातील काष्ठ सिंहासन आणि जगभरातील भाविकांसाठी डिजिटल दर्शन पोर्टलची निर्मिती.
+          </p>
+        </div>
+        <div class="timeline-node-circle"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CHAPTER IV: LEGACY & DEVOTION (राजेशाही शृंगार परंपरा)
+     ========================================================================== -->
+<section style="background: var(--bg-cream); padding: 6rem 0; border-bottom: 1px solid var(--border-gold);">
+  <div class="container">
+    <div class="grid-2" style="align-items: center; gap: 4rem;">
+      <div class="gold-motion-frame" style="height: 480px;">
+        <img src="/images/raja_real_1.png" alt="Mumbai Central Cha Raja Peshwa Craft" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+
+      <div>
+        <span class="section-badge">राजेशाही वस्त्रालंकार व शिल्प</span>
+        <h2 class="section-title" style="font-size: 2.4rem;">१८ फुटी भव्यता व सुवर्ण शृंगार</h2>
+        <p style="color: var(--text-muted); font-size: 1.08rem; line-height: 1.85; margin-bottom: 1.5rem;">
+          मुंबई सेंट्रलच्या राजाची मूर्ती १८ फूट उंच असून, तिच्या चेहऱ्यावरील विलोभनीय हास्य आणि भव्य डोळे भाविकांना मंत्रमुग्ध करतात. 
+        </p>
+        <p style="color: var(--text-muted); font-size: 1.08rem; line-height: 1.85; margin-bottom: 2rem;">
+          काष्ठ व सुवर्ण सिहांसनावर आरूढ असलेली श्रींची मूर्ती दरवर्षी नवीन सांस्कृतिक संकल्पनेनुसार तयार केली जाते.
+        </p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div style="background: #FFFFFF; border: 1.5px solid var(--royal-gold); padding: 1rem 1.5rem; border-radius: var(--radius-md); flex: 1;">
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary-saffron); font-family: var(--font-en-head);">18 Feet</div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted);">मूर्तीची भव्य उंची</div>
+          </div>
+          <div style="background: #FFFFFF; border: 1.5px solid var(--royal-gold); padding: 1rem 1.5rem; border-radius: var(--radius-md); flex: 1;">
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary-saffron); font-family: var(--font-en-head);">35+ Yrs</div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted);">अखंड भक्ती परंपरा</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3. GLIMPSES OVER THE YEAR (Replacing 5 sacred forms) -->
-<section style="background: var(--bg-ivory); border-top: 1px solid var(--border-gold); border-bottom: 1px solid var(--border-gold);">
+<!-- ==========================================================================
+     CHAPTER V: TODAY'S DARSHAN & LIVE STREAM (साक्षात दर्शन)
+     ========================================================================== -->
+<section style="background: #1B1B1B; color: #FFFFFF; padding: 6rem 0; border-bottom: 3px solid var(--royal-gold);">
   <div class="container">
     <div class="section-header">
-      <span class="section-badge" data-i18n="glimpses_tag">ऐतिहासिक वारसा</span>
+      <span class="section-badge" style="background: rgba(212,175,55,0.2); color: var(--gold-soft); border-color: var(--royal-gold);">साक्षात दर्शन</span>
+      <h2 class="section-title" style="color: var(--gold-soft);">गणेशोत्सव आरती व थेट प्रक्षेपण</h2>
+      <p class="section-subtitle" style="color: #D1D5DB;">
+        दररोज सकाळी ८:०० व संध्याकाळी ८:०० वाजता महाआरतीचे थेट थेट प्रक्षेपण पाहा.
+      </p>
+      <div class="gold-divider"></div>
+    </div>
+
+    <div style="max-width: 900px; margin: 0 auto; background: #0A0A0A; border: 2px solid var(--royal-gold); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+        <iframe src="https://www.youtube.com/embed/live_stream?channel=UCrijB5WpQhGLfWQT1WSySNg" style="position: absolute; top:0; left:0; width:100%; height:100%; border:none;" allowfullscreen></iframe>
+      </div>
+      <div style="padding: 1.2rem 1.8rem; background: #1B1B1B; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h4 style="color: var(--gold-soft); margin: 0; font-size: 1.1rem;">मुंबई सेंट्रलचा राजा - २४/७ लाईव्ह दर्शन</h4>
+          <p style="color: #9CA3AF; font-size: 0.85rem; margin: 0;">अधिकृत युट्यूब चॅनेल प्रवाह</p>
+        </div>
+        <a href="https://www.youtube.com/channel/UCrijB5WpQhGLfWQT1WSySNg" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <i class="fa-brands fa-youtube" style="color: #FF0000; margin-right: 6px;"></i> YouTube वर पाहा
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CHAPTER VI: CELEBRATION (दशकातील स्वर्णिम क्षणचित्रे - Coffee Table Exhibit)
+     ========================================================================== -->
+<section style="background: var(--bg-ivory); padding: 6rem 0; border-bottom: 1px solid var(--border-gold);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge" data-i18n="glimpses_tag">ऐतिहासिक सुवर्ण क्षण</span>
       <h2 class="section-title" data-i18n="glimpses_title">Glimpses over the Year</h2>
       <p class="section-subtitle" data-i18n="glimpses_sub">
         मुंबई सेंट्रलच्या राजाचे विविध वर्षांतील विलोभनीय व मनमोहक रूप दर्शन.
@@ -77,183 +289,158 @@
       <div class="gold-divider"></div>
     </div>
 
-    <div class="grid-3">
+    <!-- Gallery Filter Bar -->
+    <div class="gallery-filter-bar">
+      <button class="filter-pill active" data-filter="all" data-i18n="filter_all">सर्व वर्षे</button>
+      <button class="filter-pill" data-filter="idols" data-i18n="filter_idols">मूर्ती व सिंहासन</button>
+      <button class="filter-pill" data-filter="visarjan" data-i18n="filter_visarjan">विसर्जन मिरवणूक</button>
+      <button class="filter-pill" data-filter="decor" data-i18n="filter_decor">मंडप शृंगार</button>
+      <button class="filter-pill" data-filter="aarti" data-i18n="filter_aarti">महाआरती व भक्ती</button>
+    </div>
+
+    <!-- Scroll Reel -->
+    <div class="scroll-reel-container">
       <% glimpsesData.forEach(item => { %>
-        <div class="card-temple" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-          <div style="position: relative; height: 320px; overflow: hidden; background: #0A0A0A;">
-            <img src="<%= item.image %>" alt="<%= item.title %>" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
-            <div style="position: absolute; top: 12px; right: 12px; background: var(--temple-maroon); color: var(--gold-soft); font-weight: 800; font-size: 0.85rem; padding: 4px 12px; border-radius: var(--radius-full); border: 1px solid var(--royal-gold);">
-              <%= item.year %>
+        <div class="scroll-reel-card gold-motion-frame gallery-card-item" data-category="<%= item.category %>" data-lightbox data-lightbox-src="<%= item.image %>" data-lightbox-title="<%= item.title %> (वर्ष <%= item.year %>)" data-lightbox-caption="<%= item.desc %>">
+          <div style="position: relative; height: 250px; overflow: hidden; background: #0A0A0A;">
+            <img src="<%= item.image %>" alt="<%= item.title %>" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; top: 10px; right: 10px; background: var(--temple-maroon); color: var(--gold-soft); font-weight: 800; font-size: 0.82rem; padding: 4px 12px; border-radius: var(--radius-full); border: 1px solid var(--royal-gold);">
+              वर्ष <%= item.year %>
             </div>
           </div>
-          <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><%= item.title %></h3>
-              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;"><%= item.desc %></p>
-            </div>
-            <div style="border-top: 1px dashed var(--border-gold); padding-top: 0.8rem; font-size: 0.82rem; color: var(--primary-saffron); font-weight: 700;">
-              मूर्तिकार: <%= item.artist %>
-            </div>
+          <div style="padding: 1.2rem;">
+            <h4 style="font-size: 1.05rem; color: var(--temple-maroon); margin-bottom: 0.4rem;"><%= item.title %></h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;"><%= item.theme %></p>
           </div>
         </div>
       <% }); %>
     </div>
 
     <div style="text-align: center; margin-top: 3rem;">
-      <a href="/glimpses" class="btn btn-outline">
-        सर्व वर्षांची चित्रे पाहा <i class="bi bi-arrow-right"></i>
+      <a href="/photo-booth" class="btn btn-primary">
+        दशकातील सर्व १० वर्षांची चित्रे पाहा <i class="bi bi-arrow-right"></i>
       </a>
     </div>
   </div>
 </section>
 
-<!-- 4. PHOTO BOOTH FOR GANPATI MANDAL (Separate Showcase) -->
-<section style="background: var(--bg-cream);">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-badge" data-i18n="photobooth_tag">डिजिटल आठवण</span>
-      <h2 class="section-title" data-i18n="photobooth_title">Photo Booth for Ganpati Mandal</h2>
-      <p class="section-subtitle" data-i18n="photobooth_sub">
-        मुंबई सेंट्रलच्या राजासोबत आपली आठवण जपून ठेवा. डिजिटल फोटो फ्रेम निवडा व फोटो तयार करा.
-      </p>
-      <div class="gold-divider"></div>
-    </div>
-
-    <div class="grid-2" style="align-items: center;">
-      <div>
-        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--temple-maroon);">
-          डिजिटल राजेशाही फोटो फ्रेम
-        </h3>
-        <p style="color: var(--text-muted); font-size: 1.02rem; line-height: 1.8; margin-bottom: 1.5rem;">
-          भाविक आपल्या मोबाईलवरून किंवा कॉम्प्युटरवरून फोटो अपलोड करून राजाच्या सुवर्ण चौकट फ्रेममध्ये फोटो डाउनलोड करू शकतात.
-        </p>
-
-        <ul style="list-style: none; margin-bottom: 2rem;">
-          <li style="margin-bottom: 0.8rem; font-size: 0.98rem; font-weight: 600;">
-            <i class="fa-solid fa-check" style="color: var(--primary-saffron); margin-right: 8px;"></i> राजेशाही सुवर्ण चौकट व पेशवाई नक्षीकाम
-          </li>
-          <li style="margin-bottom: 0.8rem; font-size: 0.98rem; font-weight: 600;">
-            <i class="fa-solid fa-check" style="color: var(--primary-saffron); margin-right: 8px;"></i> हाय-रिझोल्युशन HD इमेज डाऊनलोड
-          </li>
-          <li style="margin-bottom: 0.8rem; font-size: 0.98rem; font-weight: 600;">
-            <i class="fa-solid fa-check" style="color: var(--primary-saffron); margin-right: 8px;"></i> इन्स्टाग्राम व व्हॉट्सॲप शेअरिंग
-          </li>
-        </ul>
-
-        <a href="/photo-booth" class="btn btn-primary">
-          फोटो बूथ सुरू करा <i class="bi bi-camera"></i>
-        </a>
-      </div>
-
-      <div style="text-align: center;">
-        <div style="background: #FFFFFF; border-radius: var(--radius-lg); border: 2px solid var(--royal-gold); padding: 1.5rem; box-shadow: var(--shadow-md);">
-          <img src="/images/raja_real_1.png" alt="Photo Booth Sample" style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--radius-md); border: 4px solid var(--temple-maroon);">
-          <p style="font-size: 0.88rem; color: var(--primary-saffron); font-weight: 700; margin-top: 1rem;">
-            मुंबई सेंट्रलचा राजा - फोटो बूथ फ्रेम preview
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5. SOCIAL WORK INITIATIVES -->
-<section style="background: var(--bg-ivory); border-top: 1px solid var(--border-gold);">
+<!-- ==========================================================================
+     CHAPTER VII: COMMUNITY (समाजोपयोगी सेवा - Magazine Alternating Rows)
+     ========================================================================== -->
+<section style="background: var(--bg-cream); padding: 6rem 0; border-bottom: 1px solid var(--border-gold);">
   <div class="container">
     <div class="section-header">
       <span class="section-badge" data-i18n="socialwork_tag">समाजोपयोगी उपक्रम</span>
-      <h2 class="section-title" data-i18n="socialwork_title">सामाजिक कार्य व उपक्रम</h2>
+      <h2 class="section-title" data-i18n="socialwork_title">सामाजिक कार्य व सेवा</h2>
       <p class="section-subtitle" data-i18n="socialwork_sub">
         अन्नदान महाप्रसाद, रक्तदान शिबीर, मोफत आरोग्य तपासणी आणि शैक्षणिक मदतीतून समाजसेवा.
       </p>
       <div class="gold-divider"></div>
     </div>
 
-    <div class="grid-2">
-      <% socialWorkData.forEach(work => { %>
-        <div class="card-temple" style="display: flex; gap: 1.5rem; align-items: center;">
-          <img src="<%= work.image %>" alt="<%= work.title %>" style="width: 140px; height: 140px; object-fit: cover; border-radius: var(--radius-md); border: 2px solid var(--royal-gold); flex-shrink: 0;">
-          <div>
-            <span style="font-size: 0.78rem; font-weight: 800; color: var(--primary-saffron); text-transform: uppercase;"><%= work.category %></span>
-            <h3 style="font-size: 1.2rem; margin: 0.3rem 0 0.5rem;"><%= work.title %></h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;"><%= work.desc %></p>
-          </div>
-        </div>
-      <% }); %>
+    <div class="magazine-row">
+      <div class="magazine-img-frame">
+        <img src="/images/gallery_padya_pujan.png" alt="Annadan Mahaprasad">
+      </div>
+      <div>
+        <span style="font-size: 0.8rem; font-weight: 800; color: var(--primary-saffron); text-transform: uppercase;">अन्नछत्र सेवा</span>
+        <h3 style="font-size: 2rem; color: var(--temple-maroon); margin: 0.4rem 0 1rem;">अन्नदान महाप्रसाद सेवा ड्राइव्ह</h3>
+        <p style="font-size: 1.02rem; color: var(--text-muted); line-height: 1.8;">
+          गणेशोत्सवाच्या १० दिवसांत दररोज ५०,००० हून अधिक भाविकांना गरम महाप्रसाद, अल्पोपहार आणि पिण्याचे शुद्ध पाणी मोफत पुरवले जाते.
+        </p>
+      </div>
     </div>
 
-    <div style="text-align: center; margin-top: 2.5rem;">
+    <div class="magazine-row">
+      <div class="magazine-img-frame">
+        <img src="/images/gallery_aagman.png" alt="Blood Donation Camp">
+      </div>
+      <div>
+        <span style="font-size: 0.8rem; font-weight: 800; color: var(--primary-saffron); text-transform: uppercase;">आरोग्य सेवा</span>
+        <h3 style="font-size: 2rem; color: var(--temple-maroon); margin: 0.4rem 0 1rem;">भव्य रक्तदान व आरोग्य शिबीर</h3>
+        <p style="font-size: 1.02rem; color: var(--text-muted); line-height: 1.8;">
+          के.ई.एम. व नायर रुग्णालयाच्या सहकार्याने दरवर्षी ५०० हून अधिक रक्त युनिट्स संकलित केले जातात आणि मोफत आरोग्य तपासणी केली जाते.
+        </p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
       <a href="/social-work" class="btn btn-outline">
-        संपूर्ण सामाजिक कार्य पाहा <i class="bi bi-arrow-right"></i>
+        सर्व सामाजिक उपक्रम पाहा <i class="bi bi-arrow-right"></i>
       </a>
     </div>
   </div>
 </section>
 
-<!-- 6. GANESHOTSAV EVENT SCHEDULE HIGHLIGHTS -->
-<section style="background: var(--bg-cream);">
+<!-- ==========================================================================
+     CHAPTER VIII: SERVICE & SEVA (सेवा व देणगी योगदान - Architectural Card)
+     ========================================================================== -->
+<section style="background: var(--temple-maroon); color: var(--bg-ivory); padding: 6rem 0; border-bottom: 3px solid var(--royal-gold); text-align: center;">
+  <div class="container" style="max-width: 900px;">
+    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);" data-i18n="donate_tag">
+      सेवा योगदान
+    </span>
+    <h2 style="font-size: 2.6rem; color: var(--gold-soft); margin-top: 0.5rem; margin-bottom: 1.2rem;" data-i18n="donate_title">
+      मुंबई सेंट्रलचा राजा सेवेला पाठिंबा द्या
+    </h2>
+    <p style="font-size: 1.12rem; color: #E5E7EB; line-height: 1.85; margin-bottom: 2.5rem;" data-i18n="donate_sub">
+      तुमची देणगी सामाजिक कार्य, अन्नदान महाप्रसाद व मंडप व्यवस्थापनासाठी वापरली जाते. सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत मिळतो.
+    </p>
+
+    <a href="/donate" class="btn btn-primary" style="background: var(--royal-gold); color: var(--maroon-dark); border: none; font-size: 1.15rem; padding: 1rem 2.8rem; font-weight: 800;">
+      ऑनलाइन देणगी द्या (८०जी पावतीसह) <i class="bi bi-heart-fill" style="margin-left: 6px;"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CHAPTER IX: PILGRIMAGE & LOCATION (मंडप स्थान व संपर्क)
+     ========================================================================== -->
+<section style="background: var(--bg-ivory); padding: 6rem 0;">
   <div class="container">
     <div class="section-header">
-      <span class="section-badge" data-i18n="schedule_tag">उत्सव कार्यसूची</span>
-      <h2 class="section-title" data-i18n="schedule_title">आगामी गणेशोत्सव वेळापत्रक</h2>
-      <p class="section-subtitle" data-i18n="schedule_sub">
-        दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक कार्यसूची.
+      <span class="section-badge" data-i18n="footer_col_location">मंडप स्थान व संपर्क</span>
+      <h2 class="section-title">मंडप दर्शन स्थान व नकाशा</h2>
+      <p class="section-subtitle">
+        प्रोोग्रेसिव्ह बिल्डींग अ /३, बेलासिस रोड, बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.
       </p>
       <div class="gold-divider"></div>
     </div>
 
-    <div class="grid-2">
-      <% scheduleData.forEach(evt => { %>
-        <div class="card-temple">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
-            <span style="background: var(--temple-maroon); color: var(--gold-soft); font-weight: 800; font-size: 0.8rem; padding: 4px 12px; border-radius: var(--radius-full);">
-              <%= evt.date %>
-            </span>
-            <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary-saffron);">
-              दिवस <%= evt.day %>
-            </span>
-          </div>
+    <div class="grid-2" style="align-items: center; gap: 3rem;">
+      <div style="background: #FFFFFF; border: 2px solid var(--border-gold); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+        <h3 style="color: var(--temple-maroon); font-size: 1.6rem; margin-bottom: 1.2rem;">संपर्क माहिती</h3>
+        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+          <i class="fa-solid fa-location-dot" style="color: var(--primary-saffron); margin-right: 10px;"></i>
+          बेलासिस रोड बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.
+        </p>
+        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+          <i class="fa-solid fa-file-shield" style="color: var(--primary-saffron); margin-right: 10px;"></i>
+          नोंदणी क्र. : ई-३८९२ मुंबई (८०जी कर सवलत प्राप्त)
+        </p>
 
-          <h3 style="font-size: 1.3rem; margin-bottom: 0.6rem; color: var(--temple-maroon);"><%= evt.title %></h3>
-          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
-            <i class="fa-solid fa-location-dot" style="color: var(--primary-saffron); margin-right: 6px;"></i> <%= evt.halt_location %>
-          </p>
-
-          <div style="border-top: 1px solid var(--border-subtle); padding-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            <% evt.facilities.forEach(fac => { %>
-              <span style="font-size: 0.78rem; background: var(--saffron-light); color: var(--saffron-dark); font-weight: 700; padding: 2px 8px; border-radius: 4px;">
-                <%= fac %>
-              </span>
-            <% }); %>
-          </div>
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <a href="https://www.youtube.com/channel/UCrijB5WpQhGLfWQT1WSySNg" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.85rem;">
+            <i class="fa-brands fa-youtube" style="color: #FF0000; margin-right: 6px;"></i> YouTube
+          </a>
+          <a href="https://mumbaicharaja.co/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.85rem;">
+            <i class="fa-brands fa-facebook" style="color: #1877F2; margin-right: 6px;"></i> Facebook
+          </a>
         </div>
-      <% }); %>
+      </div>
+
+      <div style="height: 380px; border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--royal-gold); box-shadow: var(--shadow-md);">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.696770281699!2d72.82298647585099!3d18.96690468221469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce411e74f88b%3A0xb3adac65492d2bc3!2sBelasis%20Rd%2C%20Mumbai%20Central%2C%20Mumbai%2C%20Maharashtra%20400008!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
-
-    <div style="text-align: center; margin-top: 2.5rem;">
-      <a href="/schedule" class="btn btn-primary">
-        संपूर्ण १० दिवसांचे वेळापत्रक पाहा <i class="bi bi-calendar-event"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 7. SEVA CALLOUT BANNER (DONATION ONLY - NO CATEGORY SELECT) -->
-<section style="background: linear-gradient(135deg, var(--temple-maroon) 0%, var(--maroon-dark) 100%); color: var(--bg-ivory); border-top: 3px solid var(--royal-gold); border-bottom: 3px solid var(--royal-gold); text-align: center;">
-  <div class="container" style="max-width: 850px;">
-    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);" data-i18n="donate_tag">
-      सेवा योगदान
-    </span>
-    <h2 style="font-size: 2.4rem; color: var(--gold-soft); margin-top: 0.5rem; margin-bottom: 1.2rem;" data-i18n="donate_title">
-      मुंबई सेंट्रलचा राजा सेवेला पाठिंबा द्या
-    </h2>
-    <p style="font-size: 1.1rem; color: #E5E7EB; line-height: 1.8; margin-bottom: 2.2rem;" data-i18n="donate_sub">
-      तुमची देणगी सामाजिक कार्य, अन्नदान महाप्रसाद व मंडप व्यवस्थापनासाठी वापरली जाते. सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत मिळतो.
-    </p>
-
-    <a href="/donate" class="btn btn-primary" style="background: var(--royal-gold); color: var(--maroon-dark); border: none; font-size: 1.1rem; padding: 0.9rem 2.5rem; font-weight: 800;">
-      ऑनलाइन देणगी द्या (८०जी पावतीसह) <i class="bi bi-heart-fill"></i>
-    </a>
   </div>
 </section>
 

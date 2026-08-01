@@ -13,14 +13,14 @@ const translations = {
     mandal_name_header: "Mumbai Central Cha Raja",
     mandal_sub_header: "Sarvajanik Shri Ganeshotsav Mandal",
 
-    // Navigation
+    // Navigation (Compact Single Line Labels)
     nav_home: "Home",
-    nav_about: "About Us",
+    nav_about: "About",
     nav_schedule: "Ganeshotsav",
-    nav_glimpses: "Glimpses over the Year",
+    nav_glimpses: "Glimpses",
     nav_photobooth: "Photo Booth",
     nav_socialwork: "Social Work",
-    nav_tshirt: "T-Shirt Booking",
+    nav_tshirt: "T-Shirt",
     nav_committee: "Committee",
     nav_contact: "Contact",
     nav_donate: "Donate",
@@ -69,14 +69,14 @@ const translations = {
     mandal_name_header: "मुंबई सेंट्रलचा राजा",
     mandal_sub_header: "सार्वजनिक श्री गणेशोत्सव मंडळ",
 
-    // Navigation
+    // Navigation (Compact Single Line Labels)
     nav_home: "मुखपृष्ठ",
     nav_about: "आमच्याबद्दल",
     nav_schedule: "गणेशोत्सव",
-    nav_glimpses: "वर्षभरातील क्षणचित्रे",
+    nav_glimpses: "क्षणचित्रे",
     nav_photobooth: "फोटो बूथ",
     nav_socialwork: "सामाजिक कार्य",
-    nav_tshirt: "टी-शर्ट बुकिंग",
+    nav_tshirt: "टी-शर्ट",
     nav_committee: "कार्यकारिणी",
     nav_contact: "संपर्क",
     nav_donate: "देणगी",

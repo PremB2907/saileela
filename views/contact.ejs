@@ -1,118 +1,120 @@
 <%- include('partials/header') %>
 
-<!-- Chinchpokli Style Hero Header Banner (Bright Saffron Crimson Light Theme) -->
-<section style="background: linear-gradient(135deg, #800020 0%, #E65100 100%); padding: 3.5rem 0; text-align: center; border-bottom: 4px solid var(--chintamani-gold);">
+<section style="background: linear-gradient(135deg, var(--temple-maroon) 0%, var(--maroon-dark) 100%); color: var(--bg-ivory); padding: 4.5rem 0; border-bottom: 3px solid var(--royal-gold); text-align: center;">
   <div class="container">
-    <div style="width: 64px; height: 64px; margin: 0 auto 0.6rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
-      <img src="/images/logo.png" alt="Mumbai Central Cha Raja Logo" style="width: 100%; height: 100%; object-fit: contain;">
-    </div>
-    <h1 style="font-family: 'Rozha One', 'Noto Sans Devanagari', serif; font-size: 3.2rem; color: #FFFFFF; font-weight: 800; margin: 0;" data-i18n="contact_header_title">
-      संपर्क
-    </h1>
-    <p style="color: #FFF5E6; font-size: 0.95rem; margin-top: 0.5rem;" data-i18n="contact_header_sub">
-      बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ कार्यकारिणी.
+    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);">
+      संपर्क व पत्ता
+    </span>
+    <h1 style="font-size: 3rem; color: var(--gold-soft); margin-top: 0.5rem;" data-i18n="contact_header_title">आमचे संपर्क</h1>
+    <p style="font-size: 1.15rem; color: #E5E7EB; max-width: 750px; margin: 1rem auto 0; line-height: 1.8;" data-i18n="contact_header_sub">
+      बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ कार्यकारिणीशी संपर्क साधा.
     </p>
   </div>
 </section>
 
-<!-- Chinchpokli Style Soft Cream Contact Container Box -->
-<section style="padding: 4rem 0; background: var(--bg-surface);">
+<section style="background: var(--bg-cream); padding: 5rem 0;">
   <div class="container">
-    <div class="cream-container-box">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-        
-        <!-- Left Column: Head Office & Travel Routes -->
-        <div>
-          <h2 style="font-size: 2rem; color: var(--chintamani-red); font-weight: 800; margin-bottom: 0.6rem;" data-i18n="office_address_label">
-            मुख्य कार्यालय
-          </h2>
-          <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.7;" data-i18n="footer_address">
-            बेलासिस रोड, बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.
+    
+    <div class="grid-2" style="margin-bottom: 4rem;">
+      <!-- Contact Info Box -->
+      <div class="card-temple" style="padding: 2.5rem;">
+        <h2 style="font-size: 1.8rem; color: var(--temple-maroon); margin-bottom: 1.5rem; border-left: 4px solid var(--royal-gold); padding-left: 1rem;">
+          मंडळ मुख्य कार्यालय
+        </h2>
+
+        <div style="margin-bottom: 1.8rem;">
+          <h4 style="color: var(--primary-saffron); font-size: 1.05rem; margin-bottom: 0.4rem;" data-i18n="office_address_label">
+            <i class="fa-solid fa-building-columns" style="margin-right: 8px;"></i> मण्डप व मुख्य कार्यालय पत्ता
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7;" data-i18n="footer_address">
+            प्रोोग्रेसिव्ह बिल्डींग अ /३, बेलासिस रोड, बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.
           </p>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
-            <!-- Nearest Railway Stations Box -->
-            <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 1.4rem; border: 1px solid #E0C097; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-              <h3 style="font-size: 1.15rem; color: var(--chintamani-red); margin-bottom: 0.8rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem;">
-                <ctrl42> Nearest Railway Stations:
-              </h3>
-              <ol style="padding-left: 1.2rem; color: var(--text-main); font-size: 0.92rem; line-height: 1.8;">
-                <li>Mumbai Central (0.5 km)</li>
-                <li>Byculla Station (1 km)</li>
-                <li>Grant Road Station (1 km)</li>
-              </ol>
-            </div>
-
-            <!-- Nearest Bus Stops Box -->
-            <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 1.4rem; border: 1px solid #E0C097; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-              <h3 style="font-size: 1.15rem; color: var(--chintamani-red); margin-bottom: 0.8rem; font-weight: 800; display: flex; align-items: center; gap: 0.4rem;">
-                🚌 Nearest Bus Stops:
-              </h3>
-              <ol style="padding-left: 1.2rem; color: var(--text-main); font-size: 0.92rem; line-height: 1.8;">
-                <li>BIT Chawl Junction</li>
-                <li>Mumbai Central East</li>
-                <li>Nair Hospital Chowk</li>
-              </ol>
-            </div>
-          </div>
-
-          <!-- Direct Helpline Box -->
-          <div style="margin-top: 2rem; background: #FFFFFF; border-radius: var(--radius-md); padding: 1.4rem; border: 2px solid var(--chintamani-gold);">
-            <h4 style="font-size: 1rem; color: var(--chintamani-red); margin-bottom: 0.4rem; font-weight: 800;" data-i18n="emergency_desk_label">
-              📞 २४/७ मण्डल आपत्कालीन हेल्पलाईन
-            </h4>
-            <p style="font-size: 1.1rem; font-weight: 800; color: #1E293B; margin: 0;">
-              +91 98765 43210 / +91 91234 56789
-            </p>
-            <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;" data-i18n="email_label">
-              Email: contact@mumbaicentralcharaja.org
-            </p>
-          </div>
         </div>
 
-        <!-- Right Column: Interactive Contact Form -->
+        <div style="margin-bottom: 1.8rem;">
+          <h4 style="color: var(--primary-saffron); font-size: 1.05rem; margin-bottom: 0.4rem;" data-i18n="emergency_desk_label">
+            <i class="fa-solid fa-phone" style="margin-right: 8px;"></i> आपत्कालीन व मदत केंद्र
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7;">
+            फोन: +९१ ९८२०० १११११ / +९१ ९८२०० २२२२२<br>
+            व्हॉट्सॲप हेल्पलाईन: +९१ ९८२०० ३३३३३
+          </p>
+        </div>
+
         <div>
-          <h2 style="font-size: 2rem; color: var(--chintamani-red); font-weight: 800; margin-bottom: 1.5rem;" data-i18n="nav_contact">
-            संपर्क फॉर्म
-          </h2>
-
-          <form id="contactForm" onsubmit="event.preventDefault(); showToast('✅ Message Sent Successfully!', 'success'); this.reset();">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-              <div class="form-group">
-                <label class="form-label" style="font-weight: 700;" data-i18n="lbl_contact_name">तुमचे नाव *</label>
-                <input type="text" class="form-control" placeholder="संपूर्ण नाव टाका" data-i18n="ph_contact_name" required style="background: #FFFFFF; border-color: #E0C097;">
-              </div>
-              <div class="form-group">
-                <label class="form-label" style="font-weight: 700;" data-i18n="lbl_contact_email">तुमचा ईमेल *</label>
-                <input type="email" class="form-control" placeholder="ईमेल पत्ता टाका" data-i18n="ph_contact_email" required style="background: #FFFFFF; border-color: #E0C097;">
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-              <div class="form-group">
-                <label class="form-label" style="font-weight: 700;" data-i18n="lbl_mobile">मोबाईल नंबर *</label>
-                <input type="tel" class="form-control" placeholder="१० अंकी मोबाईल नंबर टाका" data-i18n="ph_mobile" required style="background: #FFFFFF; border-color: #E0C097;">
-              </div>
-              <div class="form-group">
-                <label class="form-label" style="font-weight: 700;">विषय (Subject)</label>
-                <input type="text" class="form-control" placeholder="Subject" style="background: #FFFFFF; border-color: #E0C097;">
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label class="form-label" style="font-weight: 700;" data-i18n="lbl_contact_msg">तुमचा संदेश / प्रश्न *</label>
-              <textarea class="form-control" rows="5" placeholder="येथे संदेश लिहा..." data-i18n="ph_contact_msg" required style="background: #FFFFFF; border-color: #E0C097;"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-chintamani-primary" style="width: 100%; padding: 1.1rem; font-size: 1.15rem;">
-              <span data-i18n="btn_send_msg">मंडळाला संदेश पाठवा</span>
-            </button>
-          </form>
+          <h4 style="color: var(--primary-saffron); font-size: 1.05rem; margin-bottom: 0.4rem;" data-i18n="email_label">
+            <i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> अधिकृत ईमेल पत्ता
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7;">
+            contact@mumbaicentralcharaja.org<br>
+            Instagram: @mumbaicentralcharajaofficial
+          </p>
         </div>
+      </div>
 
+      <!-- Contact Inquiry Form -->
+      <div class="card-temple" style="padding: 2.5rem;">
+        <h2 style="font-size: 1.8rem; color: var(--temple-maroon); margin-bottom: 1.5rem;">
+          संदेश पाठवा
+        </h2>
+
+        <form id="contactForm">
+          <div style="margin-bottom: 1.2rem;">
+            <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);" data-i18n="lbl_contact_name">
+              तुमचे नाव *
+            </label>
+            <input type="text" id="cName" required placeholder="संपूर्ण नाव टाका" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;">
+          </div>
+
+          <div style="margin-bottom: 1.2rem;">
+            <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);" data-i18n="lbl_contact_email">
+              ईमेल किंवा मोबाईल *
+            </label>
+            <input type="text" id="cContact" required placeholder="ईमेल / मोबाईल टाका" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;">
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);" data-i18n="lbl_contact_msg">
+              तुमचा संदेश / प्रश्न *
+            </label>
+            <textarea id="cMessage" rows="4" required placeholder="येथे संदेश लिहा..." style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1.05rem;" data-i18n="btn_send_msg">
+            मंडळाला संदेश पाठवा
+          </button>
+        </form>
       </div>
     </div>
+
+    <!-- Embedded Google Maps at Bottom -->
+    <div style="background: var(--bg-white); border-radius: var(--radius-lg); border: 2px solid var(--royal-gold); padding: 2rem; box-shadow: var(--shadow-md);">
+      <h3 style="font-size: 1.6rem; color: var(--temple-maroon); margin-bottom: 1rem; text-align: center;">
+        गूगल मॅप्स - मण्डप स्थान (Mumbai Central)
+      </h3>
+
+      <div style="width: 100%; height: 400px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-gold);">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.696770281699!2d72.82298647585099!3d18.96690468221469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce411e74f88b%3A0xb3adac65492d2bc3!2sBelasis%20Rd%2C%20Mumbai%20Central%2C%20Mumbai%2C%20Maharashtra%20400008!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('तुमचा संदेश यशस्वीरित्या पाठवला गेला आहे! मंडळ प्रतिनिधी लवकरच संपर्क करतील.');
+    document.getElementById('contactForm').reset();
+  });
+</script>
 
 <%- include('partials/footer') %>

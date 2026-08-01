@@ -1,71 +1,50 @@
 <%- include('partials/header') %>
 
-<!-- Schedule Bright Header Banner -->
-<section style="background: linear-gradient(135deg, #800020 0%, #E65100 100%); padding: 3.5rem 0; text-align: center; border-bottom: 4px solid var(--chintamani-gold);">
+<section style="background: linear-gradient(135deg, var(--temple-maroon) 0%, var(--maroon-dark) 100%); color: var(--bg-ivory); padding: 4.5rem 0; border-bottom: 3px solid var(--royal-gold); text-align: center;">
   <div class="container">
-    <div style="width: 64px; height: 64px; margin: 0 auto 0.6rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
-      <img src="/images/logo.png" alt="Mumbai Central Cha Raja Logo" style="width: 100%; height: 100%; object-fit: contain;">
-    </div>
-    <h1 style="font-family: 'Rozha One', 'Noto Sans Devanagari', serif; font-size: 3.2rem; color: #FFFFFF; font-weight: 800; margin: 0;" data-i18n="schedule_page_title">
-      १० दिवसांचे गणेशोत्सव वेळापत्रक 📅
-    </h1>
-    <p style="color: #FFF5E6; font-size: 0.95rem; margin-top: 0.5rem;" data-i18n="schedule_page_sub">
-      दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक पूर्ण कार्यसूची.
+    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);">
+      उत्सव कार्यसूची
+    </span>
+    <h1 style="font-size: 3rem; color: var(--gold-soft); margin-top: 0.5rem;" data-i18n="schedule_page_title">१० दिवसांचे गणेशोत्सव वेळापत्रक</h1>
+    <p style="font-size: 1.15rem; color: #E5E7EB; max-width: 750px; margin: 1rem auto 0; line-height: 1.8;" data-i18n="schedule_page_sub">
+      दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक पूर्ण वेळापत्रक.
     </p>
   </div>
 </section>
 
-<section style="padding: 4rem 0; background: var(--bg-surface);">
+<section style="background: var(--bg-cream); padding: 5rem 0;">
   <div class="container">
+    
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <% scheduleData.forEach(evt => { %>
+        <div class="card-temple" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+          <div style="background: var(--temple-maroon); color: var(--gold-soft); padding: 1.5rem 2rem; border-radius: var(--radius-md); text-align: center; min-width: 140px; border: 2px solid var(--royal-gold);">
+            <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">दिवस</span>
+            <h2 style="font-size: 2.5rem; color: var(--gold-soft); margin: 0; line-height: 1;"><%= evt.day %></h2>
+          </div>
 
-    <!-- Live Status Banner -->
-    <div style="background: linear-gradient(135deg, #800020 0%, #E65100 100%); color: #FFFFFF; padding: 1.8rem; border-radius: var(--radius-lg); margin-bottom: 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border: 2px solid var(--chintamani-gold); box-shadow: var(--shadow-lg);">
-      <div>
-        <span style="color: #FFD700; font-weight: 800; font-size: 0.85rem; text-transform: uppercase;" data-i18n="current_location">सध्याचे मण्डप स्थान</span>
-        <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-top: 0.2rem;"><%= yatraStatus.current_location %></h3>
-      </div>
-      <div>
-        <span style="font-size: 0.85rem; color: #FFF5E6; display: block;" data-i18n="route_progress">महोत्सव प्रगती</span>
-        <span style="font-size: 1.3rem; font-weight: 800; color: #FFD700;">Day <%= yatraStatus.current_day %> of <%= yatraStatus.total_days %></span>
-      </div>
-      <div>
-        <a href="/register-pass" class="btn btn-chintamani-primary" style="background: #FFD700; color: #800020 !important;">
-          <i class="bi bi-person-badge"></i> <span data-i18n="btn_get_pass">अधिकृत पास मिळवा</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- 10-Day Timeline -->
-    <div style="display: grid; gap: 1.8rem; max-width: 950px; margin: 0 auto;">
-      <% scheduleData.forEach(item => { %>
-        <div style="background: var(--bg-card); border: 2px solid <%= item.day === yatraStatus.current_day ? 'var(--chintamani-gold)' : 'var(--border-light)' %>; border-radius: var(--radius-lg); padding: 1.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; box-shadow: var(--shadow-md);" id="day-<%= item.day %>">
-          <div>
-            <span style="background: <%= item.day === yatraStatus.current_day ? 'var(--chintamani-red)' : '#64748B' %>; color: #FFFFFF; font-size: 0.78rem; font-weight: 800; padding: 0.25rem 0.8rem; border-radius: var(--radius-full); text-transform: uppercase;">
-              <% if(item.day === yatraStatus.current_day) { %>
-                📍 TODAY'S EVENT (DAY <%= item.day %> OF 10)
-              <% } else { %>
-                DAY <%= item.day %> - <%= item.date %>
-              <% } %>
+          <div style="flex: 1;">
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--primary-saffron); text-transform: uppercase; background: var(--saffron-light); padding: 3px 10px; border-radius: 4px;">
+              <%= evt.date %>
             </span>
-            <h3 style="font-size: 1.35rem; margin: 0.5rem 0 0.3rem; color: var(--text-main);"><%= item.title %></h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.8rem;">
-              <i class="bi bi-geo-alt-fill" style="color: var(--chintamani-red);"></i> <strong>Location:</strong> <%= item.halt_location %>
+            <h3 style="font-size: 1.6rem; color: var(--temple-maroon); margin: 0.4rem 0 0.6rem;"><%= evt.title %></h3>
+            
+            <p style="color: var(--text-muted); font-size: 0.98rem; margin-bottom: 1rem;">
+              <i class="fa-solid fa-location-dot" style="color: var(--primary-saffron); margin-right: 6px;"></i> <%= evt.halt_location %>
             </p>
 
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <% item.facilities.forEach(fac => { %>
-                <span style="background: var(--bg-surface); border: 1px solid var(--border-light); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-weight: 600; color: var(--text-muted);"><%= fac %></span>
-              <% }) %>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+              <% evt.facilities.forEach(fac => { %>
+                <span style="font-size: 0.82rem; background: var(--bg-surface); border: 1px solid var(--border-gold); padding: 4px 12px; border-radius: var(--radius-full); font-weight: 600;">
+                  <%= fac %>
+                </span>
+              <% }); %>
             </div>
           </div>
-
-          <div style="text-align: right; min-width: 160px;">
-            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Emergency Contact:</span>
-            <span style="font-size: 0.95rem; font-weight: 800; color: var(--chintamani-saffron);">📞 <%= item.emergency_contact %></span>
-          </div>
         </div>
-      <% }) %>
+      <% }); %>
     </div>
+
   </div>
 </section>
 

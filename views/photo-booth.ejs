@@ -1,0 +1,93 @@
+<%- include('partials/header') %>
+
+<section style="background: linear-gradient(135deg, var(--temple-maroon) 0%, var(--maroon-dark) 100%); color: var(--bg-ivory); padding: 4.5rem 0; border-bottom: 3px solid var(--royal-gold); text-align: center;">
+  <div class="container">
+    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);">
+      डिजिटल आठवण
+    </span>
+    <h1 style="font-size: 3rem; color: var(--gold-soft); margin-top: 0.5rem;" data-i18n="photobooth_title">Photo Booth for Ganpati Mandal</h1>
+    <p style="font-size: 1.15rem; color: #E5E7EB; max-width: 750px; margin: 1rem auto 0; line-height: 1.8;" data-i18n="photobooth_sub">
+      मुंबई सेंट्रलच्या राजासोबत आपली आठवण जपून ठेवा. डिजिटल फोटो फ्रेम निवडा व फोटो तयार करा.
+    </p>
+  </div>
+</section>
+
+<section style="background: var(--bg-cream); padding: 5rem 0;">
+  <div class="container">
+    <div class="photobooth-container">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 1.8rem; color: var(--temple-maroon); margin-bottom: 0.5rem;">
+          राजाची सुवर्ण फोटो फ्रेम
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          खालीलपैकी फ्रेम निवडा, तुमचा फोटो अपलोड करा आणि राजाची राजेशाही चौकट फ्रेम डाऊनलोड करा.
+        </p>
+      </div>
+
+      <!-- Frame Selector Pills -->
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <button class="btn btn-outline active-frame-btn" style="border-color: var(--royal-gold); background: var(--temple-maroon); color: var(--gold-soft);">
+          राजेशाही सुवर्ण चौकट
+        </button>
+        <button class="btn btn-outline">
+          गर्भगृह पुष्प शृंगार
+        </button>
+        <button class="btn btn-outline">
+          पेशवाई कमान फ्रेम
+        </button>
+      </div>
+
+      <!-- Interactive Photobooth Stage -->
+      <div class="photobooth-stage" id="photoStage">
+        <img id="userPhotoPreview" src="/images/raja_real_1.png" alt="Devotee Preview" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="photobooth-overlay"></div>
+        
+        <!-- Mandal Crest Watermark Banner -->
+        <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(127, 29, 29, 0.9); border: 2px solid var(--royal-gold); padding: 8px 24px; border-radius: var(--radius-full); color: var(--gold-soft); font-family: var(--font-mr-head); font-size: 1.1rem; font-weight: 800; box-shadow: var(--shadow-md); text-align: center;">
+          मुंबई सेंट्रलचा राजा
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div style="margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+        <label for="photoUpload" class="btn btn-saffron" style="cursor: pointer;">
+          <i class="fa-solid fa-upload"></i> तुमचा फोटो अपलोड करा
+          <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+        </label>
+
+        <button class="btn btn-primary" id="btnDownloadPhoto">
+          <i class="fa-solid fa-download"></i> फ्रेम डाऊनलोड करा
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const photoUpload = document.getElementById('photoUpload');
+    const userPhotoPreview = document.getElementById('userPhotoPreview');
+    const btnDownloadPhoto = document.getElementById('btnDownloadPhoto');
+
+    if (photoUpload && userPhotoPreview) {
+      photoUpload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (evt) => {
+            userPhotoPreview.src = evt.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    if (btnDownloadPhoto) {
+      btnDownloadPhoto.addEventListener('click', () => {
+        alert('मुंबई सेंट्रलचा राजा फोटो फ्रेम यशस्वीरित्या डाऊनलोड होत आहे!');
+      });
+    }
+  });
+</script>
+
+<%- include('partials/footer') %>

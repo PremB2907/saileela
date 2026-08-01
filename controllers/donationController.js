@@ -7,7 +7,7 @@ module.exports = {
   // Render Donation Page
   renderDonationPage(req, res) {
     res.render('donate', {
-      title: 'Online Seva & Donation Portal (80G Tax Exemption) | Mumbai Central Cha Raja',
+      title: 'ऑनलाइन देणगी पोर्टल (८०जी कर सवलत) | Mumbai Central Cha Raja',
       activeTab: 'donate',
       razorpayKeyId: razorpay.getKeyId()
     });
@@ -16,7 +16,7 @@ module.exports = {
   // Create Razorpay Payment Order
   async createPaymentOrder(req, res) {
     try {
-      const { amount, category, donor_name, phone } = req.body;
+      const { amount } = req.body;
       if (!amount || parseFloat(amount) <= 0) {
         return res.status(400).json({ success: false, message: 'Invalid donation amount.' });
       }
@@ -39,11 +39,11 @@ module.exports = {
   async confirmDonation(req, res) {
     try {
       const {
-        receipt_no, donor_name, phone, email, amount, category,
+        receipt_no, donor_name, phone, email, amount,
         payment_id, order_id, signature, pan_number
       } = req.body;
 
-      if (!donor_name || !phone || !amount || !category) {
+      if (!donor_name || !phone || !amount) {
         return res.status(400).json({ success: false, message: 'Missing required donation details.' });
       }
 
@@ -58,7 +58,7 @@ module.exports = {
         phone: phone.trim(),
         email: (email || '').trim(),
         amount: parseFloat(amount),
-        category,
+        category: 'General Mandal Donation & Seva',
         payment_id: payment_id || `pay_sim_${Date.now()}`,
         order_id: order_id || `order_sim_${Date.now()}`,
         pan_number: (pan_number || '').toUpperCase().trim(),

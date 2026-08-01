@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const countSecs = document.getElementById('countSecs');
 
   if (countDays && countHours && countMins && countSecs) {
-    const targetDate = new Date('September 14, 2026 00:00:00').getTime();
+    const targetDate = new Date('2026-09-14T00:00:00+05:30').getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();

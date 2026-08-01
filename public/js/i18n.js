@@ -124,6 +124,8 @@ const translations = {
 function setLanguage(lang) {
   if (lang !== 'en' && lang !== 'mr') lang = 'mr';
   localStorage.setItem('mcc_lang', lang);
+  document.documentElement.lang = lang;
+  document.body.setAttribute('data-lang', lang);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     if (btn.getAttribute('data-lang') === lang) {

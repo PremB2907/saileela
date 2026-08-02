@@ -53,22 +53,50 @@
         श्रींच्या आगमनासाठी उत्सुकता!
       </h3>
 
-      <div class="countdown-timer-grid">
-        <div class="timer-box-solid">
-          <div class="timer-num-val" id="countDays">00</div>
-          <div class="timer-label-txt">दिवस</div>
+      <!-- 3D Mechanical Split-Flap Flip Clock Grid -->
+      <div class="flip-clock-grid">
+        <div class="flip-unit-wrap">
+          <div class="flip-clock-unit" id="flipUnitDays">
+            <div class="flip-hinge-left"></div>
+            <div class="flip-hinge-right"></div>
+            <div class="flip-card-top"><span class="flip-val" id="countDays">00</span></div>
+            <div class="flip-card-bottom"><span class="flip-val">00</span></div>
+            <div class="flip-card-back"><span class="flip-val">00</span></div>
+          </div>
+          <span class="timer-label-txt" data-i18n="label_days" style="margin-top: 6px; font-weight: 700; color: var(--gold-soft);">दिवस</span>
         </div>
-        <div class="timer-box-solid">
-          <div class="timer-num-val" id="countHours">00</div>
-          <div class="timer-label-txt">तास</div>
+
+        <div class="flip-unit-wrap">
+          <div class="flip-clock-unit" id="flipUnitHours">
+            <div class="flip-hinge-left"></div>
+            <div class="flip-hinge-right"></div>
+            <div class="flip-card-top"><span class="flip-val" id="countHours">00</span></div>
+            <div class="flip-card-bottom"><span class="flip-val">00</span></div>
+            <div class="flip-card-back"><span class="flip-val">00</span></div>
+          </div>
+          <span class="timer-label-txt" data-i18n="label_hours" style="margin-top: 6px; font-weight: 700; color: var(--gold-soft);">तास</span>
         </div>
-        <div class="timer-box-solid">
-          <div class="timer-num-val" id="countMins">00</div>
-          <div class="timer-label-txt">मिैनिटे</div>
+
+        <div class="flip-unit-wrap">
+          <div class="flip-clock-unit" id="flipUnitMins">
+            <div class="flip-hinge-left"></div>
+            <div class="flip-hinge-right"></div>
+            <div class="flip-card-top"><span class="flip-val" id="countMins">00</span></div>
+            <div class="flip-card-bottom"><span class="flip-val">00</span></div>
+            <div class="flip-card-back"><span class="flip-val">00</span></div>
+          </div>
+          <span class="timer-label-txt" data-i18n="label_mins" style="margin-top: 6px; font-weight: 700; color: var(--gold-soft);">मिनिटे</span>
         </div>
-        <div class="timer-box-solid">
-          <div class="timer-num-val" id="countSecs">00</div>
-          <div class="timer-label-txt">सेकंद</div>
+
+        <div class="flip-unit-wrap">
+          <div class="flip-clock-unit" id="flipUnitSecs">
+            <div class="flip-hinge-left"></div>
+            <div class="flip-hinge-right"></div>
+            <div class="flip-card-top"><span class="flip-val" id="countSecs">00</span></div>
+            <div class="flip-card-bottom"><span class="flip-val">00</span></div>
+            <div class="flip-card-back"><span class="flip-val">00</span></div>
+          </div>
+          <span class="timer-label-txt" data-i18n="label_secs" style="margin-top: 6px; font-weight: 700; color: var(--gold-soft);">सेकंद</span>
         </div>
       </div>
     </div>
@@ -271,6 +299,53 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Historical Milestones Grid Cards -->
+    <div class="arch-timeline" style="margin-top: 4rem;">
+      <div class="timeline-row">
+        <div class="timeline-content-box" style="background: rgba(20, 5, 5, 0.85); border: 2px solid var(--royal-gold);">
+          <span style="font-family: var(--font-en-head); font-size: 1.6rem; font-weight: 800; color: var(--gold-soft);">१९८८</span>
+          <h4 style="color: var(--gold-soft); margin: 0.4rem 0;">मंडळ स्थापना व प्रथम श्री स्थापना</h4>
+          <p style="font-size: 0.92rem; color: #E5E7EB; margin: 0; line-height: 1.7;">
+            बेलासिस रोड बी.आय.टी. चाळीतील रहिवाशांनी एकत्र येऊन सार्वजनिक गणेशोत्सव मंडळाची स्थापना केली.
+          </p>
+        </div>
+        <div class="timeline-node-circle"></div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-content-box" style="background: rgba(20, 5, 5, 0.85); border: 2px solid var(--royal-gold);">
+          <span style="font-family: var(--font-en-head); font-size: 1.6rem; font-weight: 800; color: var(--gold-soft);">२०००</span>
+          <h4 style="color: var(--gold-soft); margin: 0.4rem 0;">अन्नदान महाप्रसाद व सामाजिक उपक्रम</h4>
+          <p style="font-size: 0.92rem; color: #E5E7EB; margin: 0; line-height: 1.7;">
+            सामाजिक सेवेचा विस्तार करत अन्नदान महाप्रसाद, विद्यार्थी मदत आणि मोफत आरोग्य शिबीरांची सुरुवात.
+          </p>
+        </div>
+        <div class="timeline-node-circle"></div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-content-box" style="background: rgba(20, 5, 5, 0.85); border: 2px solid var(--royal-gold);">
+          <span style="font-family: var(--font-en-head); font-size: 1.6rem; font-weight: 800; color: var(--gold-soft);">२०१५</span>
+          <h4 style="color: var(--gold-soft); margin: 0.4rem 0;">दशकपूर्ती व १८ फूट राजेशाही रूप</h4>
+          <p style="font-size: 0.92rem; color: #E5E7EB; margin: 0; line-height: 1.7;">
+            मास्टर मूर्तिकार श्री. संतोष कांबळी यांच्या हस्तकलेतून १८ फुटी राजेशाही मूर्तीची परंपरा अधिक समृद्ध झाली.
+          </p>
+        </div>
+        <div class="timeline-node-circle"></div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-content-box" style="background: rgba(20, 5, 5, 0.85); border: 2px solid var(--royal-gold);">
+          <span style="font-family: var(--font-en-head); font-size: 1.6rem; font-weight: 800; color: var(--gold-soft);">२०२५</span>
+          <h4 style="color: var(--gold-soft); margin: 0.4rem 0;">काष्ठ सिंहासन व डिजिटल मंदिर</h4>
+          <p style="font-size: 0.92rem; color: #E5E7EB; margin: 0; line-height: 1.7;">
+            पेशवाई नक्षीकामातील काष्ठ सिंहासन आणि जगभरातील भाविकांसाठी डिजिटल दर्शन पोर्टलची निर्मिती.
+          </p>
+        </div>
+        <div class="timeline-node-circle"></div>
       </div>
     </div>
   </div>

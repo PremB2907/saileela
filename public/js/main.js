@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const cursorOutline = document.getElementById('customCursorOutline');
 
   if (cursorDot && cursorOutline) {
-    let mouseX = 0, mouseY = 0;
-    let outlineX = 0, outlineY = 0;
+    let mouseX = -100, mouseY = -100;
+    let outlineX = -100, outlineY = -100;
 
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
@@ -38,18 +38,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function animateCursor() {
-      outlineX += (mouseX - outlineX) * 0.15;
-      outlineY += (mouseY - outlineY) * 0.15;
+      outlineX += (mouseX - outlineX) * 0.18;
+      outlineY += (mouseY - outlineY) * 0.18;
       cursorOutline.style.left = `${outlineX}px`;
       cursorOutline.style.top = `${outlineY}px`;
       requestAnimationFrame(animateCursor);
     }
     animateCursor();
 
-    const hoverables = document.querySelectorAll('a, button, .filter-pill, .gold-motion-frame, .scroll-reel-card, [data-lightbox]');
-    hoverables.forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest('a, button, .filter-pill, .gold-motion-frame, .scroll-reel-card, [data-lightbox], .mandala-node-item, .lang-btn')) {
+        document.body.classList.add('cursor-hover');
+      } else {
+        document.body.classList.remove('cursor-hover');
+      }
     });
   }
 
@@ -232,6 +234,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const hours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
       const mins = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
       const secs = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+
+      const elDays = document.getElementById('countDays');
+      const elHours = document.getElementById('countHours');
+      const elMins = document.getElementById('countMins');
+      const elSecs = document.getElementById('countSecs');
+
+      if (elDays) elDays.innerText = days;
+      if (elHours) elHours.innerText = hours;
+      if (elMins) elMins.innerText = mins;
+      if (elSecs) elSecs.innerText = secs;
 
       if (prevVals.days !== days) { animateFlipUnit(flipUnitDays, days); prevVals.days = days; }
       if (prevVals.hours !== hours) { animateFlipUnit(flipUnitHours, hours); prevVals.hours = hours; }

@@ -1496,5 +1496,195 @@ section {
   }
 }
 
+/* ==========================================================================
+   3D CRAZY REEL SCROLL VIEW & GALLERY STYLES
+   ========================================================================== */
+.crazy-reel-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 1rem 0;
+  perspective: 1200px;
+}
+
+.crazy-reel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 25;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--temple-maroon, #7F1D1D), #4A0000);
+  color: var(--gold-soft, #FDE68A);
+  border: 2px solid var(--royal-gold, #D4AF37);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+
+.crazy-reel-nav-btn:hover {
+  transform: translateY(-50%) scale(1.15);
+  background: var(--royal-gold, #D4AF37);
+  color: var(--temple-maroon, #7F1D1D);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.7);
+}
+
+.crazy-reel-nav-btn.prev {
+  left: 5px;
+}
+
+.crazy-reel-nav-btn.next {
+  right: 5px;
+}
+
+.crazy-reel-container {
+  display: flex;
+  gap: 1.8rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 2rem 1.5rem 2.5rem;
+  perspective: 1000px;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--royal-gold, #D4AF37) rgba(0, 0, 0, 0.2);
+}
+
+.crazy-reel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.crazy-reel-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.crazy-reel-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--royal-gold, #D4AF37), var(--gold-soft, #FDE68A));
+  border-radius: 10px;
+}
+
+.crazy-reel-container:active {
+  cursor: grabbing;
+}
+
+.crazy-reel-card {
+  flex: 0 0 310px;
+  max-width: 310px;
+  background: linear-gradient(145deg, #1C0505 0%, #0A0A0A 100%);
+  border-radius: 18px;
+  border: 2px solid var(--royal-gold, #D4AF37);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.crazy-reel-card:hover {
+  transform: translateY(-12px) scale(1.04) rotateY(4deg) rotateX(-2deg);
+  border-color: #FFF099;
+  box-shadow: 0 25px 45px rgba(127, 29, 29, 0.5), 0 0 30px rgba(212, 175, 55, 0.6);
+  z-index: 10;
+}
+
+.crazy-reel-card .card-img-box {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: #000;
+}
+
+.crazy-reel-card .card-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.crazy-reel-card:hover .card-img-box img {
+  transform: scale(1.12);
+}
+
+.crazy-reel-card .year-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: linear-gradient(135deg, var(--temple-maroon, #7F1D1D), #5B0E0E);
+  color: var(--gold-soft, #FDE68A);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--royal-gold, #D4AF37);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.5px;
+}
+
+.crazy-reel-card .enlarge-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(6px);
+  color: #FFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border-left: 3.5px solid var(--royal-gold, #D4AF37);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.crazy-reel-card:hover .enlarge-hint {
+  opacity: 1;
+}
+
+.crazy-reel-card .card-content {
+  padding: 1.3rem;
+  background: linear-gradient(180deg, rgba(30, 8, 8, 0.95) 0%, rgba(12, 4, 4, 0.98) 100%);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.crazy-reel-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-soft, #FDE68A);
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.crazy-reel-card .card-subtitle {
+  font-size: 0.85rem;
+  color: #D1D5DB;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .crazy-reel-card {
+    flex: 0 0 260px;
+    max-width: 260px;
+  }
+  .crazy-reel-card .card-img-box {
+    height: 260px;
+  }
+  .crazy-reel-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+
 
 

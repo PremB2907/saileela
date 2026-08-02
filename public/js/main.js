@@ -324,6 +324,127 @@ document.addEventListener('DOMContentLoaded', () => {
 
     statNumElements.forEach(el => observer.observe(el));
   }
+
+  // ==========================================================================
+  // CRAZY 3D REEL SCROLL VIEW & PERSPECTIVE CONTROLLER
+  // ==========================================================================
+  const crazyContainers = document.querySelectorAll('.crazy-reel-container');
+
+  crazyContainers.forEach(container => {
+    const wrapper = container.closest('.crazy-reel-wrapper');
+    const prevBtn = wrapper ? wrapper.querySelector('.crazy-reel-nav-btn.prev') : null;
+    const nextBtn = wrapper ? wrapper.querySelector('.crazy-reel-nav-btn.next') : null;
+    const cards = container.querySelectorAll('.crazy-reel-card');
+
+    // Drag-to-scroll State
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    container.addEventListener('mousedown', (e) => {
+      isDown = true;
+      container.classList.add('active');
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      isDown = false;
+      container.classList.remove('active');
+    });
+
+    container.addEventListener('mouseup', () => {
+      isDown = false;
+      container.classList.remove('active');
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
+
+    // Prev / Next Button Navigation
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -340, behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        container.scrollBy({ left: 340, behavior: 'smooth' });
+      });
+    }
+
+    // 3D Perspective Scroll Scaling Effect
+    function updateCard3DTransforms() {
+      const containerRect = container.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+
+      cards.forEach(card => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const distanceFromCenter = (cardCenter - containerCenter) / (containerRect.width / 2);
+
+        const maxRotation = 14; // deg
+        const rotationY = Math.max(-maxRotation, Math.min(maxRotation, distanceFromCenter * -maxRotation));
+        const scale = Math.max(0.88, 1 - Math.abs(distanceFromCenter) * 0.12);
+
+        if (!card.matches(':hover')) {
+          card.style.transform = `perspective(1000px) rotateY(${rotationY}deg) scale(${scale})`;
+        }
+      });
+    }
+
+    container.addEventListener('scroll', updateCard3DTransforms, { passive: true });
+    window.addEventListener('resize', updateCard3DTransforms);
+    updateCard3DTransforms();
+
+    // 3D Tilt on Hover Tracking
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -12;
+        const rotateY = ((x - centerX) / centerX) * 12;
+
+        card.style.transform = `perspective(1000px) translateY(-10px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        updateCard3DTransforms();
+      });
+    });
+
+    // Auto-scroll functionality with hover pause
+    let autoScrollTimer = null;
+    function startAutoScroll() {
+      autoScrollTimer = setInterval(() => {
+        if (!isDown) {
+          if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+            container.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            container.scrollBy({ left: 320, behavior: 'smooth' });
+          }
+        }
+      }, 4200);
+    }
+
+    function stopAutoScroll() {
+      if (autoScrollTimer) clearInterval(autoScrollTimer);
+    }
+
+    container.addEventListener('mouseenter', stopAutoScroll);
+    container.addEventListener('mouseleave', startAutoScroll);
+    startAutoScroll();
+  });
 });
 
 

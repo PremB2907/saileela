@@ -12,32 +12,46 @@
   </div>
 </section>
 
-<!-- Featured Horizontal Scroll Reel -->
-<section style="background: var(--bg-ivory); padding: 3rem 0 2rem; border-bottom: 1px solid var(--border-gold);">
+<!-- Featured 3D Interactive Scroll Reel -->
+<section style="background: linear-gradient(180deg, #160303 0%, #0A0A0A 100%); padding: 3.5rem 0 2.5rem; border-bottom: 2px solid var(--royal-gold); position: relative; overflow: hidden;">
   <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem;">
-      <h2 style="font-size: 1.5rem; color: var(--temple-maroon); margin: 0;">
-        <i class="fa-solid fa-camera-retro" style="color: var(--royal-gold); margin-right: 8px;"></i>
-        <span>Featured Highlights</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <h2 style="font-size: 1.6rem; color: var(--gold-soft); margin: 0; display: flex; align-items: center; gap: 10px;">
+        <i class="fa-solid fa-camera-retro" style="color: var(--royal-gold);"></i>
+        <span>Featured Highlights (3D Coverflow Reel)</span>
       </h2>
-      <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Scroll right →</span>
+      <span style="font-size: 0.85rem; color: var(--gold-soft); font-weight: 600; opacity: 0.85;">
+        <i class="fa-solid fa-hand-pointer" style="margin-right: 4px;"></i> Drag or Scroll 3D Cards →
+      </span>
     </div>
 
-    <div class="scroll-reel-container">
-      <% glimpsesData.forEach(item => { %>
-        <div class="scroll-reel-card gold-motion-frame" data-lightbox data-lightbox-src="<%= item.image %>" data-lightbox-title="<%= item.title %> (वर्ष <%= item.year %>)" data-lightbox-caption="<%= item.desc %>">
-          <div style="position: relative; height: 220px; overflow: hidden; background: #0A0A0A;">
-            <img src="<%= item.image %>" alt="<%= item.title %>" style="width: 100%; height: 100%; object-fit: cover;">
-            <div style="position: absolute; top: 10px; right: 10px; background: var(--temple-maroon); color: var(--gold-soft); font-weight: 800; font-size: 0.82rem; padding: 4px 12px; border-radius: var(--radius-full); border: 1px solid var(--royal-gold);">
-              वर्ष <%= item.year %>
+    <div class="crazy-reel-wrapper">
+      <button class="crazy-reel-nav-btn prev" aria-label="Previous Slide">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="crazy-reel-container">
+        <% glimpsesData.forEach(item => { %>
+          <div class="crazy-reel-card gold-motion-frame" data-lightbox data-lightbox-src="<%= item.image %>" data-lightbox-title="<%= item.title %> (वर्ष <%= item.year %>)" data-lightbox-caption="<%= item.desc %>">
+            <div class="card-img-box">
+              <img src="<%= item.image %>" alt="<%= item.title %>" loading="lazy">
+              <div class="year-badge">वर्ष <%= item.year %></div>
+              <div class="enlarge-hint">
+                <i class="fa-solid fa-magnifying-glass-plus" style="color: var(--royal-gold); margin-right: 4px;"></i>
+                <span data-i18n="btn_enlarge">झूम करा</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h4 class="card-title"><%= item.title %></h4>
+              <p class="card-subtitle"><%= item.theme %></p>
             </div>
           </div>
-          <div style="padding: 1rem;">
-            <h4 style="font-size: 1rem; color: var(--temple-maroon); margin-bottom: 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%= item.title %></h4>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;"><%= item.theme %></p>
-          </div>
-        </div>
-      <% }); %>
+        <% }); %>
+      </div>
+
+      <button class="crazy-reel-nav-btn next" aria-label="Next Slide">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
   </div>
 </section>

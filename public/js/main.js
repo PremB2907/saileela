@@ -604,33 +604,70 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 200);
   }
 
-  if (yearNodes.length > 0) {
-    yearNodes.forEach(node => {
-      node.addEventListener('click', () => {
-        const yr = node.getAttribute('data-year');
-        setActiveTimelineYear(yr);
+  // Support data-year-node click attributes
+  const nodeItems = document.querySelectorAll('[data-year-node]');
+  if (nodeItems.length > 0) {
+    nodeItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const yr = item.getAttribute('data-year-node');
+        nodeItems.forEach(n => n.classList.remove('active'));
+        item.classList.add('active');
+
+        const showcaseImg = document.getElementById('showcaseImg');
+        const showcaseYearBadge = document.getElementById('showcaseYearBadge');
+        const showcaseTitle = document.getElementById('showcaseTitle');
+        const showcaseTheme = document.getElementById('showcaseTheme');
+        const showcaseDesc = document.getElementById('showcaseDesc');
+        const showcaseBox = document.getElementById('mandalaShowcaseBox');
+
+        const yearDetails = {
+          '2025': { title: 'काष्ठ सिंहासन व राजेशाही सुवर्ण शृंगार', theme: 'संकल्पना: Peshwa Era Palace Mandap Architecture', desc: 'पेशवाई नक्षीकामातील भव्य लाकडी सिंहासन आणि रेशमी पितांबर शृंगारातील १८ फुटी राजेशाही रूप दर्शन.', img: '/images/raja_real_1.png' },
+          '2024': { title: 'सुवर्ण सिंहासन व तेज:पुंज पीत पितांबर', theme: 'संकल्पना: Golden Temple Carvings & Lotus Arch', desc: 'हस्तकला नक्षीकामातील भव्य सुवर्ण सिंहासन आणि सुवर्ण मुकुटात विराजमान श्रींचे मनमोहक रूप.', img: '/images/raja_real_2.png' },
+          '2023': { title: 'मयूरपंख कमान आगमन सोहळा', theme: 'संकल्पना: Royal Heritage Court Decor', desc: 'मयुरासनी राजेशाही कमान आणि आगमन सोहळ्यातील श्रींचे भव्य रूप दर्शन.', img: '/images/raja_real_3.png' },
+          '2022': { title: 'श्री मुख दर्शन व सुवर्ण मुकुट', theme: 'संकल्पना: Tradition of Pure Devotion', desc: 'विलोभनीय हास्य, दिव्य नयन आणि सुवर्ण मुकुटातील १८ फुटी श्री मूर्ती रूप.', img: '/images/raja_real_4.png' },
+          '2021': { title: 'गर्भगृह पुष्प शृंगार दर्शन', theme: 'संकल्पना: Royal Velvet & Lotus Geometry', desc: '५०००+ ताजी फुले व जांभळ्या रेशमी पितांबरातील गर्भगृह शृंगार रूप.', img: '/images/raja_real_5.png' },
+          '2020': { title: 'आरोग्य संकल्प व सुवर्ण पदकमयी रूप', theme: 'संकल्पना: Arogya Seva & Blood Drive', desc: 'अखंड रक्तदान आणि आरोग्य शिबीरांच्या संकल्पातील सुवर्ण पदकमयी रूप.', img: '/images/gallery_padya_pujan.png' },
+          '2018': { title: 'राजवाडा महामंडप व सुवर्ण मेघडंबरी', theme: 'संकल्पना: Fort Raigad & Palace Architecture', desc: 'भव्य मराठा राजवाडा देखावा आणि सुवर्ण मेघडंबरीतील विलोभनीय रूप.', img: '/images/gallery_aagman.png' },
+          '1988': { title: 'मंडळ स्थापना व प्रथम श्री स्थापना', theme: 'संकल्पना: Establishment & Sacred Foundation', desc: 'बेलासिस रोड बी.आय.टी. चाळीतील रहिवाशांनी एकत्रित येऊन स्थापन केलेली श्रींची प्रथम प्रतिष्ठापना.', img: '/images/gallery_mandap.png' }
+        };
+
+        const current = yearDetails[yr] || yearDetails['2025'];
+        if (showcaseBox) showcaseBox.classList.add('animating');
+
+        setTimeout(() => {
+          if (showcaseImg) showcaseImg.src = current.img;
+          if (showcaseYearBadge) showcaseYearBadge.innerText = 'वर्ष ' + yr;
+          if (showcaseTitle) showcaseTitle.innerText = current.title;
+          if (showcaseTheme) showcaseTheme.innerText = current.theme;
+          if (showcaseDesc) showcaseDesc.innerText = current.desc;
+          if (showcaseBox) showcaseBox.classList.remove('animating');
+        }, 180);
       });
     });
+  }
 
-    if (btnPrevYearNode) {
-      btnPrevYearNode.addEventListener('click', () => {
-        const activeNode = document.querySelector('.mandala-node-item.active');
-        const currYear = activeNode ? activeNode.getAttribute('data-year') : '1988';
-        const currIdx = yearKeys.indexOf(currYear);
-        const prevIdx = (currIdx - 1 + yearKeys.length) % yearKeys.length;
-        setActiveTimelineYear(yearKeys[prevIdx]);
-      });
-    }
+  // ==========================================================================
+  // SCROLL-DRIVEN REVEAL ANIMATIONS (IntersectionObserver Engine)
+  // ==========================================================================
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
-    if (btnNextYearNode) {
-      btnNextYearNode.addEventListener('click', () => {
-        const activeNode = document.querySelector('.mandala-node-item.active');
-        const currYear = activeNode ? activeNode.getAttribute('data-year') : '1988';
-        const currIdx = yearKeys.indexOf(currYear);
-        const nextIdx = (currIdx + 1) % yearKeys.length;
-        setActiveTimelineYear(yearKeys[nextIdx]);
+  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
-    }
+    }, {
+      root: null,
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('visible'));
   }
 });
 

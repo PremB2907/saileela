@@ -195,61 +195,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const flipUnitMins = document.getElementById('flipUnitMins');
   const flipUnitSecs = document.getElementById('flipUnitSecs');
 
-  let prevVals = { days: '', hours: '', mins: '', secs: '' };
+  let prevVals = { days: '-1', hours: '-1', mins: '-1', secs: '-1' };
 
   function animateFlipUnit(unitEl, newVal) {
     if (!unitEl) return;
-    const topVal = unitEl.querySelector('.flip-card-top .flip-val');
-    const btmVal = unitEl.querySelector('.flip-card-bottom .flip-val');
+    const topVal  = unitEl.querySelector('.flip-card-top .flip-val');
+    const btmVal  = unitEl.querySelector('.flip-card-bottom .flip-val');
     const backVal = unitEl.querySelector('.flip-card-back .flip-val');
+    if (!topVal || !btmVal) return;
 
-    if (!topVal) return;
-
-    if (topVal.innerText === '' || topVal.innerText === '00' || !unitEl.getAttribute('data-init')) {
-      if (topVal) topVal.innerText = newVal;
-      if (btmVal) btmVal.innerText = newVal;
+    if (!unitEl.getAttribute('data-init')) {
+      // First call: stamp number immediately, no animation
+      topVal.innerText  = newVal;
+      btmVal.innerText  = newVal;
       if (backVal) backVal.innerText = newVal;
-      unitEl.setAttribute('data-init', 'true');
+      unitEl.setAttribute('data-init', '1');
       return;
     }
 
-    if (topVal.innerText !== newVal) {
-      if (backVal) backVal.innerText = newVal;
-      unitEl.classList.add('flipping');
-      setTimeout(() => {
-        if (topVal) topVal.innerText = newVal;
-        if (btmVal) btmVal.innerText = newVal;
-        unitEl.classList.remove('flipping');
-      }, 450);
-    }
+    if (topVal.innerText === newVal) return; // no change, skip
+
+    if (backVal) backVal.innerText = newVal;
+    unitEl.classList.add('flipping');
+    setTimeout(() => {
+      topVal.innerText = newVal;
+      btmVal.innerText = newVal;
+      unitEl.classList.remove('flipping');
+    }, 420);
   }
 
   function updateCountdown() {
     const targetDate = new Date('2026-09-14T00:00:00+05:30').getTime();
-    const now = new Date().getTime();
+    const now  = Date.now();
     const diff = targetDate - now;
 
-    if (diff > 0) {
-      const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-      const hours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-      const mins = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-      const secs = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+    const days  = diff > 0 ? String(Math.floor(diff / 86400000)).padStart(2, '0') : '00';
+    const hours = diff > 0 ? String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0') : '00';
+    const mins  = diff > 0 ? String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0')   : '00';
+    const secs  = diff > 0 ? String(Math.floor((diff % 60000)  / 1000)).padStart(2, '0')     : '00';
 
-      const elDays = document.getElementById('countDays');
-      const elHours = document.getElementById('countHours');
-      const elMins = document.getElementById('countMins');
-      const elSecs = document.getElementById('countSecs');
-
-      if (elDays) elDays.innerText = days;
-      if (elHours) elHours.innerText = hours;
-      if (elMins) elMins.innerText = mins;
-      if (elSecs) elSecs.innerText = secs;
-
-      if (prevVals.days !== days) { animateFlipUnit(flipUnitDays, days); prevVals.days = days; }
-      if (prevVals.hours !== hours) { animateFlipUnit(flipUnitHours, hours); prevVals.hours = hours; }
-      if (prevVals.mins !== mins) { animateFlipUnit(flipUnitMins, mins); prevVals.mins = mins; }
-      if (prevVals.secs !== secs) { animateFlipUnit(flipUnitSecs, secs); prevVals.secs = secs; }
-    }
+    if (prevVals.days  !== days)  { animateFlipUnit(flipUnitDays,  days);  prevVals.days  = days;  }
+    if (prevVals.hours !== hours) { animateFlipUnit(flipUnitHours, hours); prevVals.hours = hours; }
+    if (prevVals.mins  !== mins)  { animateFlipUnit(flipUnitMins,  mins);  prevVals.mins  = mins;  }
+    if (prevVals.secs  !== secs)  { animateFlipUnit(flipUnitSecs,  secs);  prevVals.secs  = secs;  }
   }
 
   if (flipUnitDays || document.getElementById('countDays')) {

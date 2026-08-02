@@ -1823,11 +1823,11 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #242424 0%, #161616 100%);
+  background: linear-gradient(180deg, #232323 0%, #141414 100%);
   color: #FFFFFF;
   font-weight: 900;
-  font-size: 2.3rem;
-  line-height: 0;
+  font-size: 2.4rem;
+  line-height: 1;
   letter-spacing: -1px;
 }
 
@@ -1835,38 +1835,47 @@ section {
   top: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border-bottom: 1.5px solid #000000;
-  transform-origin: bottom;
+  border-bottom: 1.5px solid #000;
+  transform-origin: bottom center;
   z-index: 2;
+  align-items: flex-end;
+  padding-bottom: 2px;
 }
 
 .flip-card-top .flip-val {
-  transform: translateY(20px);
+  display: block;
+  line-height: 1;
 }
 
 .flip-card-bottom {
   bottom: 0;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  transform-origin: top;
+  transform-origin: top center;
   z-index: 1;
+  align-items: flex-start;
+  padding-top: 2px;
 }
 
 .flip-card-bottom .flip-val {
-  transform: translateY(-20px);
+  display: block;
+  line-height: 1;
 }
 
 .flip-card-back {
   top: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  transform-origin: bottom;
+  transform-origin: bottom center;
   z-index: 3;
   opacity: 0;
+  align-items: flex-end;
+  padding-bottom: 2px;
 }
 
 .flip-card-back .flip-val {
-  transform: translateY(20px);
+  display: block;
+  line-height: 1;
 }
 
 /* Metallic Mechanical Center Hinges */
@@ -1888,12 +1897,12 @@ section {
 
 /* Mechanical 3D Flip Animation */
 .flip-clock-unit.flipping .flip-card-top {
-  animation: flipDown 0.45s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+  animation: flipDown 0.42s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
 }
 
 @keyframes flipDown {
-  0% { transform: rotateX(0deg); }
-  100% { transform: rotateX(-90deg); opacity: 0.85; }
+  0%   { transform: rotateX(0deg); opacity: 1; }
+  100% { transform: rotateX(-90deg); opacity: 0.7; }
 }
 
 /* ==========================================================================

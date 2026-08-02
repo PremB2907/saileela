@@ -5,7 +5,7 @@
    Theme: Modern Maharashtrian Heritage (Temple Maroon, Deep Saffron, Royal Gold)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Rozha+One&family=Yatra+One&display=swap');
 
 :root {
   --primary-saffron: #D97706;
@@ -34,20 +34,24 @@
   
   --border-gold: rgba(212, 175, 55, 0.3);
   --border-subtle: #E5E7EB;
-  
-  /* NO NEON GLOWS - Crisp Elegant Depth Shadows */
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 25px 50px rgba(127, 29, 29, 0.15);
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --brutal-border: 3px solid #101010;
+  --brutal-shadow: 4px 4px 0px #101010;
+  --brutal-shadow-lg: 7px 7px 0px #101010;
+  
+  /* Crisp Elegant & Neo-Brutalist Depth Shadows */
+  --shadow-sm: 3px 3px 0px #101010;
+  --shadow-md: 5px 5px 0px #101010;
+  --shadow-lg: 7px 7px 0px #101010;
+  --shadow-xl: 10px 10px 0px #7F1D1D;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
   --radius-full: 9999px;
   
   --font-en-head: 'Cinzel', 'Playfair Display', serif;
-  --font-mr-head: 'Rozha One', 'Noto Serif Devanagari', serif;
+  --font-mr-head: 'Yatra One', 'Rozha One', 'Noto Serif Devanagari', serif;
   --font-body: 'Outfit', 'Noto Serif Devanagari', sans-serif;
 }
 
@@ -1738,8 +1742,8 @@ section {
 .flip-clock-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.65rem;
-  margin-bottom: 1.2rem;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
 }
 
 .flip-unit-wrap {
@@ -1751,13 +1755,13 @@ section {
 .flip-clock-unit {
   position: relative;
   width: 100%;
-  height: 72px;
+  height: 80px;
   background: #121212;
   border-radius: 8px;
-  border: 1.5px solid var(--royal-gold);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.8);
-  perspective: 400px;
-  font-family: var(--font-en-head);
+  border: 3px solid #101010;
+  box-shadow: 4px 4px 0px #101010;
+  perspective: 600px;
+  font-family: var(--font-body);
   user-select: none;
 }
 
@@ -1770,75 +1774,77 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #222222 0%, #151515 100%);
-  color: var(--gold-soft);
+  background: linear-gradient(180deg, #242424 0%, #161616 100%);
+  color: #FFFFFF;
   font-weight: 900;
-  font-size: 2.1rem;
+  font-size: 2.3rem;
   line-height: 0;
+  letter-spacing: -1px;
 }
 
 .flip-card-top {
   top: 0;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1.5px solid #000000;
   transform-origin: bottom;
   z-index: 2;
 }
 
 .flip-card-top .flip-val {
-  transform: translateY(18px);
+  transform: translateY(20px);
 }
 
 .flip-card-bottom {
   bottom: 0;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   transform-origin: top;
   z-index: 1;
 }
 
 .flip-card-bottom .flip-val {
-  transform: translateY(-18px);
+  transform: translateY(-20px);
 }
 
 .flip-card-back {
   top: 0;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   transform-origin: bottom;
   z-index: 3;
   opacity: 0;
 }
 
 .flip-card-back .flip-val {
-  transform: translateY(18px);
+  transform: translateY(20px);
 }
 
-/* Center Hinges */
+/* Metallic Mechanical Center Hinges */
 .flip-hinge-left, .flip-hinge-right {
   position: absolute;
   top: 50%;
-  width: 5px;
-  height: 10px;
-  background: var(--royal-gold);
-  border-radius: 2px;
+  width: 7px;
+  height: 12px;
+  background: linear-gradient(180deg, #FFC72C 0%, #B8860B 100%);
+  border: 1px solid #000000;
+  border-radius: 3px;
   transform: translateY(-50%);
   z-index: 10;
-  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
-.flip-hinge-left { left: -2px; }
-.flip-hinge-right { right: -2px; }
+.flip-hinge-left { left: -3px; }
+.flip-hinge-right { right: -3px; }
 
-/* Flip Animation */
+/* Mechanical 3D Flip Animation */
 .flip-clock-unit.flipping .flip-card-top {
-  animation: flipDown 0.5s ease-in forwards;
+  animation: flipDown 0.45s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
 }
 
 @keyframes flipDown {
   0% { transform: rotateX(0deg); }
-  100% { transform: rotateX(-90deg); opacity: 0.8; }
+  100% { transform: rotateX(-90deg); opacity: 0.85; }
 }
 
 /* ==========================================================================

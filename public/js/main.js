@@ -201,14 +201,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const btmVal = unitEl.querySelector('.flip-card-bottom .flip-val');
     const backVal = unitEl.querySelector('.flip-card-back .flip-val');
 
-    if (topVal && topVal.innerText !== newVal) {
+    if (!topVal) return;
+
+    if (topVal.innerText === '' || topVal.innerText === '00' || !unitEl.getAttribute('data-init')) {
+      if (topVal) topVal.innerText = newVal;
+      if (btmVal) btmVal.innerText = newVal;
+      if (backVal) backVal.innerText = newVal;
+      unitEl.setAttribute('data-init', 'true');
+      return;
+    }
+
+    if (topVal.innerText !== newVal) {
       if (backVal) backVal.innerText = newVal;
       unitEl.classList.add('flipping');
       setTimeout(() => {
         if (topVal) topVal.innerText = newVal;
         if (btmVal) btmVal.innerText = newVal;
         unitEl.classList.remove('flipping');
-      }, 500);
+      }, 450);
     }
   }
 

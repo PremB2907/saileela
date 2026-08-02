@@ -190,60 +190,61 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // GANESHOTSAV 3D RETRO FLIP-CLOCK COUNTDOWN TIMER
   // ==========================================================================
-  const flipUnitDays = document.getElementById('flipUnitDays');
-  const flipUnitHours = document.getElementById('flipUnitHours');
-  const flipUnitMins = document.getElementById('flipUnitMins');
-  const flipUnitSecs = document.getElementById('flipUnitSecs');
+  const countdownTarget = new Date('2026-09-14T00:00:00+05:30').getTime();
+  const countdownElements = {
+    days: document.getElementById('countDays'),
+    hours: document.getElementById('countHours'),
+    mins: document.getElementById('countMins'),
+    secs: document.getElementById('countSecs')
+  };
 
-  let prevVals = { days: '-1', hours: '-1', mins: '-1', secs: '-1' };
+  function animateCountdownUnit(key, value) {
+    const targetEl = countdownElements[key];
+    const parentEl = targetEl?.closest('.flip-clock-unit');
+    if (!targetEl) return;
 
-  function animateFlipUnit(unitEl, newVal) {
-    if (!unitEl) return;
-    const topVal  = unitEl.querySelector('.flip-card-top .flip-val');
-    const btmVal  = unitEl.querySelector('.flip-card-bottom .flip-val');
-    const backVal = unitEl.querySelector('.flip-card-back .flip-val');
-    if (!topVal || !btmVal) return;
+    const previousValue = targetEl.dataset.value || '';
+    targetEl.textContent = value;
+    targetEl.dataset.value = value;
 
-    if (!unitEl.getAttribute('data-init')) {
-      // First call: stamp number immediately, no animation
-      topVal.innerText  = newVal;
-      btmVal.innerText  = newVal;
-      if (backVal) backVal.innerText = newVal;
-      unitEl.setAttribute('data-init', '1');
-      return;
+    if (previousValue !== value && parentEl) {
+      parentEl.classList.remove('flipping');
+      void parentEl.offsetWidth;
+      parentEl.classList.add('flipping');
+      window.setTimeout(() => parentEl.classList.remove('flipping'), 420);
     }
-
-    if (topVal.innerText === newVal) return; // no change, skip
-
-    if (backVal) backVal.innerText = newVal;
-    unitEl.classList.add('flipping');
-    setTimeout(() => {
-      topVal.innerText = newVal;
-      btmVal.innerText = newVal;
-      unitEl.classList.remove('flipping');
-    }, 420);
   }
 
   function updateCountdown() {
-    const targetDate = new Date('2026-09-14T00:00:00+05:30').getTime();
-    const now  = Date.now();
-    const diff = targetDate - now;
+    const now = Date.now();
+    const diff = countdownTarget - now;
+    const safeDiff = diff > 0 ? diff : 0;
 
-    const days  = diff > 0 ? String(Math.floor(diff / 86400000)).padStart(2, '0') : '00';
-    const hours = diff > 0 ? String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0') : '00';
-    const mins  = diff > 0 ? String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0')   : '00';
-    const secs  = diff > 0 ? String(Math.floor((diff % 60000)  / 1000)).padStart(2, '0')     : '00';
+    const values = {
+      days: String(Math.floor(safeDiff / 86400000)).padStart(2, '0'),
+      hours: String(Math.floor((safeDiff % 86400000) / 3600000)).padStart(2, '0'),
+      mins: String(Math.floor((safeDiff % 3600000) / 60000)).padStart(2, '0'),
+      secs: String(Math.floor((safeDiff % 60000) / 1000)).padStart(2, '0')
+    };
 
-    if (prevVals.days  !== days)  { animateFlipUnit(flipUnitDays,  days);  prevVals.days  = days;  }
-    if (prevVals.hours !== hours) { animateFlipUnit(flipUnitHours, hours); prevVals.hours = hours; }
-    if (prevVals.mins  !== mins)  { animateFlipUnit(flipUnitMins,  mins);  prevVals.mins  = mins;  }
-    if (prevVals.secs  !== secs)  { animateFlipUnit(flipUnitSecs,  secs);  prevVals.secs  = secs;  }
+    Object.entries(values).forEach(([key, value]) => animateCountdownUnit(key, value));
   }
 
-  if (flipUnitDays || document.getElementById('countDays')) {
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+  const startCountdown = () => {
+    if (Object.values(countdownElements).some(Boolean)) {
+      updateCountdown();
+      window.clearInterval(window.countdownTimer);
+      window.countdownTimer = window.setInterval(updateCountdown, 1000);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startCountdown, { once: true });
+  } else {
+    startCountdown();
   }
+
+  window.setTimeout(startCountdown, 120);
 
   // ==========================================================================
   // TOP UTILITY BAR SCROLL COLLAPSE LOGIC
@@ -646,29 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ==========================================================================
-  // SCROLL-DRIVEN REVEAL ANIMATIONS (IntersectionObserver Engine)
-  // ==========================================================================
-  const revealElements = document.querySelectorAll('.reveal-on-scroll');
-
-  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-  } else {
-    revealElements.forEach(el => el.classList.add('visible'));
-  }
 });
 
 

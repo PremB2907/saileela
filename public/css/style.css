@@ -259,20 +259,23 @@ a:hover {
 .main-nav {
   display: flex;
   align-items: center;
+  max-width: 100%;
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 700;
   color: #2D3748;
-  padding: 0.45rem 0.65rem;
+  padding: 0.4rem 0.55rem;
   border-radius: var(--radius-sm);
   white-space: nowrap;
   transition: all 0.2s ease;
@@ -290,6 +293,28 @@ a:hover {
   background: rgba(127, 29, 29, 0.1);
   font-weight: 800;
   border-bottom: 2px solid var(--royal-gold);
+}
+
+.nav-live-btn {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--temple-maroon);
+  border-color: var(--temple-maroon);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.nav-donate-item {
+  flex-shrink: 0;
+}
+
+.nav-donate-btn {
+  padding: 0.4rem 1rem !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 /* Compact Buttons */
@@ -764,15 +789,15 @@ section {
    ========================================================================== */
 @media (max-width: 1280px) {
   .nav-link {
-    font-size: 0.82rem;
-    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.45rem;
   }
   .main-nav ul {
-    gap: 0.2rem;
+    gap: 0.15rem;
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1220px) {
   .main-nav {
     display: none;
     position: absolute;
@@ -808,6 +833,13 @@ section {
     background: var(--temple-maroon);
     color: var(--gold-soft);
     border-bottom: none;
+  }
+
+  .nav-donate-btn {
+    width: 100%;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    text-align: center;
   }
 
   .mobile-toggle {
@@ -1682,6 +1714,388 @@ section {
     width: 40px;
     height: 40px;
     font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL (FADE-IN FADE-OUT) SYSTEM
+   ========================================================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   RETRO 3D FLIP-CLOCK COUNTDOWN TIMER
+   ========================================================================== */
+.flip-clock-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 1.2rem;
+}
+
+.flip-unit-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flip-clock-unit {
+  position: relative;
+  width: 100%;
+  height: 72px;
+  background: #121212;
+  border-radius: 8px;
+  border: 1.5px solid var(--royal-gold);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.8);
+  perspective: 400px;
+  font-family: var(--font-en-head);
+  user-select: none;
+}
+
+.flip-card-top, .flip-card-bottom, .flip-card-back {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #222222 0%, #151515 100%);
+  color: var(--gold-soft);
+  font-weight: 900;
+  font-size: 2.1rem;
+  line-height: 0;
+}
+
+.flip-card-top {
+  top: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  transform-origin: bottom;
+  z-index: 2;
+}
+
+.flip-card-top .flip-val {
+  transform: translateY(18px);
+}
+
+.flip-card-bottom {
+  bottom: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  transform-origin: top;
+  z-index: 1;
+}
+
+.flip-card-bottom .flip-val {
+  transform: translateY(-18px);
+}
+
+.flip-card-back {
+  top: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  transform-origin: bottom;
+  z-index: 3;
+  opacity: 0;
+}
+
+.flip-card-back .flip-val {
+  transform: translateY(18px);
+}
+
+/* Center Hinges */
+.flip-hinge-left, .flip-hinge-right {
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  background: var(--royal-gold);
+  border-radius: 2px;
+  transform: translateY(-50%);
+  z-index: 10;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+.flip-hinge-left { left: -2px; }
+.flip-hinge-right { right: -2px; }
+
+/* Flip Animation */
+.flip-clock-unit.flipping .flip-card-top {
+  animation: flipDown 0.5s ease-in forwards;
+}
+
+@keyframes flipDown {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-90deg); opacity: 0.8; }
+}
+
+/* ==========================================================================
+   INDIE MANDALA ART TIMELINE & CRAZY INTERACTIVE SHOWCASE
+   ========================================================================== */
+.mandala-art-section {
+  position: relative;
+  background: linear-gradient(145deg, #2D0808 0%, #150202 100%);
+  padding: 6rem 0;
+  border-top: 2px solid var(--royal-gold);
+  border-bottom: 3px solid var(--royal-gold);
+  overflow: hidden;
+  color: var(--bg-ivory);
+}
+
+.mandala-bg-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0.18;
+}
+
+.mandala-wheel {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  border: 12px double var(--royal-gold);
+  background: radial-gradient(circle, transparent 30%, rgba(212, 175, 55, 0.15) 70%, transparent 100%);
+  box-shadow: inset 0 0 40px var(--royal-gold), 0 0 40px var(--royal-gold);
+  animation: rotateMandala 60s linear infinite;
+}
+
+.mandala-wheel::before {
+  content: '🌸 ॐ 🌸 ॐ 🌸 ॐ 🌸 ॐ 🌸 ॐ 🌸 ॐ';
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  border: 2px dashed var(--gold-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--gold-soft);
+  letter-spacing: 12px;
+}
+
+.mandala-wheel-left {
+  top: -120px;
+  left: -180px;
+}
+
+.mandala-wheel-right {
+  bottom: -150px;
+  right: -180px;
+  animation-direction: reverse;
+}
+
+@keyframes rotateMandala {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Timeline Track Bar & Interactive Nodes */
+.mandala-timeline-bar-wrap {
+  position: relative;
+  max-width: 960px;
+  margin: 3rem auto 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.mandala-timeline-track {
+  position: absolute;
+  top: 38px;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.3) 0%, var(--royal-gold) 50%, rgba(212, 175, 55, 0.3) 100%);
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.mandala-node-item {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mandala-node-ring {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #1B0505;
+  border: 2.5px solid var(--royal-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(212, 175, 55, 0.2);
+  transition: all 0.35s ease;
+}
+
+.mandala-icon-core {
+  color: var(--gold-soft);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.mandala-year-label {
+  margin-top: 0.6rem;
+  font-family: var(--font-en-head);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--gold-soft);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mandala-node-item:hover {
+  transform: translateY(-5px);
+}
+
+.mandala-node-item:hover .mandala-node-ring {
+  border-color: #FFFFFF;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+}
+
+.mandala-node-item.active .mandala-node-ring {
+  background: var(--temple-maroon);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 30px var(--royal-gold), 0 0 12px var(--gold-soft);
+  transform: scale(1.18);
+  animation: mandalaPulse 2s infinite alternate;
+}
+
+.mandala-node-item.active .mandala-icon-core {
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.mandala-node-item.active .mandala-year-label {
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+@keyframes mandalaPulse {
+  0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+  100% { box-shadow: 0 0 35px rgba(254, 240, 138, 0.9); }
+}
+
+/* Animated Year Info Showcase Box */
+.mandala-year-showcase-box {
+  max-width: 1060px;
+  margin: 0 auto;
+  background: rgba(18, 4, 4, 0.88);
+  backdrop-filter: blur(16px);
+  border: 2px solid var(--royal-gold);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(212, 175, 55, 0.15);
+  position: relative;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.mandala-year-showcase-box.animating {
+  opacity: 0;
+  transform: scale(0.96) translateY(15px);
+}
+
+.showcase-inner-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.showcase-media-side {
+  position: relative;
+  height: 380px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.showcase-media-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.showcase-media-side:hover img {
+  transform: scale(1.06);
+}
+
+.showcase-year-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--temple-maroon);
+  color: var(--gold-soft);
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--royal-gold);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.showcase-highlights-flex {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.showcase-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-gold);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  color: var(--bg-ivory);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 860px) {
+  .mandala-timeline-bar-wrap {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 1.8rem;
+    padding: 1rem 0.5rem;
+  }
+  .mandala-timeline-track {
+    display: none;
+  }
+  .showcase-inner-grid {
+    grid-template-columns: 1fr;
+  }
+  .showcase-media-side {
+    height: 280px;
+  }
+  .flip-clock-unit {
+    height: 60px;
+  }
+  .flip-card-top, .flip-card-bottom, .flip-card-back {
+    font-size: 1.6rem;
   }
 }
 

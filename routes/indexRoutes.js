@@ -11,11 +11,9 @@ router.get('/about', yatraController.renderAboutPage);
 router.get('/schedule', yatraController.renderSchedulePage);
 router.get('/api/live-status', yatraController.getLiveStatusApi);
 
-// Glimpses over the Year (Replacing 5 sacred forms)
+// Glimpses & Decade Gallery Combined
 router.get('/glimpses', yatraController.renderGlimpsesPage);
-
-// Mandal Photo Booth (Separate Page)
-router.get('/photo-booth', yatraController.renderPhotoBoothPage);
+router.get('/photo-booth', (req, res) => res.redirect(301, '/glimpses'));
 
 // Social Work Page (Separate Page & Photos)
 router.get('/social-work', yatraController.renderSocialWorkPage);

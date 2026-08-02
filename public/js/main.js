@@ -186,38 +186,51 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // GANESHOTSAV LIVE COUNTDOWN TIMER TICKER
+  // GANESHOTSAV 3D RETRO FLIP-CLOCK COUNTDOWN TIMER
   // ==========================================================================
-  const countDays = document.getElementById('countDays');
-  const countHours = document.getElementById('countHours');
-  const countMins = document.getElementById('countMins');
-  const countSecs = document.getElementById('countSecs');
+  const flipUnitDays = document.getElementById('flipUnitDays');
+  const flipUnitHours = document.getElementById('flipUnitHours');
+  const flipUnitMins = document.getElementById('flipUnitMins');
+  const flipUnitSecs = document.getElementById('flipUnitSecs');
 
-  if (countDays && countHours && countMins && countSecs) {
-    const targetDate = new Date('2026-09-14T00:00:00+05:30').getTime();
+  let prevVals = { days: '', hours: '', mins: '', secs: '' };
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
+  function animateFlipUnit(unitEl, newVal) {
+    if (!unitEl) return;
+    const topVal = unitEl.querySelector('.flip-card-top .flip-val');
+    const btmVal = unitEl.querySelector('.flip-card-bottom .flip-val');
+    const backVal = unitEl.querySelector('.flip-card-back .flip-val');
 
-      if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-        countDays.innerText = days < 10 ? '0' + days : days;
-        countHours.innerText = hours < 10 ? '0' + hours : hours;
-        countMins.innerText = mins < 10 ? '0' + mins : mins;
-        countSecs.innerText = secs < 10 ? '0' + secs : secs;
-      } else {
-        countDays.innerText = '00';
-        countHours.innerText = '00';
-        countMins.innerText = '00';
-        countSecs.innerText = '00';
-      }
+    if (topVal && topVal.innerText !== newVal) {
+      if (backVal) backVal.innerText = newVal;
+      unitEl.classList.add('flipping');
+      setTimeout(() => {
+        if (topVal) topVal.innerText = newVal;
+        if (btmVal) btmVal.innerText = newVal;
+        unitEl.classList.remove('flipping');
+      }, 500);
     }
+  }
 
+  function updateCountdown() {
+    const targetDate = new Date('2026-09-14T00:00:00+05:30').getTime();
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff > 0) {
+      const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      const hours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      const mins = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      const secs = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+
+      if (prevVals.days !== days) { animateFlipUnit(flipUnitDays, days); prevVals.days = days; }
+      if (prevVals.hours !== hours) { animateFlipUnit(flipUnitHours, hours); prevVals.hours = hours; }
+      if (prevVals.mins !== mins) { animateFlipUnit(flipUnitMins, mins); prevVals.mins = mins; }
+      if (prevVals.secs !== secs) { animateFlipUnit(flipUnitSecs, secs); prevVals.secs = secs; }
+    }
+  }
+
+  if (flipUnitDays || document.getElementById('countDays')) {
     updateCountdown();
     setInterval(updateCountdown, 1000);
   }
@@ -445,6 +458,170 @@ document.addEventListener('DOMContentLoaded', () => {
     container.addEventListener('mouseleave', startAutoScroll);
     startAutoScroll();
   });
+
+  // ==========================================================================
+  // SCROLL REVEAL (FADE-IN FADE-OUT) INTERSECTION OBSERVER
+  // ==========================================================================
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+  if (revealElements.length > 0 && typeof IntersectionObserver !== 'undefined') {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          // Fade out smoothly when scrolling away if desired
+          if (entry.boundingClientRect.top > 0) {
+            entry.target.classList.remove('is-visible');
+          }
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // ==========================================================================
+  // CRAZY INDIE MANDALA TIMELINE INTERACTIVE YEAR SHOWCASE
+  // ==========================================================================
+  const yearNodes = document.querySelectorAll('.mandala-node-item');
+  const showcaseBox = document.getElementById('mandalaYearShowcase');
+  const showcaseYearImg = document.getElementById('showcaseYearImg');
+  const showcaseYearBadge = document.getElementById('showcaseYearBadge');
+  const showcaseSubhead = document.getElementById('showcaseSubhead');
+  const showcaseYearTitle = document.getElementById('showcaseYearTitle');
+  const showcaseYearDesc = document.getElementById('showcaseYearDesc');
+  const showcaseFeat1 = document.getElementById('showcaseFeat1');
+  const showcaseFeat2 = document.getElementById('showcaseFeat2');
+  const showcaseFeat3 = document.getElementById('showcaseFeat3');
+  const btnPrevYearNode = document.getElementById('btnPrevYearNode');
+  const btnNextYearNode = document.getElementById('btnNextYearNode');
+
+  const timelineYearData = {
+    '1988': {
+      yearTag: 'वर्ष १९८८',
+      subhead: 'स्थापना पर्व',
+      title: 'मंडळ स्थापना व प्रथम श्री स्थापना',
+      desc: 'बेलासिस रोड बी.आय.टी. चाळीतील रहिवाशांनी एकत्र येऊन सार्वजनिक गणेशोत्सव मंडळाची स्थापना केली. अखंड भक्ती, परंपरा आणि सामाजिक ऐक्याचा ऐतिहासिक पाया १९८८ मध्ये रचला गेला.',
+      image: '/images/raja_real_1.png',
+      feat1: 'स्थापना: १९८८',
+      feat2: 'स्थान: बेलासिस रोड बी.आय.टी. चाळ',
+      feat3: 'संकल्पना: सांस्कृतिक ऐक्य'
+    },
+    '2000': {
+      yearTag: 'वर्ष २०००',
+      subhead: 'सेवा विस्तार',
+      title: 'अन्नदान महाप्रसाद व सामाजिक उपक्रम',
+      desc: 'मंडळाने धार्मिक उत्सवासोबत सामाजिक सेवेचा विस्तार केला. ५०,०००+ भाविकांसाठी भव्य अन्नदान महाप्रसाद, मोफत वैद्यकीय तपासणी आणि विद्यार्थी साहित्याची सुरुवात झाली.',
+      image: '/images/gallery_padya_pujan.png',
+      feat1: 'अन्नछत्र: ५०,०००+ भाविक',
+      feat2: 'आरोग्य: मोफत शिबीर',
+      feat3: 'मदत: शैक्षणिक साहित्य'
+    },
+    '2015': {
+      yearTag: 'वर्ष २०१५',
+      subhead: 'दशकपूर्ती सुवर्ण पर्व',
+      title: 'दशकपूर्ती व १८ फूट राजेशाही रूप',
+      desc: 'प्रसिद्ध मास्टर मूर्तिकार श्री. संतोष कांबळी यांच्या हस्तकलेतून १८ फुटी राजेशाही मूर्तीची परंपरा अधिक समृद्ध झाली. सुवर्ण सिंहासन व विलोभनीय शृंगार अवघ्या मुंबईत प्रसिद्ध झाला.',
+      image: '/images/raja_real_2.png',
+      feat1: 'उंची: १८ फूट',
+      feat2: 'मूर्तिकार: श्री. संतोष कांबळी',
+      feat3: 'शृंगार: सुवर्ण कमान'
+    },
+    '2020': {
+      yearTag: 'वर्ष २०२०',
+      subhead: 'आरोग्य संकल्प',
+      title: 'आरोग्य संकल्प व सुवर्ण पदकमयी रूप',
+      desc: 'कोरोना महामारीच्या काळात मंडळाने भव्य सामाजिक आरोग्य संकल्प राबवला. ५००+ युनिट्स रक्तदान आणि गरजू कुटुंबांना मोफत रेशन व वैद्यकीय सुरक्षा संच पुरवले गेले.',
+      image: '/images/gallery_aagman.png',
+      feat1: 'रक्तदान: ५००+ युनिट्स',
+      feat2: 'आरोग्य: वैद्यकीय मदत',
+      feat3: 'सेवा: कुटुंब रेशन संच'
+    },
+    '2024': {
+      yearTag: 'वर्ष २०२४',
+      subhead: 'सुवर्ण सिंहासन शृंगार',
+      title: 'सुवर्ण सिंहासन व तेज:पुंज पीत पितांबर',
+      desc: 'हस्तकला नक्षीकामातील भव्य सुवर्ण सिंहासन आणि सुवर्ण मुकुटात विराजमान श्रींचे मनमोहक रूप. जगभरातून लाखो भाविकांनी थेट ऑनलाईन दर्शन घेतले.',
+      image: '/images/raja_real_3.png',
+      feat1: 'सिंहासन: हस्तकला सुवर्ण',
+      feat2: 'वस्त्र: पीत पितांबर',
+      feat3: 'दर्शन: ५ लाख+ भाविक'
+    },
+    '2025': {
+      yearTag: 'वर्ष २०२५',
+      subhead: 'पेशवाई काष्ठ सिंहासन व डिजिटल मंदिर',
+      title: 'काष्ठ सिंहासन व डिजिटल दर्शन पोर्टल',
+      desc: 'पेशवाई शैलीतील अप्रतिम काष्ठ सिंहासन आणि जागतिक भाविकांसाठी अत्याधुनिक २४/७ डिजिटल दर्शन व देणगी पोर्टलची निर्मिती करण्यात आली.',
+      image: '/images/raja_real_4.png',
+      feat1: 'काष्ठ सिंहासन: पेशवाई नक्षीकाम',
+      feat2: 'डिजिटल: २४/७ लाईव्ह दर्शन',
+      feat3: 'कर सवलत: ८०जी देणगी पावती'
+    }
+  };
+
+  const yearKeys = Object.keys(timelineYearData);
+
+  function setActiveTimelineYear(year) {
+    const data = timelineYearData[year];
+    if (!data || !showcaseBox) return;
+
+    // Trigger visual pulse animation
+    showcaseBox.classList.add('animating');
+
+    setTimeout(() => {
+      if (showcaseYearImg) showcaseYearImg.src = data.image;
+      if (showcaseYearBadge) showcaseYearBadge.innerText = data.yearTag;
+      if (showcaseSubhead) showcaseSubhead.innerText = data.subhead;
+      if (showcaseYearTitle) showcaseYearTitle.innerText = data.title;
+      if (showcaseYearDesc) showcaseYearDesc.innerText = data.desc;
+      if (showcaseFeat1) showcaseFeat1.innerText = data.feat1;
+      if (showcaseFeat2) showcaseFeat2.innerText = data.feat2;
+      if (showcaseFeat3) showcaseFeat3.innerText = data.feat3;
+
+      yearNodes.forEach(node => {
+        if (node.getAttribute('data-year') === year) {
+          node.classList.add('active');
+        } else {
+          node.classList.remove('active');
+        }
+      });
+
+      showcaseBox.classList.remove('animating');
+    }, 200);
+  }
+
+  if (yearNodes.length > 0) {
+    yearNodes.forEach(node => {
+      node.addEventListener('click', () => {
+        const yr = node.getAttribute('data-year');
+        setActiveTimelineYear(yr);
+      });
+    });
+
+    if (btnPrevYearNode) {
+      btnPrevYearNode.addEventListener('click', () => {
+        const activeNode = document.querySelector('.mandala-node-item.active');
+        const currYear = activeNode ? activeNode.getAttribute('data-year') : '1988';
+        const currIdx = yearKeys.indexOf(currYear);
+        const prevIdx = (currIdx - 1 + yearKeys.length) % yearKeys.length;
+        setActiveTimelineYear(yearKeys[prevIdx]);
+      });
+    }
+
+    if (btnNextYearNode) {
+      btnNextYearNode.addEventListener('click', () => {
+        const activeNode = document.querySelector('.mandala-node-item.active');
+        const currYear = activeNode ? activeNode.getAttribute('data-year') : '1988';
+        const currIdx = yearKeys.indexOf(currYear);
+        const nextIdx = (currIdx + 1) % yearKeys.length;
+        setActiveTimelineYear(yearKeys[nextIdx]);
+      });
+    }
+  }
 });
 
 

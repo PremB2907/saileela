@@ -1,7 +1,8 @@
 /**
- * Mumbai Central Cha Raja - Internationalization (i18n)
+ * Mumbai Central Cha Raja - Internationalization (i18n) System
  * Mandal: Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal
  * Languages: Marathi (mr), English (en)
+ * 100% Strict Zero-Leakage Translation Engine
  */
 
 const translations = {
@@ -14,52 +15,127 @@ const translations = {
     mandal_sub_header: "Sarvajanik Shri Ganeshotsav Mandal",
 
     // Navigation
+    nav_live: "LIVE DARSHAN",
     nav_home: "Home",
     nav_about: "About Us",
-    nav_schedule: "Ganeshotsav",
-    nav_glimpses: "Glimpses",
-    nav_photobooth: "Decade Gallery",
+    nav_schedule: "Schedule",
+    nav_glimpses: "Glimpses & Decade Gallery",
     nav_socialwork: "Social Work",
     nav_tshirt: "Official T-Shirt",
     nav_committee: "Committee",
     nav_contact: "Contact",
     nav_donate: "Donate Now",
 
-    // Hero Section
+    // Hero & Flip Clock
+    hero_tag: "ESTD 1988 | REG NO. E-3892 MUMBAI",
     hero_title: "Mumbai Central Cha Raja",
+    hero_sub_tag: "Faith Beyond Boundaries",
     hero_subtitle: "Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal. A timeless tradition of faith, royal heritage, and community service since 1988.",
-    btn_live_darshan: "Live Darshan",
-    btn_know_history: "Know Our History",
+    btn_hero_live: "Watch Live Darshan",
+    btn_hero_donate: "Donate Seva Online",
+    countdown_badge: "Ganeshotsav 2026 Arrival",
+    countdown_title: "Awaiting Divine Arrival!",
+    label_days: "Days",
+    label_hours: "Hours",
+    label_mins: "Mins",
+    label_secs: "Secs",
 
-    // Glimpses & Decade Gallery
-    glimpses_tag: "Glorious Archives",
-    glimpses_title: "Glimpses over the Year",
-    glimpses_sub: "Divine idols and royal thrones of Mumbai Central Cha Raja crafted by master sculptors.",
-    decade_tag: "10+ Years Retrospective",
-    decade_title: "Glimpses Over a Decade",
-    decade_sub: "A historic journey of divine sculptures, grand mandap decor, and unforgettable memories from 2015 to 2025.",
+    // Ticker Marquee
+    ticker_badge: "FESTIVAL UPDATES",
+    ticker_text: "🌸 Ganeshotsav 2026 Procession Coming Soon! • Daily Maha Aarti Morning 8:00 AM & Evening 8:00 PM • 50,000+ Daily Annadan Mahaprasad • 80G Tax Exempt Donations Open 🌸",
 
-    // Photo Booth Section (Renamed / Replaced)
-    photobooth_tag: "10-Year Legacy",
-    photobooth_title: "Glimpses Over a Decade (2015 - 2025)",
-    photobooth_sub: "Explore the golden history of Mumbai Central Cha Raja across ten iconic years of devotion.",
+    // President Message & Counters
+    pres_badge: "President & Executive Message",
+    pres_title: "Warm Welcome & Divine Blessings",
+    pres_desc: "Welcome to the official digital temple portal of Mumbai Central Cha Raja, Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal. Serving society with faith, culture, and unity since 1988.",
+    pres_quote: '"Faith, service, and social commitment are the core pillars of Mumbai Central Cha Raja Mandal."',
+    pres_name: "Mr. Prakash Sawant",
+    pres_role: "President, Belasis Road B.I.T. Chawl Mandal",
+    stat_year_label: "Founding Year",
+    stat_service_label: "Years of Continuous Service",
+    stat_prasadam_label: "Daily Mahaprasad Devotees",
+    stat_visitors_label: "Annual Visiting Devotees",
+
+    // Indie Mandala Timeline
+    timeline_badge: "HISTORIC GOLDEN LEGACY",
+    timeline_title: "Golden Journey of Devotion & Heritage Since 1988",
+    timeline_sub: "Click on any year point below to explore the royal history, idol form, and divine milestones of that year!",
+    btn_prev_year: "Previous Year",
+    btn_next_year: "Next Year",
+    btn_all_photos: "View Decade Gallery",
+
+    // Legacy & Craftsmanship
+    craft_badge: "Royal Attire & Sculpture Craft",
+    craft_title: "18-Feet Grandeur & Golden Decoration",
+    craft_desc1: "Standing 18 feet tall, the divine smile and radiant eyes of Mumbai Central Cha Raja captivate millions of visiting devotees.",
+    craft_desc2: "Seated on carved wooden and golden thrones, the idol form is crafted according to unique Maharashtrian cultural themes every single year.",
+    craft_stat1_num: "18 Feet",
+    craft_stat1_label: "Grand Idol Height",
+    craft_stat2_num: "35+ Yrs",
+    craft_stat2_label: "Legacy of Pure Devotion",
+
+    // Live Stream Section
+    live_badge: "Live Temple Stream",
+    live_title: "Ganeshotsav Aarti & Live Stream",
+    live_sub: "Watch 24/7 Live Stream and Daily Morning (8:00 AM) & Evening (8:00 PM) Maha Aarti directly from the royal mandap.",
+    live_box_title: "Mumbai Central Cha Raja - 24/7 Live Stream",
+    live_box_sub: "Official YouTube Live Channel Stream",
+    btn_watch_youtube: "Watch on YouTube",
+
+    // Glimpses 3D Reel Section
+    reel_tag: "HISTORIC GOLDEN MOMENTS",
+    reel_title: "Glimpses Over The Years",
+    reel_sub: "Glorious forms, royal thrones, and divine arches of Mumbai Central Cha Raja across the years.",
+    reel_drag_hint: "Drag or Scroll 3D Cards →",
+    btn_view_decade_all: "View All 10 Years Retrospective",
 
     // Social Work Section
-    socialwork_tag: "Community Welfare",
-    socialwork_title: "Social Work Initiatives",
-    socialwork_sub: "Extending devotion into social service through Annadan Mahaprasad, Blood Donation, Free Healthcare, and Student Education support.",
-
-    // Schedule Section
-    schedule_tag: "Festival Itinerary",
-    schedule_title: "Upcoming Aarti & Event Schedule",
-    schedule_sub: "Daily Puja, Morning & Evening Maha Aarti, Cultural Programmes, and Visarjan Procession.",
+    social_section_tag: "COMMUNITY SERVICES",
+    social_section_title: "Social Work & Seva Initiatives",
+    social_section_sub: "Serving humanity through Annadan Mahaprasad, Blood Donation, Free Healthcare, and Student Education support.",
+    social1_tag: "FOOD DISTRIBUTION",
+    social1_title: "Annadan Mahaprasad Seva Drive",
+    social1_desc: "Serving hot nutritious meals, fresh breakfast, and purified drinking water to over 50,000+ devotees daily during Ganeshotsav.",
+    social2_tag: "HEALTHCARE SEVA",
+    social2_title: "Grand Blood Donation & Medical Camp",
+    social2_desc: "Collecting 500+ blood units annually in partnership with KEM & Nair Hospitals alongside free healthcare checkup camps.",
+    btn_all_social: "View All Social Initiatives",
 
     // Donation Section
-    donate_tag: "Sacred Contribution",
-    donate_title: "Online Seva & Donation Portal",
-    donate_sub: "Support Mandal social work initiatives and mandap decor. 50% Tax Exempt under Section 80G.",
+    donate_section_tag: "SACRED CONTRIBUTION",
+    donate_section_title: "Support Mumbai Central Cha Raja Seva",
+    donate_section_sub: "Your contributions support community welfare, free meals, and mandap arrangements. All donations are 50% Tax Exempt under Section 80G.",
+    btn_donate_80g: "Donate Online (With 80G Receipt)",
 
-    // Footer Column Headings & Links
+    // Location & Contact
+    location_tag: "MANDAP LOCATION & CONTACT",
+    location_title: "Mandap Darshan Location & Map",
+    location_sub: "Progressive Building A/3, Belasis Road, B.I.T. Chawl, Mumbai Central (E), Mumbai - 400008.",
+    contact_box_title: "Contact Information",
+    contact_address: "Belasis Road B.I.T. Chawl, Mumbai Central (E), Mumbai - 400008.",
+    contact_reg: "Reg No: E-3892 Mumbai (80G Tax Exempt Certified)",
+    visitor_count_label: "Total Devotee Visits:",
+
+    // Schedule Page Titles
+    schedule_page_title: "10-Day Ganeshotsav Schedule",
+    schedule_page_sub: "Daily Puja, Maha Aarti, Cultural Evenings, and Visarjan Procession Itinerary.",
+    label_day: "Day",
+
+    // Glimpses Page Titles & Filters
+    glimpses_tag: "Glorious Archives & 10+ Years Legacy",
+    glimpses_title: "Glimpses & Decade Retrospective",
+    glimpses_sub: "A historic journey of divine idols, royal thrones, grand mandap decor, and unforgettable memories from 2015 to 2025.",
+    filter_all: "All Years",
+    filter_idols: "Idols & Thrones",
+    filter_visarjan: "Visarjan Procession",
+    filter_decor: "Mandap Decor",
+    filter_aarti: "Devotion & Aarti",
+    label_height: "Idol Height",
+    label_theme: "Theme",
+    label_sculptor: "Sculptor",
+    btn_enlarge: "Zoom Image",
+
+    // Footer
     footer_col_links: "Quick Links",
     footer_col_initiatives: "Initiatives & Donation",
     footer_col_location: "Mandap Location & Map",
@@ -73,18 +149,7 @@ const translations = {
     scroll_popup_title: "Ganeshotsav 2026 Live Updates",
     scroll_popup_desc: "Join us for daily Morning & Evening Maha Aarti. Watch live video streams or contribute to social seva.",
     scroll_popup_btn_watch: "Watch Live Stream",
-    scroll_popup_btn_donate: "Donate Seva",
-
-    // Gallery Filters & Cards
-    filter_all: "All Years",
-    filter_idols: "Idols & Thrones",
-    filter_visarjan: "Visarjan Procession",
-    filter_decor: "Mandap Decor",
-    filter_aarti: "Devotion & Aarti",
-    label_height: "Idol Height",
-    label_theme: "Theme",
-    label_sculptor: "Sculptor",
-    btn_enlarge: "View High Res Image"
+    scroll_popup_btn_donate: "Donate Seva"
   },
 
   mr: {
@@ -96,52 +161,127 @@ const translations = {
     mandal_sub_header: "सार्वजनिक श्री गणेशोत्सव मंडळ",
 
     // Navigation
+    nav_live: "थेट दर्शन",
     nav_home: "मुखपृष्ठ",
     nav_about: "आमच्याबद्दल",
-    nav_schedule: "गणेशोत्सव",
+    nav_schedule: "वेळापत्रक",
     nav_glimpses: "क्षणचित्रे",
-    nav_photobooth: "दशकातील क्षणचित्रे",
     nav_socialwork: "सामाजिक कार्य",
     nav_tshirt: "टी-शर्ट",
     nav_committee: "कार्यकारिणी",
     nav_contact: "संपर्क",
     nav_donate: "देणगी",
 
-    // Hero Section
+    // Hero & Flip Clock
+    hero_tag: "स्थापना १९८८ | नोंदणी क्र. ई-३८९२ मुंबई",
     hero_title: "मुंबई सेंट्रलचा राजा",
+    hero_sub_tag: "भक्ती आणि संस्कृतीचा सुवर्ण वारसा",
     hero_subtitle: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ. अथांग श्रद्धा, भव्य परंपरा आणि संस्कृतीचा अद्वितीय वारसा.",
-    btn_live_darshan: "लाइव्ह दर्शन",
-    btn_know_history: "इतिहास व परंपरा",
+    btn_hero_live: "लाइव्ह दर्शन पाहा",
+    btn_hero_donate: "ऑनलाइन देणगी द्या",
+    countdown_badge: "गणेशोत्सव २०२६ आगमन",
+    countdown_title: "श्रींच्या आगमनासाठी उत्सुकता!",
+    label_days: "दिवस",
+    label_hours: "तास",
+    label_mins: "मिनिटे",
+    label_secs: "सेकंद",
 
-    // Glimpses & Decade Gallery
-    glimpses_tag: "ऐतिहासिक वारसा",
-    glimpses_title: "वर्षभरातील क्षणचित्रे",
-    glimpses_sub: "मुंबई सेंट्रलच्या राजाचे विविध वर्षांतील विलोभनीय व मनमोहक रूप दर्शन.",
-    decade_tag: "१० वर्षांचा सुवर्ण प्रवास",
-    decade_title: "दशकातील स्वर्णिम क्षणचित्रे (२०१५ - २०२५)",
-    decade_sub: "गेल्या १० वर्षांतील राजाची राजेशाही रूपे, काष्ठ व सुवर्ण सिहांसन आणि अथांग भक्तीचा ऐतिहासिक लेखाजोखा.",
+    // Ticker Marquee
+    ticker_badge: "उत्सव अपडेट्स",
+    ticker_text: "🌸 गणेशोत्सव २०२६ आगमन सोहळा लवकरच! • दैनिक महाआरती सकाळी ८:०० व संध्याकाळी ८:०० वाजता • ५०,०००+ अन्नदान महाप्रसाद वाटप • ८०जी कर सवलत पावतीसह ऑनलाइन देणगी उघडी आहे 🌸",
 
-    // Photo Booth Section
-    photobooth_tag: "१० वर्षांचा वारसा",
-    photobooth_title: "दशकातील क्षणचित्रे (२०१५ - २०२५)",
-    photobooth_sub: "मुंबई सेंट्रलच्या राजाच्या १० वर्षांच्या सुवर्णमयी आठवणी आणि रूप दर्शन.",
+    // President Message & Counters
+    pres_badge: "अध्यक्ष व कार्यकारिणी संदेश",
+    pres_title: "हार्दिक स्वागत व मनःपूर्वक आशीर्वाद",
+    pres_desc: "मुंबई सेंट्रलचा राजा बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळाच्या अधिकृत डिजिटल मंदिरात आपले स्वागत आहे. १९८८ पासून आमचे मंडळ सामाजिक ऐक्य, भक्ती आणि संस्कृतीचे संवर्धन करत आहे.",
+    pres_quote: '"श्रद्धा, सेवा आणि सामाजिक बांधिलकी हाच मुंबई सेंट्रलच्या राजा मंडळाचा मूळ आधारस्तंभ आहे."',
+    pres_name: "श्री. प्रकाश सावंत",
+    pres_role: "अध्यक्ष, बेलासिस रोड बी.आय.टी. चाळ मंडळ",
+    stat_year_label: "स्थापना वर्ष",
+    stat_service_label: "अखंड सेवेची वर्षे",
+    stat_prasadam_label: "दैनिक महाप्रसाद भाविक",
+    stat_visitors_label: "वार्षिक दर्शनार्थी भाविक",
+
+    // Indie Mandala Timeline
+    timeline_badge: "ऐतिहासिक सुवर्ण वसा",
+    timeline_title: "१९८८ पासूनचा भक्ती व संस्कृतीचा सुवर्ण प्रवास",
+    timeline_sub: "खालील वर्षांच्या बिंदूवर (Point) क्लिक करा आणि त्या वर्षाची खास राजेशाही माहिती, रूप आणि इतिहास एक्सप्लोर करा!",
+    btn_prev_year: "मागील वर्ष",
+    btn_next_year: "पुढील वर्ष",
+    btn_all_photos: "दशकाचे सर्व फोटो पाहा",
+
+    // Legacy & Craftsmanship
+    craft_badge: "राजेशाही वस्त्रालंकार व शिल्प",
+    craft_title: "१८ फुटी भव्यता व सुवर्ण शृंगार",
+    craft_desc1: "मुंबई सेंट्रलच्या राजाची मूर्ती १८ फूट उंच असून, तिच्या चेहऱ्यावरील विलोभनीय हास्य आणि भव्य डोळे भाविकांना मंत्रमुग्ध करतात.",
+    craft_desc2: "काष्ठ व सुवर्ण सिहांसनावर आरूढ असलेली श्रींची मूर्ती दरवर्षी नवीन सांस्कृतिक संकल्पनेनुसार तयार केली जाते.",
+    craft_stat1_num: "१८ फूट",
+    craft_stat1_label: "मूर्तीची भव्य उंची",
+    craft_stat2_num: "३५+ वर्षे",
+    craft_stat2_label: "अखंड भक्ती परंपरा",
+
+    // Live Stream Section
+    live_badge: "साक्षात दर्शन",
+    live_title: "गणेशोत्सव आरती व थेट प्रक्षेपण",
+    live_sub: "दररोज सकाळी ८:०० व संध्याकाळी ८:०० वाजता महाआरतीचे थेट थेट प्रक्षेपण पाहा.",
+    live_box_title: "मुंबई सेंट्रलचा राजा - २४/७ लाईव्ह दर्शन",
+    live_box_sub: "अधिकृत युट्यूब चॅनेल प्रवाह",
+    btn_watch_youtube: "YouTube वर पाहा",
+
+    // Glimpses 3D Reel Section
+    reel_tag: "ऐतिहासिक सुवर्ण क्षण",
+    reel_title: "वर्षभरातील क्षणचित्रे",
+    reel_sub: "मुंबई सेंट्रलच्या राजाचे विविध वर्षांतील विलोभनीय व मनमोहक रूप दर्शन.",
+    reel_drag_hint: "कार्ड्स स्क्रोल करा →",
+    btn_view_decade_all: "दशकातील सर्व १० वर्षांची चित्रे पाहा",
 
     // Social Work Section
-    socialwork_tag: "समाजोपयोगी उपक्रम",
-    socialwork_title: "सामाजिक कार्य व सेवा",
-    socialwork_sub: "अन्नदान महाप्रसाद, रक्तदान शिबीर, मोफत आरोग्य तपासणी आणि शैक्षणिक मदतीतून समाजसेवा.",
-
-    // Schedule Section
-    schedule_tag: "उत्सव कार्यसूची",
-    schedule_title: "आगामी आरती व कार्यक्रम वेळापत्रक",
-    schedule_sub: "दैनिक पूजा, महाआरती, सांस्कृतिक कार्यक्रम आणि विसर्जन मिरवणुकीची वेळ.",
+    social_section_tag: "समाजोपयोगी उपक्रम",
+    social_section_title: "सामाजिक कार्य व सेवा",
+    social_section_sub: "अन्नदान महाप्रसाद, रक्तदान शिबीर, मोफत आरोग्य तपासणी आणि शैक्षणिक मदतीतून समाजसेवा.",
+    social1_tag: "अन्नछत्र सेवा",
+    social1_title: "अन्नदान महाप्रसाद सेवा ड्राइव्ह",
+    social1_desc: "गणेशोत्सवाच्या १० दिवसांत दररोज ५०,००० हून अधिक भाविकांना गरम महाप्रसाद, अल्पोपहार आणि पिण्याचे शुद्ध पाणी मोफत पुरवले जाते.",
+    social2_tag: "आरोग्य सेवा",
+    social2_title: "भव्य रक्तदान व आरोग्य शिबीर",
+    social2_desc: "के.ई.एम. व नायर रुग्णालयाच्या सहकार्याने दरवर्षी ५०० हून अधिक रक्त युनिट्स संकलित केले जातात आणि मोफत आरोग्य तपासणी केली जाते.",
+    btn_all_social: "सर्व सामाजिक उपक्रम पाहा",
 
     // Donation Section
-    donate_tag: "सेवा योगदान",
-    donate_title: "ऑनलाइन देणगी पोर्टल",
-    donate_sub: "मंडळाच्या सामाजिक उपक्रमांना सहकार्य करा. सर्व देणग्यांना कलम 80G अंतर्गत कर सवलत.",
+    donate_section_tag: "सेवा योगदान",
+    donate_section_title: "मुंबई सेंट्रलचा राजा सेवेला पाठिंबा द्या",
+    donate_section_sub: "तुमची देणगी सामाजिक कार्य, अन्नदान महाप्रसाद व मंडप व्यवस्थापनासाठी वापरली जाते. सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत मिळतो.",
+    btn_donate_80g: "ऑनलाइन देणगी द्या (८०जी पावतीसह)",
 
-    // Footer Column Headings & Links
+    // Location & Contact
+    location_tag: "मंडप स्थान व संपर्क",
+    location_title: "मंडप दर्शन स्थान व नकाशा",
+    location_sub: "प्रोग्रेसिव्ह बिल्डींग अ /३, बेलासिस रोड, बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.",
+    contact_box_title: "संपर्क माहिती",
+    contact_address: "बेलासिस रोड बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.",
+    contact_reg: "नोंदणी क्र. : ई-३८९२ मुंबई (८०जी कर सवलत प्राप्त)",
+    visitor_count_label: "एकूण दर्शनार्थी भेट :",
+
+    // Schedule Page Titles
+    schedule_page_title: "१० दिवसांचे गणेशोत्सव वेळापत्रक",
+    schedule_page_sub: "दैनिक पूजा, महाआरती, भक्ती संध्या आणि विसर्जन मिरवणूक पूर्ण वेळापत्रक.",
+    label_day: "दिवस",
+
+    // Glimpses Page Titles & Filters
+    glimpses_tag: "ऐतिहासिक वारसा व दशकातील प्रवास",
+    glimpses_title: "क्षणचित्रे व दशकातील सुवर्ण प्रवास",
+    glimpses_sub: "मुंबई सेंट्रलच्या राजाचे गेल्या १० वर्षांतील विलोभनीय रूप दर्शन, काष्ठ व सुवर्ण सिंहासन आणि अथांग भक्तीचा ऐतिहासिक लेखाजोखा.",
+    filter_all: "सर्व वर्षे",
+    filter_idols: "मूर्ती व सिंहासन",
+    filter_visarjan: "विसर्जन मिरवणूक",
+    filter_decor: "मंडप शृंगार",
+    filter_aarti: "महाआरती व भक्ती",
+    label_height: "मूर्तीची उंची",
+    label_theme: "संकल्पना",
+    label_sculptor: "मूर्तिकार",
+    btn_enlarge: "चित्र मोठे करून पहा",
+
+    // Footer
     footer_col_links: "मुख्य दुवे",
     footer_col_initiatives: "उपक्रम व देणगी",
     footer_col_location: "मंडप स्थान व नकाशा",
@@ -155,18 +295,7 @@ const translations = {
     scroll_popup_title: "गणेशोत्सव २०२६ लाईव्ह अपडेट्स",
     scroll_popup_desc: "दररोज सकाळी व संध्याकाळी महाआरतीचा लाभ घ्या. लाईव्ह प्रवाह पहा किंवा सामाजिक सेवेत योगदान द्या.",
     scroll_popup_btn_watch: "लाइव्ह प्रवाह पहा",
-    scroll_popup_btn_donate: "सेवा देणगी द्या",
-
-    // Gallery Filters & Cards
-    filter_all: "सर्व वर्षे",
-    filter_idols: "मूर्ती व सिंहासन",
-    filter_visarjan: "विसर्जन मिरवणूक",
-    filter_decor: "मंडप शृंगार",
-    filter_aarti: "महाआरती व भक्ती",
-    label_height: "मूर्तीची उंची",
-    label_theme: "संकल्पना",
-    label_sculptor: "मूर्तिकार",
-    btn_enlarge: "चित्र मोठे करून पहा"
+    scroll_popup_btn_donate: "सेवा देणगी द्या"
   }
 };
 
@@ -200,6 +329,9 @@ function setLanguage(lang) {
       }
     }
   });
+
+  // Notify active listeners (such as timeline showcase card update)
+  window.dispatchEvent(new CustomEvent('mccLanguageChanged', { detail: { lang } }));
 }
 
 if (typeof document !== 'undefined') {
@@ -216,5 +348,3 @@ if (typeof document !== 'undefined') {
     });
   });
 }
-
-

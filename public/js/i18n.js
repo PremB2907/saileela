@@ -19,7 +19,7 @@ const translations = {
     nav_home: "Home",
     nav_about: "About Us",
     nav_schedule: "Schedule",
-    nav_glimpses: "Glimpses & Decade Gallery",
+    nav_glimpses: "Glimpses",
     nav_socialwork: "Social Work",
     nav_tshirt: "Official T-Shirt",
     nav_committee: "Committee",

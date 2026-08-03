@@ -46,9 +46,12 @@
   <script>
     (function(){
       try {
-        var l = localStorage.getItem('mcc_lang') || 'mr';
+        var saved = localStorage.getItem('mcc_lang');
+        var cookieMatch = document.cookie.match(/mcc_lang=(mr|en)/);
+        var l = saved || (cookieMatch ? cookieMatch[1] : '<%= typeof lang !== "undefined" ? lang : "en" %>');
         document.documentElement.lang = l;
         document.documentElement.setAttribute('data-lang', l);
+        document.cookie = "mcc_lang=" + l + "; path=/; max-age=31536000; SameSite=Lax";
       } catch(e){}
     })();
   </script>
@@ -69,7 +72,7 @@
       <div class="mandal-top-banner-flex">
         <!-- Top Meta (Est & Reg & Social Links) -->
         <div class="mandal-top-meta">
-          <span data-i18n="est_label">स्थापना : १९८८</span>
+          <span data-i18n="est_label"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'स्थापना : १९८८' : 'Est. Year: 1988' %></span>
           
           <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
             <a href="https://www.youtube.com/channel/UCrijB5WpQhGLfWQT1WSySNg" target="_blank" rel="noopener noreferrer" style="color: var(--bg-ivory); font-weight: 700; text-decoration: none; font-size: 0.88rem;">
@@ -83,17 +86,17 @@
             </a>
             <!-- Language Switcher Pills -->
             <div class="lang-switcher-container">
-              <button class="lang-btn active" data-lang="mr">मराठी</button>
-              <button class="lang-btn" data-lang="en">English</button>
+              <button class="lang-btn <%= typeof lang !== 'undefined' && lang === 'mr' ? 'active' : '' %>" data-lang="mr">मराठी</button>
+              <button class="lang-btn <%= typeof lang === 'undefined' || lang === 'en' ? 'active' : '' %>" data-lang="en">English</button>
             </div>
           </div>
 
-          <span data-i18n="reg_label">नोंदणी क्र. : ई-३८९२ मुंबई</span>
+          <span data-i18n="reg_label"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'नोंदणी क्र. : ई-३८९२ मुंबई' : 'Reg No: E-3892 Mumbai' %></span>
         </div>
 
         <!-- Mandal Devanagari Heading -->
         <h1 class="mandal-banner-3d-text" data-i18n="mandal_full_title">
-          बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ, मुंबई
+          <%= typeof lang !== 'undefined' && lang === 'mr' ? 'बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ, मुंबई' : 'Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal, Mumbai' %>
         </h1>
       </div>
     </div>
@@ -109,8 +112,8 @@
           <img src="/images/logo.png" alt="Mumbai Central Cha Raja Logo" style="width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1;">
         </div>
         <div class="brand-text">
-          <h2 data-i18n="mandal_name_header">मुंबई सेंट्रलचा राजा</h2>
-          <p data-i18n="mandal_sub_header">सार्वजनिक श्री गणेशोत्सव मंडळ</p>
+          <h2 data-i18n="mandal_name_header"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'मुंबई सेंट्रलचा राजा' : 'Mumbai Central Cha Raja' %></h2>
+          <p data-i18n="mandal_sub_header"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'सार्वजनिक श्री गणेशोत्सव मंडळ' : 'Sarvajanik Shri Ganeshotsav Mandal' %></p>
         </div>
       </a>
 
@@ -122,19 +125,19 @@
               <i class="fa-solid fa-tower-broadcast" style="color: var(--primary-saffron);"></i> <span data-i18n="nav_live">LIVE DARSHAN</span>
             </button>
           </li>
-          <li><a href="/" class="nav-link <%= activeTab === 'home' ? 'active' : '' %>" data-i18n="nav_home">मुखपृष्ठ</a></li>
-          <li><a href="/about" class="nav-link <%= activeTab === 'about' ? 'active' : '' %>" data-i18n="nav_about">आमच्याबद्दल</a></li>
-          <li><a href="/schedule" class="nav-link <%= activeTab === 'schedule' ? 'active' : '' %>" data-i18n="nav_schedule">वेळापत्रक</a></li>
-          <li><a href="/glimpses" class="nav-link <%= activeTab === 'glimpses' || activeTab === 'photobooth' ? 'active' : '' %>" data-i18n="nav_glimpses">क्षणचित्रे</a></li>
-          <li><a href="/social-work" class="nav-link <%= activeTab === 'socialwork' ? 'active' : '' %>" data-i18n="nav_socialwork">सामाजिक कार्य</a></li>
-          <li><a href="/tshirt" class="nav-link <%= activeTab === 'tshirt' ? 'active' : '' %>" data-i18n="nav_tshirt">टी-शर्ट</a></li>
-          <li><a href="/committee" class="nav-link <%= activeTab === 'committee' ? 'active' : '' %>" data-i18n="nav_committee">कार्यकारिणी</a></li>
-          <li><a href="/contact" class="nav-link <%= activeTab === 'contact' ? 'active' : '' %>" data-i18n="nav_contact">संपर्क</a></li>
+          <li><a href="/" class="nav-link <%= activeTab === 'home' ? 'active' : '' %>" data-i18n="nav_home"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'मुखपृष्ठ' : 'Home' %></a></li>
+          <li><a href="/about" class="nav-link <%= activeTab === 'about' ? 'active' : '' %>" data-i18n="nav_about"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'आमच्याबद्दल' : 'About Us' %></a></li>
+          <li><a href="/schedule" class="nav-link <%= activeTab === 'schedule' ? 'active' : '' %>" data-i18n="nav_schedule"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'वेळापत्रक' : 'Schedule' %></a></li>
+          <li><a href="/glimpses" class="nav-link <%= activeTab === 'glimpses' || activeTab === 'photobooth' ? 'active' : '' %>" data-i18n="nav_glimpses"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'क्षणचित्रे' : 'Glimpses' %></a></li>
+          <li><a href="/social-work" class="nav-link <%= activeTab === 'socialwork' ? 'active' : '' %>" data-i18n="nav_socialwork"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'सामाजिक कार्य' : 'Social Work' %></a></li>
+          <li><a href="/tshirt" class="nav-link <%= activeTab === 'tshirt' ? 'active' : '' %>" data-i18n="nav_tshirt"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'टी-शर्ट' : 'Official T-Shirt' %></a></li>
+          <li><a href="/committee" class="nav-link <%= activeTab === 'committee' ? 'active' : '' %>" data-i18n="nav_committee"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'कार्यकारिणी' : 'Committee' %></a></li>
+          <li><a href="/contact" class="nav-link <%= activeTab === 'contact' ? 'active' : '' %>" data-i18n="nav_contact"><%= typeof lang !== 'undefined' && lang === 'mr' ? 'संपर्क' : 'Contact' %></a></li>
           
           <!-- Distinct Donate Button -->
           <li class="nav-donate-item">
             <a href="/donate" class="btn btn-primary nav-donate-btn" data-i18n="nav_donate">
-              देणगी
+              <%= typeof lang !== 'undefined' && lang === 'mr' ? 'देणगी' : 'Donate Now' %>
             </a>
           </li>
         </ul>

@@ -178,6 +178,19 @@ const translations = {
     milestone_2025_title: "Wooden Throne & Digital Temple Portal",
     milestone_2025_desc: "Peshwai-style carved wooden throne and a 24/7 digital darshan portal for global devotees.",
 
+    // About Page
+    about_badge: "Historic Heritage & Legacy",
+    about_title: "About Us - Mumbai Central Cha Raja",
+    about_sub: "Belasis Road B.I.T. Chawl Sarvajanik Shri Ganeshotsav Mandal (Estd. 1988)",
+    about_history_title: "Glorious Legacy of the Mandal",
+    about_history_p1: "Established in 1988 in the historic BIT Chawl premises on Belasis Road, Mumbai Central, local residents, youth volunteers, and senior mentors joined hands to build a royal Ganeshotsav tradition.",
+    about_history_p2: "Over the decades, 'Mumbai Central Cha Raja' became an iconic divine symbol cherished by millions of devotees. The radiant royal face, carved wooden throne, and cultural mandap decor are the mandal's hallmark.",
+    about_vision_title: "Our Vision",
+    about_vision_desc: "Taking Maharashtra's rich Ganeshotsav tradition to global heights while fostering social unity and brotherhood through devotion.",
+    about_mission_title: "Our Mission",
+    about_mission_desc: "Serving society continuously 365 days a year through healthcare aid, food distribution, student education support, and environmental conservation.",
+    about_gallery_title: "Festival Glimpses & Mandap Art",
+
     // Donate Page Form & Modal
     badge_80g: "80G Tax Exempt Eligible",
     donate_title: "Online Donation Portal",
@@ -374,7 +387,20 @@ const translations = {
     milestone_2015_title: "दशकपूर्ती व १८ फूट राजेशाही रूप",
     milestone_2015_desc: "मास्टर मूर्तिकार श्री. संतोष कांबळी यांच्या हस्तकलेतून १८ फुटी राजेशाही मूर्तीची परंपरा अधिक समृद्ध झाली.",
     milestone_2025_title: "काष्ठ सिंहासन व डिजिटल मंदिर",
-    milestone_2025_desc: "पेशवाई नक्षीकामातील काष्ठ सिंहासन आणि जगभरातील भाविकांसाठी डिजिटल दर्शन पोर्टलची निर्मिती."
+    milestone_2025_desc: "पेशवाई नक्षीकामातील काष्ठ सिंहासन आणि जगभरातील भाविकांसाठी डिजिटल दर्शन पोर्टलची निर्मिती.",
+
+    // About Page
+    about_badge: "इतिहास व भव्य परंपरा",
+    about_title: "आमच्याबद्दल - मुंबई सेंट्रलचा राजा",
+    about_sub: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ (स्थापना १९८८)",
+    about_history_title: "मंडळाचा गौरवशाली इतिहास",
+    about_history_p1: "मुंबई सेंट्रल येथील बेलासिस रोडवरील ऐतिहासिक बी.आय.टी. चाळ परिसरात १९८८ साली मंडळाची स्थापना झाली. सुरुवातीपासूनच स्थानिक रहिवासी, तरुण कार्यकर्ते आणि ज्येष्ठ मार्गदर्शकांनी मिळून सार्वजनिक गणेशोत्सवाची भव्य परंपरा सुरू केली.",
+    about_history_p2: "वर्षानुवर्षे 'मुंबई सेंट्रलचा राजा' ही मूर्ती हजारो आणि लाखो भाविकांच्या गळ्यातील ताईत बनली. मूर्तीची प्रसन्न राजेशाही मुद्रा, भव्य काष्ठ सिंहासन आणि अनोखा मण्डप शृंगार हे राजाचे वैशिष्ट्य मानले जाते.",
+    about_vision_title: "आमची दृष्टी (Vision)",
+    about_vision_desc: "महाराष्ट्राची थोर गणेशोत्सव परंपरा जागतिक पातळीवर पोहोचवणे आणि भक्तीच्या माध्यमातून सामाजिक ऐक्य व बंधुता वाढवणे.",
+    about_mission_title: "आमचे ध्येय (Mission)",
+    about_mission_desc: "दरवर्षी ३६५ दिवस वैद्यकीय मदत, अन्नदान, शिक्षण मदत आणि पर्यावरण रक्षण यासारख्या सामाजिक उपक्रमांतून समाजाची अखंड सेवा करणे.",
+    about_gallery_title: "उत्सव क्षणचित्रे व मण्डप कला",
   }
 };
 

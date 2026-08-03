@@ -33,6 +33,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// i18n Language Cookie Middleware
+app.use((req, res, next) => {
+  let lang = 'en';
+  const cookieHeader = req.headers.cookie || '';
+  const match = cookieHeader.match(/mcc_lang=(mr|en)/);
+  if (match) {
+    lang = match[1];
+  } else if (req.query.lang === 'mr' || req.query.lang === 'en') {
+    lang = req.query.lang;
+  }
+  res.locals.lang = lang;
+  next();
+});
+
 // Mount Routes
 app.use('/', indexRoutes);
 app.use('/', passRoutes);

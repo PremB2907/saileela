@@ -1,4 +1,5 @@
 <%- include('partials/header') %>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <section style="background: var(--temple-maroon); color: var(--bg-ivory); padding: 4.5rem 0; border-bottom: 3px solid var(--royal-gold); text-align: center;">
   <div class="container">
@@ -118,42 +119,112 @@
         btn.textContent = processingMsg;
       }
 
-      const payload = {
-        amount: parseFloat(amountInput.value),
-        donor_name: document.getElementById('donorName').value,
-        phone: document.getElementById('donorPhone').value,
-        email: document.getElementById('donorEmail').value,
-        pan_number: document.getElementById('donorPan').value,
-        receipt_no: `MCC-REC-2026-${Math.floor(100 + Math.random() * 900)}`,
-        payment_id: `pay_sim_${Date.now()}`,
-        order_id: `order_sim_${Date.now()}`,
-        signature: `sig_sim_${Date.now()}`
-      };
+      const amountVal = parseFloat(amountInput.value);
+      const donorName = document.getElementById('donorName').value;
+      const donorPhone = document.getElementById('donorPhone').value;
+      const donorEmail = document.getElementById('donorEmail').value;
+      const donorPan = document.getElementById('donorPan').value;
 
       try {
-        const res = await fetch('/api/confirm-donation', {
+        // Step 1: Create Order via Backend Razorpay SDK
+        const orderRes = await fetch('/api/create-donation-order', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({ amount: amountVal })
         });
-        const data = await res.json();
-        if (data.success) {
-          alert(successMsg);
-          window.location.href = `/download-receipt/${data.receipt_no}`;
+        const orderData = await orderRes.json();
+
+        if (!orderData.success) {
+          alert(orderData.message || 'Failed to initiate donation.');
+          btn.disabled = false;
+          if (typeof setLanguage === 'function') setLanguage(currentLang);
+          return;
+        }
+
+        // Helper to finalize confirmation
+        async function completeDonation(payId, ordId, sig) {
+          const confirmRes = await fetch('/api/confirm-donation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              receipt_no: orderData.receipt_no,
+              donor_name: donorName,
+              phone: donorPhone,
+              email: donorEmail,
+              amount: amountVal,
+              pan_number: donorPan,
+              payment_id: payId,
+              order_id: ordId,
+              signature: sig
+            })
+          });
+          const confirmData = await confirmRes.json();
+          if (confirmData.success) {
+            alert(successMsg);
+            window.location.href = `/download-receipt/${confirmData.receipt_no}`;
+          } else {
+            alert(confirmData.message || 'Payment verification failed.');
+            btn.disabled = false;
+            if (typeof setLanguage === 'function') setLanguage(currentLang);
+          }
+        }
+
+        // Step 2: Open Razorpay Official Checkout UI Popup if script loaded
+        const razorpayKey = (orderData.order && orderData.order.key_id) || '<%= typeof razorpayKeyId !== "undefined" ? razorpayKeyId : "" %>';
+
+        if (typeof window.Razorpay !== 'undefined' && razorpayKey) {
+          const options = {
+            key: razorpayKey,
+            amount: orderData.order ? orderData.order.amount : Math.round(amountVal * 100),
+            currency: 'INR',
+            name: 'Mumbai Central Cha Raja',
+            description: 'Ganeshotsav Seva Donation (80G Tax Exempt)',
+            image: '/images/logo.png',
+            order_id: orderData.order ? orderData.order.order_id : '',
+            prefill: {
+              name: donorName,
+              email: donorEmail,
+              contact: donorPhone
+            },
+            theme: {
+              color: '#7F1D1D'
+            },
+            handler: function (response) {
+              completeDonation(
+                response.razorpay_payment_id,
+                response.razorpay_order_id,
+                response.razorpay_signature
+              );
+            },
+            modal: {
+              ondismiss: function () {
+                btn.disabled = false;
+                if (typeof setLanguage === 'function') setLanguage(currentLang);
+              }
+            }
+          };
+
+          const rzp = new window.Razorpay(options);
+          rzp.open();
         } else {
-          alert(data.message || 'Error recording donation');
+          // Fallback test simulation if Checkout JS is blocked
+          await completeDonation(
+            `pay_sim_${Date.now()}`,
+            orderData.order ? orderData.order.order_id : `order_sim_${Date.now()}`,
+            `sig_sim_${Date.now()}`
+          );
         }
+
       } catch(err) {
+        console.error('Donation error:', err);
         alert('Error submitting donation.');
-      } finally {
         btn.disabled = false;
-        if (typeof setLanguage === 'function') {
-          setLanguage(currentLang);
-        }
+        if (typeof setLanguage === 'function') setLanguage(currentLang);
       }
     });
   });
 </script>
 
 <%- include('partials/footer') %>
+
 

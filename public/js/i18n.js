@@ -149,7 +149,42 @@ const translations = {
     scroll_popup_title: "Ganeshotsav 2026 Live Updates",
     scroll_popup_desc: "Join us for daily Morning & Evening Maha Aarti. Watch live video streams or contribute to social seva.",
     scroll_popup_btn_watch: "Watch Live Stream",
-    scroll_popup_btn_donate: "Donate Seva"
+    scroll_popup_btn_donate: "Donate Seva",
+
+    // Donate CTA section
+    donate_section_tag: "SACRED CONTRIBUTION",
+    donate_section_title: "Support Mumbai Central Cha Raja Seva",
+    donate_section_sub: "Your contributions support community welfare, free meals, and mandap arrangements. All donations are 50% Tax Exempt under Section 80G.",
+
+    // Location & Contact
+    location_tag: "MANDAP LOCATION & CONTACT",
+    location_title: "Mandap Darshan Location & Map",
+    location_sub: "Progressive Building A/3, Belasis Road, B.I.T. Chawl, Mumbai Central (E), Mumbai - 400008.",
+    contact_box_title: "Contact Information",
+    contact_address: "Belasis Road B.I.T. Chawl, Mumbai Central (E), Mumbai - 400008.",
+    contact_reg: "Reg No: E-3892 Mumbai (80G Tax Exempt Certified)",
+
+    // Social Work section
+    social_section_tag: "COMMUNITY SERVICES",
+    social_section_title: "Social Work & Seva Initiatives",
+    social_section_sub: "Serving humanity through Annadan Mahaprasad, Blood Donation, Free Healthcare, and Student Education support.",
+    social1_tag: "FOOD DISTRIBUTION",
+    social1_title: "Annadan Mahaprasad Seva Drive",
+    social1_desc: "Serving hot nutritious meals, fresh breakfast, and purified drinking water to over 50,000+ devotees daily during Ganeshotsav.",
+    social2_tag: "HEALTHCARE SEVA",
+    social2_title: "Grand Blood Donation & Medical Camp",
+    social2_desc: "Collecting 500+ blood units annually in partnership with KEM & Nair Hospitals alongside free healthcare checkup camps.",
+    btn_all_social: "View All Social Initiatives",
+
+    // Timeline Milestone Cards
+    milestone_1988_title: "Mandal Founded & First Idol Consecration",
+    milestone_1988_desc: "Residents of Belasis Road B.I.T. Chawl united to establish the Sarvajanik Ganeshotsav Mandal.",
+    milestone_2000_title: "Annadan Mahaprasad & Social Initiatives",
+    milestone_2000_desc: "Expanded social service: Annadan Mahaprasad, student support, and free health camps launched.",
+    milestone_2015_title: "Decade Milestone & 18-Foot Royal Form",
+    milestone_2015_desc: "Master sculptor Shri Santosh Kambli further enriched the 18-foot royal idol tradition.",
+    milestone_2025_title: "Wooden Throne & Digital Temple Portal",
+    milestone_2025_desc: "Peshwai-style carved wooden throne and a 24/7 digital darshan portal for global devotees."
   },
 
   mr: {
@@ -295,7 +330,42 @@ const translations = {
     scroll_popup_title: "गणेशोत्सव २०२६ लाईव्ह अपडेट्स",
     scroll_popup_desc: "दररोज सकाळी व संध्याकाळी महाआरतीचा लाभ घ्या. लाईव्ह प्रवाह पहा किंवा सामाजिक सेवेत योगदान द्या.",
     scroll_popup_btn_watch: "लाइव्ह प्रवाह पहा",
-    scroll_popup_btn_donate: "सेवा देणगी द्या"
+    scroll_popup_btn_donate: "सेवा देणगी द्या",
+
+    // Donate CTA section
+    donate_section_tag: "सेवा योगदान",
+    donate_section_title: "मुंबई सेंट्रलचा राजा सेवेला पाठिंबा द्या",
+    donate_section_sub: "तुमची देणगी सामाजिक कार्य, अन्नदान महाप्रसाद व मंडप व्यवस्थापनासाठी वापरली जाते. सर्व देणग्यांना कलम 80G अंतर्गत ५०% कर सवलत मिळतो.",
+
+    // Location & Contact
+    location_tag: "मंडप स्थान व संपर्क",
+    location_title: "मंडप दर्शन स्थान व नकाशा",
+    location_sub: "प्रोग्रेसिव्ह बिल्डींग अ/३, बेलासिस रोड, बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.",
+    contact_box_title: "संपर्क माहिती",
+    contact_address: "बेलासिस रोड बी.आय.टी. चाळ, मुंबई सेंट्रल (पु.), मुंबई - ४००००८.",
+    contact_reg: "नोंदणी क्र. : ई-३८९२ मुंबई (८०जी कर सवलत प्राप्त)",
+
+    // Social Work section
+    social_section_tag: "समाजोपयोगी उपक्रम",
+    social_section_title: "सामाजिक कार्य व सेवा",
+    social_section_sub: "अन्नदान महाप्रसाद, रक्तदान शिबीर, मोफत आरोग्य तपासणी आणि शैक्षणिक मदतीतून समाजसेवा.",
+    social1_tag: "अन्नछत्र सेवा",
+    social1_title: "अन्नदान महाप्रसाद सेवा ड्राइव्ह",
+    social1_desc: "गणेशोत्सवाच्या १० दिवसांत दररोज ५०,००० हून अधिक भाविकांना गरम महाप्रसाद, अल्पोपहार आणि पिण्याचे शुद्ध पाणी मोफत पुरवले जाते.",
+    social2_tag: "आरोग्य सेवा",
+    social2_title: "भव्य रक्तदान व आरोग्य शिबीर",
+    social2_desc: "के.ई.एम. व नायर रुग्णालयाच्या सहकार्याने दरवर्षी ५०० हून अधिक रक्त युनिट्स संकलित केले जातात आणि मोफत आरोग्य तपासणी केली जाते.",
+    btn_all_social: "सर्व सामाजिक उपक्रम पाहा",
+
+    // Timeline Milestone Cards
+    milestone_1988_title: "मंडळ स्थापना व प्रथम श्री स्थापना",
+    milestone_1988_desc: "बेलासिस रोड बी.आय.टी. चाळीतील रहिवाशांनी एकत्र येऊन सार्वजनिक गणेशोत्सव मंडळाची स्थापना केली.",
+    milestone_2000_title: "अन्नदान महाप्रसाद व सामाजिक उपक्रम",
+    milestone_2000_desc: "सामाजिक सेवेचा विस्तार करत अन्नदान महाप्रसाद, विद्यार्थी मदत आणि मोफत आरोग्य शिबीरांची सुरुवात.",
+    milestone_2015_title: "दशकपूर्ती व १८ फूट राजेशाही रूप",
+    milestone_2015_desc: "मास्टर मूर्तिकार श्री. संतोष कांबळी यांच्या हस्तकलेतून १८ फुटी राजेशाही मूर्तीची परंपरा अधिक समृद्ध झाली.",
+    milestone_2025_title: "काष्ठ सिंहासन व डिजिटल मंदिर",
+    milestone_2025_desc: "पेशवाई नक्षीकामातील काष्ठ सिंहासन आणि जगभरातील भाविकांसाठी डिजिटल दर्शन पोर्टलची निर्मिती."
   }
 };
 

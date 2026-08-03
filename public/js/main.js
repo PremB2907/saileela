@@ -621,23 +621,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const showcaseDesc = document.getElementById('showcaseDesc');
         const showcaseBox = document.getElementById('mandalaShowcaseBox');
 
-        const yearDetails = {
-          '2025': { title: 'काष्ठ सिंहासन व राजेशाही सुवर्ण शृंगार', theme: 'संकल्पना: Peshwa Era Palace Mandap Architecture', desc: 'पेशवाई नक्षीकामातील भव्य लाकडी सिंहासन आणि रेशमी पितांबर शृंगारातील १८ फुटी राजेशाही रूप दर्शन.', img: '/images/raja_real_1.png' },
-          '2024': { title: 'सुवर्ण सिंहासन व तेज:पुंज पीत पितांबर', theme: 'संकल्पना: Golden Temple Carvings & Lotus Arch', desc: 'हस्तकला नक्षीकामातील भव्य सुवर्ण सिंहासन आणि सुवर्ण मुकुटात विराजमान श्रींचे मनमोहक रूप.', img: '/images/raja_real_2.png' },
-          '2023': { title: 'मयूरपंख कमान आगमन सोहळा', theme: 'संकल्पना: Royal Heritage Court Decor', desc: 'मयुरासनी राजेशाही कमान आणि आगमन सोहळ्यातील श्रींचे भव्य रूप दर्शन.', img: '/images/raja_real_3.png' },
-          '2022': { title: 'श्री मुख दर्शन व सुवर्ण मुकुट', theme: 'संकल्पना: Tradition of Pure Devotion', desc: 'विलोभनीय हास्य, दिव्य नयन आणि सुवर्ण मुकुटातील १८ फुटी श्री मूर्ती रूप.', img: '/images/raja_real_4.png' },
-          '2021': { title: 'गर्भगृह पुष्प शृंगार दर्शन', theme: 'संकल्पना: Royal Velvet & Lotus Geometry', desc: '५०००+ ताजी फुले व जांभळ्या रेशमी पितांबरातील गर्भगृह शृंगार रूप.', img: '/images/raja_real_5.png' },
-          '2020': { title: 'आरोग्य संकल्प व सुवर्ण पदकमयी रूप', theme: 'संकल्पना: Arogya Seva & Blood Drive', desc: 'अखंड रक्तदान आणि आरोग्य शिबीरांच्या संकल्पातील सुवर्ण पदकमयी रूप.', img: '/images/gallery_padya_pujan.png' },
-          '2018': { title: 'राजवाडा महामंडप व सुवर्ण मेघडंबरी', theme: 'संकल्पना: Fort Raigad & Palace Architecture', desc: 'भव्य मराठा राजवाडा देखावा आणि सुवर्ण मेघडंबरीतील विलोभनीय रूप.', img: '/images/gallery_aagman.png' },
-          '1988': { title: 'मंडळ स्थापना व प्रथम श्री स्थापना', theme: 'संकल्पना: Establishment & Sacred Foundation', desc: 'बेलासिस रोड बी.आय.टी. चाळीतील रहिवाशांनी एकत्रित येऊन स्थापन केलेली श्रींची प्रथम प्रतिष्ठापना.', img: '/images/gallery_mandap.png' }
+        const lang = (typeof localStorage !== 'undefined' && localStorage.getItem('mcc_lang')) || 'en';
+
+        const yearDetailsMr = {
+          '2025': { title: 'काष्ठ सिंहासन व राजेशाही सुवर्ण शृंगार', theme: 'संकल्पना: Peshwa Era Palace Mandap Architecture', desc: 'पेशवाई नक्षीकामातील भव्य लाकडी सिंहासन आणि रेशमी पितांबर शृंगारातील १८ फुटी राजेशाही रूप दर्शन.', img: '/images/raja_real_1.png', badge: 'वर्ष २०२५' },
+          '2024': { title: 'सुवर्ण सिंहासन व तेज:पुंज पीत पितांबर', theme: 'संकल्पना: Golden Temple Carvings & Lotus Arch', desc: 'हस्तकला नक्षीकामातील भव्य सुवर्ण सिंहासन आणि सुवर्ण मुकुटात विराजमान श्रींचे मनमोहक रूप.', img: '/images/raja_real_2.png', badge: 'वर्ष २०२४' },
+          '2023': { title: 'मयूरपंख कमान आगमन सोहळा', theme: 'संकल्पना: Royal Heritage Court Decor', desc: 'मयुरासनी राजेशाही कमान आणि आगमन सोहळ्यातील श्रींचे भव्य रूप दर्शन.', img: '/images/raja_real_3.png', badge: 'वर्ष २०२३' },
+          '2022': { title: 'श्री मुख दर्शन व सुवर्ण मुकुट', theme: 'संकल्पना: Tradition of Pure Devotion', desc: 'विलोभनीय हास्य, दिव्य नयन आणि सुवर्ण मुकुटातील १८ फुटी श्री मूर्ती रूप.', img: '/images/raja_real_4.png', badge: 'वर्ष २०२२' },
+          '2021': { title: 'गर्भगृह पुष्प शृंगार दर्शन', theme: 'संकल्पना: Royal Velvet & Lotus Geometry', desc: '५०००+ ताजी फुले व जांभळ्या रेशमी पितांबरातील गर्भगृह शृंगार रूप.', img: '/images/raja_real_5.png', badge: 'वर्ष २०२१' },
+          '2020': { title: 'आरोग्य संकल्प व सुवर्ण पदकमयी रूप', theme: 'संकल्पना: Arogya Seva & Blood Drive', desc: 'अखंड रक्तदान आणि आरोग्य शिबीरांच्या संकल्पातील सुवर्ण पदकमयी रूप.', img: '/images/gallery_padya_pujan.png', badge: 'वर्ष २०२०' },
+          '2018': { title: 'राजवाडा महामंडप व सुवर्ण मेघडंबरी', theme: 'संकल्पना: Fort Raigad & Palace Architecture', desc: 'भव्य मराठा राजवाडा देखावा आणि सुवर्ण मेघडंबरीतील विलोभनीय रूप.', img: '/images/gallery_aagman.png', badge: 'वर्ष २०१८' },
+          '1988': { title: 'मंडळ स्थापना व प्रथम श्री स्थापना', theme: 'संकल्पना: Establishment & Sacred Foundation', desc: 'बेलासिस रोड बी.आय.टी. चाळीतील रहिवाशांनी एकत्रित येऊन स्थापन केलेली श्रींची प्रथम प्रतिष्ठापना.', img: '/images/gallery_mandap.png', badge: 'वर्ष १९८८' }
         };
 
+        const yearDetailsEn = {
+          '2025': { title: 'Wooden Throne & Royal Golden Adornment', theme: 'Theme: Peshwa Era Palace Mandap Architecture', desc: 'Grand 18-foot royal idol in carved wooden throne and silk pitambar adorned with Peshwai craftsmanship.', img: '/images/raja_real_1.png', badge: 'Year 2025' },
+          '2024': { title: 'Golden Throne & Radiant Yellow Pitambar', theme: 'Theme: Golden Temple Carvings & Lotus Arch', desc: 'Grand golden throne carved by artisans, with the idol adorned in a golden crown — mesmerizing millions of devotees.', img: '/images/raja_real_2.png', badge: 'Year 2024' },
+          '2023': { title: 'Peacock Feather Arch — Arrival Ceremony', theme: 'Theme: Royal Heritage Court Decor', desc: 'A grand peacock-throne arch and magnificent procession arrival form for the divine idol.', img: '/images/raja_real_3.png', badge: 'Year 2023' },
+          '2022': { title: 'Divine Face & Golden Crown Darshan', theme: 'Theme: Tradition of Pure Devotion', desc: 'Enchanting smile, radiant eyes, and a golden crown — the 18-foot idol in full divine glory.', img: '/images/raja_real_4.png', badge: 'Year 2022' },
+          '2021': { title: 'Sanctum Floral Adornment Darshan', theme: 'Theme: Royal Velvet & Lotus Geometry', desc: '5000+ fresh flowers and a royal purple silk pitambar — a breathtaking sanctum adornment.', img: '/images/raja_real_5.png', badge: 'Year 2021' },
+          '2020': { title: 'Health Pledge & Golden Medallion Form', theme: 'Theme: Arogya Seva & Blood Drive', desc: 'Continuous blood donation and health camp seva — honoured with a golden medallion idol form.', img: '/images/gallery_padya_pujan.png', badge: 'Year 2020' },
+          '2018': { title: 'Royal Mandap & Golden Canopy', theme: 'Theme: Fort Raigad & Palace Architecture', desc: 'Grand Maratha palace-style set and a breathtaking golden canopy mandap decor.', img: '/images/gallery_aagman.png', badge: 'Year 2018' },
+          '1988': { title: 'Mandal Founded & First Idol Consecration', theme: 'Theme: Establishment & Sacred Foundation', desc: 'Residents of Belasis Road B.I.T. Chawl united to establish the Sarvajanik Ganeshotsav Mandal and first divine installation.', img: '/images/gallery_mandap.png', badge: 'Year 1988' }
+        };
+
+        const yearDetails = lang === 'mr' ? yearDetailsMr : yearDetailsEn;
         const current = yearDetails[yr] || yearDetails['2025'];
         if (showcaseBox) showcaseBox.classList.add('animating');
 
         setTimeout(() => {
           if (showcaseImg) showcaseImg.src = current.img;
-          if (showcaseYearBadge) showcaseYearBadge.innerText = 'वर्ष ' + yr;
+          if (showcaseYearBadge) showcaseYearBadge.innerText = current.badge;
           if (showcaseTitle) showcaseTitle.innerText = current.title;
           if (showcaseTheme) showcaseTheme.innerText = current.theme;
           if (showcaseDesc) showcaseDesc.innerText = current.desc;

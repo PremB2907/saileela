@@ -2,7 +2,7 @@
 
 <section style="background: var(--temple-maroon); color: var(--bg-ivory); padding: 4.5rem 0; border-bottom: 3px solid var(--royal-gold); text-align: center;">
   <div class="container">
-    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);">
+    <span class="section-badge" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-soft); border-color: var(--royal-gold);" data-i18n="badge_80g">
       ८०जी कर सवलत प्राप्त
     </span>
     <h1 style="font-size: 3rem; color: var(--gold-soft); margin-top: 0.5rem;" data-i18n="donate_title">ऑनलाइन देणगी पोर्टल</h1>
@@ -16,14 +16,14 @@
   <div class="container" style="max-width: 850px;">
     
     <div class="card-temple" style="padding: 3rem;">
-      <h2 style="font-size: 1.8rem; color: var(--temple-maroon); margin-bottom: 1.5rem; text-align: center;">
+      <h2 style="font-size: 1.8rem; color: var(--temple-maroon); margin-bottom: 1.5rem; text-align: center;" data-i18n="donate_form_title">
         देणगी फॉर्म
       </h2>
 
       <form id="donationForm">
         <!-- Preset Amount Pills -->
         <div style="margin-bottom: 2rem;">
-          <label style="display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-main); text-align: center;">
+          <label style="display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-main); text-align: center;" data-i18n="lbl_select_amount">
             देणगी रक्कम निवडा (₹) *
           </label>
           <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" id="presetBtns">
@@ -36,7 +36,7 @@
 
         <!-- Custom Amount -->
         <div style="margin-bottom: 1.5rem;">
-          <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);">
+          <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);" data-i18n="lbl_custom_amount">
             किंवा तुमची रक्कम टाका (₹) *
           </label>
           <input type="number" id="donationAmount" value="1008" min="11" required style="width: 100%; padding: 0.85rem 1.2rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 1.1rem; font-weight: 700; color: var(--temple-maroon);">
@@ -44,39 +44,39 @@
 
         <!-- Donor Name -->
         <div style="margin-bottom: 1.5rem;">
-          <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);">
+          <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);" data-i18n="lbl_donor_name">
             देणगीदाराचे संपूर्ण नाव *
           </label>
-          <input type="text" id="donorName" required placeholder="संपूर्ण नाव टाका" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;">
+          <input type="text" id="donorName" required placeholder="संपूर्ण नाव टाका" data-i18n="ph_donor_name" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;">
         </div>
 
         <!-- Contact Phone -->
         <div style="grid-template-columns: 1fr 1fr; display: grid; gap: 1rem; margin-bottom: 1.5rem;">
           <div>
-            <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);">
+            <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);" data-i18n="lbl_mobile">
               मोबाईल नंबर *
             </label>
-            <input type="tel" id="donorPhone" required placeholder="१० अंकी मोबाईल नंबर" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;">
+            <input type="tel" id="donorPhone" required placeholder="१० अंकी मोबाईल नंबर" data-i18n="ph_mobile" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;">
           </div>
 
           <div>
-            <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);">
+            <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);" data-i18n="lbl_email">
               ईमेल आयडी (पर्यायी)
             </label>
-            <input type="email" id="donorEmail" placeholder="पावतीसाठी ईमेल" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;">
+            <input type="email" id="donorEmail" placeholder="पावतीसाठी ईमेल" data-i18n="ph_email" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem;">
           </div>
         </div>
 
         <!-- PAN Card (Optional for 80G) -->
         <div style="margin-bottom: 2rem;">
-          <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);">
+          <label style="display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);" data-i18n="lbl_pan">
             पॅन कार्ड नंबर (८०जी कर सवलत पावतीसाठी)
           </label>
-          <input type="text" id="donorPan" placeholder="उदा. ABCDE1234F" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem; text-transform: uppercase;">
+          <input type="text" id="donorPan" placeholder="उदा. ABCDE1234F" data-i18n="ph_pan" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); font-size: 0.95rem; text-transform: uppercase;">
         </div>
 
         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; font-weight: 800;" id="btnDonateSubmit">
-          सुरक्षित देणगी द्या व PDF पावती मिळवा <i class="bi bi-shield-check"></i>
+          <span data-i18n="btn_donate_submit">सुरक्षित देणगी द्या व PDF पावती मिळवा</span> <i class="bi bi-shield-check"></i>
         </button>
       </form>
     </div>
@@ -105,8 +105,18 @@
     document.getElementById('donationForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('btnDonateSubmit');
+      const btnTextSpan = btn.querySelector('span');
       btn.disabled = true;
-      btn.innerText = 'देणगी प्रक्रिया सुरू आहे...';
+
+      const currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('mcc_lang')) || 'mr';
+      const processingMsg = currentLang === 'en' ? 'Donation processing in progress...' : 'देणगी प्रक्रिया सुरू आहे...';
+      const successMsg = currentLang === 'en' ? 'Donation successful! Your 80G PDF receipt is downloading.' : 'देणगी यशस्वी झाली! तुमची ८०जी पावती डाऊनलोड होत आहे.';
+
+      if (btnTextSpan) {
+        btnTextSpan.textContent = processingMsg;
+      } else {
+        btn.textContent = processingMsg;
+      }
 
       const payload = {
         amount: parseFloat(amountInput.value),
@@ -121,14 +131,14 @@
       };
 
       try {
-        const res = await fetch('/donate/confirm', {
+        const res = await fetch('/api/confirm-donation', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
         const data = await res.json();
         if (data.success) {
-          alert('देणगी यशस्वी झाली! तुमची ८०जी पावती डाऊनलोड होत आहे.');
+          alert(successMsg);
           window.location.href = `/download-receipt/${data.receipt_no}`;
         } else {
           alert(data.message || 'Error recording donation');
@@ -137,10 +147,13 @@
         alert('Error submitting donation.');
       } finally {
         btn.disabled = false;
-        btn.innerText = 'सुरक्षित देणगी द्या व PDF पावती मिळवा';
+        if (typeof setLanguage === 'function') {
+          setLanguage(currentLang);
+        }
       }
     });
   });
 </script>
 
 <%- include('partials/footer') %>
+

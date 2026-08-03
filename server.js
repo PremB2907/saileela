@@ -57,7 +57,9 @@ app.use((req, res) => {
     title: '404 - Page Not Found | Mumbai Central Cha Raja',
     activeTab: 'home',
     yatraStatus: db.getYatraStatus(),
-    scheduleData: []
+    scheduleData: [],
+    glimpsesData: [],
+    socialWorkData: []
   });
 });
 

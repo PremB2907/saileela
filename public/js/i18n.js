@@ -168,14 +168,6 @@ const translations = {
     social_section_tag: "COMMUNITY SERVICES",
     social_section_title: "Social Work & Seva Initiatives",
     social_section_sub: "Serving humanity through Annadan Mahaprasad, Blood Donation, Free Healthcare, and Student Education support.",
-    social1_tag: "FOOD DISTRIBUTION",
-    social1_title: "Annadan Mahaprasad Seva Drive",
-    social1_desc: "Serving hot nutritious meals, fresh breakfast, and purified drinking water to over 50,000+ devotees daily during Ganeshotsav.",
-    social2_tag: "HEALTHCARE SEVA",
-    social2_title: "Grand Blood Donation & Medical Camp",
-    social2_desc: "Collecting 500+ blood units annually in partnership with KEM & Nair Hospitals alongside free healthcare checkup camps.",
-    btn_all_social: "View All Social Initiatives",
-
     // Timeline Milestone Cards
     milestone_1988_title: "Mandal Founded & First Idol Consecration",
     milestone_1988_desc: "Residents of Belasis Road B.I.T. Chawl united to establish the Sarvajanik Ganeshotsav Mandal.",
@@ -184,7 +176,26 @@ const translations = {
     milestone_2015_title: "Decade Milestone & 18-Foot Royal Form",
     milestone_2015_desc: "Master sculptor Shri Santosh Kambli further enriched the 18-foot royal idol tradition.",
     milestone_2025_title: "Wooden Throne & Digital Temple Portal",
-    milestone_2025_desc: "Peshwai-style carved wooden throne and a 24/7 digital darshan portal for global devotees."
+    milestone_2025_desc: "Peshwai-style carved wooden throne and a 24/7 digital darshan portal for global devotees.",
+
+    // Donate Page Form & Modal
+    badge_80g: "80G Tax Exempt Eligible",
+    donate_title: "Online Donation Portal",
+    donate_sub: "Support social initiatives, Annadan Mahaprasad, and mandap management of Mumbai Central Cha Raja.",
+    donate_form_title: "Donation Form",
+    lbl_select_amount: "Select Donation Amount (₹) *",
+    lbl_custom_amount: "Or Enter Custom Amount (₹) *",
+    lbl_donor_name: "Donor Full Name *",
+    ph_donor_name: "Enter your full name",
+    lbl_mobile: "Mobile Number *",
+    ph_mobile: "10-digit mobile number",
+    lbl_email: "Email ID (Optional)",
+    ph_email: "Email for 80G PDF receipt",
+    lbl_pan: "PAN Card Number (For 80G Tax Exemption Receipt)",
+    ph_pan: "e.g. ABCDE1234F",
+    btn_donate_submit: "Donate Securely & Get PDF Receipt",
+    msg_donation_processing: "Donation processing in progress...",
+    msg_donation_success: "Donation successful! Your 80G receipt is downloading."
   },
 
   mr: {
@@ -208,28 +219,28 @@ const translations = {
     nav_donate: "देणगी",
 
     // Hero & Flip Clock
-    hero_tag: "स्थापना १९८८ | नोंदणी क्र. ई-३८९२ मुंबई",
+    hero_tag: "ESTD 1988 | REG NO. E-3892 MUMBAI",
     hero_title: "मुंबई सेंट्रलचा राजा",
-    hero_sub_tag: "भक्ती आणि संस्कृतीचा सुवर्ण वारसा",
-    hero_subtitle: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ. अथांग श्रद्धा, भव्य परंपरा आणि संस्कृतीचा अद्वितीय वारसा.",
-    btn_hero_live: "लाइव्ह दर्शन पाहा",
-    btn_hero_donate: "ऑनलाइन देणगी द्या",
+    hero_sub_tag: "Shraddha & Faith",
+    hero_subtitle: "बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळ. १९८८ पासून भक्ती, संस्कृती आणि सामाजिक सेवेचा अखंड वसा.",
+    btn_hero_live: "थेट दर्शन पहा",
+    btn_hero_donate: "सेवा देणगी ऑनलाइन द्या",
     countdown_badge: "गणेशोत्सव २०२६ आगमन",
     countdown_title: "श्रींच्या आगमनासाठी उत्सुकता!",
     label_days: "दिवस",
     label_hours: "तास",
-    label_mins: "मिनिटे",
+    label_mins: "मिनाटे",
     label_secs: "सेकंद",
 
     // Ticker Marquee
-    ticker_badge: "उत्सव अपडेट्स",
-    ticker_text: "🌸 गणेशोत्सव २०२६ आगमन सोहळा लवकरच! • दैनिक महाआरती सकाळी ८:०० व संध्याकाळी ८:०० वाजता • ५०,०००+ अन्नदान महाप्रसाद वाटप • ८०जी कर सवलत पावतीसह ऑनलाइन देणगी उघडी आहे 🌸",
+    ticker_badge: "ताजी अपडेट्स",
+    ticker_text: "🌸 गणेशोत्सव २०२६ आगमन लवकरच! • दैनिक महाआरती सकाळी ८:०० व संध्याकाळी ८:०० वाजता • ५०,०००+ दैनिक अन्नदान महाप्रसाद • ८०जी कर सवलत देणगी उपलब्ध 🌸",
 
     // President Message & Counters
-    pres_badge: "अध्यक्ष व कार्यकारिणी संदेश",
-    pres_title: "हार्दिक स्वागत व मनःपूर्वक आशीर्वाद",
-    pres_desc: "मुंबई सेंट्रलचा राजा बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळाच्या अधिकृत डिजिटल मंदिरात आपले स्वागत आहे. १९८८ पासून आमचे मंडळ सामाजिक ऐक्य, भक्ती आणि संस्कृतीचे संवर्धन करत आहे.",
-    pres_quote: '"श्रद्धा, सेवा आणि सामाजिक बांधिलकी हाच मुंबई सेंट्रलच्या राजा मंडळाचा मूळ आधारस्तंभ आहे."',
+    pres_badge: "अध्यक्षीय संदेश",
+    pres_title: "हार्दिक स्वागत व श्रींचे आशीर्वाद",
+    pres_desc: "मुंबई सेंट्रलचा राजा, बेलासिस रोड बी.आय.टी. चाळ सार्वजनिक श्री गणेशोत्सव मंडळाच्या अधिकृत डिजिटल मंदिर पोर्टलवर आपले हार्दिक स्वागत.",
+    pres_quote: '"भक्ती, सेवा आणि सामाजिक बांधिलकी हेच मंडळाचे मुख्य आधारस्तंभ आहेत."',
     pres_name: "श्री. प्रकाश सावंत",
     pres_role: "अध्यक्ष, बेलासिस रोड बी.आय.टी. चाळ मंडळ",
     stat_year_label: "स्थापना वर्ष",
@@ -238,13 +249,11 @@ const translations = {
     stat_visitors_label: "वार्षिक दर्शनार्थी भाविक",
 
     // Indie Mandala Timeline
-    timeline_badge: "ऐतिहासिक सुवर्ण वसा",
-    timeline_title: "१९८८ पासूनचा भक्ती व संस्कृतीचा सुवर्ण प्रवास",
-    timeline_sub: "खालील वर्षांच्या बिंदूवर (Point) क्लिक करा आणि त्या वर्षाची खास राजेशाही माहिती, रूप आणि इतिहास एक्सप्लोर करा!",
+    timeline_badge: "ऐतिहासिक सुवर्ण वारसा",
+    timeline_title: "१९८८ पासून भक्ती व संस्कृतीचा सुवर्ण प्रवास",
+    timeline_sub: "खालील वर्षाच्या बिंदूंवर क्लिक करून त्या वर्षातील इतिहास व रूप दर्शन पाहा!",
     btn_prev_year: "मागील वर्ष",
     btn_next_year: "पुढील वर्ष",
-    btn_all_photos: "दशकाचे सर्व फोटो पाहा",
-
     // Legacy & Craftsmanship
     craft_badge: "राजेशाही वस्त्रालंकार व शिल्प",
     craft_title: "१८ फुटी भव्यता व सुवर्ण शृंगार",

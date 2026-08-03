@@ -432,7 +432,7 @@
       </button>
 
       <div class="crazy-reel-container">
-        <% glimpsesData.forEach(item => { %>
+        <% (typeof glimpsesData !== 'undefined' ? glimpsesData : []).forEach(item => { %>
           <div class="crazy-reel-card gold-motion-frame gallery-card-item" data-category="<%= item.category %>" data-lightbox data-lightbox-src="<%= item.image %>" data-lightbox-title="<%= item.title %> (Year <%= item.year %>)" data-lightbox-caption="<%= item.desc %>">
             <div class="card-img-box">
               <img src="<%= item.image %>" alt="<%= item.title %>" loading="lazy">

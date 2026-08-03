@@ -375,9 +375,15 @@ const translations = {
 function setLanguage(lang) {
   if (typeof document === 'undefined') return;
   if (lang !== 'en' && lang !== 'mr') lang = 'mr';
-  if (typeof localStorage !== 'undefined') localStorage.setItem('mcc_lang', lang);
+  try {
+    if (typeof localStorage !== 'undefined') localStorage.setItem('mcc_lang', lang);
+  } catch (e) {}
+
   document.documentElement.lang = lang;
-  document.body.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('data-lang', lang);
+  if (document.body) {
+    document.body.setAttribute('data-lang', lang);
+  }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     if (btn.getAttribute('data-lang') === lang) {
@@ -391,11 +397,17 @@ function setLanguage(lang) {
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (langData && langData[key]) {
+    if (langData && langData[key] !== undefined) {
+      const textVal = langData[key];
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = langData[key];
+        el.placeholder = textVal;
       } else {
-        el.innerText = langData[key];
+        const icon = el.querySelector('i, svg');
+        if (icon) {
+          el.innerHTML = icon.outerHTML + ' ' + textVal;
+        } else {
+          el.textContent = textVal;
+        }
       }
     }
   });
@@ -404,17 +416,30 @@ function setLanguage(lang) {
   window.dispatchEvent(new CustomEvent('mccLanguageChanged', { detail: { lang } }));
 }
 
-if (typeof document !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = (typeof localStorage !== 'undefined' && localStorage.getItem('mcc_lang')) || 'mr';
-    setLanguage(savedLang);
+// Immediate execution & fast DOM listener
+(function initMccI18n() {
+  if (typeof document === 'undefined') return;
+  const savedLang = (typeof localStorage !== 'undefined' && localStorage.getItem('mcc_lang')) || 'mr';
+  
+  // Set attribute on html element immediately
+  document.documentElement.lang = savedLang;
+  document.documentElement.setAttribute('data-lang', savedLang);
 
+  const applyEarly = () => {
+    setLanguage(savedLang);
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.onclick = (e) => {
         e.preventDefault();
-        const lang = btn.getAttribute('data-lang');
-        setLanguage(lang);
-      });
+        const l = btn.getAttribute('data-lang');
+        setLanguage(l);
+      };
     });
-  });
-}
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyEarly, { once: true });
+  } else {
+    applyEarly();
+  }
+})();
+

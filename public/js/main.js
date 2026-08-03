@@ -204,14 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!targetEl) return;
 
     const previousValue = targetEl.dataset.value || '';
-    targetEl.textContent = value;
-    targetEl.dataset.value = value;
-
-    if (previousValue !== value && parentEl) {
-      parentEl.classList.remove('flipping');
-      void parentEl.offsetWidth;
-      parentEl.classList.add('flipping');
-      window.setTimeout(() => parentEl.classList.remove('flipping'), 420);
+    if (previousValue !== value) {
+      targetEl.textContent = value;
+      targetEl.dataset.value = value;
+      if (parentEl) {
+        parentEl.classList.remove('fade-update');
+        void parentEl.offsetWidth;
+        parentEl.classList.add('fade-update');
+      }
     }
   }
 

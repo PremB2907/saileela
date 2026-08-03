@@ -1786,8 +1786,18 @@ section {
 }
 
 /* ==========================================================================
-   RETRO 3D FLIP-CLOCK COUNTDOWN TIMER
+   CLEAN TRANSPARENT FADE COUNTDOWN TIMER
    ========================================================================== */
+.hero-countdown-card {
+  background: transparent !important;
+  border: 1.5px solid var(--royal-gold);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.8rem;
+  text-align: center;
+  box-shadow: none !important;
+  position: relative;
+}
+
 .flip-clock-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1804,116 +1814,57 @@ section {
 .flip-clock-unit {
   position: relative;
   width: 100%;
-  height: 80px;
-  background: #121212;
-  border-radius: 8px;
-  border: 3px solid #101010;
-  box-shadow: 4px 4px 0px #101010;
-  perspective: 600px;
+  height: 75px;
+  background: transparent !important;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--royal-gold);
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-body);
   user-select: none;
-}
-
-.flip-card-top, .flip-card-bottom, .flip-card-back {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 50%;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(180deg, #232323 0%, #141414 100%);
-  color: #FFFFFF;
-  font-weight: 900;
-  font-size: 2.4rem;
+}
+
+.flip-val {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--gold-soft);
   line-height: 1;
-  letter-spacing: -1px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.flip-card-top {
-  top: 0;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom: 1.5px solid #000;
-  transform-origin: bottom center;
-  z-index: 2;
-  align-items: flex-end;
-  padding-bottom: 2px;
+/* Basic Fade In - Fade Out Update Animation */
+.flip-clock-unit.fade-update .flip-val {
+  animation: countFadeInOut 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.flip-card-top .flip-val {
-  display: block;
-  line-height: 1;
-}
-
-.flip-card-bottom {
-  bottom: 0;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  transform-origin: top center;
-  z-index: 1;
-  align-items: flex-start;
-  padding-top: 2px;
-}
-
-.flip-card-bottom .flip-val {
-  display: block;
-  line-height: 1;
-}
-
-.flip-card-back {
-  top: 0;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  transform-origin: bottom center;
-  z-index: 3;
-  opacity: 0;
-  align-items: flex-end;
-  padding-bottom: 2px;
-}
-
-.flip-card-back .flip-val {
-  display: block;
-  line-height: 1;
-}
-
-/* Metallic Mechanical Center Hinges */
-.flip-hinge-left, .flip-hinge-right {
-  position: absolute;
-  top: 50%;
-  width: 7px;
-  height: 12px;
-  background: linear-gradient(180deg, #FFC72C 0%, #B8860B 100%);
-  border: 1px solid #000000;
-  border-radius: 3px;
-  transform: translateY(-50%);
-  z-index: 10;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.8);
-}
-
-.flip-hinge-left { left: -3px; }
-.flip-hinge-right { right: -3px; }
-
-/* Mechanical 3D Flip Animation */
-.flip-clock-unit.flipping .flip-card-top {
-  animation: flipDown 0.42s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
-}
-
-@keyframes flipDown {
-  0%   { transform: rotateX(0deg); opacity: 1; }
-  100% { transform: rotateX(-90deg); opacity: 0.7; }
+@keyframes countFadeInOut {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ==========================================================================
-   INDIE MANDALA ART TIMELINE & CRAZY INTERACTIVE SHOWCASE
+   INDIE TIMELINE & SHOWCASE (TRANSPARENT TIMELINE)
    ========================================================================== */
 .mandala-art-section {
   position: relative;
-  background: linear-gradient(145deg, #2A0606 0%, #120202 100%);
-  padding: 6rem 0;
-  border-top: 3px solid var(--royal-gold);
-  border-bottom: 4px solid var(--royal-gold);
+  background: transparent !important;
+  padding: 5rem 0;
+  border-top: none;
+  border-bottom: none;
   overflow: hidden;
   color: var(--bg-ivory);
 }
@@ -1924,7 +1875,7 @@ section {
   pointer-events: none;
   overflow: hidden;
   z-index: 1;
-  opacity: 0.22;
+  opacity: 0.08;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='%23FFC72C' stroke='%23FFC72C' fill-opacity='0.35'%3E%3Cpolygon points='35,20 23,50 47,50'/%3E%3Cpolygon points='35,80 23,50 47,50'/%3E%3Ccircle cx='35' cy='13' r='6'/%3E%3Cline x1='15' y1='38' x2='55' y2='38' stroke-width='2.5'/%3E%3Cline x1='23' y1='80' x2='15' y2='105' stroke-width='2.5'/%3E%3Cline x1='47' y1='80' x2='55' y2='105' stroke-width='2.5'/%3E%3Cpolygon points='105,70 93,100 117,100'/%3E%3Cpolygon points='105,130 93,100 117,100'/%3E%3Ccircle cx='105' cy='63' r='6'/%3E%3Cline x1='85' y1='88' x2='125' y2='88' stroke-width='2.5'/%3E%3Cline x1='93' y1='130' x2='85' y2='155' stroke-width='2.5'/%3E%3Cline x1='117' y1='130' x2='125' y2='155' stroke-width='2.5'/%3E%3Ccircle cx='70' cy='70' r='12' stroke-width='2' fill='none'/%3E%3Cpolygon points='70,58 64,70 76,70'/%3E%3Cpolygon points='70,82 64,70 76,70'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat;
 }
@@ -1940,47 +1891,6 @@ section {
 .reveal-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.mandala-wheel {
-  position: absolute;
-  width: 550px;
-  height: 550px;
-  border-radius: 50%;
-  border: 12px double var(--royal-gold);
-  background: radial-gradient(circle, transparent 30%, rgba(212, 175, 55, 0.15) 70%, transparent 100%);
-  box-shadow: inset 0 0 40px var(--royal-gold), 0 0 40px var(--royal-gold);
-  animation: rotateMandala 60s linear infinite;
-}
-
-.mandala-wheel::before {
-  content: '🌸 ॐ 🌸 ॐ 🌸 ॐ 🌸 ॐ 🌸 ॐ 🌸 ॐ';
-  position: absolute;
-  inset: 20px;
-  border-radius: 50%;
-  border: 2px dashed var(--gold-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--gold-soft);
-  letter-spacing: 12px;
-}
-
-.mandala-wheel-left {
-  top: -120px;
-  left: -180px;
-}
-
-.mandala-wheel-right {
-  bottom: -150px;
-  right: -180px;
-  animation-direction: reverse;
-}
-
-@keyframes rotateMandala {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 /* Timeline Track Bar & Interactive Nodes */
@@ -2154,29 +2064,247 @@ section {
   gap: 6px;
 }
 
-@media (max-width: 860px) {
+/* ==========================================================================
+   COMPREHENSIVE PHONE OPTIMIZATION & RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  /* Header Top Utility Bar */
+  .mandal-top-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .mandal-banner-3d-text {
+    font-size: 1.35rem;
+    text-align: center;
+  }
+
+  /* Navigation Bar Drawer */
+  .mobile-toggle {
+    display: block;
+    font-size: 1.8rem;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #FFF8E7;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--royal-gold);
+    z-index: 999;
+  }
+
+  .main-nav.active {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .main-nav .nav-link,
+  .main-nav .nav-live-btn,
+  .main-nav .nav-donate-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    display: block;
+  }
+
+  /* Grid Layout Adapters */
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* Footer Layout */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Sections & Containers */
+  section {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Hero Section */
+  .hero-cinematic {
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem !important;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-countdown-card {
+    padding: 1.2rem 0.8rem;
+    width: 100%;
+  }
+
+  .countdown-card-title {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+
+  .flip-clock-grid {
+    gap: 0.4rem;
+  }
+
+  .flip-clock-unit {
+    height: 58px;
+    border-width: 1px;
+  }
+
+  .flip-val {
+    font-size: 1.6rem;
+  }
+
+  .timer-label-txt {
+    font-size: 0.75rem;
+  }
+
+  /* Timeline Section */
+  .mandala-art-section {
+    padding: 3rem 0;
+  }
+
   .mandala-timeline-bar-wrap {
     overflow-x: auto;
     justify-content: flex-start;
-    gap: 1.8rem;
-    padding: 1rem 0.5rem;
+    gap: 1.2rem;
+    padding: 0.8rem 0.4rem;
+    -webkit-overflow-scrolling: touch;
   }
+
   .mandala-timeline-track {
     display: none;
   }
+
+  .mandala-node-ring {
+    width: 48px;
+    height: 48px;
+  }
+
+  .mandala-icon-core {
+    font-size: 1rem;
+  }
+
+  .mandala-year-label {
+    font-size: 0.95rem;
+  }
+
+  .mandala-year-showcase-box {
+    padding: 1.2rem;
+  }
+
   .showcase-inner-grid {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
+
   .showcase-media-side {
-    height: 280px;
+    height: 220px;
   }
-  .flip-clock-unit {
-    height: 60px;
+
+  .showcase-info-side h3 {
+    font-size: 1.4rem !important;
   }
-  .flip-card-top, .flip-card-bottom, .flip-card-back {
-    font-size: 1.6rem;
+
+  /* Footer Layout */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Modals */
+  .chintamani-modal-content {
+    max-width: 96%;
+    padding: 0;
+  }
+
+  .scroll-info-popup {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
   }
 }
+
+@media (max-width: 480px) {
+  .mandal-banner-3d-text {
+    font-size: 1.15rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .flip-clock-unit {
+    height: 48px;
+  }
+
+  .flip-val {
+    font-size: 1.35rem;
+  }
+
+  .stat-num-value {
+    font-size: 2rem;
+  }
+}
+
 
 
 
